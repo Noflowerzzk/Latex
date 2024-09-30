@@ -1,0 +1,199 @@
+\documentclass{article}
+\usepackage{amsmath}  % 数学符号包
+\usepackage{amssymb}  % 更多数学符号
+\usepackage{enumitem} % 列表样式
+\usepackage{fancyhdr} % 页眉设置
+\usepackage{geometry} % 页面设置
+% \usepackage[UTF8]{ctex}
+\usepackage{bm}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{booktabs}
+
+\geometry{a4paper, margin=1in}
+
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[C]{Discrete Math Homework 2}
+\fancyhead[R]{2024.9.28}
+
+
+\title{Discrete Math Homework 2}
+\author{Noflowerzzk}
+\date{2024.9.28}
+
+
+\begin{document}
+
+\maketitle
+
+\section{Answer\_1}
+
+\renewcommand{\arraystretch}{1} % 行高设为1以消除空白
+
+\begin{itemize}
+    \item[a)] 
+        \[
+            \begin{array}{c|c|c|c|c|c|c}
+                \toprule
+                p & q & \neg p & \neg q & \neg p \lor q & \neg q \lor p & (\neg p \lor q) \land (\neg q \lor p) \\
+                \hline
+                T & T & F & F & T & T & T \\
+                T & F & F & T & F & T & F \\
+                F & T & T & F & T & F & F \\
+                F & F & T & T & T & T & T \\
+                \bottomrule
+            \end{array}
+        \]
+    \item[b)]
+        \[
+            \begin{array}{c|c|c|c|c|c|c}
+                \toprule
+                p & q & \neg p & \neg q & \neg p \lor q & \neg q \lor p & (\neg p \lor q) \lor (\neg q \lor p) \\
+                \hline
+                T & T & F & F & T & T & T \\
+                T & F & F & T & F & T & T \\
+                F & T & T & F & T & F & T \\
+                F & F & T & T & T & T & T \\
+                \bottomrule
+            \end{array}
+        \]
+    \item[c)]
+        \[
+            \begin{array}{c|c|c|c|c}
+                \toprule
+                p & q & r & q \lor r & p \land (q \lor r) \\
+                \hline
+                T & T & T & T & T \\
+                T & T & F & T & T \\
+                T & F & T & T & T \\
+                T & F & F & F & F \\
+                F & T & T & T & F \\
+                F & T & F & T & F \\
+                F & F & T & T & F \\
+                F & F & F & F & F \\
+                \bottomrule
+            \end{array}
+        \]
+    \item[d)]
+        \[
+            \begin{array}{c|c|c|c|c|c}
+                \toprule
+                p & q & r & p \land q & p \land r & (p \land q) \lor (p \land r) \\
+                \hline
+                T & T & T & T & T & T \\
+                T & T & F & T & F & T \\
+                T & F & T & F & T & T \\
+                T & F & F & F & F & F \\
+                F & T & T & F & F & F \\
+                F & T & F & F & F & F \\
+                F & F & T & F & F & F \\
+                F & F & F & F & F & F \\
+                \bottomrule
+            \end{array}
+        \]
+    \item[e)]
+        \[
+            \begin{array}{c|c|c|c}
+                \toprule
+                p & q & p \land q & \neg(p \land q) \\
+                \hline
+                T & T & T & F \\
+                T & F & F & T \\
+                F & T & F & T \\
+                F & F & F & T \\
+                \bottomrule
+            \end{array}
+        \]
+    \item[f)]
+        \[
+            \begin{array}{c|c|c|c|c}
+                \toprule
+                p & q & \neg p & \neg q & \neg p \lor \neg q \\
+                \hline
+                T & T & F & F & F \\
+                T & F & F & T & T \\
+                F & T & T & F & T \\
+                F & F & T & T & T \\
+                \bottomrule
+            \end{array}
+        \]
+    \item[g)]
+        \[
+            \begin{array}{c|c|c|c|c|c|c}
+                \toprule
+                p & q & p \land q & \neg p & \neg q & \neg p \land \neg q & (p \land q) \lor (\neg p \land \neg q) \\
+                \hline
+                T & T & T & F & F & F & T \\
+                T & F & F & F & T & F & F \\
+                F & T & F & T & F & F & F \\
+                F & F & F & T & T & T & T \\
+                \bottomrule
+            \end{array}
+        \]
+    Obviously, $p \land (q \lor r) \equiv (p \land q) \lor (p \land r)$, $\lnot(p \land q) \equiv \lnot p \lor \lnot q$
+\end{itemize}
+
+\section{Answer\_2}
+
+\begin{proof}
+    Writing the truth table:
+    \[
+        \begin{array}{c|c|c|c|c|c|c|c}
+            \toprule
+            p & q & r & \lnot p & \lnot q & p \lor q & \lnot p \lor r & \lnot q \lor r \\
+            \hline
+            T & T & T & F & F & T & T & T \\
+            T & T & F & F & F & T & F & F \\
+            T & F & T & F & T & T & T & T \\
+            T & F & F & F & T & T & F & T \\
+            F & T & T & T & F & T & T & T \\
+            F & T & F & T & F & T & T & F \\
+            F & F & T & T & T & F & T & T \\
+            F & F & F & T & T & F & T & T \\
+            \bottomrule
+        \end{array}    
+    \]
+
+    Noting that with under truth assignment $\mathcal{J}$ in line 1 and line 5, for any $\phi \in \Phi $, $[\![\phi]\!]_\mathcal{J} = \text{T}$.
+    and $\mathcal{J}(r) = \text{T}$. That means $\Phi \models r$.
+    \qedhere
+\end{proof}
+
+\section{Answer\_3}
+
+\begin{itemize}
+    \item[a)]
+        \begin{proof}
+            $\phi \models \psi$ means that under any trhth assignmeny $\mathcal{J}$, where $[\![\phi]\!]_\mathcal{J} = \text{T}$, \\
+            we have $[\![\psi]\!]_\mathcal{J} = \text{T}$. \\
+            Assuming a truth $\mathcal{J}$ s.t. $[\![\phi]\!]_\mathcal{J} = \text{T}$, then $[\![\psi]\!]_\mathcal{J} = \text{T}$, so 
+            $$ [\![\phi \land \psi]\!]_\mathcal{J} = [\![\land]\!]_\mathcal{J}([\![\phi]\!]_\mathcal{J}, [\![\psi]\!]_\mathcal{J}) = \text{T} = [\![\phi]\!]_\mathcal{J}$$
+            Assuming $[\![\phi]\!]_\mathcal{J} = \text{F}$, then
+            $$ [\![\phi \land \psi]\!]_\mathcal{J} = [\![\land]\!]_\mathcal{J}([\![\phi]\!]_\mathcal{J}, [\![\psi]\!]_\mathcal{J}) = \text{F} = [\![\phi]\!]_\mathcal{J}$$
+            That means $\phi \land \psi \equiv \phi$.
+            \\
+            Similarly,
+            Assuming $[\![\phi]\!]_\mathcal{J} = \text{T}$, then $[\![\psi]\!]_\mathcal{J} = \text{T}$
+            $$ [\![\phi \lor \psi]\!]_\mathcal{J} = [\![\lor]\!]_\mathcal{J}([\![\phi]\!]_\mathcal{J}, [\![\psi]\!]_\mathcal{J}) = \text{T} = [\![\psi]\!]_\mathcal{J}$$
+            Assuming $[\![\phi]\!]_\mathcal{J} = \text{F}$, then
+            $$ [\![\phi \lor \psi]\!]_\mathcal{J} = [\![\lor]\!]_\mathcal{J}([\![\phi]\!]_\mathcal{J}, [\![\psi]\!]_\mathcal{J})  = [\![\psi]\!]_\mathcal{J}$$
+            That means $\phi \lor \psi = \psi$.
+            \qedhere
+        \end{proof}
+    \item[b)]
+        We will now prove the absorption rule.
+        \begin{proof}
+            For all $\mathcal{J}$ s.t. $[\![\phi \land \psi]\!]_\mathcal{J} = \text{T}$, we know that $[\![\phi]\!]_\mathcal{J} = \text{T}$, which means that $\phi \land \psi \models \phi$. \\
+            So $$ \phi \lor (\phi \land \psi) \equiv (\phi \land \psi) \lor \phi \equiv \phi $$
+            \qedhere
+        \end{proof}
+        \begin{proof}
+            For all $\mathcal{J}$ s.t. $[\![\phi]\!]_\mathcal{J} = \text{T}$, we know that $[\![\phi \lor \psi]\!]_\mathcal{J} = \text{T}$, which means that $\phi \models \phi \lor \psi$. \\
+            So $$ \phi \land (\phi \lor \psi) \equiv \phi $$
+            \qedhere
+        \end{proof}
+\end{itemize}
+
+\end{document}

@@ -1,0 +1,83 @@
+\documentclass{article}
+\usepackage{amsmath}  % 数学符号包
+\usepackage{amssymb}  % 更多数学符号
+\usepackage{amsthm}   % 证明等环境
+\usepackage{enumitem} % 列表样式
+\usepackage{fancyhdr} % 页眉设置
+\usepackage{geometry} % 页面设置
+
+
+\geometry{a4paper, margin=1in}
+
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[C]{Exercise 01}
+\fancyhead[R]{2024.9.26}
+
+
+\title{Exercise 01}
+\author{Noflowerzzk}
+\date{2024.9.26}
+
+
+\begin{document}
+
+\maketitle
+
+\section{Answer\_1}
+\begin{itemize}
+    \item It is below freezing and snowing: $p\land q$
+    \item It is below freezing but not snowing: $p \land \lnot q$
+    \item It is not below freezing and it is not snowing: $\lnot p \land \lnot q$
+    \item It is either snowing or below freezing (or both): $p \lor q$
+\end{itemize}
+
+
+
+\section{Answer\_2}
+\subsection{a)}
+\begin{proof}
+    Let a truth assignment $\mathcal{J} $ s.t. 
+    \[
+        \mathcal{J}(p)=\text{T}, \mathcal{J}(q)=\text{T}, \mathcal{J}(r)=\text{T}
+    \]
+    Then
+    \[
+        [\![(p \lor\lnot q)]\!]_\mathcal{J}=\text{T}, 
+        [\![(q \lor\lnot r)]\!]_\mathcal{J}=\text{T},
+        [\![(r \lor\lnot p)]\!]_\mathcal{J}=\text{T},
+    \]
+    So
+    \[
+        [\![(p \lor \neg q) \land (q \lor \neg r) \land (r \lor \neg p)]\!]_\mathcal{J}=\text{T}
+     \]
+    That means the proposition is satisfiable.
+    \qedhere
+\end{proof}
+
+\subsection{b)}
+\begin{proof}
+    Let a truth assignment $\mathcal{J} $ s.t. 
+    \[
+        \mathcal{J}(p)=\text{T}, \mathcal{J}(q)=\text{T}, \mathcal{J}(r)=\text{F}
+    \]
+    Then
+    \[
+        [\![(p \lor\lnot q)]\!]_\mathcal{J}=\text{T}, 
+        [\![(q \lor\lnot r)]\!]_\mathcal{J}=\text{T},
+        [\![(r \lor\lnot p)]\!]_\mathcal{J}=\text{F},
+    \]
+    So
+    \[
+        [\![(p \lor \neg q) \land (q \lor \neg r) \land (r \lor \neg p)]\!]_\mathcal{J}=\text{F}
+    \]
+    And
+    \[
+        [\![\lnot(p \lor \neg q) \land (q \lor \neg r) \land (r \lor \neg p)]\!]_\mathcal{J}=\text{T}
+    \]
+    That means the proposition is satisfiable.
+    \qedhere
+\end{proof}
+
+\end{document}

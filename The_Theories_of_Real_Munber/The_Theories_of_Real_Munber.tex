@@ -1,0 +1,117 @@
+\documentclass{article}
+\usepackage{amsmath}  % 数学符号包
+\usepackage{amssymb}  % 更多数学符号
+\usepackage{enumitem} % 列表样式
+\usepackage{fancyhdr} % 页眉设置
+\usepackage{geometry} % 页面设置
+% \usepackage[UTF8]{ctex}
+\usepackage{bm}
+\usepackage{amsthm}
+
+
+\geometry{a4paper, margin=1in}
+
+% 定义定理环境
+\newtheorem{theorem}{Theorem}   % 定义“定理”环境
+\newtheorem{proposition}{Proposition} % 定义“命题”环境
+
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[C]{Mutual Implication of Theorems in the Real Number System}
+\fancyhead[R]{}
+
+
+\title{Mutual Implication of Theorems in the Real Number System}
+\author{Noflowerzzk}
+\date{}
+
+
+\begin{document}
+
+\maketitle
+
+\section{Supremum Axiom \& Monotone Convergence Theorem}
+\subsection{Supremum Axiom$\Rightarrow$Monotone Convergence Theorem}
+
+\begin{proof}
+    Take an in increasing sequence $\{ x_n \} $ s.t. $\forall n\in \mathbb{N}\*, x_n < M$ \\
+    By Supremum Axiom, we know that $\{ x_n \}$ has a supremum $L = \sup {\{x_n\}}$ \\
+    For $\forall \varepsilon > 0, \exists n_0 $ s.t.
+    $$ x_{n_0} + \varepsilon > L $$ 
+    Because $\{x_n\}$ is monotonically increasing, for all $n > n_0$, we have
+    $$ L - x_n < \varepsilon $$
+    i.e.
+    $$ \left\lvert L - x_n\right\rvert < \varepsilon $$
+    That means
+    $$ \lim_{n \to \infty} x_n = L = \sup{\{x_n\}} $$
+    \qedhere
+\end{proof}
+
+\subsection{Monotone Convergence Theorem$\Rightarrow$Supremum Axiom}
+
+\begin{proof}
+    \textit{Referring to} 
+    \textbf{The Nested Closed Interval Theorem}
+\end{proof}
+
+\section{Monotone Convergence Theorem \& The Nested Closed Interval Theorem}
+
+\subsection{Monotone Convergence Theorem $\Rightarrow$ The Nested Closed Interval Theorem}
+
+\begin{theorem}
+    For a sequence of losed intervals $[a_n, b_n]$ with the following properties:
+    \begin{itemize}
+        \item[(1)] $\displaystyle{ [a_{n + 1}, b_{n + 1}] \subset [a_n, b_n] }$
+        \item[(2)] $\displaystyle{ \lim_{n \to \infty} a_n -b_n = 0 }$ 
+    \end{itemize}
+    Then there exist a unique $\xi$
+    $$\bigcap_{i = 1}^{\infty}[a_n, b_n] = \{\xi\}$$
+\end{theorem}
+
+\begin{proof}
+    For nested closed intervals $\{[a_n, b_n ] \}$, obviously 
+    $$\bigcap_{i = 1}^{\infty}[a_n, b_n] $$ is not empty.
+    Noting that
+    $$ a_1 \leqslant  a_2 \leqslant \cdots \leqslant a_n \leqslant \cdots \leqslant b_n \leqslant \cdots \leqslant b_2 \leqslant b_1 $$
+    So we have 
+    $$ \lim_{n \to \infty}a_n = A, \lim_{n \to \infty}b_n = B $$
+    If there exist $$ \xi , \xi^{\prime}\in \bigcap_{i = 1}^{\infty}[a_n, b_n]$$
+    Because $\lim_{n \to \infty}(a_n - b_n) = 0$, we have $A = B$. 
+    And $A \leqslant \xi, \xi^{\prime} \leqslant B$, 
+    So $\xi = \xi^{\prime}$. 
+    \qedhere
+\end{proof}
+
+\subsection{The Nested Closed Interval Theorem$\Rightarrow$Monotone Convergence Theorem}
+
+
+
+\section{Supremum Axiom $\&$  The Nested Closed Interval Theorem}
+
+\subsection{The Nested Closed Interval Theorem $\Rightarrow$ Supremum Axiom}
+
+\begin{proof}
+    Assume a number set $A$. When $A$ is finit, obviously its supremum is $\max A$. \\
+    If $A$ is infinit, without loss of generality, let $A$ has upper bounds. Let $B$ be the set of upper bounds of $A$. \\
+    We choose $a_1 \in A$, and let $C = \{x| x > a_1, x\notin B\}$. \\
+    Then choose $c_1 \in C, b_1 \in B$, we have $c_1 < b_1$. \\
+    If $\displaystyle{\frac{c_1 + b_ 1}{2} \in C}$, let $c_2 = \displaystyle{\frac{c_1 + b_ 1}{2}}, b_2 = b_1$.
+    Otherwise let $c_2 = c_1, b_2 = \displaystyle{\frac{c_1 + b_1}{2}}$.
+    By analogy, we have construct a sequence of closed intervals $$\{[c_n, b_n]\}$$ which satisfies all the condition of The Nested Closed Interval Theorem. \\
+    So we have $$ \bigcap_{i = 1}^{\infty}[c_n, b_n] = \{\xi\}, \lim_{n \to \infty} c_n =\lim_{n \to \infty} b_n = \xi $$
+    We will now prove that $\xi = \sup A$. \\
+    According to the definition of limit, $\forall \varepsilon > 0, \exists N, \forall n > N, \xi - c_n < \varepsilon $. \\
+    Noting that $c_n$ is not the upper bound of $A$, \\
+    so $\exists \varphi \in A, \varphi > \xi - \varepsilon$.
+    That means $\xi$ is the supremum of $A$.
+\end{proof}
+
+\subsection{Supremum Axiom $\Rightarrow$ The Nested Closed Interval Theorem}
+
+\begin{proof}
+    \textit{Referring to} 
+    \textbf{Monotone Convergence Theorem}
+\end{proof}
+
+\end{document}

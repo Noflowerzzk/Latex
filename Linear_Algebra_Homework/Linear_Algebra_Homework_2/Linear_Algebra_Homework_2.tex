@@ -1,0 +1,517 @@
+\documentclass{article}
+\usepackage{amsmath}  % 数学符号包
+\usepackage{amssymb}  % 更多数学符号
+\usepackage{enumitem} % 列表样式
+\usepackage{fancyhdr} % 页眉设置
+\usepackage{geometry} % 页面设置
+\usepackage{bm}
+\usepackage[UTF8]{ctex}
+\usepackage{cases}
+
+
+\geometry{a4paper, margin=1in}
+
+% \makeatletter
+% \newcommand\xleftrightarrow[2][]{%
+%   \ext@arrow 9999{\longleftrightarrowfill@}{#1}{#2}}
+% \newcommand\longleftrightarrowfill@{%
+%   \arrowfill@\leftarrow\relbar\rightarrow}
+% \makeatother
+
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[C]{Exercise 02}
+\fancyhead[R]{2024.9.26}
+
+
+\title{Exercise 02}
+\author{Noflowerzzk}
+\date{2024.9.26}
+
+
+\begin{document}
+
+\maketitle
+
+\section{Answer\_2}
+
+
+\begin{itemize}
+    \item [(1)] \[
+        \boldsymbol{A} = 
+        \begin{pmatrix}
+            a_{11} & a_{11} & \cdots & a_{11} \\
+            a_{21} & a_{21} & \cdots & a_{21} \\
+            \vdots & \vdots &        & \vdots \\
+            a_{n1} & a_{n1} & \cdots & a_{n1}
+        \end{pmatrix}
+    \]
+
+    \item [(2)] \[
+        \boldsymbol{A} = 
+        \begin{pmatrix}
+            0 & 0 \\
+            0 & 0 \\
+            0 & 2
+        \end{pmatrix}
+    \]
+    \item[(3)] \[
+        \boldsymbol{A}=
+        \begin{pmatrix}
+            2 & -1 & 0 & 0 \\
+            -1 & 2 & -1 & 0 \\
+            0 & -1 & 2 & -1 \\
+            0 & 0 & -1 & 2
+        \end{pmatrix}
+    \]
+    \item[(4)] \[
+        \boldsymbol{A}=
+        \begin{pmatrix}
+            1 & 0 & 0 & 0 \\            
+            1 & 1 & 0 & 0 \\
+            1 & 1 & 1 & 0 \\
+            1 & 1 & 1 & 1 \\
+        \end{pmatrix}
+    \]
+\end{itemize}
+
+\section{Answer\_3}
+
+\text{
+    由矩阵相等的定义, 有
+}
+
+
+\begin{numcases}{}
+    a + 2b = 4 \\
+    2a - b = -2 \\
+    2c + d = 4 \\
+    c - 2d = -3
+\end{numcases}
+
+\text{
+    由$(1)(2)$解得
+    $
+        \begin{cases}
+            a = 0 \\
+            b = 2
+        \end{cases}
+    $
+    ,
+    由$(3)(4)$解得
+    $
+        \begin{cases}
+            c = 1 \\
+            d = 2
+        \end{cases}
+    $
+}
+
+\section{Answer\_4}
+
+
+\begin{itemize}
+    \item[(1)] 
+        $
+        \begin{pmatrix}
+            1 & 2 & 2 & -1 \\
+            2 & 3 & 3 & 1 \\
+            3 & 4 & 4 & 3
+        \end{pmatrix}
+        \xrightarrow[r_3 - 2r_1]{r_2 - 2r_1}
+        \begin{pmatrix}
+            1 & 2 & 2 & -1 \\
+            0 & -1 & -1 & 3 \\
+            0 & -2 & -2 & 6
+        \end{pmatrix}
+        \xrightarrow{r_3 - 2r_2}
+        \begin{pmatrix}     
+            1 & 2 & 2 & -1 \\
+            0 & -1 & -1 & 3 \\
+            0 & 0 & 0 & 0
+        \end{pmatrix}
+        \xrightarrow{-r_2}   
+        \begin{pmatrix}     
+            1 & 2 & 2 & -1 \\
+            0 & 1 & 1 & -3 \\
+            0 & 0 & 0 & 0
+        \end{pmatrix}
+        \xrightarrow{r_1 - 2r_2}
+        \begin{pmatrix}     
+            1 & 0 & 0 & 5 \\
+            0 & 1 & 1 & -3 \\
+            0 & 0 & 0 & 0
+        \end{pmatrix}
+        $
+
+    \item[(2)]
+        $
+        \begin{pmatrix}
+            0 & 2 & -3 & 1 \\
+            0 & 3 & -4 & 3 \\
+            0 & 4 & -7 & -1
+        \end{pmatrix}
+        \xrightarrow[r_4 - 2r_1]{r_2 - 1.5r_1}
+        \begin{pmatrix}
+            0 & 2 & -3 & 1 \\
+            0 & 0& \frac{1}{2} & \frac{3}{2} \\
+            0 & 0 & -1 & -3
+        \end{pmatrix}
+        \xrightarrow{r_3 + 2r_2}
+        \begin{pmatrix}
+            0 & 2 & -3 & 1 \\
+            0 & 0& \frac{1}{2} & \frac{3}{2} \\
+            0 & 0 & 0 & 0
+        \end{pmatrix}
+        \xrightarrow[\frac{1}{2}r_1]{2r_2}        
+        \begin{pmatrix}
+            0 & 1 & -\frac{3}{2} & \frac{1}{2} \\
+            0 & 0 & 1 & 3 \\
+            0 & 0 & 0 & 0
+        \end{pmatrix}
+        \xrightarrow{r_1 + \frac{3}{2}r_2}
+        \begin{pmatrix}
+            0 & 1 & 0 & 5 \\
+            0 & 0 & 1 & 3 \\
+            0 & 0 & 0 & 0
+        \end{pmatrix}
+        $
+
+    \item[(3)]
+        $
+        \begin{pmatrix}
+            1 & -1 & 3 & -4 & 3 \\
+            3 & -3 & 5 & -4 & 1 \\
+            2 & -2 & 3 & -2 & 6 \\
+            3 & -3 & 4 & -2 & -1
+        \end{pmatrix}
+        \xrightarrow[r_2 - 3r_1]{r_3 - 2r_1, r_4 - 3r_1}
+        \begin{pmatrix}
+            1 & -1 & 3 & -4 & 3 \\
+            0 & 0 & -4 & 8 & -8 \\
+            0 & 0 & -3 & 6 & 0 \\
+            0 & 0 & -5 & 10 & -10
+        \end{pmatrix}
+        \xrightarrow{\frac{1}{-4}r_2}
+        \begin{pmatrix}
+            1 & -1 & 3 & -4 & 3 \\
+            0 & 0 & 1 & -2 & 2 \\
+            0 & 0 & -3 & 6 & 0 \\
+            0 & 0 & -5 & 10 & -10
+        \end{pmatrix}
+        \xrightarrow[r_3 + 3r_2]{r_4 + 5r_2}
+        \begin{pmatrix}
+            1 & -1 & 3 & -4 & 3 \\
+            0 & 0 & 1 & -2 & 2 \\
+            0 & 0 & 0 & 0 & 6 \\
+            0 & 0 & 0 & 0 & 0
+        \end{pmatrix}
+        \xrightarrow{\frac{1}{6}r_3}
+        \begin{pmatrix}
+            1 & -1 & 3 & -4 & 3 \\
+            0 & 0 & 1 & -2 & 2 \\
+            0 & 0 & 0 & 0 & 1 \\
+            0 & 0 & 0 & 0 & 0
+        \end{pmatrix}
+        \xrightarrow{r_1 - 3r_3}
+        \begin{pmatrix}
+            1 & -1 & 0 & 2 & -3 \\
+            0 & 0 & 1 & -2 & 2 \\
+            0 & 0 & 0 & 0 & 1 \\
+            0 & 0 & 0 & 0 & 0
+        \end{pmatrix}
+        \xrightarrow[r_1 + 3 r_3]{r_2 - 2r_3}
+        \begin{pmatrix}
+            1 & -1 & 0 & 2 & 0 \\
+            0 & 0 & 1 & -2 & 0 \\
+            0 & 0 & 0 & 0 & 1 \\
+            0 & 0 & 0 & 0 & 0
+        \end{pmatrix}
+        $
+        \item[(5)]
+        $
+        \begin{pmatrix}
+            1 & 2 & 3 & 4 \\
+            2 & 3 & 4 & 5 \\
+            5 & 4 & 5 & 2
+        \end{pmatrix}
+        \xrightarrow{r_2 - 2r_1, r_3 - 5r_1}
+        \begin{pmatrix}
+            1 & 2 & 3 & 4 \\
+            0 & -1 & -2 & -3 \\
+            0 & -6 & -10 & -18
+        \end{pmatrix}
+        \xrightarrow{r_2 \times (-1)}
+        \begin{pmatrix}
+            1 & 2 & 3 & 4 \\
+            0 & 1 & 2 & 3 \\
+            0 & -6 & -10 & -18
+        \end{pmatrix}
+        \xrightarrow{r_3 + 6r_2}
+        \begin{pmatrix}
+            1 & 2 & 3 & 4 \\
+            0 & 1 & 2 & 3 \\
+            0 & 0 & 2 & 0
+        \end{pmatrix}
+        \xrightarrow{\frac{1}{2}r_3}
+        \begin{pmatrix}
+            1 & 2 & 3 & 4 \\
+            0 & 1 & 2 & 3 \\
+            0 & 0 & 1 & 0
+        \end{pmatrix}
+        \xrightarrow{r_2 - 2r_3}
+        \begin{pmatrix}
+            1 & 2 & 3 & 4 \\
+            0 & 1 & 0 & 3 \\
+            0 & 0 & 1 & 0
+        \end{pmatrix}
+        \xrightarrow{r_1 - 3r_3, r_1 - 2r_2}
+        \begin{pmatrix}
+            1 & 0 & 0 & -2 \\
+            0 & 1 & 0 & 3 \\
+            0 & 0 & 1 & 0
+        \end{pmatrix}
+        $
+        \item[(6)]
+        $
+        \begin{pmatrix}
+            1 & 1 & 3 & 3 \\
+            0 & 2 & -1 & 2 \\
+            1 & -2 & 2 & 3 \\
+            0 & 1 & 1 & 4
+        \end{pmatrix}
+        \xrightarrow{r_3 - r_1}
+        \begin{pmatrix}
+            1 & 1 & 3 & 3 \\
+            0 & 2 & -1 & 2 \\
+            0 & -3 & -1 & 0 \\
+            0 & 1 & 1 & 4
+        \end{pmatrix}
+        \xrightarrow{r_4 - \frac{1}{2}r_2, r_3 + \frac{3}{2}r_2}
+        \begin{pmatrix}
+            1 & 1 & 3 & 3 \\
+            0 & 2 & -1 & 2 \\
+            0 & 0 & -\frac{5}{2} & -3 \\
+            0 & 0 & \frac{3}{2} & 3
+        \end{pmatrix}
+        \xrightarrow[\frac{2}{3}r_4]{-2r_3}
+        \begin{pmatrix}
+            1 & 1 & 3 & 3 \\
+            0 & 2 & -1 & 2 \\
+            0 & 0 & 5 & 6 \\
+            0 & 0 & 1 & 2
+        \end{pmatrix}
+        \xrightarrow{r_3 \leftrightarrow r_4}
+        \begin{pmatrix}
+            1 & 1 & 3 & 3 \\
+            0 & 2 & -1 & 2 \\
+            0 & 0 & 1 & 2 \\
+            0 & 0 & 5 & 6 
+        \end{pmatrix}
+        \xrightarrow[subscript]{r_4 + 5r_3}
+        \begin{pmatrix}
+            1 & 1 & 3 & 3 \\
+            0 & 2 & -1 & 2 \\
+            0 & 0 & 1 & 2 \\
+            0 & 0 & 0 & -4 
+        \end{pmatrix}
+        \xrightarrow[r_1 - 3 r_3]{r_2 + r_3, -\frac{1}{4}r_4}
+        \begin{pmatrix}
+            1 & 1 & 0 & -3 \\
+            0 & 2 & 0 & 4 \\
+            0 & 0 & 1 & 2 \\
+            0 & 0 & 0 & 1 
+        \end{pmatrix}
+        \xrightarrow{\frac{1}{2}r_2}
+        \begin{pmatrix}
+            1 & 1 & 0 & -3 \\
+            0 & 1 & 0 & 2 \\
+            0 & 0 & 1 & 2 \\
+            0 & 0 & 0 & 1 
+        \end{pmatrix}
+        \xrightarrow{r_1 - r_2}
+        \begin{pmatrix}
+            1 & 0 & 0 & -5 \\
+            0 & 1 & 0 & 2 \\
+            0 & 0 & 1 & 2 \\
+            0 & 0 & 0 & 1 
+        \end{pmatrix}
+        \xrightarrow[r_3 - 2r_4]{R_1 + 5r_4, r_2 - 2r_4}
+        \begin{pmatrix}
+            1 & 0 & 0 & 0 \\
+            0 & 1 & 0 & 0 \\
+            0 & 0 & 1 & 0 \\
+            0 & 0 & 0 & 1 
+        \end{pmatrix}
+        % \overset{\text{上方文字}}{\underset{\text{下方文字}}{\xleftrightarrow{\hspace{2cm}}}}
+        $
+        \item[(7)]
+        $
+        \begin{pmatrix}
+            1 & 2 & 0 & 3 \\
+            4 & 7 & 1 & 10 \\
+            0 & 1 & -1 & 2 \\
+            2 & 3 & 1 & 4
+        \end{pmatrix}
+        \xrightarrow[r_4 - 2r_1]{r_2 - 4r_1}
+        \begin{pmatrix}
+            1 & 2 & 0 & 3 \\
+            0 & -1 & 1 & -2 \\
+            0 & 1 & -1 & 2 \\
+            0 & -1 & 1 & -2
+        \end{pmatrix}
+        \xrightarrow{r_2 \leftrightarrow r_3}
+        \begin{pmatrix}
+            1 & 2 & 0 & 3 \\
+            0 & 1 & -1 & 2 \\
+            0 & -1 & 1 & -2 \\
+            0 & -1 & 1 & -2
+        \end{pmatrix}
+        \xrightarrow[r_4 + r_2]{r_3 + r_2}
+        \begin{pmatrix}
+            1 & 2 & 0 & 3 \\
+            0 & 1 & -1 & 2 \\
+            0 & 0 & 0 & 0 \\
+            0 & 0 & 0 & 0
+        \end{pmatrix}
+        \xrightarrow{r_1 - 2r_2}
+        \begin{pmatrix}
+            1 & 0 & 2 & -1 \\
+            0 & 1 & -1 & 2 \\
+            0 & 0 & 0 & 0 \\
+            0 & 0 & 0 & 0
+        \end{pmatrix}        
+        $
+        \item[(8)]
+        $
+        \begin{pmatrix}
+            1 & 1 & 3 \\
+            -1 & 2 & 3 \\
+            1 & 3 & 7
+        \end{pmatrix}
+        \xrightarrow{r_2 + r_1, \ r_3 - r_1}
+        \begin{pmatrix}
+            1 & 1 & 3 \\
+            0 & 3 & 6 \\
+            0 & 2 & 4
+        \end{pmatrix}
+        \xrightarrow{\frac{1}{3}r_2}
+        \begin{pmatrix}
+            1 & 1 & 3 \\
+            0 & 1 & 2 \\
+            0 & 2 & 4
+        \end{pmatrix}
+        \xrightarrow{r_3 - 2r_2, \ r_1 - r_2}
+        \begin{pmatrix}
+            1 & 0 & 1 \\
+            0 & 1 & 2 \\
+            0 & 0 & 0
+        \end{pmatrix}           
+        $
+\end{itemize}
+
+\section{Answer\_5}
+
+\begin{itemize}
+    \item[(1)]
+    该方程组的增广矩阵是
+    $$\tilde{A} = \begin{pmatrix}
+        2 & 4 & -1 & 6 \\
+        1 & -2 & 1 & 4 \\
+        3 & 6 & 2 & -1
+        \end{pmatrix}$$
+    化简为行阶梯形矩阵为
+    $$\begin{pmatrix}
+        1 & 2 & -\frac{1}{2} & 3 \\
+        0 & 1 & -\frac{3}{8} & -\frac{1}{4} \\
+        0 & 0 & \frac{7}{2} & -10
+        \end{pmatrix}$$
+    所以$r = s = n$, 方程组有唯一解.
+    \item[(2)]
+    该方程组的增广矩阵是
+    $$\tilde{A} = \begin{pmatrix}
+        2 & 4 & -1 & 6 \\
+        1 & 2 & 1 & 4 \\
+        3 & 6 & 2 & -1
+        \end{pmatrix}$$
+    化简为行阶梯形矩阵为
+    $$\begin{pmatrix}
+        1 & 2 & -\frac{1}{2} & 3 \\
+        0 & 0 & 3 & 2 \\
+        0 & 0 & 0 & 1
+        \end{pmatrix}
+        $$
+    所以$r > s$, 方程组无解.
+    \item[(3)]
+    该方程组的增广矩阵是
+    $$\tilde{A} = \begin{pmatrix}
+        2 & 4 & -1 & 6 \\
+        1 & 2 & 1 & 3 \\
+        3 & 6 & 2 & 9
+        \end{pmatrix}
+        $$
+    化简为行阶梯形矩阵为
+    $$\begin{pmatrix}
+        1 & 2 & -\frac{1}{2} & 3 \\
+        0 & 0 & 1 & 0 \\
+        0 & 0 & 0 & 0
+        \end{pmatrix}
+        $$
+    所以$r = s < n$, 方程组有无数解.
+    \item[(4)]
+    该方程组的增广矩阵是
+    $$\tilde{A} = \begin{pmatrix}
+        3 & -2 & 1 & -2 \\
+        6 & -4 & 2 & -5 \\
+        -9 & 6 & -3 & 6
+        \end{pmatrix}        
+        $$
+    化简为行阶梯形矩阵为
+    $$\begin{pmatrix}
+        1 & -\frac{2}{3} & \frac{1}{3} & -\frac{2}{3} \\
+        0 & 0 & 0 & 1 \\
+        0 & 0 & 0 & 0
+        \end{pmatrix}        
+        $$
+    所以$r > s$, 方程组无解.
+    \item[(5)]
+    该方程组的增广矩阵是
+    $$\tilde{A} = \begin{pmatrix}
+        2 & 4 & a \\
+        3 & 6 & 5
+        \end{pmatrix}        
+    $$
+    化简为行阶梯形矩阵为
+    $$
+    \begin{pmatrix}
+        3 & 6 & 5 \\
+        0 & 0 & a - 5
+    \end{pmatrix}
+    $$
+    方程组无解$\Leftrightarrow  r > s \Leftrightarrow  a - 5 \neq 0 \Leftrightarrow a \neq 5$.
+    \item[(6)]
+    该方程组的增广矩阵是
+    $$\tilde{A} = \begin{pmatrix}
+        3 & a & 3 \\
+        a & 3 & 5
+        \end{pmatrix}        
+    $$
+    化简为行阶梯形矩阵为
+    $$
+    \begin{pmatrix}
+        3 & a & 3 \\
+        0 & 9 - a^2 & 15 - 3a
+    \end{pmatrix}
+    $$
+    方程组无解 $\Leftrightarrow r > s \Leftrightarrow \begin{cases}
+        9 - a^2 = 0 \\
+        15 - 3a \neq 0
+    \end{cases} \Leftrightarrow a = \pm 3$. 
+
+\end{itemize}
+
+
+
+
+\end{document}
