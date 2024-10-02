@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999996 (TeX Live 2024) (preloaded format=xelatex 2024.9.25)  30 SEP 2024 20:10
+This is XeTeX, Version 3.141592653-2.6-0.999996 (TeX Live 2024) (preloaded format=xelatex 2024.9.25)  2 OCT 2024 10:53
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -475,19 +475,19 @@ Overfull \hbox (62.46783pt too wide) in paragraph at lines 350--386
 []$[] [] [] [] [] [] [] []
  []
 
-[3] [4] (./Linear_Algebra_Homework_2.aux)
+[3] [4] [5] [6] [7] [8] [9] (./Linear_Algebra_Homework_2.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2022/07/14>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 8685 strings out of 474773
- 222741 string characters out of 5761289
+ 8693 strings out of 474773
+ 222945 string characters out of 5761289
  1985842 words of memory out of 5000000
- 30716 multiletter control sequences out of 15000+600000
- 572892 words of font info for 108 fonts, out of 8000000 for 9000
+ 30721 multiletter control sequences out of 15000+600000
+ 572916 words of font info for 111 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 93i,12n,97p,378b,366s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 93i,12n,97p,378b,466s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on Linear_Algebra_Homework_2.pdf (4 pages).
+Output written on Linear_Algebra_Homework_2.pdf (9 pages).

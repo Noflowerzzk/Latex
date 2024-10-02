@@ -511,7 +511,342 @@
 
 \end{itemize}
 
+\section{Answer\_6}
 
+\begin{itemize}
+    \item[(1)]
+    该方程组的增广矩阵是
+    $$\tilde{A} = \begin{pmatrix}
+        1 & 1 & 2 & -1 & 0 \\
+        2 & 1 & 1 & -1 & 0 \\
+        2 & 2 & 1 & 2 & 0
+    \end{pmatrix}       
+    $$
+    化简为行阶梯形矩阵为
+    $$
+    \begin{pmatrix}
+        1 & 0 & 0 & -\frac{4}{3} & 0 \\
+        0 & 1 & 0 & 3 & 0 \\
+        0 & 0 & 1 & -\frac{4}{3} & 0
+    \end{pmatrix}
+    $$
+    所以方程组的解为:
+    $$
+    \begin{cases} 
+        x_1 = \frac{4}{3}x_4 \\
+        x_2 = -3x_4 \\
+        x_3 = \frac{4}{3} \\
+        x_4 = x_4
+    \end{cases}
+    $$
+    \item[(4)]
+    该方程组的增广矩阵是
+    $$\tilde{A} = \begin{pmatrix}
+        3 & 4 & -5 & 7 & 0 \\
+        2 & -3 & 3 & -2 & 0 \\
+        4 & 11 & -13 & 16 & 0 \\
+        7 & -2 & 1 & 3 & 0
+    \end{pmatrix}
+    $$
+    进行一定的初等行变换, 并将未知量按次序$x_4, X_3, X_2, X_1$得到:
+    $$
+    \begin{pmatrix}
+        1 & 0 & 0 & 0 & 0 \\
+        0 & 1 & 0 & 17 & 0 \\
+        0 & 0 & 1 & 5 & 0 \\
+        0 & 0 & 0 & 1 & 0
+    \end{pmatrix}
+    $$
+    所以$r = s = n$, 原方程组只有零解, 即
+    $$
+    \begin{cases}
+        x_1 = 0 \\
+        x_2 = 0 \\
+        x_3 = 0 \\
+        x_4 = 0 
+    \end{cases}
+    $$
+\end{itemize}
 
+\section{Answer\_7}
+
+\begin{itemize}
+    \item[(1)]
+    该方程组的增广矩阵是
+    $$\tilde{A} = \begin{pmatrix}
+        1 & 2 & 3 & 1 \\
+        2 & 2 & 5 & 2 \\
+        3 & 5 & 1 & 3
+    \end{pmatrix}
+    $$
+    化简为行阶梯形矩阵为
+    $$
+    \begin{pmatrix}
+        1 & 0 & 0 & 1 \\
+        0 & 1 & 0 & 0 \\
+        0 & 0 & 1 & 0
+    \end{pmatrix}
+    $$
+    所以方程组的解为:
+    $$
+    \begin{cases} 
+        x_1 = 1 \\
+        x_2 = 0 \\
+        x_3 = 0
+    \end{cases}
+    $$
+    \item[(2)]
+    该方程组的增广矩阵是
+    $$\tilde{A} = \begin{pmatrix}
+        1 & -2 & -1 & 2 \\
+        2 & -1 & -3 & 1 \\
+        3 & 2 & -5 & 0
+    \end{pmatrix}
+    $$
+    化简为简化行阶梯形矩阵为
+    $$
+    \begin{pmatrix}
+        1 & 0 & 0 & 5 \\
+        0 & 1 & 0 & 0 \\
+        0 & 0 & 1 & 3
+    \end{pmatrix}
+    $$
+    所以方程组的解为:
+    $$
+    \begin{cases} 
+        x_1 = 5 \\
+        x_2 = 0 \\
+        x_3 = 3
+    \end{cases}
+    $$
+    \item[(3)]
+    该方程组的增广矩阵是
+    $$\tilde{A} = \begin{pmatrix}
+        4 & 2 & -1 & 2 \\
+        3 & -1 & 2 & 10 \\
+        11 & 3 & 0 & 8
+    \end{pmatrix}    
+    $$
+    化简为简化行阶梯形矩阵为
+    $$
+    \begin{pmatrix}
+        1 & 0 & 0.3 & 0 \\
+        0 & 1 & -1.1 & 0 \\
+        0 & 0 & 0 & 1
+    \end{pmatrix}
+    $$
+    由于$r > s$, 方程组无解.
+    \item[(4)]
+    该方程组的增广矩阵是
+    $$\tilde{A} = \begin{pmatrix}
+        2 & 3 & 1 & 4 \\
+        1 & -2 & 4 & -5 \\
+        3 & 8 & -2 & 13 \\
+        4 & -1 & 9 & -6
+    \end{pmatrix}    
+    $$
+    化简为简化行阶梯形矩阵为
+    $$
+    \begin{pmatrix}
+        1 & 0 & 2 & -1 \\
+        0 & 1 & -1 & 2 \\
+        0 & 0 & 0 & 0 \\
+        0 & 0 & 0 & 0
+    \end{pmatrix}
+    $$
+    所以方程组的解为:
+    $$
+    \begin{cases} 
+        x_1 = -1 - 2x_3 \\
+        x_2 = 2 + x_3 \\
+        x_3 = x_3
+    \end{cases}
+    $$
+    \item[(5)]
+    该方程组的增广矩阵是
+    $$\tilde{A} = \begin{pmatrix}
+        2 & 1 & -1 & 1 & 1 \\
+        4 & 2 & -2 & 1 & 2 \\
+        2 & 1 & -1 & -1 & 1
+    \end{pmatrix}    
+    $$
+    化简为简化行阶梯形矩阵为
+    $$
+    \begin{pmatrix}
+        1 & \frac{1}{2} & -\frac{1}{2} & 0 & \frac{1}{2} \\
+        0 & 0 & 0 & 1 & 0 \\
+        0 & 0 & 0 & 0 & 0
+    \end{pmatrix}
+    $$
+    所以方程组的解为:
+    $$
+    \begin{cases} 
+        x_1 = -\frac{1}{2}x_2 + \frac{1}{2}x_3 + \frac{1}{2} \\
+        x_2 = x_2 \\
+        x_3 = x_3
+        x_4 = 0
+    \end{cases}
+    $$
+\end{itemize}
+
+\section{Answer\_8}
+
+\begin{itemize}
+    \item[(1)]
+    该方程组的增广矩阵是
+    $$
+    \begin{pmatrix}
+        -2 & 1 & 1 & -2 \\
+        1 & -2 & 1 & p \\
+        1 & 1 & -2 & p^2
+    \end{pmatrix}
+    $$
+    化简为行阶梯形矩阵为
+    $$
+    \begin{pmatrix}
+        -2 & 1 & 1 & -2 \\
+        0 & 0 & 3 & p + 3 \\
+        0 & 0 & 0 & p^2 + p - 2
+    \end{pmatrix}
+    $$
+    所以,
+    \begin{itemize}
+        \item 方程组无解 $\Leftrightarrow p^2 + p - 2 \neq 0 \Leftrightarrow p \neq -2 \text{且} p \neq 1$
+        \item 由于$ n = r \geqslant s$, 方程组不可能有无穷解.
+        \item 方程组有唯一解$\Leftrightarrow p^2 + p - 2 = 0 \Leftrightarrow p = -2 \text{或} p = 1$
+            \begin{itemize}
+                \item $p = -2$时, 有
+                $$\begin{cases}
+                    x_1 = \frac{7 + 3x_2}{6} \\
+                    x_2 = x_2 \\
+                    x_3 = \frac{1}{3}
+                \end{cases}
+                $$
+                \item $p = 1$时, 有
+                $$
+                \begin{cases}
+                    x_1 = \frac{10 + 3x_2}{6} \\
+                    x_2 = x_2 \\
+                    x_3 = \frac{4}{3}
+                \end{cases}
+                $$
+            \end{itemize}
+    \end{itemize}
+    \item[(2)]
+    该方程组的增广矩阵是
+    $$
+    \tilde{A} = \begin{pmatrix}
+        1 & 2 & 0 & 3 \\
+        4 & 7 & 1 & 10 \\
+        0 & 1 & -1 & q \\
+        1 & 1 & p & p^2
+    \end{pmatrix}
+    $$
+    化简为行阶梯形矩阵为
+    $$
+    \begin{pmatrix}
+        1 & -2 & 0 & 3 \\
+        0 & -1 & 1 & -2 \\
+        0 & 0 & p - 1 & 0 \\
+        0 & 0 & 0 & q - 2
+        \end{pmatrix}
+    $$
+    \begin{itemize}
+        \item 方程组无解 $\Leftrightarrow r > s \Leftrightarrow q \neq 2$
+        \item 方程组有无数解 $\Leftrightarrow r = s < n \Leftrightarrow q = 2 \text{且} p = 1$.
+            此时方程组的解为
+            $$\begin{cases}
+                x_1 = x_3 + 7 \\
+                x_2 = x_3 + 2 \\
+                x_3 = x_3
+            \end{cases}
+            $$
+        \item 方程组有唯一解 $\Leftrightarrow r = s = n \Leftrightarrow q = 2 \text{且} p \neq 1 $.
+            此时方程组的解为
+            $$
+            \begin{cases}
+                x_1 = 7 \\
+                x_2 = 2 \\
+                x_3 = 0
+            \end{cases}
+            $$
+    \end{itemize}
+
+    \item[(3)]
+    该方程组的增广矩阵是
+    $$
+    \tilde{A} = \begin{pmatrix}
+        p & 1 & 1 & 1 \\
+        1 & p & 1 & p \\
+        1 & 1 & p & p^2
+    \end{pmatrix}
+    $$
+    化简为行阶梯形矩阵为
+    $$
+    \begin{pmatrix}
+        (p - 1)(p + 2) & 0 & 0 & -p^2 + 1 \\
+        0 & (p - 1)(p + 2) & 0 & p - 1 \\
+        0 & 0 & (p - 1)(p + 2) & (p + 1)^2(p - 1)
+    \end{pmatrix}
+    $$
+    \begin{itemize}
+        \item 方程组无解 $\Leftrightarrow r > s \Leftrightarrow p = -2$.
+        \item 方程组有无数解 $\Leftrightarrow r = s < n \Leftrightarrow p = 1$.
+            此时方程组的解为
+            $$\begin{cases}
+                x_1 = 1 - x_2 - x_3\\
+                x_2 = x_2 \\
+                x_3 = x_3
+            \end{cases}
+            $$
+        \item 方程组有唯一解 $\Leftrightarrow r = s = n \Leftrightarrow p \neq -2 \text{且} p \neq 1 $.
+            此时方程组的解为
+            $$
+            \begin{cases}
+                x_1 = -\frac{1 + p}{2 + p} \\
+                x_2 = \frac{1}{p + 2} \\
+                x_3 = \frac{(p + 1)^2}{p + 2}
+            \end{cases}
+            $$
+    \end{itemize}
+    \item[(4)]
+    该方程组的增广矩阵是
+    $$
+    \tilde{A} = \begin{pmatrix}
+        1 + p & 1 & 1 & 0 \\
+        1 & 1 + p & 1 & p \\
+        1 & 1 & 1 + p & p^2
+    \end{pmatrix}    
+    $$
+    化简为行阶梯形矩阵为
+    $$
+    \begin{pmatrix}
+        p(p + 3) & 0 & 0 & -p^2 - p \\
+        0 & p(p + 3) & 0 & -p \\
+        0 & 0 & p(p + 3) & -p
+    \end{pmatrix}
+    $$
+    \begin{itemize}
+        \item 方程组无解 $\Leftrightarrow r > s \Leftrightarrow p = -3$.
+        \item 方程组有无数解 $\Leftrightarrow r = s < n \Leftrightarrow p = 0$.
+            此时方程组的解为
+            $$\begin{cases}
+                x_1 = - x_2 - x_3\\
+                x_2 = x_2 \\
+                x_3 = x_3
+            \end{cases}
+            $$
+        \item 方程组有唯一解 $\Leftrightarrow r = s = n \Leftrightarrow p \neq -3 \text{且} p \neq 0 $.
+            此时方程组的解为
+            $$
+            \begin{cases}
+                x_1 = -\frac{1 + p}{3 + p} \\
+                x_2 = -\frac{p}{p + 3} \\
+                x_3 = -\frac{1}{p + 3}
+            \end{cases}
+            $$
+    \end{itemize}
+
+\end{itemize}
 
 \end{document}
