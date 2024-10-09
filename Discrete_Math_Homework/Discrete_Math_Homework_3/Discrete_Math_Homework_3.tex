@@ -1,0 +1,48 @@
+\documentclass{article}
+\usepackage{amsmath}  % 数学符号包
+\usepackage{amssymb}  % 更多数学符号
+\usepackage{enumitem} % 列表样式
+\usepackage{fancyhdr} % 页眉设置
+\usepackage{geometry} % 页面设置
+\usepackage[UTF8]{ctex}
+\usepackage{bm}
+\usepackage{amsthm}
+
+
+\geometry{a4paper, margin=1in}
+
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[C]{Discrete Math Homework 2}
+\fancyhead[R]{noflowerzzk}
+
+
+\title{Discrete Math Homework 3}
+\author{noflowerzzk}
+\date{2024.10.09}
+
+
+\begin{document}
+
+\maketitle
+
+\section{Answer\_1}
+
+Noting that 
+$$
+q \oplus r \equiv (\lnot q \land r) \lor (q \land \lnot r)
+$$
+
+We have
+\[
+\phi \equiv \lnot (p \land \lnot (q \oplus r)) \\
+\equiv 
+\lnot (p \land \lnot ((\lnot q \land r) \lor (q \land \lnot r))) \\
+\equiv
+\lnot p \lor \lnot \lnot ((\lnot q \land r) \lor (q \land \lnot r))\\
+\equiv
+\lnot p \lor (\lnot q \land r) \lor (q \land \lnot r)\\
+\]
+
+\end{document}
