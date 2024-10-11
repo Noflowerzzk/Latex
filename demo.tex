@@ -1,0 +1,41 @@
+\documentclass{article}
+\usepackage{amsmath}  % 数学符号包
+\usepackage{amssymb}  % 更多数学符号
+\usepackage{enumitem} % 列表样式
+\usepackage{fancyhdr} % 页眉设置
+\usepackage{geometry} % 页面设置
+\usepackage[UTF8]{ctex}
+\usepackage{bm}
+\usepackage{amsthm}
+
+
+\geometry{a4paper, margin=1in}
+
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[C]{Demo}
+\fancyhead[R]{}
+
+
+\title{Demo}
+\author{noflowerzzk}
+\date{}
+
+
+\begin{document}
+\maketitle
+
+\section{$\mathcal{A} $}
+已知$\displaystyle{\lim_{n \to \infty}x_n = A , y_n > 0, \lim_{n \to \infty}\frac{y_n}{y_1 + y_2 + \cdots + y_n} = 0}$ \\
+证明: $\displaystyle{\lim_{n \to \infty}\frac{x_1 y_n + x_2 y_{n - 1} + \cdots + x_n y_1}{y_1 + y_2 + \cdots + y_n} = A}$.
+
+\section{$\mathcal{B} $}
+\[
+\lim_{x \to 0}\frac{1 - \cos x \cos 2x \cdots \cos nx}{x^2}
+= \lim_{x \to 0}\frac{\displaystyle{\sum_{k = 1}^{n}\cos x \cos 2x \cdots \sin kx \cdots \cos nx}}{2x}
+= \frac{n(n + 1)}{4}
+\]
+
+
+\end{document}

@@ -114,4 +114,34 @@
     \textbf{Monotone Convergence Theorem}
 \end{proof}
 
+
+\section{Cauchy's convergence test $\&$ Supremum Axiom}
+\subsection{Cauchy's convergence test $\Rightarrow$ Supremum Axiom}
+
+\begin{proof}
+    Assume that $S$ is a set with upper bounds. \\
+    According to Archimedean property, for any $a > 0$, there exist $k$, $ka = \lambda_a$ is the upper bound of $S$ while $\lambda_a - a = (k - 1)a$ is not. \\
+    Now let $a_n = \frac{1}{n}$, then we have a sequence of ${\lambda_n}$. \\
+    Noting that exist $a^{\prime} > \lambda_n - \frac{1}{n}$. \\
+    Also, $\lambda_m \geqslant a^{\prime}$, so we have
+    $$\lambda_n - \lambda_m < \frac{1}{n}$$
+    Simiarly, 
+    $$\lambda_m - \lambda_n < \frac{1}{m}$$
+    So
+    $$\left\lvert \lambda_m - \lambda_n \right\rvert < \max\left\{\frac{1}{n}, \frac{1}{m}\right\}$$
+    So according to \textbf{Cauchy's convergence test}, ${\lambda_n}$ have a limit. \\
+    Now we will prove that the limit is the supremum of $S$. \\
+    Let $\displaystyle{\lambda = \lim_{n \to \infty }\lambda_n}$.
+    Obviously $\lambda$ is the upper bound of $S$. Also $\exists a^{\prime} > \lambda - \delta$. \\
+    So $\lambda$ is the supremum of $S$.\qedhere 
+\end{proof}
+
+\subsection{Supremum Axiom $\Rightarrow$ Cauchy's convergence test}
+
+\begin{proof}
+    
+\end{proof}
+
+
+
 \end{document}
