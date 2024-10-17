@@ -1,0 +1,155 @@
+\documentclass{article}
+\usepackage{amsmath}  % 数学符号包
+\usepackage{amssymb}  % 更多数学符号
+\usepackage{enumitem} % 列表样式
+\usepackage{fancyhdr} % 页眉设置
+\usepackage{geometry} % 页面设置
+\usepackage[UTF8]{ctex}
+\usepackage{bm}
+\usepackage{amsthm}
+
+
+\geometry{a4paper, margin=1in}
+
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[C]{数分作业三}
+\fancyhead[R]{2024.10.16}
+
+
+\title{数分作业三}
+\author{noflowerzzl}
+\date{2024.10.16}
+
+
+\begin{document}
+\maketitle
+
+\section{}
+
+\begin{itemize}
+    \item[(1)]
+    \[
+        \lim_{n \to \infty}\left(1 - \frac{1}{n}\right)^n 
+        = \lim_{n \to \infty}\left(\left(1 + \frac{1}{n - 1}\right)^{n - 1} \left(1 + \frac{1}{n - 1}\right)\right)^{-1}
+        = \frac{1}{\text{e}}    
+    \]
+    \item[(b)]
+    \[
+        \lim_{n \to \infty}\left(1 + \frac{1}{n + 1}\right)^{n}
+        = \lim_{n \to \infty}\left(1 + \frac{1}{n + 1}\right)^{n + 1}\frac{n + 1}{n + 2}
+        = \text{e}
+    \]
+    \item[(c)]\[
+        \lim_{n \to \infty}\left(1 + \frac{1}{2n}\right)^n
+        = \lim_{n \to \infty}\sqrt{\left(1 + \frac{1}{2n}\right)^{2n}}
+        = \sqrt{\text{e}}
+    \]
+    \item[(4)]\[
+        \lim_{n \to \infty}\left(1 + \frac{1}{n^2}\right)^n
+        = \lim_{n \to \infty}\left(\left(1 + \frac{1}{n^2}\right)^{n^2}\right)^{\frac{1}{n}}
+        = \lim_{n \to \infty}\text{e}^{\frac{1}{n}} = 1
+    \]
+    \item[(5)]
+    由$\displaystyle{\left(1 + \frac{1}{n} - \frac{1}{n^2}\right)^n < \left(1 + \frac{1}{n}\right)^n}$, \\
+    且$\displaystyle{\left(1 + \frac{1}{n} - \frac{1}{n^2}\right)^n
+     = \left(1 + \frac{n - 1}{n^2}\right)^{\frac{n^2}{n - 1}\frac{n - 1}{n}}
+     > \left(1 + \frac{n - 1}{n^2}\right)^{\frac{n^2}{n - 1}}}$ \\
+    由夹逼原理,
+    \[
+        e = \lim_{n \to \infty}\left(1 + \frac{1}{n}\right)^n 
+        = \lim_{n \to \infty}\left(1 + \frac{n - 1}{n^2}\right)^{\frac{n^2}{n - 1}}   
+    \]
+    所以
+    \[
+        \lim_{n \to \infty}\left(1 + \frac{1}{n} - \frac{1}{n^2}\right)^n = e
+    \]
+\end{itemize}
+
+\section{}
+
+\begin{itemize}
+    \item[(1)]
+    收敛.
+    \begin{proof}
+        由$x_1 = \sqrt{2} < 2, x_{n + 1} = \sqrt{x_n + 2} < 2 \Leftrightarrow x_n < 2 $, 归纳得$x_n < 2$. \\
+        又$x_n < x_{n + 1} \Leftrightarrow (x_n + 1)(x_n - 2) < 0$, 由$0 < x < 2$知其成立.
+        所以$x_n$单调递增有上界, 极限存在, 设为$A$. \\
+        有$A = \sqrt{A + 2} \Rightarrow A = 2$.
+    \end{proof}
+    \item[(2)]
+    收敛.
+    \begin{proof}
+        由$x_1 = \sqrt{2} < 2, x_{n + 1} = \sqrt{2x_n} < 2 \Leftrightarrow x_n < 2 $, 归纳得$x_n < 2$. \\
+        又$x_n < x_{n + 1} \Leftrightarrow x_n^2 < 2x_n $, 由$0 < x < 2$知其成立.
+        所以$x_n$单调递增有上界, 极限存在, 设为$A$. \\
+        有$A = \sqrt{2A} \Rightarrow A = 2$.
+    \end{proof}
+    \item[(3)]
+    收敛.
+    \begin{proof}
+        由$x_1 = \sqrt{2} > -1, x_{n + 1} = \frac{-1}{x_n + 2} > -1$, 归纳得$x_n > -1$ \\
+        又$x_n > x_{n + 1} \Leftrightarrow (x_n + 1)^2 > 0 $, 由$x > -1$知其成立.
+        所以$x_n$单调递减有下界, 极限存在, 设为$A$. \\
+        有$A = \frac{-1}{A + 2} \Rightarrow A = -1$.
+    \end{proof}
+    \item[(4)]
+    收敛.
+    \begin{proof}
+        由$x_1 = 1 < 4, x_{n + 1} = \sqrt{4 + 3x_n} < 4 \Leftrightarrow x_n < 4 $, 归纳得$x_n < 4$. \\
+        又$x_n < x_{n + 1} \Leftrightarrow (x_n - 4)(x_n + 1) < 0 $, 由$0 < x < 4$知其成立.
+        所以$x_n$单调递增有上界, 极限存在, 设为$A$. \\
+        有$A = \sqrt{4 + 3A} \Rightarrow A = 4$.
+    \end{proof}
+    \item[(5)]
+    收敛.
+    \begin{proof}
+        由$x_1 \in (0, 1), x_{n + 1} = 1 - \sqrt{1 - x_n} \in (0, 1) \Leftrightarrow x_n \in (0, 1) $, 归纳得$x_n \in (0, 1)$. \\
+        又$x_n > x_{n + 1} \Leftrightarrow 1 - x_n > (1 - x_n)^2 $, 由$0 < x < 1$知其成立.
+        所以$x_n$单调递减有下界, 极限存在, 设为$A < 1$. \\
+        有$A = 1 - \sqrt{1 - A} \Rightarrow A = 0$.
+    \end{proof}
+    \item[(6)]
+    收敛.
+    \begin{proof}
+        由$x_1 \in (0, 1), x_{n + 1} = x_n(1 - x_n) \in (0, 1) \Leftrightarrow x_n \in (0, 1) $, 归纳得$x_n \in (0, 1)$. \\
+        又$x_n > x_{n + 1} \Leftrightarrow x_n > x_n(1 - x_n) $, 由$0 < x$知其成立.
+        所以$x_n$单调递减有下界, 极限存在, 设为$A < 1$. \\
+        有$A = A(1 - A) \Rightarrow A = 0$.
+    \end{proof}
+\end{itemize}
+
+% 手动定义章节编号
+\section*{15}
+% 将条目添加到目录中，指定章编号和名称
+\addcontentsline{toc}{section}{15}
+
+\begin{proof}
+    充分性: \\
+    $\forall \varepsilon > 0$, $\exists N_1 > 0$, $n > N_1 \text{时,} \left\lvert \text{diam}A_n\right\rvert < \varepsilon $. \\
+    由$\text{diam}A_k$定义, $\forall p, q > n > N_1, \left\lvert x_p - x_q\right\rvert \leqslant \left\lvert \text{diam}A_n\right\rvert < \varepsilon$. \\
+    由柯西收敛准则, ${x_n}$收敛. \\
+    必要性: \\
+    由于$\{x_n\}$收敛, 由柯西收敛准则, $\forall \varepsilon > 0, \exists N > 0, p, q > N$时 $\left\lvert x_p - x_q\right\rvert < \varepsilon$. \\
+    则$\text{diam}A_n = \sup {\left\lvert x_p - x_q\right\rvert } < \varepsilon$. \\
+    即$\lim_{n \to \infty}\text{diam}A_n = 0$.
+\end{proof}
+
+% 手动定义章节编号
+\section*{16}
+% 将条目添加到目录中，指定章编号和名称
+\addcontentsline{toc}{section}{16}
+
+\begin{proof}
+    设$\{x_n\}$单调递且有上界. \\
+    假设其不收敛, 则$\exists \varepsilon_0 > 0, \forall N > 0, \exists m, n > N, \left\lvert x_m - x_n\right\rvert \geqslant \varepsilon_0$. \\
+    取$N_1 = 1$, $\left\lvert x_{n_1} - x_{m_1}\right\rvert \geqslant \varepsilon_0$, 且$n_1 < m_1$\\
+    取$N_2 = m_1$, $\left\lvert x_{n_2} - x_{m_2}\right\rvert \geqslant \varepsilon_0$, 且$n_2 < m_2$ \\
+    $\cdots$ \\
+    取$N_k = m_{k - 1}$, $\left\lvert x_{n_k} - x_{m_k}\right\rvert \geqslant \varepsilon_0$, 且$n_k < m_k$. \\
+    有$x_{n_k} - x_{n_1} > k\varepsilon_0$, $\{x_{n_k}\}$无上界, 矛盾!
+    所以$\{x_n\}$ 收敛.
+\end{proof}
+
+\end{document}

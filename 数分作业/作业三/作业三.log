@@ -1,10 +1,10 @@
-This is XeTeX, Version 3.141592653-2.6-0.999996 (TeX Live 2024) (preloaded format=xelatex 2024.9.25)  15 OCT 2024 19:53
+This is XeTeX, Version 3.141592653-2.6-0.999996 (TeX Live 2024) (preloaded format=xelatex 2024.9.25)  16 OCT 2024 15:34
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**demo
-(./demo.tex
+**作业三
+(./作业三.tex
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-02-20>
 (e:/texlive/2024/texmf-dist/tex/latex/base/article.cls
@@ -334,8 +334,8 @@ Package: amsthm 2020/05/29 v2.20.6
 \thm@postskip=\skip73
 \thm@headsep=\skip74
 \dth@everypar=\toks31
-) (./demo.aux)
-\openout1 = `demo.aux'.
+) (./作业三.aux)
+\openout1 = `作业三.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 26.
 LaTeX Font Info:    ... okay on input line 26.
@@ -453,19 +453,19 @@ LaTeX Font Info:    Trying to load font information for U+msb on input line 27.
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) [1
 
-] (./demo.aux)
+] [2] [3] (./作业三.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2022/07/14>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 8737 strings out of 474773
- 223030 string characters out of 5761289
- 1923842 words of memory out of 5000000
- 30760 multiletter control sequences out of 15000+600000
- 577831 words of font info for 127 fonts, out of 8000000 for 9000
+ 8734 strings out of 474773
+ 223182 string characters out of 5761289
+ 1938842 words of memory out of 5000000
+ 30757 multiletter control sequences out of 15000+600000
+ 572940 words of font info for 114 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 93i,6n,97p,354b,270s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 93i,11n,97p,353b,368s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on demo.pdf (1 page).
+Output written on 作业三.pdf (3 pages).

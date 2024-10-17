@@ -28,7 +28,7 @@
 
 \section{Answer\_1}
 
-These are first order logic propositions: a), b), f), i), j).
+These are first order logic propositions: a), f), i), j).
 
 \section{Anewer\_2}
 
@@ -47,33 +47,34 @@ c), d), e)
 \begin{itemize}
     \item[a)]
     \begin{proof}
-        Let $\mathcal{J^\prime} = \mathcal{J}_1 [x \mapsto a][y \mapsto b]$ \\
         $
             [\![ \forall x \exists y R(x, y) ]\!]_\mathcal{J} = \mathbf{T}
         $
-        iff. for all $a \in \mathbb{N}$, exists $a + 1 \in \mathbb{N}$, 
+        iff. for all $a \in \mathbb{N}$, exists $a + 1 \in \mathbb{N}$, Let $\mathcal{J^\prime} = \mathcal{J}_1 [x \mapsto a][y \mapsto a + 1]$ 
         \[
-            [\![ R(x, y) ]\!]_{\mathcal{J}_1 [x \mapsto a][y \mapsto b]} = \mathcal{J}^\prime (R)(\mathcal{J}^\prime(x), \mathcal{J}^\prime(y)) = \mathcal{J}^\prime(a, a + 1) 
+            [\![ R(x, y) ]\!]_{\mathcal{J}_1 [x \mapsto a][y \mapsto a + 1]} = \mathcal{J}^\prime (R)(\mathcal{J}^\prime(x), \mathcal{J}^\prime(y)) = \mathcal{J}^\prime(R)(a, a + 1) 
         \]
         i.e. $ a < a + 1 $ and it's obviously true.
     \end{proof}
     \item[b)]
     \begin{proof}
-        Let $\mathcal{J}^\prime = \mathcal{J}_2[y \mapsto 2]$, \\
-        Then $ [\![ \exists y R(x, y) ]\!]_{\mathcal{J}_2} = \mathbf{F} $ 
-        iff. for all $b \in \mathbb{N}$, 
+         $ [\![ \exists y R(x, y) ]\!]_{\mathcal{J}_2} = \mathbf{T} $ 
+        iff. exists $b \in \mathbb{N}$, 
         $$
-            \mathcal{J}^\prime (R)(\mathcal{J}^\prime(x), \mathcal{J}^\prime(y)) = \mathcal{J}^\prime (R)(0, b)
+            [\![ \exists y R(x, y) ]\!]_{\mathcal{J}_2[y \mapsto b]} = 
+            \mathcal{J}_2[y \mapsto b] (R)(\mathcal{J}_2[y \mapsto b](x), \mathcal{J}_2[y \mapsto b](y)) = \mathcal{J}_2[y \mapsto b] (R)(0, b) = \mathbf{T}
         $$
-        It's obvious that for all $b \in N$, $b \geqslant 0$. So $ [\![ \exists y R(x, y) ]\!]_{\mathcal{J}_2} = \mathbf{F} $ 
+        But it's obvious that for all $b \in N$, $b \geqslant 0$, $\mathcal{J}_2[y \mapsto b] (R)(0, b) = \mathbf{F}$. So $ [\![ \exists y R(x, y) ]\!]_{\mathcal{J}_2} = \mathbf{F} $ 
         \qedhere
     \end{proof}
     \item[c)]
     \begin{proof}
+        To proof $[\![ \forall x \exists y R(x, y) ]\!]_{\mathcal{J}_3} = \mathbb{F}$, we only need to give a counterexample. \\
         Noting that if we let $\mathcal{J}^\prime = \mathcal{J}_3[x \mapsto 0]$, \\
         The proposition $ [\![ \forall x \exists y R(x, y) ]\!]_{\mathcal{J}^\prime} $ is the same as the one in problem b). \\
-        So there exist an $a = 0$, s.t. $\mathcal{J}^\prime = \mathcal{J}_3[x \mapsto a]$, $ [\![ \forall x \exists y R(x, y) ]\!]_{\mathcal{J}^\prime} = \mathbf{F} $ \\
-        That indiates that $ [\![ \forall x \exists y R(x, y) ]\!]_{\mathcal{J}_3} = \mathbf{F} $
+        So for all  $a \in \mathbb{N}$, s.t. $\mathcal{J}^\prime = \mathcal{J}_3[y \mapsto a]$, 
+        $$ [\![ \forall x \exists y R(x, y) ]\!]_{\mathcal{J}^\prime} = \mathcal{J}^\prime(R)(\mathcal{J}^\prime(x), \mathcal{J}^\prime(y)) = \mathcal{J}^\prime(R)(0, a) = \mathbf{F}$$ \\
+        That indicates that $ [\![ \forall x \exists y R(x, y) ]\!]_{\mathcal{J}_3} = \mathbf{F} $
     \end{proof}
 \end{itemize}
 
