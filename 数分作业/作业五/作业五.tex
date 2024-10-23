@@ -1,0 +1,93 @@
+\documentclass{article}
+\usepackage{amsmath}  % 数学符号包
+\usepackage{amssymb}  % 更多数学符号
+\usepackage{enumitem} % 列表样式
+\usepackage{fancyhdr} % 页眉设置
+\usepackage{geometry} % 页面设置
+\usepackage[UTF8]{ctex}
+\usepackage{bm}
+\usepackage{amsthm}
+
+
+\geometry{a4paper, margin=1in}
+
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[C]{作业五}
+\fancyhead[R]{2024.10.23}
+
+
+\title{作业五}
+\author{noflowerzzk}
+\date{2024.10.23}
+
+
+\begin{document}
+\maketitle
+
+\section{}
+
+\begin{proof}
+    由 $\lim_{x \to +\infty}f(x) = A$, 取$\varepsilon = 1, \exists N > 0 \text{且} N > a, \forall x > N, A - 1 < f(x) < 1 + A$. \\
+    又 $f(x)$ 在 $[a, N]$ 上连续, $\forall x \in [a, N], \exists M > 0, -M < f(x) < M$. \\
+    取 $M^\prime = \max \{M, \left\lvert A - 1\right\rvert , \left\lvert A + 1\right\rvert \}$, $\left\lvert f(x)\right\rvert  < M^\prime$ 在$[a, + \infty)$ 上有界.
+\end{proof}
+
+\section{}
+
+\begin{proof}
+    取 $f^\prime(x)$ 满足: 
+    \[
+    \begin{cases}
+        f^\prime(a) = f(a+) \\
+        f^\prime(b) = f(b-) \\
+        f^\prime(x) = f(x), x \in (a, b)
+    \end{cases}
+    \]
+    我们证明 $f^\prime(x)$ 在 $[a, b]$ 上连续. \\
+    易得 $f^\prime(x)$ 在 $(a, b)$ 上连续, 
+    又$\lim_{x \to a^+}f^\prime(x) = f(a+) = f^\prime(a)$, $\lim_{x \to b^-}f^\prime(x) = f(b^-) = f^\prime(b)$, \\
+    所以 $f^\prime(x)$ 在 $[a, b]$ 上连续, 由介值定理, $f^\prime(x)$ 能取到 $f^\prime(a), f^\prime(b)$ 之间的一切值. \\
+    又由 $f^\prime(a) = f(a+), f^\prime(b) = f(b-)$, 所以 $f(x)$ 能取到介于 $f(a+), f(b-)$ 之间的一切值. 
+\end{proof}
+
+\section{}
+
+\begin{proof}
+    反证. 假设 $f(x)$ 在 $x_0$ 处不连续. \\
+    若 $x_0 \in (a, b)$, 由于 $f(x)$ 在 $[a, x_0), (x_0, b]$ 单调有界, $f(x)$ 在 $x_0$ 处左右极限存在. \\
+    则 $f(x_0) \neq f(x_0 -)$ 且 $f(x_0) \neq f(x_0 +)$. \\
+    又由极限保号性, $f(x_0 -) < f(x_0) <  f(x_0 +)$. \\
+    则对 $y \in (f(x_0 -), f(x_0))$, 不存在一个 $x \in [a, b], f(x) = y$, 矛盾! \\
+    若 $x_0 = a$, 同上有 $f(a) < f(a-)$, 对 $y \in (f(a), f(a-))$, 不存在一个 $x \in [a, b], f(x) = y$, 矛盾! \\
+    $x_0 = b$ 同理. \\
+    综上, $f(x)$ 是 $[a, b]$ 上的连续函数.
+\end{proof}
+
+% 手动定义章节编号
+\section*{9}
+% 将条目添加到目录中，指定章编号和名称
+\addcontentsline{toc}{section}{9}
+
+\begin{proof}
+    设椭圆$\varGamma$标准方程为 $\displaystyle{\frac{x^2}{a^2} + \frac{y^2}{b^2} = 1, a > b > 0}$, 
+    点 $P(x_0, y_0)$, 满足 $\displaystyle{\frac{x_0^2}{a^2} + \frac{y_0^2}{b^2} < 1}$.\\
+    弦 $l$ 的倾斜角为 $\theta$, 与 $\varGamma$ 交于 $A, B$ 两点. 有 $\left\lvert PA\right\rvert, \left\lvert PB\right\rvert $ 是关于 $ \theta$ 的连续函数. 记为 $f(\theta), g(\theta)$. \\
+    则由对称性, 存在 $\theta_1, \theta_2$, 有$f(\theta_1) < g(\theta_1), f(\theta_2) > g(\theta_2)$. 
+    对连续函数 $t(\theta) = f(\theta) - g(\theta)$, 有 $t(\theta_1)t(\theta_2) < 0$. \\
+    由零点存在定理, 存在 $\theta_0, t(\theta_0) = 0$, 即 $ \left\lvert PA\right\rvert = \left\lvert PB\right\rvert $.
+\end{proof}
+
+% 手动定义章节编号
+\section*{10}
+% 将条目添加到目录中，指定章编号和名称
+\addcontentsline{toc}{section}{10}
+
+\begin{proof}
+    令 $F(x) = f(x) - f(x + 1)$. \\
+    若 $f(1) = f(0)$, 取 $x = 0, y = 1$ 即有 $f(x) = f(y)$. \\
+    若 $f(1) \neq f(0)$, 有 $F(0)F(1) = -(f(1) - f(0))^2 < 0$. 由零点存在定理, $\exists x_0 \in (0, 1), F(x_0) = 0$, 即 $f(x) = f(x + 1)$. 令 $y = x + 1$ 即成立. 
+\end{proof}
+
+\end{document}
