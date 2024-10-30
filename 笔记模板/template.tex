@@ -1,0 +1,245 @@
+\documentclass{ctexart}
+\usepackage{newtxtext, geometry, amsmath, amssymb}
+\usepackage{amsthm} % 设置定理环境，要在amsmath后用
+\usepackage{xpatch} % 用于去除amsthm定义的编号后面的点
+\usepackage[strict]{changepage} % 提供一个 adjustwidth 环境
+\usepackage{multicol} % 用于分栏
+\usepackage[fontsize=14pt]{fontsize} % 字号设置
+\usepackage{esvect} % 实现向量箭头输入（显示效果好于\vec{}和\overrightarrow{}），格式为\vv{⟨向量符号⟩}或\vv*{⟨向量符号⟩}{⟨下标⟩} 
+\usepackage[
+            colorlinks, % 超链接以颜色来标识，而并非使用默认的方框来标识
+            linkcolor=mlv,
+            anchorcolor=mlv,
+            citecolor=mlv % 设置各种超链接的颜色
+            ]
+            {hyperref} % 实现引用超链接功能
+\usepackage{tcolorbox} % 盒子效果
+\tcbuselibrary{most} % tcolorbox宏包的设置，详见宏包说明文档
+
+\geometry{a4paper,centering,scale=0.8}
+
+% ————————————————————————————————————自定义符号————————————————————————————————————
+\newcommand{\。}{．} % 示例：将指令\。定义为全角句点。
+\newcommand{\zte}{\mathrm{e}} % 正体e
+\newcommand{\ztd}{\mathrm{d}} % 正体d
+\newcommand{\zti}{\mathrm{i}} % 正体i
+\newcommand{\ztj}{\mathrm{j}} % 正体j
+\newcommand{\ztk}{\mathrm{k}} % 正体k
+\newcommand{\CC}{\mathbb{C}} % 黑板粗体C
+\newcommand{\QQ}{\mathbb{Q}} % 黑板粗体Q
+\newcommand{\RR}{\mathbb{R}} % 黑板粗体R
+\newcommand{\ZZ}{\mathbb{Z}} % 黑板粗体Z
+\newcommand{\NN}{\mathbb{N}} % 黑板粗体N
+% ————————————————————————————————————自定义符号————————————————————————————————————
+
+% ————————————————————————————————————自定义颜色————————————————————————————————————
+\definecolor{mlv}{RGB}{40, 137, 124} % 墨绿
+\definecolor{qlv}{RGB}{240, 251, 248} % 浅绿
+\definecolor{slv}{RGB}{33, 96, 92} % 深绿
+\definecolor{qlan}{RGB}{239, 249, 251} % 浅蓝
+\definecolor{slan}{RGB}{3, 92, 127} % 深蓝
+\definecolor{hlan}{RGB}{82, 137, 168} % 灰蓝
+\definecolor{qhuang}{RGB}{246, 250, 235} % 浅黄
+\definecolor{shuang}{RGB}{77, 82, 59} % 深黄
+\definecolor{qzi}{RGB}{240, 243, 252} % 浅紫
+\definecolor{szi}{RGB}{49, 55, 70} % 深紫
+% 将RGB换为rgb，颜色数值取值范围改为0到1
+% ————————————————————————————————————自定义颜色————————————————————————————————————
+
+% ————————————————————————————————————盒子设置————————————————————————————————————
+% tolorbox提供了tcolorbox环境，其格式如下：
+% 第一种格式：\begin{tcolorbox}[colback=⟨背景色⟩, colframe=⟨框线色⟩, arc=⟨转角弧度半径⟩, boxrule=⟨框线粗⟩]   \end{tcolorbox}
+% 其中设置arc=0mm可得到直角；boxrule可换为toprule/bottomrule/leftrule/rightrule可分别设置对应边宽度，但是设置为0mm时仍有细边，若要绘制单边框线推荐使用第二种格式
+% 方括号内加上title=⟨标题⟩, titlerule=⟨标题背景线粗⟩, colbacktitle=⟨标题背景线色⟩可为盒子加上标题及其背景线
+\newenvironment{kuang1}{
+    \begin{tcolorbox}[colback=hlan, colframe=hlan, arc = 1mm]
+    }
+    {\end{tcolorbox}}
+\newenvironment{kuang2}{
+    \begin{tcolorbox}[colback=hlan!5!white, colframe=hlan, arc = 1mm]
+    }
+    {\end{tcolorbox}}
+% 第二种格式：\begin{tcolorbox}[enhanced, colback=⟨背景色⟩, boxrule=0pt, frame hidden, borderline={⟨框线粗⟩}{⟨偏移量⟩}{⟨框线色⟩}]   {\end{tcolorbox}}
+% 将borderline换为borderline east/borderline west/borderline north/borderline south可分别为四边添加框线，同一边可以添加多条
+% 偏移量为正值时，框线向盒子内部移动相应距离，负值反之
+\newenvironment{kuang3}{
+    \begin{tcolorbox}[enhanced, colback=hlan!5!white, boxrule=0pt, frame hidden,
+        borderline south={0.5mm}{0.1mm}{hlan}]
+    }
+    {\end{tcolorbox}}
+\newenvironment{lvse}{
+    \begin{tcolorbox}[enhanced, colback=qlv, boxrule=0pt, frame hidden,
+        borderline west={0.7mm}{0.1mm}{slv}]
+    }
+    {\end{tcolorbox}}
+\newenvironment{lanse}{
+    \begin{tcolorbox}[enhanced, colback=qlan, boxrule=0pt, frame hidden,
+        borderline west={0.7mm}{0.1mm}{slan}]
+    }
+    {\end{tcolorbox}}
+\newenvironment{huangse}{
+    \begin{tcolorbox}[enhanced, colback=qhuang, boxrule=0pt, frame hidden,
+        borderline west={0.7mm}{0.1mm}{shuang}]
+    }
+    {\end{tcolorbox}}
+\newenvironment{zise}{
+    \begin{tcolorbox}[enhanced, colback=qzi, boxrule=0pt, frame hidden,
+        borderline west={0.7mm}{0.1mm}{szi}]
+    }
+    {\end{tcolorbox}}
+% tcolorbox宏包还提供了\tcbox指令，用于生成行内盒子，可制作高光效果
+\newcommand{\hl}[1]{
+    \tcbox[on line, arc=0pt, colback=hlan!5!white, colframe=hlan!5!white, boxsep=1pt, left=1pt, right=1pt, top=1.5pt, bottom=1.5pt, boxrule=0pt]
+{\bfseries \color{hlan}#1}}
+% 其中on line将盒子放置在本行（缺失会跳到下一行），boxsep用于控制文本内容和边框的距离，left、right、top、bottom则分别在boxsep的参数的基础上分别控制四边距离
+% ————————————————————————————————————盒子设置————————————————————————————————————
+
+% ————————————————————————————————————自定义字体设置————————————————————————————————————
+\setCJKfamilyfont{xbsong}{方正小标宋简体}
+\newcommand{\xbsong}{\CJKfamily{xbsong}}
+% CTeX宏集还预定义了\songti、\heiti、\fangsong、\kaishu、\lishu、\youyuan、\yahei、\pingfang等字体命令
+% 由于未知原因，一些设备可能无法调用这些字体，故此文档暂时未使用
+% ————————————————————————————————————自定义字体设置————————————————————————————————————
+
+% ————————————————————————————————————各级标题设置————————————————————————————————————
+\ctexset{
+    % 修改 section。
+    section={   
+    % 设置标题编号前后的词语，使用name={⟨前部分⟩,⟨后部分⟩}参数进行设置。    
+        name={\textbf{第},\textbf{章}\hspace{18pt}},
+    % 使用number参数设置标题编号，\arabic设置为阿拉伯数字，\chinese设置为中文，\roman设置为小写罗马字母，\Roman设置为大写罗马字母，\alph设置为小写英文，\Alph设置为大写英文。
+        number={\textbf{\chinese{section}}},
+    % 参数format设置标题整体的样式。包括标题主题、编号以及编号前后的词语。
+    % 参数format还可以设置标题的对齐方式。居中对齐\centering，左对齐\raggedright，右对齐\hfill
+        format=\color{hlan}\centering\zihao{2}, % 设置 section 标题为正蓝色、黑体、居中对齐、小二号字
+    % 取消编号后的空白。编号后有一段空白，参数aftername=\hspace{0pt}可以用来控制编号与标题之间的距离。
+        aftername={}
+    },
+    % 修改 subsection。
+    subsection={   
+        name={\S \hspace{6pt}, \hspace{8pt}},
+        number={\arabic{section}.\arabic{subsection}},
+        format=\color{hlan}\centering\zihao{-2}, % 设置 subsection 标题为黑体、三号字
+        aftername=\hspace{0pt}
+    },
+    subsubsection={   
+        name={,、},
+        number={\chinese{subsubsection}},
+        format=\raggedright\color{hlan}\zihao{3},
+        aftername=\hspace{0pt}
+    },
+    part={   
+        name={第,部分},
+        number={\chinese{part}},
+        format=\color{white}\centering\bfseries\zihao{-1},
+        aftername=\hspace{1em}
+    }
+}
+% 各个标题设置的各行结尾一定要记得写逗号！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！
+% ————————————————————————————————————各级标题设置————————————————————————————————————
+
+% ————————————————————————————————————定理类环境设置————————————————————————————————————
+\newtheoremstyle{t}{0pt}{}{}{\parindent}{\bfseries}{}{1em}{} % 定义新定理风格。格式如下：
+%\newtheoremstyle{⟨风格名⟩}
+%                {⟨上方间距⟩} % 若留空，则使用默认值
+%                {⟨下方间距⟩} % 若留空，则使用默认值
+%                {⟨主体字体⟩} % 如 \itshape
+%                {⟨缩进长度⟩} % 若留空，则无缩进；可以使用 \parindent 进行正常段落缩进
+%                {⟨定理头字体⟩} % 如 \bfseries
+%                {⟨定理头后的标点符号⟩} % 如点号、冒号
+%                {⟨定理头后的间距⟩} % 不可留空，若设置为 { }，则表示正常词间间距；若设置为 {\newline}，则环境内容开启新行
+%                {⟨定理头格式指定⟩} % 一般留空
+% 定理风格决定着由 \newtheorem 定义的环境的具体格式，有三种定理风格是预定义的，它们分别是：
+% plain: 环境内容使用意大利斜体，环境上下方添加额外间距
+% definition: 环境内容使用罗马正体，环境上下方添加额外间距
+% remark: 环境内容使用罗马正体，环境上下方不添加额外间距
+\theoremstyle{t} % 设置定理风格
+\newtheorem{dyhj}{\color{slv} 定义}[subsection] % 定义定义环境，格式为\newtheorem{⟨环境名⟩}{⟨定理头文本⟩}[⟨上级计数器⟩]或\newtheorem{⟨环境名⟩}[⟨共享计数器⟩]{⟨定理头文本⟩}，其变体\newtheorem*不带编号
+\newtheorem{dlhj}{\color{shuang} 定理}[subsection]
+\newtheorem{lthj}{\color{szi} 例}[subsection]
+\newtheorem*{jiehj}{\color{slan} 解}
+\newtheorem*{zmhj}{\color{slan} 证明}
+\newenvironment{dy}{\begin{lvse}\begin{dyhj}}{\end{dyhj}\end{lvse}}
+\newenvironment{zm}{\begin{lanse}\begin{zmhj}}{$\hfill \square$\end{zmhj}\end{lanse}}
+\newenvironment{dl}{\begin{huangse}\begin{dlhj}}{\end{dlhj}\end{huangse}}
+\newenvironment{lt}{\begin{zise}\begin{lthj}}{\end{lthj}\end{zise}}
+% ————————————————————————————————————定理类环境设置————————————————————————————————————
+
+% ————————————————————————————————————目录设置————————————————————————————————————
+\setcounter{tocdepth}{4} % 设置在 ToC 的显示的章节深度
+\setcounter{secnumdepth}{3} % 设置章节的编号深度
+% 数值可选选项：-1 part 0 chapter 1 section 2 subsection 3 subsubsection 4 paragraph 5 subparagraph
+\renewcommand{\contentsname}{\bfseries 目\hspace{1em}录}
+% ————————————————————————————————————目录设置————————————————————————————————————
+
+\everymath{\displaystyle} % 设置所有数学公式显示为行间公式的样式
+
+\begin{document}
+
+\quad\\
+{
+\Huge \bfseries 
+\begin{kuang3}
+    \color{hlan}
+    \centering
+    笔记
+\end{kuang3}
+}
+
+\thispagestyle{empty} % 取消这一页的页码
+\newpage
+
+% ————————————————————————————————————页码设置————————————————————————————————————
+\pagenumbering{Roman}
+\setcounter{page}{1}
+
+\begin{multicols}{2} % 设置环境中内容为两栏。数字为栏数
+    {
+    \tableofcontents
+    }
+\end{multicols}
+
+\newpage
+\setcounter{page}{1}
+\pagenumbering{arabic}
+% ————————————————————————————————————页码设置————————————————————————————————————
+
+% 指令\addcontentsline{toc}{⟨章节层级⟩}{⟨标题名⟩}可将“⟨标题名⟩”加入目录。如为无章节层级的标题，可先用\phantomsection指令添加section分级
+
+\begin{kuang1}
+    \part{第一部分的标题}
+\end{kuang1}
+
+\begin{kuang2}
+    \section{第一章的标题}
+\end{kuang2}
+
+\begin{kuang3}
+    \subsection{第一节的标题}
+\end{kuang3}
+
+\subsubsection{第一个大标题}
+
+1. 第一个小标题
+
+\begin{dy} % 开始定义环境，格式为\begin{⟨环境名⟩}[⟨定理名⟩]
+测试
+$$\int_{a}^{b} f(x)dx = F(b)-F(a) $$
+\end{dy}
+
+\begin{dl}
+测试
+$$\int_{a}^{b} f(x)dx = F(b)-F(a) $$
+\end{dl}
+
+\begin{lt}
+测试
+$$\int_{a}^{b} f(x)dx = F(b)-F(a) $$
+\end{lt}
+
+\begin{zm}
+测试
+$$\int_{a}^{b} f(x)dx = F(b)-F(a) $$
+\end{zm}
+    
+\end{document}

@@ -1,0 +1,72 @@
+\documentclass{article}
+\usepackage{amsmath}  % 数学符号包
+\usepackage{amssymb}  % 更多数学符号
+\usepackage{enumitem} % 列表样式
+\usepackage{fancyhdr} % 页眉设置
+\usepackage{geometry} % 页面设置
+% \usepackage[UTF8]{ctex}
+\usepackage{bm}
+\usepackage{amsthm}
+\usepackage{stmaryrd}
+
+
+\geometry{a4paper, margin=1in}
+
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[C]{Discrete Math Homework 6}
+\fancyhead[R]{2024.10.27}
+
+
+\title{Discrete Math Homework 6}
+\author{noflowerzzk}
+\date{2024.10.27}
+
+
+\begin{document}
+\maketitle
+
+\section{}
+
+\begin{proof}
+    Let $\mathcal{J}, \text{where} \mathcal{J}(p) = \mathbf{T}, \mathcal{J}(q) = \mathbf{F}, \mathcal{J}(r) = \mathbf{F} $, we have 
+    $$
+        [\![ (p \land q) \rightarrow r ]\!]_\mathcal{J} = \mathbf{T}, 
+        [\![(p \rightarrow r) \land (q \rightarrow r)]\!]_\mathcal{J} = \mathbf{F}
+    $$
+    That means that they are not equivalent.
+\end{proof}
+
+\section{}
+They are not logically equivalent.
+\begin{proof}
+    Let $\mathcal{J}$ is a $S$-interpretation, where: \\
+    \begin{itemize}
+        \item[-] $\mathcal{J}$'s domain is $\mathbb{Z}$, \\
+        \item[-] $\mathcal{J}(P)(x) = \mathbf{T}$ iff. $x$ is an even number, \\
+        \item[-] $\mathcal{J}(Q)(x) = \mathbf{T}$ iff. $x$ is an odd number. \\
+    
+    \end{itemize}
+    Then for all $a \in \mathbb{Z}$, $ [\![\forall x(P(x) \rightarrow Q(x))]\!]_\mathcal{J} = \mathbf{T} $ iff. 
+    $$ \mathcal{J}(P)(a) \rightarrow \mathcal{J}(Q)(a) = \mathbf{T} $$ (for all $a \in \mathbb{Z}$). \\
+    Let $a = 2$, $\mathcal{J}(P)(a) = \mathbf{T}$, and $\mathcal{J}(Q)(a) = \mathbf{F}$, which means that $ [\![\forall x(P(x) \rightarrow Q(x))]\!]_\mathcal{J} = \mathbf{F} $.\\
+    However, $[\![\forall x (P(x))]\!]_\mathcal{J} = \mathcal{J}(P)(a) = \mathbf{F}$, $[\![\forall x (Q(x))]\!]_\mathcal{J} = \mathcal{J}(Q)(a) = \mathbf{T}$, ($a = 2$).\\
+    So $[\![\forall x (P(x)) \rightarrow \forall x (Q(x))]\!]_\mathcal{J} = \mathbf{T} \neq [\![\forall x(P(x) \rightarrow Q(x))]\!]_\mathcal{J}$. \\
+    So they are not equivalent.
+\end{proof} 
+
+\section{}
+\begin{proof}
+    For all $\mathcal{J}$ is a $S$-interpretation, $\mathcal{J}$'s domain is $A$.  \\
+    Then 
+    $ [\![\exists x (P(x) \rightarrow \forall y P(y))]\!]_\mathcal{J} = \mathbf{T}$ if forall $a \in A$, $\mathcal{J}^\prime = \mathcal{J}[x \mapsto a][y \mapsto a]$\\
+    \[
+        [\![(P(x) \rightarrow  QPy))]\!]_{\mathcal{J}^\prime} = \mathcal{J}^\prime(P)(a) \rightarrow \mathcal{J}^\prime(P)(a) = \mathcal{J}(P)(a) \rightarrow \mathcal{J}(P)(a) = \mathbf{T}
+    \]
+    If $\mathcal{J}(P)(a) = \mathbf{T}$, then $\mathcal{J}(P)(a) \rightarrow \mathcal{J}(P)(a) = \mathbf{T}$. \\
+    If $\mathcal{J}(P)(a) = \mathbf{F}$, then $\mathcal{J}(P)(a) \rightarrow \mathcal{J}(P)(a) = \mathbf{T}$. \\
+    So $\exists x (P(x) \rightarrow \forall y P(y))$ is true on any interpretation.
+\end{proof}
+
+\end{document}

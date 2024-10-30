@@ -1,0 +1,4 @@
+\contentsline {part}{Part\hspace {2pt}I\hspace {1em}Discrete Math: Logic}{1}{part.1}%
+\contentsline {section}{\numberline {\textbf {Chapter}\hspace {6pt}\textbf {I}\hspace {6pt}}Propositional Logic}{1}{section.1}%
+\contentsline {subsection}{\numberline {\S \hspace {6pt}\hspace {8pt}1.1\hspace {5pt}}Connectives and Truth Assingments}{1}{subsection.1.1}%
+\contentsline {subsubsection}{\numberline {1\hspace {3pt}}Connectives}{1}{subsubsection.1.1.1}%
