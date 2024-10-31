@@ -1,0 +1,164 @@
+\documentclass{article}
+\usepackage{amsmath}  % 数学符号包
+\usepackage{amssymb}  % 更多数学符号
+\usepackage{enumitem} % 列表样式
+\usepackage{fancyhdr} % 页眉设置
+\usepackage{geometry} % 页面设置
+\usepackage[UTF8]{ctex}
+\usepackage{bm}
+\usepackage{amsthm}
+
+\newcommand{\zte}{\mathrm{e}} % 正体e
+\newcommand{\ztd}{\mathrm{d}} % 正体d
+\newcommand{\zti}{\mathrm{i}} % 正体i
+\newcommand{\ztj}{\mathrm{j}} % 正体j
+\newcommand{\ztk}{\mathrm{k}} % 正体k
+\newcommand{\ztdt}{\mathrm{\Delta}}
+
+
+\geometry{a4paper, margin=1in}
+
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[C]{作业六}
+\fancyhead[R]{2024.10.31}
+
+
+\title{作业六}
+\author{noflowerzzk}
+\date{2024.10.31}
+
+
+\begin{document}
+\maketitle
+
+\section*{P99 T11}
+
+\begin{proof}
+    任取 $\varepsilon > 0$, 存在 $\delta > 0$, 对任意 $x_1, x_2 \in (a, b), \left\lvert f(x_1) - f(x_2)\right\rvert < \varepsilon$. \\
+    此时 $f(x)$ 在 $[a + \delta, b - \delta]$ 上一致连续, $f(x)$ 在 $[a + \delta, b - \delta]$ 上有界, $\left\lvert f(x)\right\rvert < M_1 $. \\
+    同时，取 $x_0 \in (a, a + \delta)$, 有任意 $x \in (a, a + \delta)$, $\left\lvert f(x) - f(x_0)\right\rvert < \varepsilon$, 即 $f(x)$ 在 $(a, a + \delta)$ 上有界 $M_2 = \max \{\left\lvert f(x_0) + \varepsilon\right\rvert , \left\lvert f(x_0) - \varepsilon\right\rvert \}$. \\
+    同理有 $M_3$.
+    取 $M = \max \{M_1, M_2, M_3\}$, $\forall x \in (a, b), \left\lvert f(x)\right\rvert < M$, 即 $f(x)$ 在 $(a, b)$  上有界.
+\end{proof}
+
+\section*{P99 T12}
+
+\begin{itemize}
+    \item [(1)]
+    \begin{proof}
+        设 $f(x), g(x)$ 在 $[a, b]$ 上一致连续, 即 $\forall \varepsilon > 0, \exists \delta > 0, \forall x_1, x_2 \in [a, b], \text{若}\left\lvert x_1 - x_2\right\rvert < \delta, \text{有} \left\lvert f(x_1) - f(x_2)\right\rvert < \frac{\varepsilon}{2}, \left\lvert g(x_1) - g(x_2)\right\rvert < \frac{\varepsilon}{2} $. \\
+        则此时 $$
+        \left\lvert f(x_1) + g(x_1) - f(x_2) - g(x_2)\right\rvert \leqslant \left\lvert f(x_1) - f(x_2)\right\rvert + \left\lvert g(x_1) - g(x_2)\right\rvert < \varepsilon
+        $$
+        即 $f(x) + g(x) \text{在} [a, b]$ 上也一致连续.
+    \end{proof}
+    \item [(2)]
+    取 $f(x) = x, g(x) = x$
+     易知 $f(x), g(x)$ 在 $[0, +\infty)$ 上一致连续, 但 $f(x)\cdot g(x) = x^2$ 在 $[0, +\infty)$ 上不一致连续. 
+\end{itemize}
+
+\section*{P99 T13}
+
+\begin{proof}
+    易知 $f(a)f(b) \neq 0$. 假设存在 $x_1, x_2, f(x_1) > 0, f(x_2) < 0$. 不妨 $x_1 < x_2$. 则由零点存在定理, 存在 $x_0 \in (x_1, x_2), f(x_0) = 0$. 矛盾! \\
+    因此 $f(x)$ 在 $[a, b]$ 恒正或恒负.
+\end{proof}
+
+\section*{P99 T14}
+
+\begin{proof}
+    设 $f(x)$ 在 $[a, b]$ 上的最大、最小值为 $M, m$.
+    $\displaystyle{m \leqslant \frac{1}{n}\sum_{i = 1}^n f(x_i) \leqslant M}$. \\
+    由介值定理, $\exists \xi \in [a, b], f(\xi) = \displaystyle{\frac{1}{n}\sum_{i = 1}^n f(x_i)}$
+\end{proof}
+
+\section*{P99 T15}
+
+\begin{proof}
+    由Cauchy收敛准则, $\forall \varepsilon > 0, \exists N > 0, \forall x_1, x_2 > N, \left\lvert f(x_1) - f(x_2)\right\rvert < \varepsilon$. \\
+    由于 $f(x)$ 在 $[a, N + 1]$ 上连续, 则 $f(x)$ 在 $[a, N + 1]$ 上一致连续, 即对上述 $\varepsilon > 0, \exists \delta_1 > 0, \forall \left\lvert x_1 - x_2\right\rvert < \delta_1, \left\lvert f(x_1) - f(x_2)\right\rvert < \varepsilon$. \\
+    结合上两式得 $f(x)$ 在 $[a, + \infty)$ 上一致连续.
+\end{proof}
+
+\section*{P110 T3}
+
+令 $F(x) = f(1 + \sin x) - 3f(1 - \sin x) = 8x + \alpha(x)$. \\
+$\displaystyle{\lim_{x \to 0}F(x) = -2f(1) = 0}$, 有 $f(1) = 0$.
+$$\displaystyle{\lim_{x \to 0}\frac{F(x)}{\sin x} = \lim_{x \to 0}\frac{f(1 + \sin x) -f(1)}{\sin x} + \frac{3(f(1) - f(1 - \sin x))}{\sin x} = 4f^\prime(1) = \lim_{x \to 0}\frac{8x + \alpha(x)}{\sin x} = \lim_{x \to 0}\frac{8x + \alpha(x)}{x} = 8}$$
+所以切线为 $y = 2x - 2$.
+
+\section*{P110 T4}
+
+\begin{proof}
+    设椭圆方程为 $\displaystyle{\frac{x^2}{a^2} + \frac{y^2}{b^2} = 1, a > b > 0, c = \sqrt{(a^2 + b^2)}}$. 左右焦点分别为 $F_1(-c, 0), F_2(c, 0)$.\\
+    对椭圆方程两边求导, 有
+    \[
+        \frac{2x}{a^2} + \frac{2y}{b^2} \frac{dy}{dx} = 0
+    \]
+    即某点 $A(x, y)$ 的切线斜率为 $\displaystyle{k = \frac{dy}{dx} = -\frac{b^2}{a^2} \cdot \frac{x}{y}}$. \\
+    又 $F_1A, F_2A$ 斜率分别为
+    \[
+        k_1 = \frac{y}{x + c}, \quad
+        k_2 = \frac{y}{x - c}
+    \]
+    所以 $F_1A$与切线, $F_2A$与切线的夹角分别为 $\theta_1, \theta_2$, 有
+    \[
+        \tan \theta_1 + \tan \theta_2 = \frac{k_1 - k}{1 + k_1k} + \frac{k_2 - k}{1 + k_2k} = \frac{a^2b^2 + b^2cx}{c^2xy + a^2cy} + \frac{a^2b^2 - b^2cx}{c^2xy - a^2cy} = \frac{b^2}{cy} - \frac{b^2}{cy} = 0
+    \]
+    即 $\left\lvert \theta_1\right\rvert = \left\lvert \theta_2\right\rvert $, 即证.
+\end{proof}
+
+\section*{P110 T5}
+
+\begin{proof}
+    对其求导, 有 $x\ztd y  + y\ztd x = 0$, 即 $(x_0, y_0)$ 处切线斜率 $\displaystyle{\frac{\ztd y}{\ztd x} = - \frac{y_0}{x_0}}$. \\
+    直线方程为
+    \[
+        x_0y + y_0x = 2a^2
+    \]
+    在 $x, y$ 轴的截距分别为: $\displaystyle{x = \frac{2a^2}{y_0}, y = \frac{2a^2}{x_0}}$. \\
+    面积为
+    \[
+        S = \frac{1}{2}\left\lvert \frac{2a^2}{y_0}\right\rvert \cdot \left\lvert \frac{2a^2}{x_0}\right\rvert = 2a^2
+    \]
+\end{proof}
+
+\section*{P110 T7}
+
+\begin{itemize}
+    \item [(1)] \[
+        \lim_{\Delta  x \to 0}\frac{\Delta  y}{\Delta  x} 
+        = \lim_{\Delta  x \to 0}\frac{\left\lvert \Delta x \right\rvert^{1 + \alpha} \sin \frac{1}{\Delta x}}{\Delta x} = 0
+    \]
+    所以它在 $x = 0$ 可导.
+    \item [(2)] 易得 $f_+^\prime(0) = 0$, 故 $f(x)$ 可导当且仅当 $f_-^\prime(0) = 0$ 且 $f(x)$ 在 0 处连续, 即 $a = b = 0$ 时 $f(x)$ 在 $x = 0$ 处可导.
+    \item [(3)] 由 $f_+^\prime(0) = 1$, $f_-^\prime(0) = 0$, 故 $f(x)$ 在 $x = 0$ 处不可导.
+    \item [(4)] 当 $a \geqslant 0$ 时, $\displaystyle{\lim_{x \to 0}f(x) = + \infty \text{或}0}$, $f(x)$ 在 0 处不连续, 则不可导. \\
+    当 $a < 0$ 时, \[
+        \lim_{\Delta  x \to 0}\frac{\Delta  y}{\Delta  x}
+         = \lim_{\Delta x \to 0}\frac{\zte^{\frac{a}{\Delta x^2}}}{\Delta x} = 0
+    \]
+    所以当 $a < 0$ 时它在 $x = 0$ 可导.
+\end{itemize}
+
+\section*{P111 T8}
+
+当 $f(0) \neq 0$ 时, 在 0 的一个小邻域内 $f(x)$ 恒正或恒负, $\left\lvert f(x)\right\rvert $也可导. \\
+当 $f(0) = 0$ 时, 令 $g(x) = \left\lvert f(x)\right\rvert $, $$g_-^\prime(0) = \lim_{x \to 0^-}\frac{\left\lvert f(\Delta x)\right\rvert}{\Delta x} = -\left\lvert f^\prime(0)\right\rvert $$同理
+$$
+g_+^\prime(0) = +\left\lvert f^\prime(0)\right\rvert
+$$
+所以 $\left\lvert f(x)\right\rvert $在 $x = 0$可导当且仅当 $f^\prime(0) = 0$.
+
+\section*{补充题}
+
+\begin{proof}
+    由 $x \in (0, 1)$ 时, $(1 - x)^\alpha + x^\alpha \geqslant 1 - x + x = 1, (1 - x)^\alpha \geqslant 1 - x^\alpha$
+    由 $x_1 > x_2 > 0$ 时 $\left\lvert f(x_1) - f(x_2)\right\rvert  = \left\lvert x_1^\alpha - x_2^\alpha\right\rvert = x_1^\alpha \left\lvert \displaystyle{1 - \left(\frac{x_2}{x_1}\right)^\alpha}\right\rvert \leqslant x_2^\alpha \left(1 - \displaystyle{\frac{x_2}{x_1}}\right)^\alpha = \left(x_1 - x_2\right)^\alpha$. \\
+    $\displaystyle{\forall \varepsilon > 0, \exists \delta = \frac{\varepsilon^\frac{1}{\alpha}}{2}} > 0, \forall x_1 > x_2 > 0$, 若 $\left\lvert x_1 - x_2\right\rvert < \delta$, 有 $\left\lvert f(x_2) - f(x_1)\right\rvert \leqslant (x_1 - x_2)^\alpha = \displaystyle{\frac{\varepsilon}{2^\alpha}} < \varepsilon$. \\
+    故 $f(x)$ 在 $[0, +\infty)$ 一致连续.
+\end{proof}
+
+\end{document}

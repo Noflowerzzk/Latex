@@ -1,0 +1,58 @@
+\documentclass{article}
+\usepackage{amsmath}  % 数学符号包
+\usepackage{amssymb}  % 更多数学符号
+\usepackage{enumitem} % 列表样式
+\usepackage{fancyhdr} % 页眉设置
+\usepackage{geometry} % 页面设置
+% \usepackage[UTF8]{ctex}
+\usepackage{bm}
+\usepackage{amsthm}
+
+
+\geometry{a4paper, margin=1in}
+
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[C]{Discrete Math Homework 7}
+\fancyhead[R]{2024.10.31}
+
+
+\title{Discrete Math Homework 7}
+\author{noflowerzzk}
+\date{2024.10.31}
+
+
+\begin{document}
+\maketitle
+
+\section{}
+\begin{itemize}
+    \item [a)] $ \lnot \exists z \forall y \forall x T(x, y, z) = \forall z \exists y \exists x \lnot T(x, y , z)$
+    \item [b)] $\neg \left( (\exists x \, \exists y \, P(x, y)) \land (\forall x \, \forall y \, Q(x, y)) \right)
+     = \neg (\exists x \, \exists y \, P(x, y)) \lor \neg (\forall x \, \forall y \, Q(x, y))
+     = (\forall x \, \forall y \, \neg P(x, y)) \lor (\exists x \, \exists y \, \neg Q(x, y))$
+\end{itemize}
+
+\section{}
+
+\begin{proof}
+    Proof by contradiction. \\
+    Assuming there exists a truth assignment $\mathcal{J}$ that 
+    $$
+    \begin{cases}
+        [\![\phi [x \mapsto t]]\!]_\mathcal{J} = \mathbf{T} \\
+        [\![\forall x (\phi \rightarrow \psi )]\!]_\mathcal{J} = \mathbf{T} \\
+        [\![\psi[x \mapsto t]]\!]_\mathcal{J} = \mathbf{F}.
+    \end{cases}
+    $$
+    So $$[\![\phi [x \mapsto t] \rightarrow \psi [x \mapsto t]]\!]_\mathcal{J} = \mathbf{F}$$i.e. 
+    $$[\![\phi \rightarrow \psi]\!]_{\mathcal{J}[x \mapsto [\![t]\!]_\mathcal{J}]} = \mathbf{F}$$
+    So exist $a = [\![t]\!]_\mathcal{J} \in \mathcal{J}$'s domain, $[\![\phi \rightarrow \psi]\!]_{\mathcal{J}[x \mapsto a]} = \mathbf{F}$, i.e. $[\![\forall x (\phi \rightarrow \psi )]\!]_\mathcal{J} = \mathbf{F}$, which is contradictive to our assume. \\
+    So \[
+        \varphi[x \mapsto t], \quad \forall x (\varphi \rightarrow \psi) \models \psi[x \mapsto t].
+    \]
+
+\end{proof}
+
+\end{document}
