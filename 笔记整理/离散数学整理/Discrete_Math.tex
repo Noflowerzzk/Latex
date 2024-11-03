@@ -2,6 +2,7 @@
 
 \documentclass{ctexart}
 \usepackage{newtxtext, geometry, amsmath, amssymb}
+\usepackage{stmaryrd}
 \usepackage{amsthm} % 设置定理环境，要在amsmath后用
 \usepackage{xpatch} % 用于去除amsthm定义的编号后面的点
 \usepackage[strict]{changepage} % 提供一个 adjustwidth 环境
@@ -32,6 +33,8 @@
 \newcommand{\RR}{\mathbb{R}} % 黑板粗体R
 \newcommand{\ZZ}{\mathbb{Z}} % 黑板粗体Z
 \newcommand{\NN}{\mathbb{N}} % 黑板粗体N
+\newcommand{\lb}{[\![}
+\newcommand{\rb}{]\!]}
 % ————————————————————————————————————自定义符号————————————————————————————————————
 
 % ————————————————————————————————————自定义颜色————————————————————————————————————
@@ -220,8 +223,6 @@
     \subsection{Connectives and Truth Assingments}
 \end{kuang3}
 
-\subsubsection{Connectives}
-
 
 \begin{dy} % 开始定义环境，格式为\begin{⟨环境名⟩}[⟨定理名⟩]
 [Truth table of Connectives](Omitted)
@@ -244,8 +245,111 @@
     A compound proposition is \textcolor{shuang}{satisfiable} if it is true under some truth assignment.
 \end{dy}
 
+\begin{kuang3}
+    \subsection{Consequence and Equivalent}
+\end{kuang3}
+
+\subsubsection{The definition of consequence and logically equivalent}
+
+\begin{dy}[Consequence]
+    Suppose $\Phi$ is a set of propositions and $\psi$ is one single proposition. We say that $\psi$ is a consequence of $\Phi$, written as $\Phi \models \psi$. if $\Phi$ 's being all true implies that $\psi$ is also true. \\
+    In other words, $\Phi \models \psi$ if for any truth assignment $\mathcal{J}, \llbracket \phi \rrbracket_{\mathcal{J}}=\mathbf{T}$ for any $\phi \in \Phi$ implies $\llbracket \psi \rrbracket_{\mathcal{J}}=\mathbf{T}$.
+\end{dy}
+
+\begin{dy}[Logically Equivalent]
+    $\phi$ is a logically equivalent to $\psi$, written as $\phi \equiv \psi$, if $\phi$ 's truth value and $\psi$ 's truth value are the same under any situation. In other words, $\phi \equiv \psi$ if $\llbracket \phi \rrbracket_{\mathcal{J}}=\llbracket \psi \rrbracket_{\mathcal{J}}$ for any truth assignment $\mathcal{J}$.
+\end{dy}
+
 \begin{lt}
-    sd
+    $\Phi = \{\ \}$, $\psi = p \lor \lnot p$, $\Phi \models \psi$
+\end{lt}
+
+\subsubsection{Important properties}
+
+\begin{dl} \quad 
+    \begin{itemize}
+        \item $\phi \lor \lnot \phi$ is an tautology 
+        \item $\phi \land \lnot \phi$ is a contradiction 
+        \item $\phi, \psi \models \phi \land \psi$ ($\land$-Introduction)
+        \item $\phi \land \psi \models \phi$ ($\land$-Elimination)
+        \item $\phi \models \phi \lor \psi$ ($\lor$-Introduction)
+        \item If $\Phi, \phi_1 \models \psi, \Phi, \phi_2 \models \psi$, then $\Phi, \phi_1 \lor \phi_2 \models \psi$ ($\lor$-Elimination)
+    \end{itemize}
+    \begin{zmhj}[Proof of the last one]
+        Suppose $\lb \phi \rb_\mathcal{J} = \mathbf{T}$, $\lb \phi_1 \lor \phi_2\rb_\mathcal{J} = \mathbf{T}$. \\
+        Then at least one of the following holds: $\lb \phi_1\rb_\mathcal{J} = \mathbf{T}, \lb \phi_2\rb_\mathcal{J} = \mathbf{T}$.
+        \qedhere
+    \end{zmhj}
+\end{dl}
+
+\begin{dl}[Contrapositive]
+    If $\Phi, \lnot \phi \models \psi$, then $\Phi, \lnot \psi \models \phi$ 
+\end{dl}
+
+\begin{dl} \quad
+    \begin{itemize}
+        \item $\lnot (\lnot q) \equiv q$ \quad (Double Negation)
+        \item $\phi \land \phi \equiv \phi, \quad \phi \lor \phi \equiv \phi$ \quad (Idempotent Laws)
+        \item $\phi \land \psi \equiv \psi \land \psi, \quad \phi \lor \psi \equiv \psi \lor \psi$ \quad (Commutative Laws)
+        \item $\phi \lor (\psi \land \chi) \equiv (\phi \lor \psi) \land (\phi \lor \chi), \quad \phi \land (\psi \lor \chi) \equiv (\phi \land \psi) \lor (\phi \land \chi)$ \quad (Distributive Laws)
+        \item $\lnot (q \land q) \equiv \lnot p \lor \lnot q, \quad \lnot (q \lor q) \equiv \lnot p \land \lnot q$ \quad (De Morgan's Laws)
+        \item $\phi \land (\lnot \phi) \equiv \mathbf{F}$, \quad $\phi \lor (\lnot\phi) \equiv \mathbf{T}$ \quad (Negation Laws)
+        \item $\phi \land \mathbf{T} \equiv \phi, \quad \phi \lor \mathbf{F} \equiv \phi, \quad \phi \land \mathbf{F} \equiv \mathbf{F}, \quad \phi \lor \mathbf{T} \equiv \mathbf{T}$ \quad (Laws of logical constants)
+        \item $\phi \lor (\phi \land \psi) \equiv \phi, \quad \phi \land (\phi \lor \psi) \equiv \phi$ \quad (Absorption Laws)
+    \end{itemize}
+\end{dl}
+
+\subsubsection{Prove Logical Equivalence}
+
+\begin{dl}[Transitivity]
+    If $\phi \equiv \psi$ and $\psi \equiv \chi$, then $\phi \equiv \chi$.
+\end{dl}
+
+\begin{dl}[Congruence Property] \quad 
+    \begin{itemize} 
+        \item If $\phi \equiv \psi$, then $\lnot\phi \equiv \lnot\psi$
+        \item If $\phi_1 \equiv \phi_2$, $\psi_1 \equiv \psi_2$, then $\phi_1 \land \psi_1 \equiv \phi_2 \land \psi_2$
+        \item If $\phi_1 \equiv \phi_2$, $\psi_1 \equiv \psi_2$, then $\phi_1 \lor \psi_1 \equiv \phi_2 \lor \psi_2$
+    \end{itemize}
+\end{dl}
+
+\begin{dl}[Reflexivity]
+    $\phi \equiv \phi$
+\end{dl}
+
+\subsubsection{Relation among tautologies, contradictions, satisfiable asser-tions, consequence relations and logic equivalence}
+
+\begin{dl} \quad 
+    \begin{itemize}
+        \item $\phi_1, \phi_2, \cdots \phi_n \models \psi$ iff. $\left(\bigwedge _{k = 1}^n\right) \land \lnot \psi$ is not satisfiable.
+        \item $\{\ \} \models \phi$ iff. $\phi$ is an tautology.
+        \item $\phi \equiv \psi$ iff. $\phi \models \psi$ and $\psi \models \phi$.
+    \end{itemize}
+\end{dl}
+
+\begin{dl}
+    If $\phi \models \psi$ and $\psi \models \chi$, then $\phi \models \chi$.
+\end{dl}
+
+\begin{kuang3}
+    \subsection{Normal Forms}
+\end{kuang3}
+
+\subsubsection{definition}
+
+\begin{dy}[Disjunctive Normal Form,\ DNF] \quad 
+    \begin{itemize}
+        \item A \textcolor{shuang}{\textbf{literal}} is a propositional variable or its negation.
+        \item A \textcolor{shuang}{\textbf{conjunctive clause}} is a conjunctions of literals.
+        \item A \textcolor{shuang}{\textbf{compound proposition}} is in disjunctive normal form if it is a disjunction of conjunctive clauses.
+    \end{itemize}
+\end{dy}
+
+\begin{lt} \quad
+    \begin{itemize}
+        \item literals $x, y, z, p. q. r, \lnot q$
+        \item conjunctive clauses $p, p \land q, \lnot p \land q$
+    \end{itemize}
 \end{lt}
 
 \end{document}
