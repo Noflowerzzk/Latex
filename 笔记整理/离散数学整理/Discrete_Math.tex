@@ -33,8 +33,8 @@
 \newcommand{\RR}{\mathbb{R}} % 黑板粗体R
 \newcommand{\ZZ}{\mathbb{Z}} % 黑板粗体Z
 \newcommand{\NN}{\mathbb{N}} % 黑板粗体N
-\newcommand{\lb}{[\![}
-\newcommand{\rb}{]\!]}
+\newcommand{\lb}{\left\llbracket}
+\newcommand{\rb}{\right\rrbracket}
 % ————————————————————————————————————自定义符号————————————————————————————————————
 
 % ————————————————————————————————————自定义颜色————————————————————————————————————
@@ -161,7 +161,7 @@
 \theoremstyle{t} % 设置定理风格
 \newtheorem{dyhj}{\color{slv} Define}[subsection] % 定义定义环境，格式为\newtheorem{⟨环境名⟩}{⟨定理头文本⟩}[⟨上级计数器⟩]或\newtheorem{⟨环境名⟩}[⟨共享计数器⟩]{⟨定理头文本⟩}，其变体\newtheorem*不带编号
 \newtheorem{dlhj}{\color{shuang} Theorem}[subsection]
-\newtheorem{lthj}{\color{szi} e.g.}[subsection]
+\newtheorem{lthj}{\color{szi} Example}[subsection]
 \newtheorem*{jiehj}{\color{slan} Solve}
 \newtheorem*{zmhj}{\color{slan} Proof}
 \newenvironment{dy}{\begin{lvse}\begin{dyhj}}{\end{dyhj}\end{lvse}}
@@ -278,7 +278,7 @@
     \begin{zmhj}[Proof of the last one]
         Suppose $\lb \phi \rb_\mathcal{J} = \mathbf{T}$, $\lb \phi_1 \lor \phi_2\rb_\mathcal{J} = \mathbf{T}$. \\
         Then at least one of the following holds: $\lb \phi_1\rb_\mathcal{J} = \mathbf{T}, \lb \phi_2\rb_\mathcal{J} = \mathbf{T}$.
-        \qedhere
+        \qed
     \end{zmhj}
 \end{dl}
 
@@ -335,8 +335,6 @@
     \subsection{Normal Forms}
 \end{kuang3}
 
-\subsubsection{definition}
-
 \begin{dy}[Disjunctive Normal Form,\ DNF] \quad 
     \begin{itemize}
         \item A \textcolor{shuang}{\textbf{literal}} is a propositional variable or its negation.
@@ -345,11 +343,127 @@
     \end{itemize}
 \end{dy}
 
+\begin{dy}[Conjunctive Normal Form, \  CNF] \quad \\
+    (Similar as above)
+\end{dy}
+
 \begin{lt} \quad
     \begin{itemize}
-        \item literals $x, y, z, p. q. r, \lnot q$
+        \item literals $x, y, z, p, q, r, \lnot q$
         \item conjunctive clauses $p, p \land q, \lnot p \land q$
+        \item DNF $p, p \lor (\lnot q \land r), \lnot p \lor (q \land p \land r)$
     \end{itemize}
 \end{lt}
+
+\begin{dl}
+    Every compound proposition is logically equivalent to some compound proposition in DNF.
+    \begin{zmhj}[Proof 1]
+        Suppose that the compound proposition $\phi$ consists of the literals $p_1, p_2, \cdots, p_n$. \\
+        For all $\mathcal{J}$ as a interpretation, we only need to prove that 
+        \[
+            \phi \equiv \bigvee_{\lb \phi \rb_\mathcal{J} = \mathbf{T}}\left(\bigwedge_{\mathcal{J}(p_i) = \mathbf{T}}p_i \land \bigwedge_{\mathcal{J}(p_i) = \mathbf{F}}\lnot p_i \right) = \mathbf{T}
+        \]
+        Consider a specific interpretation $\mathcal{J}_0$, if $\lb \phi\rb_\mathcal{J} = \mathbf{T}$, then
+        \[
+            \left\llbracket \bigvee_{\lb \phi \rb_\mathcal{J} = \mathbf{T}}\left(\bigwedge_{\mathcal{J}(p_i) = \mathbf{T}}p_i \land \bigwedge_{\mathcal{J}(p_i) = \mathbf{F}}\lnot p_i \right) \right\rrbracket_{\mathcal{J}_0} 
+             = \lb \left(\bigwedge_{\mathcal{J}_0(p_i) = \mathbf{T}}p_i \land \bigwedge_{\mathcal{J}_0(p_i) = \mathbf{F}}\lnot p_i\right)\rb_{\mathcal{J}_0} 
+        \]
+        If $\mathcal{J}_0(p_i) = \mathbf{T}$, then $\lb p_i \rb_{\mathcal{J_0}} = \mathbf{T}$, \\
+        if $\mathcal{J}_0(p_i) = \mathbf{F}$, then $\lb \lnot p_i \rb_{\mathcal{J_0}} = \mathbf{T}$. \\
+        So
+        \[
+            \lb \left(\bigwedge_{\mathcal{J}_0(p_i) = \mathbf{T}}p_i \land \bigwedge_{\mathcal{J}_0(p_i) = \mathbf{F}}\lnot p_i\right)\rb_{\mathcal{J}_0} = \mathbf{T}
+        \]
+        \qed
+    \end{zmhj}
+    \begin{zmhj}[Proof 2]
+        Define $DNF(\phi)$ as follow and prove that $DNF(\phi) \equiv \phi$. 
+        \begin{dyhj}
+            \begin{itemize}
+                \item $DNF(\phi) \triangleq DNF_2(DNF_1(\phi))$
+                \item 
+                    $DNF_1(\lnot \lnot \phi) = DNF_1(\phi)$. \\
+                    (The De Morgan's law) \\
+                    $DNF_1(\phi \land \psi) = DNF_1(\phi) \land DNF_1(\psi)$ \quad ($\lor$ is the same) \\
+                    $DNF_1(l) = l$ \quad $l$ is a literal.
+                \item 
+                    $DNF_2(l) = l$ \quad $l$ is a literal, \\
+                    $DNF_2(\phi \lor \psi) = DNF_2(\phi) \lor DNF_2(\psi)$ \\
+                    If $\phi = \bigvee_{i = 1}^{n}\phi_i, \psi = \bigvee_{j = 1}^{m}\psi_j$, then 
+                    \[
+                        DNF_2(\phi \land \psi) = \bigvee_{i = 1}^{n}\bigvee_{j = 1}^{m}(\phi_i \land \psi_j)
+                    \]
+                \end{itemize}
+        \end{dyhj}
+        Then it's obvious that $\phi \equiv DNF(\phi)$ and $DNF(\phi)$ is a DNF. 
+        \qed
+    \end{zmhj}
+\end{dl}
+
+\begin{dl}
+    Every compound proposition is logically equivalent to some compound proposition in CNF.
+    \begin{zmhj}
+        (Similar as above)
+    \end{zmhj}
+\end{dl}
+
+\begin{lt}[*]
+    The CDCL algorithm. \\
+    (Suspended now)
+\end{lt}
+
+\begin{kuang2}
+    \section{First Order Logic, \ FOL}
+\end{kuang2}
+
+\begin{kuang3}
+    \subsection{The syntax of first order language}
+\end{kuang3}
+
+\begin{dy} \quad
+    \begin{itemize}
+        \item Predicate Logic's Language
+        \begin{itemize}
+            \item Variables $x, y, z, \cdots$
+            \item Constants $c_1, c_2, \cdots$
+            \item Prelicates $P, Q, R, \cdots$
+            \item Functions $f, g, h, \cdots$
+            \item Logic patterns $\exists, \forall, \land, \lor, \lnot$
+        \end{itemize}
+        \item Terms $x, y, c_1, c_2, f(x), g(x, y), \cdots$
+        \item propositions $P(x), Q(f(x, g(x, y))), \exists x \forall y R(x, g(y)), \cdots$
+    \end{itemize}
+\end{dy}
+
+\begin{kuang3}
+    \subsection{The semantics of first order language}
+\end{kuang3}
+
+\subsubsection{Structure}
+
+\begin{dy}[$S$-structure]\quad \\
+    Given a sumbol set $S$, an $S$-structure $\mathcal{A} = \left(A, \alpha\right)$ contains
+    \begin{itemize}
+        \item a domain $A$, which is a non-empty set.
+        \item an interpretation of every predicate symbol.
+        \begin{lthj}
+            if $P$ is a symbol of binary predicate, then $\alpha(P)$ is a mapping from $A \times A$ to $\{\mathbf{T}, \mathbf{F}\}$.
+        \end{lthj}
+        \item an interpretation of every function symbol.
+        \begin{lthj}
+            if $f$ is a symbol of unary function, then $\alpha(f)$ is a mapping from $A$ to $A$.
+        \end{lthj}
+        \item an interpretation of every constant symbol.
+        \begin{lthj}
+            if $s$ is a constant symbol, $\alpha(c)$ is an element in domain $A$.
+        \end{lthj}
+    \end{itemize}
+\end{dy}
+
+With a structure, we can determine the truth of an closed proposition.
+
+\subsubsection{Interpretation}
+
+
 
 \end{document}

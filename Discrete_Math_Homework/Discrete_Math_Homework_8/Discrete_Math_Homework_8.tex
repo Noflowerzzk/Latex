@@ -1,0 +1,105 @@
+\documentclass{article}
+\usepackage{amsmath}  % 数学符号包
+\usepackage{amssymb}  % 更多数学符号
+\usepackage{enumitem} % 列表样式
+\usepackage{fancyhdr} % 页眉设置
+\usepackage{geometry} % 页面设置
+% \usepackage[UTF8]{ctex}
+\usepackage{bm}
+\usepackage{amsthm}
+\newcommand{\lb}{[\![}
+\newcommand{\rb}{]\!]}
+\newcommand{\JJ}{\mathcal{J}}
+\newcommand{\T}{\mathbf{T}}
+\newcommand{\F}{\mathbf{F}}
+\newcommand{\PP}{\mathcal{P}}
+
+
+\geometry{a4paper, margin=1in}
+
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[C]{Discrete Math Homework 8}
+\fancyhead[R]{2024.11.06}
+
+
+\title{Discrete Math Homework 8}
+\author{noflowerzzk}
+\date{2024.11.06}
+
+
+\begin{document}
+\maketitle
+
+\section{}
+
+\begin{itemize}
+    \item [a)]
+    \begin{proof}
+        For all interpretation $\JJ$, if $\lb \phi\rb_\JJ = \mathbf{T}$, then $\lb \psi \rb_\JJ = \mathbf{T}$. \\
+        Assuming a $\JJ_0$, $\lb \forall x \phi\rb_{\JJ_0} = \T$, i.e.$\forall a \in \JJ\text{'s domain, }\lb \phi\rb_{\JJ_0[x \mapsto a]} = \T$, so $\lb \psi\rb_{\JJ_0[x \mapsto a]} = \T$, which means $\lb \forall x \psi\rb_{\JJ_0} = \T$. \\
+        So $\forall x \phi \models \forall x \psi$.
+    \end{proof}
+    \item [b)]
+    \begin{proof}
+        Suppose a interpretation $\JJ$, $\forall \phi_0 \in \Phi, \lb\phi_0\rb_\JJ = \T$ and $\lb\forall x \phi\rb_\JJ = \T$. \\
+        So for all $a \in \JJ\text{'s domain, }, \lb \phi\rb_{\JJ_0[x \mapsto a]} = \T$. \\
+        And noting that $x$ does not freely occur in $\Phi$, so $\forall \phi_0 \in \Phi, \lb\phi_0\rb_{\JJ[x \mapsto a]} = \lb \phi_0 \rb_\JJ = \T$. \\
+        So according to the condition, $\lb \psi \rb_{\JJ[x\mapsto a]} = \T$, i.e. $\lb \forall x \psi \rb_\JJ = \T$. \\
+        Thus $\Phi, \forall x \phi \models \forall x \psi$.
+    \end{proof}
+    \item [c)] \quad \\
+    Let $Phi = \{\chi\}$, and a interpretation $\JJ$, where $\lb \chi \rb_\JJ = \T$ iff. $\JJ(x) = a (a \in \JJ\text{'s domain})$, and $\lb \forall x\phi \rb_\JJ = \T, \lb \forall x\psi \rb_\JJ = \T$ \\
+    Then let $b \in \JJ\text{'s domain }, \lb \phi \rb_{\JJ[x \mapsto b]} = \T, \lb \psi \rb_{\JJ[x \mapsto b]} = \T$ , but $\lb \chi \rb_{\JJ[x \mapsto b]} = \F$. \\
+    That indicates that $\Phi, \phi \not\models \psi$.
+\end{itemize}
+
+\section{}
+
+\begin{itemize}
+    \item [a)] WRONG
+    \item [b)] CORRECT
+    \item [c)] WRONG
+    \item [d)] CORRECT
+\end{itemize}
+
+\section{}
+
+$A = \{1\}, B = \{1, \{1\}\}$.
+
+\section{}
+
+$A = \{1\}, B = \{1, \{1\}\}, C = \{1, \{1\}, \{1, \{1\}\}\}$
+
+\section{}
+
+\begin{proof}
+    \begin{align*}
+        \forall X,\quad &X \in \PP(A) \cap \PP(B) \\
+        \leftrightarrow &\ X \in \PP(A) \land X \in \PP(B) \\
+        \leftrightarrow &\ X \subseteq A \land X \subseteq B \\
+        \leftrightarrow &\ \forall x \in X, x \in A \land x \in B \\
+        \leftrightarrow &\ \forall x \in X, x \in A \cap B \\
+        \leftrightarrow &\ X \subseteq A \cap B \\
+        \leftrightarrow &\ X \in \PP(A \cap B).
+    \end{align*}
+
+    So $\PP(A) \cap \PP(B) = \PP(A \cap B)$
+\end{proof}
+
+\subsection{}
+
+\begin{proof}
+    \begin{align*}
+         \forall (x, y),\quad &(x, y) \in A \times \bigcup B \\
+        \leftrightarrow & x \in A \land \exists Y (Y \in B \land y \in Y) \\
+        \leftrightarrow & \exists Y(Y \in B \land (x, y) \in A \times Y) \\
+        \leftrightarrow & \exists T(T \in  \{A \times X | X \in B \} \land (x, y) \in T) \\
+        \leftrightarrow & (x, y) \in \bigcup \{A \times X | X \in B \}
+    \end{align*}
+
+    So $A \times \bigcup B = \bigcup \{A \times X | X \in B \}$
+\end{proof}
+
+\end{document}

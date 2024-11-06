@@ -1,0 +1,277 @@
+\documentclass{article}
+\usepackage{amsmath}  % 数学符号包
+\usepackage{amssymb}  % 更多数学符号
+\usepackage{enumitem} % 列表样式
+\usepackage{fancyhdr} % 页眉设置
+\usepackage{geometry} % 页面设置
+\usepackage[UTF8]{ctex}
+\usepackage{bm}
+\usepackage{amsthm}
+
+\everymath{\displaystyle}  % 让所有数学模式都使用 \displaystyle
+
+\newcommand{\lb}{[\![}
+\newcommand{\rb}{]\!]}
+\newcommand{\ds}{^\prime}
+
+
+\geometry{a4paper, margin=1in}
+
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[C]{作业七}
+\fancyhead[R]{2024.11.06}
+
+
+\title{作业七}
+\author{noflowerzzk}
+\date{2024.11.06}
+
+
+\begin{document}
+\maketitle
+
+\section*{P153 T3}
+
+\begin{itemize}
+    \item 当 $f(x)$ 在 $(a, b)$ 连续而不是 $[a, b]$ 时, 取 $f(x) = x$, $x \in (0, 1)$, $f(0) = 10, f(1) = 0$, 有 $\frac{f(1) - f(0)}{1 - 0} = -10$, 但 $\forall \xi \in (0, 1), f^\prime(\xi) = 1$, Lagrange 定理不成立.
+    \item 若 $f(x)$ 在$(a, b)$ 上不处处可导, 取 $f(x) = \left\lvert x\right\rvert , x \in [-1, 1]$, 有 $\frac{f(1) - f(-1)}{1 - (-1)} = 0$, 但 $\forall \xi \in [-1, 0) \cup (0, 1]$, $f^\prime(\xi) \neq 0$, Lagrange 定理不成立.
+\end{itemize}
+
+\section*{P153 T4}
+
+\begin{proof}
+    \[
+        \psi(x) = (b - a)f(x) + x(f(a) - f(b)) + af(b) - bf(a)
+    \]
+    有
+    \[
+        \psi(a) = \psi(b) = 0
+    \]
+    且 $\psi(x)$ 在 $[a, b]$ 上连续, 在 $(a, b)$ 上可导. 由 Rolle 中值定理, $\exists \xi \in (a, b), \psi^\prime(\xi) = 0$, 即
+    \[
+        (b - a)f^\prime(\xi) + f(a) - f(b) = 0 \Leftrightarrow \frac{f(b) - f(a)}{b - a} = f^\prime(\xi).
+    \]
+    \qedhere \\
+    $\psi(x)$ 的绝对值是三点 $(x, f(x)), (a, f(a)), (b, f(b))$ 构成三角形的面积的两倍.
+\end{proof}
+
+\section*{P153 T5}
+
+\begin{proof}
+    取 
+    \[
+        h(x) = 
+        \begin{vmatrix}
+            f(a) & f(b) \\
+            g(a) & g(b)
+        \end{vmatrix}(x - a) - (b - a)
+        \begin{vmatrix}
+            f(a) & f(x) \\
+            g(a) & g(x) 
+        \end{vmatrix}
+    \]
+    有 $h(a) = h(b) = 0$, $h(x)$ 在 $[a, b]$ 上连续, 在 $(a, b)$ 上可导.  由 Rolle 中值定理, $\exists \xi \in (a, b), h^\prime(\xi) = 0$, 即 
+    \[
+        \begin{vmatrix}
+            f(a) & f(b) \\
+            g(a) & g(b)
+        \end{vmatrix} - (b - a)
+        \begin{vmatrix}
+            f(a) & f^\prime(\xi) \\
+            g(a) & g^\prime(\xi) 
+        \end{vmatrix} = 0
+    \]
+\end{proof}
+
+\section*{P153 T6}
+
+\begin{proof}
+    由 Lagrange 定理，$\exists \xi \in (a, b), \left\lvert f^\prime(\xi)\right\rvert  = \left\lvert \displaystyle{\frac{f(b) - f(a)}{b - a}}\right\rvert $. \\
+    假设 $\forall \eta \in (a, b), \left\lvert f^\prime(\eta)\right\rvert \leqslant \left\lvert f^\prime(\xi)\right\rvert  $, 对区间 $[a, x_0], [x_0, b]$ 使用 Lagrange 定理有 $\exists \xi_1 \in (a, x_0), \xi_2 \in (x_0, b)$, 
+    \[
+        \left\lvert \frac{f(x_)) - f(a)}{x_0 - a}\right\rvert = \left\lvert f^\prime(\xi_1)\right\rvert \leqslant \left\lvert f^\prime(\xi)\right\rvert 
+    \]
+    \[
+        \left\lvert \frac{f(b) - f(x_0)}{b - x_0}\right\rvert = \left\lvert f^\prime(\xi_2)\right\rvert \leqslant \left\lvert f^\prime(\xi)\right\rvert 
+    \]
+    所以
+    \begin{align*}
+        &\left\lvert f(b) - f(a)\right\rvert = (b - a)\left\lvert f^\prime(\xi)\right\rvert \leqslant \left\lvert f(b) - f(x_0)\right\rvert + \left\lvert f(x_0) - f(a)\right\rvert \\
+        =& (b - x_0)\left\lvert f^\prime(\xi_2)\right\rvert + (x_0 - a)\left\lvert f^\prime(\xi_1)\right\rvert \leqslant (b - a)\left\lvert f^\prime(\xi)\right\rvert         
+    \end{align*}
+    对任意 $x_0 \in (a, b)$ 均有等号成立，即 $\forall \xi_0 \in (a, b)$, $\left\lvert f^\prime(\xi_0)\right\rvert = \left\lvert f^\prime(\xi)\right\rvert = \left\lvert \displaystyle{\frac{f(b) - f(a)}{b - a}}\right\rvert$. \\
+    由 Darboux 定理，$f^\prime(x)$ 必然均同号，则 $f(x)$ 在 $(a, b)$ 上为线性函数，矛盾！
+\end{proof}
+
+\section*{P153 T9}
+
+\begin{proof}
+    对任意 $\varepsilon > 0$, 存在 $\delta = \frac{\varepsilon}{2}$, 当 $x \in (x_0 - \delta, x_0 + \delta)$ 时，$\displaystyle{\left\lvert \frac{f(x) - f(x_0)}{x - x_0}\right\rvert = \left\lvert x - x_0\right\rvert < \varepsilon}$, 故 $f(x)$ 在 $[a, b]$ 上导数处处为 0. 因此 $f(x)$ 在$[a, b]$ 上连续.\\
+    因此 $\forall x_1 < x_2 \in [a, b]$, 由 Lagrange 定理有
+    \[
+        f(x_1) - f(x_2) = (x_1 - x_2)f^\prime(\xi) = 0 
+    \]
+    即 $f(x)$ 是常函数
+\end{proof}
+
+\section*{P154 T11}
+
+\begin{proof}
+    对任意 $x_1 < x_2 \in [a, b]$, 由 Lagrange 定理，$\exists \xi \in (x_1, x_2), f(x_2) - f(x_1) = f^\prime(\xi)(x_2 - x_1)$. \\
+    假设 $f^\prime(\xi) = 0$, 则 $f(x_1) = f(x_2)$. \\
+    由于 $f^\prime(x) \geqslant 0$, $f(x)$ 在 $[x_1, x_2]$ 单调递增，因此任意 $x \in [x_1, x_2], f(x) = f(x_1) = f(x_2)$.\\
+    则对任意区间 $[x, x_2]$ 使用 Rolle 中值定理，有 $\forall x \in [x_1. x_2], f^\prime(x) = 0$, 与仅有有限个点导数为零矛盾！\\
+    因此 $f^\prime(\xi) > 0$, $f(x_1) > f(x_2)$, $f(x)$ 在 $[a, b]$ 上严格单增. \qedhere \\
+    但是取
+    \[
+        f(x) = \begin{cases}
+            0 & x = 0 \\
+            \frac{\cos\frac{1}{x} - 1}{4k(2k + 1)\pi} - \frac{1}{(2k + 1)\pi} & x \in \left(\frac{1}{(2k + 1)\pi}, \frac{1}{2k\pi}\right) \\
+            \frac{-\cos\frac{1}{x} - 1}{4k(2k + 1)\pi} - \frac{1}{(2k + 1)\pi} &  x \in \left(\frac{1}{(2k + 2)\pi}, \frac{1}{(2k + 1)\pi}\right) \\
+            -1 & x = 1
+        \end{cases}
+    \]
+    $f(x)$ 在 $[0, 1]$ 上严格单增，但$\forall k \in \mathbb{N}^*, x = \frac{1}{2k\pi}, f^\prime(x) = 0$，并非有限个.
+\end{proof}
+
+\section*{P154 T12}
+
+\begin{itemize}
+    \item [(1)]
+    \begin{proof} \quad \\
+        $f(x) = x - \sin x, f^\prime(x) = 1 - \cos x \geqslant 0, f(x) > f(0) = 0$ \\
+        $g(x) = \sin x - \frac{2}{\pi}x, g^\prime(x) = \cos x - \frac{2}{\pi}$ 单减. $g(0)g(\frac{\pi}{2}) < 0$ 由零点存在定理, $\exists ! x_0 \in (0, 1), g^\prime(x_0) = 0, \forall x \in (0, x_0), g^\prime(x) > 0, \forall x \in \left(x_0, \frac{\pi}{2}\right), g^\prime(x) < 0$. $g(x) > \min\{g(0), g(\frac{\pi}{2})\} = 0$
+    \end{proof}
+    \item [(2)]
+    \begin{proof}
+        $f(x) = \frac{1}{x} + 2\sqrt{x} - 3$, $f\ds(x) = -\frac{1}{x^2} + \frac{1}{\sqrt{x}} = \frac{x\sqrt{x} - 1}{x^2} > 0$. $f(x)$ 在 $(1, + \infty)$ 单增，$f(x) > f(1) = 0$
+    \end{proof}
+    \item [(3)] 
+    \begin{proof}
+        $f(x) = x - \ln(x + 1), f\ds(x) = \frac{x}{x + 1} > 0$, $f(x)$ 在 $(0, + \infty)$ 单增，$f(x) > f(0) = 0$. \\
+        $g(x) = \ln(1 + x) - x + \frac{x^2}{2}, g\ds(x) = \frac{x^2}{x + 1} > 0$ $g(x)$ 在 $(0, + \infty)$ 单增，$g(x) > g(0) = 0$.
+    \end{proof}
+    \item [(4)]
+    \begin{proof}
+        $f(x) = \tan x + 2\sin x - 3x, f\ds(x) = \frac{1}{\cos^2 x} + 2\cos x - 3 = \frac{(\cos x - 1)^2(2\cos x + 1)}{\cos^2 x} > 0$. $f(x)$ 在 $\left(0, \frac{\pi}{2}\right)$ 单增，$f(x) > f(0) = 0$.
+    \end{proof}
+    \item [(5)]
+    \begin{proof}
+        由于 $0 \leqslant x \leqslant  1$ $x^p \leqslant x, (1 - x)^p \leqslant 1 - x$. $x^p + (1 - x)^p \leqslant x + 1 - x = 1$. \\
+        $f(x) = x^p + (1 - x)^p, f\ds(x) = p(x^{p - 1} - (1 - x)^(p - 1)) > 0 \Leftrightarrow x > \frac{1}{2}$. $f(x)$ 在 $\left(0, \frac{1}{2}\right)$ 单减，在 $\left(\frac{1}{2}, 1\right)$ 单增，$f(x) \geqslant f(\frac{1}{2}) = \frac{1}{2^{p - 1}}$.
+    \end{proof}
+    \item [(6)]
+    \begin{proof}
+        令 $t = \tan \frac{x}{2} > \frac{x}{2}$. \\
+        $\tan x \cdot \sin x = \frac{2t}{1 - t^2}\cdot \frac{2t}{1 + t^2} = \frac{4t^2}{1 - t^4} > 4t^2 > 4\left(\frac{x}{2}\right)^2 = x^2$.
+    \end{proof}
+\end{itemize}
+
+\section*{P154 T15}
+
+\begin{itemize}
+    \item [(1)]
+    \begin{proof}
+        令 $g(x) = f(x) - x$, $g(x)$ 在 $[0, 1]$ 上连续. 由于 $g\left(\frac{1}{2}\right) = \frac{1}{2}, g(1) = -1$, 由零点存在定理，$\exists \xi \in \left(\frac{1}{2}, 1\right), f(\xi) = \xi$.
+    \end{proof}
+    \item [(2)]
+    \begin{proof}
+        令 $h(x) = \frac{g(x)}{\mathrm{e}^{\lambda x}}$, 有 $h\ds(x) = \frac{g\ds(x) - \lambda g(x)}{\mathrm{e}^{\lambda x}}$. \\
+        而 $h(0) = h(\xi) = 0, h\left(\frac{1}{2}\right) = \mathrm{e}^{-\frac{\lambda}{2}}$ 且 $h(x)$ 在 $[0, \xi]$ 上连续, 在 $(0, \xi)$ 上可导. 由 Rolle 中值定理, $\exists \eta \in (0, \xi), h\ds(\eta) = 0$，即 $g\ds(\eta) = \lambda g(\eta) \Leftrightarrow f\ds(\eta) - \lambda [f(\eta) - \eta] = 1$.
+    \end{proof}
+\end{itemize}
+
+\section*{P170 T1}
+
+\begin{proof}
+    $\theta(x) = \frac{1}{\ln(1 + x)} - \frac{1}{x}$, 有
+    \begin{align*}
+        \lim_{x \to 0}\theta(x) & = \lim_{x \to 0}\frac{1}{\ln(1 + x)} - \frac{1}{x} \\
+        & = \lim_{x \to 0}\frac{x - \ln (1 + x)}{x^2}\cdot \frac{x}{\ln(1 + x)} \\
+        & = \lim_{x \to 0}\frac{1 - \frac{1}{1 + x}}{2x} \\
+        & = \frac{1}{2}
+    \end{align*}
+\end{proof}
+
+\section*{P170 T2}
+
+\begin{proof}
+    令 $p_{n - 1}(x) = f(x) + f\ds(x)h + \cdots + \frac{1}{(n - 1)!}f^{(n - 1)}(x)h^{n - 1}$, $r(x) = f(x) - p_{n - 1}(x)$. 由 Lagrange 中值定理, $p_{n - 1}(x)$ 为 $f(x)$ 的 $n - 1$ 次 Taylor 多项式.
+\end{proof}
+
+\section*{P183 T1}
+
+\begin{itemize}
+    \item [(7)] $f\ds(0) = \lim_{x \to 0}\frac{\frac{x}{\mathrm{e}^x - 1} - 1}{x} = -\frac{1}{2}$, \\
+    由 $x \to 0$ 时，$\mathrm{e}^x = 1 + x + \frac{1}{2}x^2 + \frac{1}{6}x^3 + \frac{1}{24}x^4 + \frac{1}{120}x^5 + o(x^5)$. \\
+    $x \neq 1$ 时，
+    \begin{align*}
+        f(x) & = \frac{x}{x + \frac{1}{2}x^2 + \frac{1}{6}x^3 + \frac{1}{24}x^4 + \frac{1}{120}x^5 + o(x^5)} \\
+        & = \frac{1}{1 + \frac{1}{2}x + \frac{1}{6}x^2 + \frac{1}{24}x^3 + \frac{1}{120}x^4 + o(x^4)} \\
+        & = 1 - \left(\frac{1}{2}x + \frac{1}{6}x^2 + \frac{1}{24}x^3 + \frac{1}{120}x^4 + o(x^4)\right) + \left(\frac{1}{2}x + \frac{1}{6}x^2 + \frac{1}{24}x^3 + o(x^3)\right)^2 \\
+        & \quad - \left(\frac{1}{2}x + \frac{1}{6}x^2 + o(x^2)\right)^3 + \left(\frac{x}{2} + o(x)\right)^4 \\
+        & = \cdots \text{(舍去高阶量)} \\
+        & = 1 - \frac{1}{2}x + \frac{1}{12}x^2 - \frac{1}{720}x^4 + o(x^4)
+    \end{align*}
+    \item [(8)] 由 $x \to 0$ 时，$\sin x = x - \frac{1}{6}x^3 + \frac{1}{120}x^5 + o(x^5)$, \\
+    \begin{align*}
+        f(x) & = \ln \frac{x - \frac{1}{6}x^3 + \frac{1}{120}x^5 + o(x^5)}{x} \\
+        & = \ln \left(1 - \frac{1}{6}x^2 + \frac{1}{120}x^4 + o(x^4)\right) \\
+        & = \left(- \frac{1}{6}x^2 + \frac{1}{120}x^4 + o(x^4)\right) - \frac{1}{2}\left(-\frac{1}{2}x^2 + o(x^2)\right)^2 \\
+        & = -\frac{1}{6}x^2 - \frac{1}{180}x^4 + o(x^4)
+    \end{align*}
+    \item [(9)] 由 $x \to 0$ 时，$(1 + x)^\alpha = \binom{\alpha}{0} + \binom{\alpha}{1}x + \binom{\alpha}{2}x^2 + \binom{\alpha}{3}x^3 + o(x^3) $, \\
+    \begin{align*}
+        f(x) & = (1 + (x^3 - 2x))^{\frac{1}{2}} - (1 + (x^2 - 3x))^{\frac{1}{3}} \\
+        & = 1 + \frac{1}{2}(x^3 - 2x) - \frac{1}{8}(-2x)^2 + \frac{1}{16}(-2x)^3 \\
+        & \quad - \left(1 + \frac{1}{3}(x^2 - 3x) - \frac{1}{9}(x^2 - 3x)^2 + \frac{5}{81}(-3x)^3\right) + o(x^3)\\
+        & = \frac{1}{6}x^2 + x^3 + o(x^3)
+    \end{align*}
+\end{itemize}
+
+\section*{P183 T2}
+
+\begin{itemize}
+    \item [(4)]
+    \begin{align*}
+        f(x) & = \frac{1}{2} + \frac{\sqrt{3}}{2}\left(x - \frac{\pi}{6}\right) - \frac{1}{4}\left(x - \frac{\pi}{6}\right)^2 - \frac{\sqrt{3}}{12}\left(x - \frac{\pi}{6}\right)^3 + \cdots \\
+        & \quad + \frac{1}{n!}\sin \left(\frac{\pi}{6} + \frac{n\pi}{2}\right)\left(x - \frac{\pi}{6}\right)^n + o\left(\left(x - \frac{\pi}{6}\right)^n\right)
+    \end{align*}
+    \item [(5)]
+    \begin{align*}
+        f(x) & = \sqrt{2} + \frac{1}{2\sqrt{2}}\left(x - 2\right) + \cdots \\
+        & \quad + \binom{\frac{1}{2}}{n}x^{\frac{1}{2} - n}\left(x - 2\right)^n + o\left(\left(x - 2\right)^n\right)
+    \end{align*}
+\end{itemize}
+
+\section*{补充题：高阶导判别法}
+
+\begin{proof}
+    当 $f\ds(x_0) = f^{\prime\prime}(x_0) = \cdots = f^{(n)}(x_0) = 0, f^{(n + 1)}(x_0) \neq 0$ 时，\\
+    由于
+    \begin{align*}
+        f(x) & = f(x_0) + f\ds(x_0)(x - x_0) + \cdots + \frac{1}{(n + 1)!}f^{(n + 1)}(x_0)(x - x_0)^{n + 1} + o((x - x_0)^{n + 1}) \\
+        & = \frac{1}{(n + 1)!}f^{(n + 1)}(x_0)(x - x_0)^{n + 1} + o((x - x_0)^{n + 1})
+    \end{align*} 
+    因此 
+    \begin{align*}
+        \frac{f(x) - f(x_0)}{(x - x_0)^{n + 1}} = \frac{1}{(n + 1)!}f^{(n + 1)}(x_0) + \frac{o((x - x_0)^{n + 1})}{(x - x_0)^{n + 1}}, \\
+    \end{align*}
+    $x \to x_0$ 时，
+    \[
+        f(x) - f(x_0) = \frac{f^{(n + 1)}(x_0)}{(n + 1)!}(x - x_0)^{n + 1}
+    \]
+    \begin{itemize}
+        \item 当 $n + 1$ 为奇数时，\\
+        不妨$f^{(n + 1)}(x_0) > 0$, $x < x_0 \Rightarrow f(x) < f(x_0), \ x > x_0 \Rightarrow f(x) > f(x_0)$, 表明 $x_0$ 不是 $f(x)$ 极值点. $f^{(n + 1)}(x_0) < 0$ 同理
+        \item 当 $n + 1$ 为偶数时，
+        \begin{itemize}
+            \item $f^{(n + 1)}(x_0) > 0$, $f(x) - f(x_0) = \frac{f^{(n + 1)}(x_0)}{(n + 1)!}(x - x_0)^{n + 1} > 0$, $x_0$ 是 $f(x)$ 极小值点
+            \item $f^{(n + 1)}(x_0) < 0$, 同理有 $x_0$ 是 $f(x)$ 极大值点
+        \end{itemize}
+    \end{itemize}
+\end{proof}
+
+\end{document}
