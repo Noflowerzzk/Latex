@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999996 (TeX Live 2024) (preloaded format=xelatex 2024.9.25)  6 NOV 2024 22:13
+This is XeTeX, Version 3.141592653-2.6-0.999996 (TeX Live 2024) (preloaded format=xelatex 2024.9.25)  7 NOV 2024 07:54
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -459,16 +459,16 @@ Overfull \hbox (0.63321pt too wide) in paragraph at lines 143--146
  []
 
 [2] [3]
-Underfull \hbox (badness 10000) in paragraph at lines 218--219
+Underfull \hbox (badness 10000) in paragraph at lines 230--231
 
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 225--226
+[4]
+Underfull \hbox (badness 10000) in paragraph at lines 237--238
 
  []
 
-[4] [5] [6] (./作业七.aux)
+[5] [6] (./作业七.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2022/07/14>

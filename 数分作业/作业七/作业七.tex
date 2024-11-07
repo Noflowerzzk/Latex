@@ -193,18 +193,30 @@
         & = \lim_{x \to 0}\frac{1 - \frac{1}{1 + x}}{2x} \\
         & = \frac{1}{2}
     \end{align*}
+    i
 \end{proof}
 
 \section*{P170 T2}
 
 \begin{proof}
-    令 $p_{n - 1}(x) = f(x) + f\ds(x)h + \cdots + \frac{1}{(n - 1)!}f^{(n - 1)}(x)h^{n - 1}$, $r(x) = f(x) - p_{n - 1}(x)$. 由 Lagrange 中值定理, $p_{n - 1}(x)$ 为 $f(x)$ 的 $n - 1$ 次 Taylor 多项式.
+    令 
+    \begin{align*}
+        f(x + h) & = f(x) + f\ds(x)h + \cdots + \frac{1}{(n - 1)!}f^{(n - 1)}(x)h^{n - 1} + \frac{1}{n!}f^{(n)}(x + \theta h)h^n\\
+        & = f(x) + f\ds(x)h + \cdots + \frac{1}{(n + 1)!}f^{(n + 1)}(x)h^{n + 1} + o(h^{n + 1})
+    \end{align*}
+    因此
+    \begin{align*}
+        & \frac{f^{(n)}(x + \theta h) - f^{(n)}(x)}{h} = \frac{1}{n + 1}f^{(n + 1)}(x) + o(1) \\
+        \Rightarrow \quad & \theta f^{(n + 1)}(x) = \frac{1}{n + 1}f^{(n + 1)}(x) + o(1) & (h \to 0)\\
+        \Rightarrow \quad & \theta = \frac{1}{n + 1} & (h \to 0)
+    \end{align*}
+    即 $\lim_{h \to 0}\theta = \frac{1}{n + 1}$
 \end{proof}
 
 \section*{P183 T1}
 
 \begin{itemize}
-    \item [(7)] $f\ds(0) = \lim_{x \to 0}\frac{\frac{x}{\mathrm{e}^x - 1} - 1}{x} = -\frac{1}{2}$, \\
+    \item [(7)] 
     由 $x \to 0$ 时，$\mathrm{e}^x = 1 + x + \frac{1}{2}x^2 + \frac{1}{6}x^3 + \frac{1}{24}x^4 + \frac{1}{120}x^5 + o(x^5)$. \\
     $x \neq 1$ 时，
     \begin{align*}
