@@ -1,5 +1,9 @@
+\special{dvipdfmx:config z 0} %取消PDF压缩，加快速度，最终版本生成的时候最好把这句话注释掉
+
+
 \documentclass{ctexart}
-\usepackage{newtxtext, geometry, amsmath, amssymb}
+\usepackage{newtxtext, amsmath, amssymb}
+\usepackage[left=0.5in, right=0.5in, top=0.9in, bottom=0.9in]{geometry}
 \usepackage{amsthm} % 设置定理环境，要在amsmath后用
 \usepackage{xpatch} % 用于去除amsthm定义的编号后面的点
 \usepackage[strict]{changepage} % 提供一个 adjustwidth 环境
@@ -15,6 +19,8 @@
             {hyperref} % 实现引用超链接功能
 \usepackage{tcolorbox} % 盒子效果
 \tcbuselibrary{most} % tcolorbox宏包的设置，详见宏包说明文档
+\everymath{\displaystyle}  % 让所有数学模式都使用 \displaystyle
+
 
 \geometry{a4paper,centering,scale=0.8}
 
@@ -30,6 +36,8 @@
 \newcommand{\RR}{\mathbb{R}} % 黑板粗体R
 \newcommand{\ZZ}{\mathbb{Z}} % 黑板粗体Z
 \newcommand{\NN}{\mathbb{N}} % 黑板粗体N
+\newcommand{\ds}{^\prime}
+\newcommand{\dds}{^{\prime\prime}}
 % ————————————————————————————————————自定义符号————————————————————————————————————
 
 % ————————————————————————————————————自定义颜色————————————————————————————————————
@@ -159,10 +167,13 @@
 \newtheorem{lthj}{\color{szi} 例}[subsection]
 \newtheorem*{jiehj}{\color{slan} 解}
 \newtheorem*{zmhj}{\color{slan} 证明}
+\newtheorem{ylhj}{\color{shuang} 引理}[subsection]
+\newtheorem*{ylzmhj}{\color{slan} 引理的证明}
 \newenvironment{dy}{\begin{lvse}\begin{dyhj}}{\end{dyhj}\end{lvse}}
 \newenvironment{zm}{\begin{lanse}\begin{zmhj}}{$\hfill \square$\end{zmhj}\end{lanse}}
 \newenvironment{dl}{\begin{huangse}\begin{dlhj}}{\end{dlhj}\end{huangse}}
 \newenvironment{lt}{\begin{zise}\begin{lthj}}{\end{lthj}\end{zise}}
+\newenvironment{yl}{\begin{huangse}\begin{ylhj}}{\end{ylhj}\end{huangse}}
 % ————————————————————————————————————定理类环境设置————————————————————————————————————
 
 % ————————————————————————————————————目录设置————————————————————————————————————
@@ -302,5 +313,146 @@
     \end{jiehj}
 \end{lt}
 
-    
+\begin{kuang2}
+    \section{函数微分、导数相关定理}
+\end{kuang2}
+
+\begin{kuang3}
+    \subsection{导数基本性质与中值定理}
+\end{kuang3}
+
+
+\begin{kuang3}
+    \subsection{Taylor 公式}
+\end{kuang3}
+
+\begin{kuang3}
+    \subsection{凸函数与 Lipschitz 条件}
+\end{kuang3}
+
+\subsubsection{凸函数与二阶导的关系}
+
+\begin{dl}
+    $f(x)$ 在区间 $I$ 上二阶可导，则 $\forall x \in I, f\dds(x) \geqslant 0$ 是 $f(x)$ 在 $I$ 上下凸的充要条件. 
+    \begin{zmhj}
+        充分性: \\
+        任取 $x_1, x_2 \in I$，不妨设 $x_1 < x_2$。任取 $\lambda \in (0,1)$，根据 Lagrange 中值定理
+        \begin{align*}
+            & \lambda f(x_1) + (1 - \lambda) f(x_2) - f(\lambda x_1 + (1 - \lambda)x_2) \\
+            = & -\lambda \left( f(\lambda x_1 + (1 - \lambda)x_2) - f(x_1) \right) + (1 - \lambda) \left( f(x_2) - f(\lambda x_1 + (1 - \lambda)x_2) \right) \\
+            = & -\lambda f'(\xi_1) \cdot (1 - \lambda)(x_2 - x_1) + (1 - \lambda)f'(\xi_2) \cdot \lambda(x_2 - x_1) \quad \\
+            & \qquad (x_1 < \xi_1 < \lambda x_1 + (1 - \lambda)x_2 < \xi_2 < x_2) \\
+            = & \ \lambda (1 - \lambda) f''(\xi) (x_2 - x_1)(\xi_2 - \xi_1) \quad (\xi_1 \leq \xi \leq \xi_2) \\
+            \geqslant & \  0
+        \end{align*}
+        必要性: 假设 $f(x)$ 是 $I$ 上的下凸函数，且处处二阶可导。取 $x_0 \in I$，则 $\forall \Delta x > 0$，有
+        \begin{align*}
+            \frac{f(x_0 + \Delta x) + f(x_0 - \Delta x) - 2f(x_0)}{\Delta x^2} \geq 0 
+            \qquad \left( x_0 = \frac{1}{2} (x_0 - \Delta x) + \frac{1}{2}(x_0 + \Delta x) \right)
+        \end{align*}
+        另一方面，根据带 Peano 余项的 Taylor 公式, 
+        \begin{align*}
+            & \frac{f(x_0 + \Delta x) + f(x_0 - \Delta x) - 2f(x_0)}{\Delta x^2} \\
+            = & \ \frac{1}{\Delta x^2} \Bigg( f(x_0) + f'(x_0) \Delta x + \frac{1}{2} f''(x_0) \Delta x^2 + o(\Delta x^2)  \\
+            & \  + f(x_0) + f'(x_0)(-\Delta x) + \frac{1}{2} f''(x_0)(-\Delta x)^2 + o(\Delta x^2) - 2f(x_0) \Bigg)\\
+            = &\  f''(x_0) + \frac{o(\Delta x^2)}{\Delta x^2} \quad (\Delta x \to 0) \\
+            = & \ f(x_0) \\
+            \geqslant & \ 0
+        \end{align*}
+        \qed
+    \end{zmhj}
+\end{dl}
+
+\subsubsection{Lipschitz 条件}
+
+\begin{dy}[局部 Lipschitz 函数]
+    对任意 $x_0 \in D_f$, 存在邻域 $(x_0  - \delta, x_0 + \delta)$, 与常数 $C$ ($\delta, C$ 均依赖于 $x_0$), 使得
+    \[
+        \forall x, x\ds \in (x_0  - \delta, x_0 + \delta) \cap D_f: \quad \left\lvert f(x) - f(x\ds)\right\rvert \leqslant C\left\lvert x - x\ds\right\rvert  
+    \]
+    则称 $f(x)$ 为\textbf{局部 Lipschitz 函数}.
+\end{dy}
+
+\begin{dy}[Lipschitz 函数]
+    若存在常数 $C$, 使得
+    \[
+        \forall x, x\ds \in D_f: \quad \left\lvert f(x) - f(x\ds)\right\rvert \leqslant C\left\lvert x - x\ds\right\rvert
+    \]
+    则称 $f(x)$ 为\textbf{Lipschitz 函数}.
+\end{dy}
+
+又由限覆盖定理，闭区间上的局部 Lipschitz 函数是Lipschitz 函数.
+
+\begin{dl}
+    Lipschitz 函数是连续函数.  
+\end{dl}
+
+\subsubsection{开区间上的凸函数}
+
+\begin{yl}
+    $f(x)$ 是 $(a, b)$ 上的下凸函数当且仅当任意 $(x_1, x_2) \subseteq (a, b)$, 任意 $x \in (x_1, x_2)$, 有
+    \[
+        \frac{f(x) - f(x_1)}{x - x_1} \leqslant \frac{f(x_2) - f(x_1)}{x_2 - x_1} \leqslant \frac{f(x_2) - f(x)}{x_2 - x}
+    \]
+    \begin{ylzmhj}
+        由 $x = \frac{x_2 - x}{x_2 - x_1}x_1 + \frac{x - x_1}{x_2 - x_1}x_2$, 有
+        \begin{align*}
+            f(x) \text{是下凸函数} \Leftrightarrow\quad 
+            & f(x) \leqslant \frac{x_2 - x}{x_2 - x_1}f(x_1) + \frac{x - x_1}{x_2 - x_1}f(x_2)\quad (\forall a < x_1 < x < x_2 < b)\\
+            \Leftrightarrow\quad & \frac{f(x) - f(x_1)}{x - x_1} \leqslant \frac{f(x_2) - f(x_1)}{x_2 - x_1}
+        \end{align*}
+        另一边同理.
+    \end{ylzmhj}
+\end{yl}
+
+\begin{yl}
+    闭区间上的下凸函数有界.
+    \begin{ylzmhj}
+        设闭区间 $[a, b]$, 任取 $x \in [a, b]$, $\exists \lambda \in (0, 1), x = \lambda a + (1 - \lambda) b, f(x) \leqslant \lambda f(a) + (1 - \lambda )f(b) \leqslant \max\{f(a), f(b)\}$. \\
+        又将 $f(x)$ 连续延拓到 $[c, d] \supseteq [a, b]$ 上且保证其在 $[c, d]$ 上下凸，有 $f(x)$ 在 $[c, d]$ 上有上界. \\
+        由于 $f(a) \leqslant \lambda_1f(x) + (1 - \lambda_1)f(c)$, 有 $f(x) \geqslant \frac{1}{\lambda_1}f(a) - \left(\frac{1}{\lambda_1} - 1\right)f(c)$. \\
+        同理 $f(x) \geqslant \frac{1}{\lambda_2}f(b) - \left(\frac{1}{\lambda_2} - 1\right)f(d)$. 即 $f(x)$ 有下界.
+        \qed
+    \end{ylzmhj}
+\end{yl}
+
+
+\begin{dl}
+    开区间上的凸函数必为连续函数. 
+    \begin{zmhj}
+        对任意 $\varepsilon > 0$, 任意 $x_0 \in (a, b)$, 存在 $\delta > 0, [x_0 - 2\delta, x_0 + 2\delta] \subseteq (a, b)$. \\
+        任取 $x > y \in (x_0 - \delta, x_0 + \delta)$, $x = \lambda (x_0 + 2\delta) + (1 - \lambda)y, \lambda \in (0, 1)$. \\
+        由凸函数性质， $f(x) \leqslant \lambda f(x_0 + 2\delta) + (1 - \lambda)f(y) \Leftrightarrow f(x) - f(y)\leqslant \lambda[f(x_0 + 2\delta) - f(y)]$. \\
+        由\textcolor{shuang}{\textbf{引理 3.3.2}}， $\left\lvert f(x)\right\rvert < M, \exists M > 0$. 故 $\left\lvert f(y) - f(x)\right\rvert \leqslant \lambda[f(x_0 + 2\delta) - f(y)] \leqslant 2\lambda M$. \\
+        又由 $x = \lambda (x_0 + 2\delta) + (1 - \lambda)y \Rightarrow \left\lvert x - y\right\rvert = \lambda(x_0 + 2\delta - y) > \lambda\delta$, 故 $2\lambda M < \frac{\left\lvert x - y\right\rvert}{\delta}$. \\
+        代入有 $\left\lvert f(x) - f(y)\right\rvert < \frac{\left\lvert x - y\right\rvert }{\delta}$, 满足 \textbf{局部 Lipschitz 性质}，因此 $f(x)$ 连续.
+        \qed
+    \end{zmhj}
+\end{dl}
+
+\begin{dl}
+    开区间上的凸函数必为 Lipschitz 函数.
+\end{dl}
+
+\begin{lt}
+    设函数 $f(x)$ 是 $(a, b)$ 上的下凸函数，证明:
+    \begin{enumerate}
+        \item [(1)] 在每个 $x \in (a, b)$，$f'_-(x)$ 与 $f'_+(x)$ 均存在，且 $f'_-(x) \leqslant f'_+(x)$.
+        \item [(2)] 若 $a < x_1 < x_2 < b$，则有 $f'_+(x_1) \leqslant f'_-(x_2)$.
+        \item [(3)] $f(x)$ 不可导的点至多有可列个.
+    \end{enumerate}
+    \begin{zmhj} \quad
+        \begin{enumerate}
+            \item [(1)] 取 $x_0 \in (a, b)$, 由由\textcolor{shuang}{\textbf{引理 3.3.1}}, $\frac{f(x_0) - f(x_0 - \Delta x)}{\Delta x} \geqslant \frac{f(x_0) - f(x_0 - 2 \Delta x_0)}{2\Delta x}$, 表明 $F_-(\Delta x) = \frac{f(x_0) - f(x_0 - \Delta x)}{\Delta x}$ 关于 $\Delta x$ 单减. \\
+            又取定 $x' > x_0, F_-(\Delta x) \leqslant \frac{f(x') - f(x_0)}{x' - x_0}$, $F_-(\Delta x)$ 在 $\Delta x \to 0^+$ 时单调递增且有上界，故极限存在，即 $f\ds_-(x_0) = \lim_{\Delta x \to 0}F_-(\Delta x)$ 存在. 同理 $f\ds_+(x_0)$ 也存在.\\
+            $f\ds_-(x_0) = \lim_{x \to x_0^-}\frac{f(x_0) - f(x)}{x_0 - x} \leqslant \lim_{x \to x_0^+}\frac{f(x) - f(x_0)}{x - x_0} = f\ds_+(x_0)$ \quad(由\textcolor{shuang}{\textbf{引理 3.3.1}}) 
+            \item [(2)] 任取 $x \in (x_1, x_2)$, \\
+            有 $f'_+(x_1) = \lim_{x \to x_1^+}\frac{f(x) - f(x_1)}{x - x_1} \leqslant \frac{f(x) - f(x_1)}{x - x_1} \leqslant \frac{f(x_2) - f(x)}{x_2 - x} \leqslant \lim_{x \to x_2^-}\frac{f(x_2) - f(x)}{x_2 - x} = f'_-(x_2)$
+            \item [(3)] 由 $(2)$ 知，如果存在一点 $x_0 \in (a, b)$, 使得 $f'_-(x_0) < f'_+(x_0)$, 则开区间 $(f'_-(x_0), f'_+(x_0))$ 中不含 $f'_-(x), f'_+(x), \ \forall x \in (a, b)$ 的所有值.|\\
+            假设有两点 $x_1 < x_2$, 有 $f'_-(x_i) < f'_+(x_i), \ i \in \{1, 2\}$. 则易得 $f'_-(x_1) < f'_+(x_1) \leqslant f'_-(x_2) < f'_+(x_2)$. \\
+            由于 $f'_-(x), f'_+(x)$ 均有解，设为 $\left\lvert f'_-(x)\right\rvert < M,\left\lvert  f'_+(x)\right\rvert < M$, 
+        \end{enumerate}
+    \end{zmhj}
+\end{lt}
+
 \end{document}

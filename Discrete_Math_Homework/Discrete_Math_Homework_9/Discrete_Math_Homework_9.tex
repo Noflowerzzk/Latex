@@ -1,0 +1,93 @@
+\documentclass{article}
+\usepackage{amsmath}  % 数学符号包
+\usepackage{amssymb}  % 更多数学符号
+\usepackage{enumitem} % 列表样式
+\usepackage{fancyhdr} % 页眉设置
+\usepackage{geometry} % 页面设置
+\usepackage{bm}
+\usepackage{amsthm}
+\everymath{\displaystyle}  % 让所有数学模式都使用 \displaystyle
+\newcommand{\lb}{\left\llbracket}
+\newcommand{\rb}{\right\rrbracket}
+
+
+\geometry{a4paper, margin=1in}
+
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[C]{Discrete Math Homework 9}
+\fancyhead[R]{2024.11.09}
+
+
+\title{Discrete Math Homework 9}
+\author{noflowerzzk}
+\date{2024.11.09}
+
+
+\begin{document}
+\maketitle
+
+\section{}
+
+\begin{itemize}
+    \item [b)] not reflexive; symmetric; not antisymmetric; not transitive.
+    \item [f)] reflexive; symmetric; not antisymmetric; transitive.
+\end{itemize}
+
+\section{}
+
+\begin{itemize}
+    \item [a)] $R_1 \circ R_1 = \{(a, b) \in \mathbb{R}^2| a > b\} = R_1$
+    \item [b)] $R_1 \circ R_2 = \{(a, b) \in \mathbb{R}^2| a > b\} = R_1$
+    \item [c)] $R_1 \circ R_3 = \mathbb{R}^2$
+    \item [e)] $R_1 \circ R_5 = \{(a, b) \in \mathbb{R}^2| a > b\} = R_1$
+    \item [f)] $R_1 \circ R_6 = \mathbb{R}^2$
+    \item [g)] $R_2 \circ R_3 = \mathbb{R}^2$
+    \item [h)] $R_3 \circ R_3 = \{(a, b) \in \mathbb{R}^2| a > b\} = R_1$
+\end{itemize}
+
+\section{}
+
+Let $R_1 = \{(1, 2), (2, 1)\} \cup I_A$, $R_2 = \{(2, 3), (3, 2)\} \cup I_A$, $A = \{1, 2, 3\}$. \\
+Then $(1, 2), (2, 3) \in R_1 \cup R_2$, but $(1, 3) \notin R_1 \cup R_2$, $R_1 \cup R_2$ is not transitive. \\
+So it is not a an equivalence relation on $A$.
+
+\section{}
+
+\begin{proof}
+    Reflexive: Noting that $I_A \subseteq R_1, I_A \subseteq R_2$, so $I_A \subseteq R_1 \cap R_2$. \\
+    Symmetric: $\forall a, b \in A$, if $a(R_1 \cap R_2)b$, then $aR_1b$ and $aR_2b$. Then $bR_1a \Rightarrow b(R_1 \cap R_2)a$, i.e. $a(R_1 \cap R_2)b$ iff. $b(R_1 \cap R_2)a$. \\
+    Transitive: $\forall a, b, c \in A, a(R_1 \cap R_2)b, b(R_1 \cap R_2)c$, then $aR_1b$, $bR_1c$, so $aR_1c$, similarly, $aR_2c$. So $a(R_1 \cap R_2)c$.
+\end{proof}
+
+\section{}
+
+\begin{itemize}
+    \item [a)] $[1]_R = \mathbb{Z}$.
+    \item [b)] $\left[\frac{1}{2}\right]_R = \{x | x = a + \frac{1}{2}, a \in \mathbb{Z}\}$.
+\end{itemize}
+
+\section{}
+
+\begin{itemize}
+    \item [a)]
+    \begin{proof}
+        Let the set of all equivalence classes of $R$ is $R'$. \\
+        Reflexive: $I_{R'} \subseteq S_2$. \\
+        Symmetric: If $[a]_RS_2[b]_R \ ([a]_R \neq [b]_R)$, then $a, b \in \mathbb{R}, a - b = \frac{1}{2}$. Noting that $b + 1 - a = \frac{1}{2}, b + 1 \in [b]_R \Rightarrow [b]_R = [b + 1]_R$, so $[b]_RS_2[a]_R$. \\
+        Transitive: Assume $[a]_RS_2[b]_R, [b]_RS_2[c]_R$. If $[a] = [b]$ or $[b] = [c]$, it is obvious that $S_2$ is transitive. \\
+        If $[a] \neq [b], [b] \neq [c]$, then $a - b = \frac{1}{2}, b - c = \frac{1}{2}$, so $a - c = 1$, $[a]_R = [c]_R$, $[a]_RS_2[c]_R$, $S_2$ is transitive. \\
+    \end{proof}
+    \item [b)] 
+    \begin{proof}
+        Let the set of all equivalence classes of $R$ is $R'$. \\
+        Reflexive: $I_{R'} \subseteq S_3$. \\
+        Symmetric: If $[a]_RS_3[b]_R \ ([a]_R \neq [b]_R)$, then $a, b \in \mathbb{R}, \left\lvert a - b \right\rvert  = \frac{1}{3} \Leftrightarrow \left\lvert b - a \right\rvert  = \frac{1}{3}$, i.e. $[b]_RS_3[a]_R$. \\
+        Transitive: Assume $[a]_RS_3[b]_R, [b]_RS_3[c]_R$. If $[a] = [b]$ or $[b] = [c]$, it is obvious that $S_3$ is transitive. \\
+        If $[a] \neq [b], [b] \neq [c]$, then $\left\lvert a - b \right\rvert  = \frac{1}{3}, \left\lvert b - c \right\rvert  = \frac{1}{3}$, so either $a = c$ or $c = a + \frac{2}{3} = (a + 1) - \frac{1}{3}$ or $c = a - \frac{2}{3} = (a - 1) + \frac{1}{3}$, i.e. $[a]_RS_3[c]_R$, $S_3$ is transitive. \\
+    \end{proof}
+    \item [c)] Let $a = 0, b = \frac{1}{4}, c = \frac{1}{2}$, $\left\lvert a - b \right\rvert = \left\lvert b - c \right\rvert = \frac{1}{4} \Rightarrow [a]_RS_3[b]_R, [b]_RS_3[c]_R$, but $a - c \notin \mathbb{Z}, \left\lvert a - c\right\rvert \neq \frac{1}{4}$, $[a]_R\not{S_4}[c]_R$, $S_4$ is not transitive.
+\end{itemize}
+
+\end{document}
