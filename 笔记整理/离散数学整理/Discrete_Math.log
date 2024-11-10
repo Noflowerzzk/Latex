@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999996 (TeX Live 2024) (preloaded format=xelatex 2024.9.25)  6 NOV 2024 16:10
+This is XeTeX, Version 3.141592653-2.6-0.999996 (TeX Live 2024) (preloaded format=xelatex 2024.9.25)  10 NOV 2024 11:32
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1140,6 +1140,11 @@ Underfull \hbox (badness 10000) in paragraph at lines 10--10
  [] [][][]\TU/TeXGyreTermesX(0)/b/n/14 First Order Logic, 
  []
 
+
+Underfull \hbox (badness 10000) in paragraph at lines 15--15
+ [][] [][][]\TU/TeXGyreTermesX(0)/m/n/14 Quantiers with re- 
+ []
+
 )
 \tf@toc=\write5
 \openout5 = `Discrete_Math.toc'.
@@ -1162,21 +1167,21 @@ LaTeX Font Info:    Font shape `TU/TeXGyreTermesX(0)/m/n' will be
  [1] [2] [3] [4]
 Overfull \vbox (92.61107pt too high) has occurred while \output is active []
 
- [5] [6] [7] (./Discrete_Math.aux)
+ [5] [6] [7] [8] (./Discrete_Math.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2022/08/05>
  ***********
 Package rerunfilecheck Info: File `Discrete_Math.out' has not changed.
-(rerunfilecheck)             Checksum: 60CD1898BD43AC5D3AC307C4596223BE;3187.
+(rerunfilecheck)             Checksum: 9D273778D233D7A6046B7D564EEC98C1;3606.
  ) 
 Here is how much of TeX's memory you used:
- 34937 strings out of 474773
- 772425 string characters out of 5761289
+ 34943 strings out of 474773
+ 772521 string characters out of 5761289
  1940842 words of memory out of 5000000
- 56469 multiletter control sequences out of 15000+600000
+ 56475 multiletter control sequences out of 15000+600000
  564977 words of font info for 98 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 101i,6n,107p,706b,888s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 101i,8n,107p,706b,888s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on Discrete_Math.pdf (9 pages).
+Output written on Discrete_Math.pdf (10 pages).

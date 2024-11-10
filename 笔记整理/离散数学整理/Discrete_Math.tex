@@ -464,6 +464,50 @@ With a structure, we can determine the truth of an closed proposition.
 
 \subsubsection{Interpretation}
 
+\begin{dy}[$S$-interpretation]\quad \\
+    Given a symbol set $S$, a $S$-interpretation $\mathcal{J} = (\mathcal{A}, \beta)$ is
+    \begin{itemize}
+        \item a \( S \)-structure \( \mathcal{A} = (A, \alpha) \)
+        \item a \( S \)-assignment \( \beta \): a mapping from variables to elements in the domain \( A \)
+    \end{itemize}
+        
+    For \( \mathcal{J} = (\mathcal{A}, \beta) \) and \( \mathcal{A} = (A, \alpha) \), we usually use \( \mathcal{J}(P) \) and \( \mathcal{A}(P) \) to represent \( \alpha(P) \), use \( \mathcal{J}(f) \) and \( \mathcal{A}(f) \) to represent \( \alpha(f) \), use \( \mathcal{J}(c) \) and \( \mathcal{A}(c) \) to represent \( \alpha(c) \), and use \( \mathcal{J}(x) \) to represent \( \beta(x) \).        
+\end{dy}
+
+\begin{dy}[Terms' denotation]\quad \\
+    For $S$-interpretation $\mathcal{J}$ and a $S$-term $t$,
+    \begin{itemize}
+        \item $\llbracket x \rrbracket_{\mathcal{J}} = \mathcal{J}(x)$
+        \item $\llbracket c \rrbracket_{\mathcal{J}} = \mathcal{J}(c)$
+        \item $\llbracket f(t_1, t_2, \dots, t_n) \rrbracket_{\mathcal{J}} = \mathcal{J}(f) \big( \llbracket t_1 \rrbracket_{\mathcal{J}}, \llbracket t_2 \rrbracket_{\mathcal{J}}, \dots, \llbracket t_n \rrbracket_{\mathcal{J}} \big)$
+    \end{itemize}
+\end{dy}
+
+\begin{dy}[Propositions' truth]\quad \\
+    For $S$-interpretation $\mathcal{J}$ and a $S$-proposition $t$,
+    \begin{itemize}
+        \item $\llbracket P(t_1, t_2, \dots, t_n) \rrbracket_{\mathcal{J}} = \mathcal{J}(P) \big( \llbracket t_1 \rrbracket_{\mathcal{J}}, \llbracket t_2 \rrbracket_{\mathcal{J}}, \dots, \llbracket t_n \rrbracket_{\mathcal{J}} \big)$
+        \item $\llbracket \varphi \land \psi \rrbracket_{\mathcal{J}} = \llbracket \land \rrbracket \big( \llbracket \varphi \rrbracket_{\mathcal{J}}, \llbracket \psi \rrbracket_{\mathcal{J}} \big)$
+        \item $\llbracket \neg \varphi \rrbracket_{\mathcal{J}} = \llbracket \neg \rrbracket \big( \llbracket \varphi \rrbracket_{\mathcal{J}} \big)$
+        \item $\llbracket \forall x \varphi \rrbracket_{\mathcal{J}} = \mathbf{T}$ if and only if for every $a$ in $\mathcal{A}$'s domain, $\llbracket \varphi \rrbracket_{\mathcal{J}[x \mapsto a]} = \mathbf{T}$
+        \item $\llbracket \exists x \varphi \rrbracket_{\mathcal{J}} = \mathbf{T}$ if and only if for at least one $a$ in $\mathcal{A}$'s domain, $\llbracket \varphi \rrbracket_{\mathcal{J}[x \mapsto a]} = \mathbf{T}$
+    \end{itemize}
+    where $\mathcal{J}[x \mapsto a]$ is a $S$-interpretation which keeps all other interpretations in $\mathcal{J}$ and interprets $x$ by $a$.
+\end{dy}
+
+\begin{kuang3}
+    \subsection{Quantiers with restricted domains}
+\end{kuang3}
+
+\subsubsection{The truth of "if-then"}
+
+\begin{dl} \quad
+    \begin{itemize}
+        \item $\phi \rightarrow (\psi \rightarrow \phi) \equiv \mathbf{T}$.
+        \item $(\phi \rightarrow \psi \rightarrow \chi) \rightarrow (\phi \rightarrow \psi) \rightarrow (\phi \rightarrow \chi) \equiv \mathbf{T}$.
+        \item $\phi \rightarrow \psi \equiv \lnot \phi \lor \psi$
+    \end{itemize}
+\end{dl}
 
 
 \end{document}

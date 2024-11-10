@@ -12,3 +12,5 @@
 \contentsline {subsection}{\numberline {\S \hspace {6pt}\hspace {8pt}2.2\hspace {5pt}}The semantics of first order language}{6}{subsection.2.2}%
 \contentsline {subsubsection}{\numberline {1\hspace {3pt}}Structure}{7}{subsubsection.2.2.1}%
 \contentsline {subsubsection}{\numberline {2\hspace {3pt}}Interpretation}{7}{subsubsection.2.2.2}%
+\contentsline {subsection}{\numberline {\S \hspace {6pt}\hspace {8pt}2.3\hspace {5pt}}Quantiers with restricted domains}{8}{subsection.2.3}%
+\contentsline {subsubsection}{\numberline {1\hspace {3pt}}The truth of "if-then"}{8}{subsubsection.2.3.1}%
