@@ -18,11 +18,24 @@
             ]
             {hyperref} % 实现引用超链接功能
 \usepackage{tcolorbox} % 盒子效果
+\usepackage{hyperref}
+\usepackage{fancyhdr}
 \tcbuselibrary{most} % tcolorbox宏包的设置，详见宏包说明文档
 \everymath{\displaystyle}  % 让所有数学模式都使用 \displaystyle
 
 
 \geometry{a4paper,centering,scale=0.8}
+
+% 保证 leftmark 始终为 subsection 名称
+\newcommand{\chaptermark}{\markboth{}{}}
+\renewcommand{\sectionmark}[1]{\markboth{}{}}
+\renewcommand{\subsectionmark}[1]{\markboth{#1}{}}
+
+\pagestyle{fancy}%清除原页眉页脚样式
+\fancyhf{}
+
+\fancyhead[L]{\leftmark}
+\fancyhead[R]{\thepage}
 
 % ————————————————————————————————————自定义符号————————————————————————————————————
 \newcommand{\。}{．} % 示例：将指令\。定义为全角句点。
@@ -314,6 +327,45 @@
 \end{lt}
 
 \begin{kuang2}
+    \section{函数极限、连续相关定理}
+\end{kuang2}
+
+\begin{kuang3}
+    \subsection{函数极限}
+\end{kuang3}
+
+\begin{dl}\label{单调函数任意一点左右极限均存在}
+    单调函数任意一点左右极限均存在
+    \begin{zmhj}
+        不妨 $f(x)$ 在 $(a, b)$ 上单增，对任意 $x_0 \in (a, b)$, $\{f(x) | x \in (a, x_0)\}$ 有上确界 $\alpha$. \\
+        对任意 $x \in (a, x_0), f(x) \leqslant \alpha$, 但 $\forall \varepsilon > 0, \exists x' \in (a, x_0), f(x') > \alpha$. 由 $f(x)$ 单调性，$\forall x \in (x', x_0), -\varepsilon < f(x') \leqslant f(x) - \alpha \leqslant 0$, 即 $\lim_{x \to x_0^-}f(x) = \alpha$. \\
+        右极限同理. \qed
+    \end{zmhj}
+\end{dl}
+
+\begin{kuang3}
+    \subsection{连续函数与间断}
+\end{kuang3}
+
+\begin{yl}[单调函数的不连续点]\label{单调函数的不连续点必然是跳跃间断点}
+    单调函数的不连续点必然是跳跃间断点
+    \begin{zmhj}
+        由\textbf{定理\ref{单调函数任意一点左右极限均存在}}即得  \qed
+    \end{zmhj}
+\end{yl}
+
+\begin{dl}
+    单调函数至多有可列个间断点
+    \begin{zmhj}
+        由单调性及间断点的性质，$\lim_{x \to x_0^-}f(x) < f(x_0) < \lim_{x \to x_0^+}f(x)$. \\
+        由有理数的稠密性，在每个间断点 $x_0$ 的区间（由单调性，它们两两不交） $\left(\lim_{x \to x_0^-}f(x), \lim_{x \to x_0^+}f(x)\right)$, 必存在一个有理数，用这个有理数代表这个区间. 则这些有理数与这些间断点一一对应. \\
+        因此间断点至多有可列个. \qed
+    \end{zmhj}
+\end{dl}
+
+
+
+\begin{kuang2}
     \section{函数微分、导数相关定理}
 \end{kuang2}
 
@@ -325,6 +377,52 @@
 \begin{kuang3}
     \subsection{Taylor 公式}
 \end{kuang3}
+
+\subsubsection{推导与证明}
+
+\begin{yl}
+    若 $r(x_0) = r'(x_0) = r''(x_0) = \cdots = r^{(n)}(x_0) = 0$，则 $r(x) = o((x - x_0)^n)\ (x \to x_0)$.
+    \begin{zmhj}
+        对 $n$ 归纳. \\
+        当 $n = 1$ 时，$r(x) = r(x_0) + r'(x_0)(x - x_0) + o(x - x_0) = o(x - x_0)$ \\
+        假设当 $n \geqslant 1$ 有 $r^{(n)}(x) = o((x - x_0)^n)$ 成立. \\
+        则当 $n + 1$ 时，由 Lagrange 中值定理，
+        \[
+            r(x) = r(x_0) + r'(x_0 + \theta(x - x_0))\cdot(x - x_0) = r'(x_0 + \theta(x - x_0))\cdot(x - x_0) 
+        \]
+        当 $x \to x_0$ 时，
+        \[
+            r'(x_0 + \theta(x - x_0))\cdot(x - x_0) = o((x - x_0)^n)\cdot (x - x_0) = o((x - x_0)^{n + 1})
+        \]
+        由归纳原理，原命题成立. \qed
+    \end{zmhj}
+    \begin{zmhj}
+    \end{zmhj}
+\end{yl}
+
+\begin{dl}[带 Lagrange 余项的泰勒公式]
+    设 $f(x)$ 在 $[a, b]$ 上$n$阶可导，在 $(a, b)$ 上有 $n + 1$ 阶导. 设 $x_0$ 为 $[a, b]$ 内一点，则对任意 $x \in [a, b]$ 存在 $\theta \in (0, 1)$, 使得
+    \begin{align*}
+        f(x) & = f(x_0) + f'(x_0)(x - x_0) + \frac{1}{2}f''(x_0)(x - x_0)^2 +  \\
+        & \cdots + \frac{1}{n!}f^{(n)}(x_0)(x - x_0)^n + \frac{1}{(n + 1)!}f^{(n + 1)}(x_0 + \theta(x - x_0))(x - x_0)^{(n + 1)}
+    \end{align*}
+    \begin{zmhj}
+        令 $r(x) = f(x) - f(x_0) + f'(x_0)(x - x_0) + \frac{1}{2}f''(x_0)(x - x_0)^2 + \cdots + \frac{1}{n!}f^{(n)}(x_0)(x - x_0)^n$, 有 $r(x_0) = r'(x_0) = r''(x_0) = \cdots = r^{(n)}(x_0) = 0$. \\
+        由 Cauchy 中值定理，
+        \begin{align*}
+            \frac{r(x)}{(x - x_0)^{n + 1}} & = \frac{r(x) - r(x_0)}{(x - x_0)^{n + 1} - (x_0 - x_0)^{n + 1}} \\
+            & = \frac{r'(\xi_1) - r'(x_0)}{(n + 1)((\xi_1 - x_0)^n - (x_0 - x_0)^n)} & \xi_1 \in (x_0, x) \text{或} (x, x_0) \\
+            & =  \frac{r''(\xi_2) - r''(x_0)}{(n + 1)\cdot n\cdot ((\xi - x_0)^{(n - 1)} - (x_0 - x_0)^{(n - 1)})} & \xi_1 \in (x_0, \xi_1) \text{或} (x, \xi_1) \\
+            & = \cdots \\
+            & = \frac{1}{(n + 1)!}\cdot \frac{r^{(n)}(\xi_n)}{\xi_n - x_0} & \xi_n \in (x_0, \xi_{n - 1}) \text{或} (\xi_{n - 1}, x_0) \\
+            & = \frac{1}{(n + 1)!}r^{(n + 1)}(\xi) & \xi \in (x_0, \xi_{n}) \text{或} (\xi_{n}, x_0) \\
+            & = \frac{1}{(n + 1)!}f^{(n + 1)}(\xi)
+        \end{align*}
+        因此 $r(x) = \frac{1}{(n + 1)!}f^{(n + 1)}(\xi)(x - x_0)^{n + 1}$  \qed
+    \end{zmhj}
+\end{dl}
+
+
 
 \begin{kuang3}
     \subsection{凸函数与 Lipschitz 条件}
@@ -450,7 +548,7 @@
             有 $f'_+(x_1) = \lim_{x \to x_1^+}\frac{f(x) - f(x_1)}{x - x_1} \leqslant \frac{f(x) - f(x_1)}{x - x_1} \leqslant \frac{f(x_2) - f(x)}{x_2 - x} \leqslant \lim_{x \to x_2^-}\frac{f(x_2) - f(x)}{x_2 - x} = f'_-(x_2)$
             \item [(3)] 由 $(2)$ 知，如果存在一点 $x_0 \in (a, b)$, 使得 $f'_-(x_0) < f'_+(x_0)$, 则开区间 $(f'_-(x_0), f'_+(x_0))$ 中不含 $f'_-(x), f'_+(x), \ \forall x \in (a, b)$ 的所有值.|\\
             假设有两点 $x_1 < x_2$, 有 $f'_-(x_i) < f'_+(x_i), \ i \in \{1, 2\}$. 则易得 $f'_-(x_1) < f'_+(x_1) \leqslant f'_-(x_2) < f'_+(x_2)$. \\
-            由于 $f'_-(x), f'_+(x)$ 均有解，设为 $\left\lvert f'_-(x)\right\rvert < M,\left\lvert  f'_+(x)\right\rvert < M$, 
+            由\textbf{引理\ref{单调函数的不连续点必然是跳跃间断点}}, 同理有这样的 $x_0$ 有可列个. \qed
         \end{enumerate}
     \end{zmhj}
 \end{lt}
