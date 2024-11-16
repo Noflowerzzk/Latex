@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999996 (TeX Live 2024) (preloaded format=xelatex 2024.9.25)  11 NOV 2024 17:31
+This is XeTeX, Version 3.141592653-2.6-0.999996 (TeX Live 2024) (preloaded format=xelatex 2024.9.25)  15 NOV 2024 22:02
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1170,10 +1170,6 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-0.64723pt}.
 
 [2]
-Underfull \hbox (badness 2080) in paragraph at lines 360--363
-\TU/SimSun(0)/m/n/14 由 有 理 数 的 稠 密 性，|  在 每 个 间 断 点 $\OML/cmm/m/it/14 x[]$ \TU/SimSun(0)/m/n/14 的 区 间  |（由 单 调 性，|  它 们 两 两 不 交）|
- []
-
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 12.64723pt, for example:
@@ -1182,10 +1178,6 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-0.64723pt}.
 
 [3]
-Overfull \hbox (15.0942pt too wide) detected at line 420
-[]
- []
-
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 12.64723pt, for example:
@@ -1194,6 +1186,10 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-0.64723pt}.
 
 [4]
+Overfull \hbox (15.0942pt too wide) detected at line 448
+[]
+ []
+
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 12.64723pt, for example:
@@ -1210,7 +1206,15 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-0.64723pt}.
 
 [6]
-Overfull \hbox (4.53049pt too wide) detected at line 501
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 12.64723pt, for example:
+(fancyhdr)                \setlength{\headheight}{12.64723pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+(fancyhdr)                \addtolength{\topmargin}{-0.64723pt}.
+
+[7]
+Overfull \hbox (4.53049pt too wide) detected at line 538
 []
  []
 
@@ -1221,8 +1225,8 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-0.64723pt}.
 
-[7]
-Underfull \hbox (badness 2012) in paragraph at lines 547--549
+[8]
+Underfull \hbox (badness 2012) in paragraph at lines 583--585
 \TU/SimSun(0)/m/n/14 有 $\OML/cmm/m/it/14 f[]\OT1/cmr/m/n/14 (\OML/cmm/m/it/14 x[]\OT1/cmr/m/n/14 ) = [] [] \U/msa/m/n/14 6 [] 6 [] 6
  []
 
@@ -1233,7 +1237,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-0.64723pt}.
 
-[8]
+[9]
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 12.64723pt, for example:
@@ -1241,21 +1245,29 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-0.64723pt}.
 
-[9] (./数分例题整理.aux)
+[10]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 12.64723pt, for example:
+(fancyhdr)                \setlength{\headheight}{12.64723pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+(fancyhdr)                \addtolength{\topmargin}{-0.64723pt}.
+
+[11] (./数分例题整理.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2022/08/05>
  ***********
 Package rerunfilecheck Info: File `数分例题整理.out' has not changed.
-(rerunfilecheck)             Checksum: 15B63E6018DABE8DF4B22DB57670DD71;2350.
+(rerunfilecheck)             Checksum: 3C5E0166DC2EFA7646D93D47F75473AC;2579.
  ) 
 Here is how much of TeX's memory you used:
- 35012 strings out of 474773
- 778776 string characters out of 5761289
+ 35046 strings out of 474773
+ 779849 string characters out of 5761289
  1944842 words of memory out of 5000000
- 56539 multiletter control sequences out of 15000+600000
+ 56573 multiletter control sequences out of 15000+600000
  564453 words of font info for 106 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  101i,14n,107p,1217b,888s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on 数分例题整理.pdf (11 pages).
+Output written on 数分例题整理.pdf (13 pages).

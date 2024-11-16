@@ -9,11 +9,13 @@
 \contentsline {section}{\numberline {\textbf {第}\textbf {三}\textbf {章}\hspace {18pt}}函数极限、连续相关定理}{3}{section.3}%
 \contentsline {subsection}{\numberline {\S \hspace {6pt}3.1\hspace {8pt}}函数极限}{3}{subsection.3.1}%
 \contentsline {subsection}{\numberline {\S \hspace {6pt}3.2\hspace {8pt}}连续函数与间断}{3}{subsection.3.2}%
-\contentsline {section}{\numberline {\textbf {第}\textbf {四}\textbf {章}\hspace {18pt}}函数微分、导数相关定理}{3}{section.4}%
-\contentsline {subsection}{\numberline {\S \hspace {6pt}4.1\hspace {8pt}}导数基本性质与中值定理}{3}{subsection.4.1}%
-\contentsline {subsection}{\numberline {\S \hspace {6pt}4.2\hspace {8pt}}Taylor 公式}{3}{subsection.4.2}%
+\contentsline {part}{第二部分\hspace {1em}微分与积分}{4}{part.2}%
+\contentsline {section}{\numberline {\textbf {第}\textbf {四}\textbf {章}\hspace {18pt}}函数微分、导数相关定理}{4}{section.4}%
+\contentsline {subsection}{\numberline {\S \hspace {6pt}4.1\hspace {8pt}}导数基本性质与中值定理}{4}{subsection.4.1}%
+\contentsline {subsection}{\numberline {\S \hspace {6pt}4.2\hspace {8pt}}Taylor 公式}{4}{subsection.4.2}%
 \contentsline {subsubsection}{\numberline {一、}推导与证明}{4}{subsubsection.4.2.1}%
-\contentsline {subsection}{\numberline {\S \hspace {6pt}4.3\hspace {8pt}}凸函数与 Lipschitz 条件}{5}{subsection.4.3}%
+\contentsline {subsection}{\numberline {\S \hspace {6pt}4.3\hspace {8pt}}凸函数与 Lipschitz 条件}{6}{subsection.4.3}%
 \contentsline {subsubsection}{\numberline {一、}凸函数与二阶导的关系}{6}{subsubsection.4.3.1}%
-\contentsline {subsubsection}{\numberline {二、}Lipschitz 条件}{7}{subsubsection.4.3.2}%
-\contentsline {subsubsection}{\numberline {三、}开区间上的凸函数}{7}{subsubsection.4.3.3}%
+\contentsline {subsubsection}{\numberline {二、}Lipschitz 条件}{8}{subsubsection.4.3.2}%
+\contentsline {subsubsection}{\numberline {三、}开区间上的凸函数}{8}{subsubsection.4.3.3}%
+\contentsline {subsubsection}{\numberline {四、}相关不等式}{11}{subsubsection.4.3.4}%

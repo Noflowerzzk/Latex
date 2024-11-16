@@ -1,0 +1,180 @@
+\documentclass{article}
+\usepackage{amsmath}  % 数学符号包
+\usepackage{amssymb}  % 更多数学符号
+\usepackage{enumitem} % 列表样式
+\usepackage{fancyhdr} % 页眉设置
+\usepackage{geometry} % 页面设置
+\usepackage[UTF8]{ctex}
+\usepackage{bm}
+\usepackage{amsthm}
+\everymath{\displaystyle}  % 让所有数学模式都使用 \displaystyle
+\newcommand{\lb}{\left\llbracket}
+\newcommand{\rb}{\right\rrbracket}
+
+
+\geometry{a4paper, margin=1in}
+
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[C]{作业八}
+\fancyhead[R]{2024.11.13}
+
+
+\title{作业八}
+\author{noflowerzzk}
+\date{2024.11.13}
+
+
+\begin{document}
+\maketitle
+
+
+\section*{P184 T7}
+
+\begin{itemize}
+    \item [(1)]
+    \begin{proof}
+        $\ln (x + 1) - (x - \frac{x^2}{2}) = \frac{x^3}{3(1 + \xi)^3} > 0 \quad 0 < \xi < x$, \\
+        $\ln(x + 1) - (x - \frac{x^2}{2} + \frac{x^3}{3}) = -\frac{x^4}{4(1 + \xi)^4} < 0 \quad 0 < \xi < x$.
+    \end{proof}
+    \item [(2)] 
+    \begin{proof}
+        \begin{align*}
+            & (1 + x)^\alpha - (1 + \alpha x + \frac{\alpha(\alpha - 1)}{2}x^2) \\
+            =\  & \frac{\alpha(\alpha - 1)(\alpha - 2)}{6}x^3\xi^{\alpha - 2} & \xi \in (0, x)\\
+            <\  & 0
+        \end{align*}            
+    \end{proof}
+\end{itemize}
+
+\section*{P184 T10}
+\begin{proof}
+    $\left\lvert \frac{f'(x_1) - f'(x_2)}{x_1 - x_2}\right\rvert  = \left\lvert f''(\xi)\right\rvert \leqslant 1, \ \forall x_1, x_2 \in [0, 1], \xi \in (x_1, x_2)$. \\
+    故 $\left\lvert f'(x_1) - f'(x_2)\right\rvert \leqslant \left\lvert x_1 - x_2\right\rvert \leqslant 1$. \\
+    又 $f(x)$ 在 $(0, 1)$ 能取到最大值， $\exists x_0 \in (0, 1), f(x_0) = \frac{1}{4}, \ f'(x_0) = 0$. \\
+    因此 $f(x) = f(x_0) + \frac{1}{2}f''(\xi)(x - x_0)^2, \xi$ 在 $x, x_0$ 之间. 
+    \begin{align*}
+        & \left\lvert f(1)\right\rvert + \left\lvert f(0)\right\rvert \\
+         =\  & \left\lvert \frac{1}{4} + \frac{1}{2}f''(\xi_1)(0 - x_0)^2\right\rvert \\
+         & \left\rvert + \frac{1}{4} + \frac{1}{2}f''(\xi_2)(1 - x_0)^2\right\rvert & 0 < \xi_1 < x_0 < \xi_2 < 1\\
+         \leqslant \  & \frac{1}{2} + \left\lvert \frac{1}{2}f'(\xi_1)(0 - x_0)^2\right\rvert + \left\lvert \frac{1}{2}f'(\xi_2)(1 - x_0)^2\right\rvert \\
+         \leqslant \  & 1 
+    \end{align*}
+\end{proof}
+
+\section*{P184 T11}
+
+\begin{proof}
+    对 $x, x_0 \in [0, 1], \exists \xi$在 $x, x_0$ 之间，
+    $$f(x) = f(x_0) + f'(x_0)(x - x_0) + \frac{1}{2}f''(\xi)(x - x_0)^2 $$
+    取 $x = 0$ 有
+    \begin{align*}
+        \left\lvert f'(x_0)\right\rvert  =\ &
+        \left\lvert f(0) - f(x_0) - \frac{1}{2}f''(\xi)x_0^2\right\rvert  \\
+        \leqslant \ & 1 + 1 + \frac{1}{2}\cdot 2 \cdot 1^2 \\
+        =\ & 3
+    \end{align*} 
+    由 $x_0$ 任意性即证.
+\end{proof}
+
+\section*{P184 T12}
+
+\begin{proof}
+    由于 $f(0) = f(1) \neq \min_{0 \leqslant x \leqslant 1}f(x) = -1$, 因此 $\min_{0 < x < 1}f(x) = -1$, 即存在 $0 < x_0 < 1, f(x_0) = -1, f'(x_0) = 0$. \\
+    把 $f(x)$ 在 $x = x_0$ 处展开，有
+    \[
+        f(x) = -1 + f'(x_0)(x - x_0) + \frac{1}{2}f''(\xi)(x - x_0)^2, \quad \xi \text{在} x, x_0 \text{之间}
+    \]
+    有 
+    \begin{align*}
+        & 0 = -1 + 0 + \frac{1}{2}f''(\xi_1)x_0^2 &  0 < \xi_1 < x_0\\
+        & 0 = -1 + 0 + \frac{1}{2}f''(\xi_2)(1 - x_0)^2 &  x_0 < \xi_2 < 1
+    \end{align*}
+    因此
+    \begin{align*}
+        f''(\xi_1) + f''(\xi_2) =\  & 2\left(\frac{1}{x_0^2} + \frac{1}{(1 - x_0)^2}\right) \\
+        \geqslant \ & 2\left(\frac{(1 + 1)^3}{(1 - x_0 + x_0)^2}\right)\\
+        = \ & 16
+    \end{align*}
+    故 $f''(\xi_1), f''(\xi_2)$ 中至少有一个大于等于 $8$, 即 $\max_{0 \leqslant x \leqslant 1}f(x) \geqslant 8$.
+\end{proof}
+
+\section*{P184 T13}
+
+\begin{proof}
+    由最值存在定理， $\exists x_0 \in [a, b], \left\lvert f(x_0)\right\rvert = \max_{a \leqslant x \leqslant b}\left\lvert f(x)\right\rvert$, 且 $f'(x_0) = 0$ \\
+    把 $f(x)$ 在 $x = x_0$ 处展开，有
+    \[
+        f(x) = f(x_0) + f'(x_0)(x - x_0) + \frac{1}{2}f''(\xi)(x - x_0)^2, \quad \xi \text{在} x, x_0 \text{之间}
+    \]
+    代入 $x = a, x = b$ 有:
+    \begin{align*}
+        & \frac{1}{2}f''(\xi_1)(a - x_0)^2 = f(a) - f(x_0) - f'(x_0)(a - x_0) & a < \xi_1 < x_0 \\
+        & \frac{1}{2}f''(\xi_2)(x_0 - b)^2 = f(b) - f(x_0) - f'(x_0)(b - x_0) & x_0 < \xi_2 < b
+    \end{align*}
+    相加有
+    \begin{align*}
+        \left\lvert f''(\xi_1)\right\rvert  + \left\lvert f''(\xi_2)\right\rvert  =\  & 2\left\lvert f(x_0)\right\rvert \left(\frac{1}{(a - x_0)^2} + \frac{1}{(b - x_0)^2}\right) \\
+        \geqslant \ & 2\left\lvert f(x_0)\right\rvert\left(\frac{(1 + 1)^3}{(a - x_0 + x_0 - b)^2}\right)\\
+        = \ & \frac{16}{(a - b)^2}\left\lvert f(x_0)\right\rvert
+    \end{align*}
+    而
+    \begin{align*}
+        \max_{a \leqslant x \leqslant b}\left\lvert f''(x)\right\rvert  \geqslant\ & \frac{1}{2}\left(\left\lvert f''(\xi_1)\right\rvert  + \left\lvert f''(\xi_2)\right\rvert\right) \\
+        = \ & \frac{8}{(a - b)^2}\left\lvert f(x_0)\right\rvert \\
+        = \ & \frac{8}{(a - b)^2}\max_{a \leqslant x \leqslant b}\left\lvert f(x)\right\rvert
+    \end{align*}
+    即 \[\max_{a \leqslant x \leqslant b}\left\lvert f(x)\right\rvert \leqslant \frac{1}{8}(a - b)^2\max_{a \leqslant x \leqslant b}\left\lvert f''(x)\right\rvert \]
+\end{proof}
+
+\section*{补充题}
+
+\begin{proof}
+    设 $\lim_{x \to +\infty}\frac{f'(x)}{g'(x)} = A$ \\
+    注意到对任意 $a \leqslant x, y$,
+    \begin{align*}
+        \frac{f(x)}{g(x)} =\ & \left(1 - \frac{g(y)}{g(x)}\right)\frac{f(x) - f(y)}{g(x) - g(y)} + \frac{f(y)}{g(x)} \\
+        =\ & \left(1 - \frac{g(y)}{g(x)}\right)\frac{f'(\xi)}{g'(\xi)} + \frac{f(y)}{g(x)} & \xi \text{在} x, y \text{之间}
+    \end{align*}
+    \begin{itemize}
+        \item [(1)] 当 $\lim_{x \to +\infty}f(x) = \lim_{x \to +\infty}g(x) = 0$ 时，对给定的 $x > a, 1 > \varepsilon > 0$, 有 $$\exists N' > x, \forall y > N', \left\lvert \frac{g(y)}{g(x)}\right\rvert < \varepsilon, \left\lvert \frac{f(y)}{g(x)}\right\rvert < \varepsilon$$ 
+        当 $A$ 是有限量时， \\
+        对 $1 > \varepsilon > 0$, 有 $$\exists N > a, \forall x > N, \left\lvert \frac{f'(x)}{g'(x)} - A\right\rvert < \varepsilon $$
+        因此 $x > \max\{N, N'\}$ 时
+        \begin{align*}
+            \left\lvert \frac{f(x)}{g(x)} - A\right\rvert\ =\ & \left\lvert \left(1 - \frac{g(y)}{g(x)}\right)\left(\frac{f'(\xi)}{g'(\xi)} - A\right) + \frac{f(y)}{g(x)} + A\left(1 - \frac{g(y)}{g(x)}\right)\right\rvert \\
+            \leqslant\ & (1 + \varepsilon) \varepsilon + \varepsilon + \left\lvert A\right\rvert  \varepsilon \\
+            <\ & (3 + \left\lvert A\right\rvert )\varepsilon
+        \end{align*}
+        当 $A = +\infty$ 时， \\
+        对 $M > 0$, 有 $$\exists N > a, \forall x > N, \frac{f'(x)}{g'(x)} > \frac{M + \varepsilon}{1 - \varepsilon}$$
+        因此 $x > \max\{N, N'\}$ 时
+        \begin{align*}
+            \frac{f(x)}{g(x)}\ =\ & \left(1 - \frac{g(y)}{g(x)}\right)\frac{f'(\xi)}{g'(\xi)} + \frac{f(y)}{g(x)} \\
+            >\ & (1 - \varepsilon)\frac{M + \varepsilon}{1 - \varepsilon} - \varepsilon \\
+            =\ & M
+        \end{align*}
+        $A = -\infty$ 同理.
+        \item [(2)] $\lim_{x \to +\infty}g(x) = +\infty$ 时，对给定的 $y > a, 1 > \varepsilon > 0$, 有 $$\exists N' > y, \forall x > N', \frac{g(y)}{g(x)} < \varepsilon, \frac{f(y)}{g(x)} < \varepsilon$$
+        当 $A$ 是有限量时， \\
+        对 $1 > \varepsilon > 0$, 有 $$\exists N > a, \forall x > N, \left\lvert \frac{f'(x)}{g'(x)} - A\right\rvert < \varepsilon $$
+        因此 $x > \max\{N, N'\}$ 时
+        \begin{align*}
+            \left\lvert \frac{f(x)}{g(x)} - A\right\rvert\ =\ & \left\lvert \left(1 - \frac{g(y)}{g(x)}\right)\left(\frac{f'(\xi)}{g'(\xi)} - A\right) + \frac{f(y)}{g(x)} + A\left(1 - \frac{g(y)}{g(x)}\right)\right\rvert \\
+            \leqslant\ & (1 + \varepsilon) \varepsilon + \varepsilon + \left\lvert A\right\rvert  \varepsilon \\
+            <\ & (3 + \left\lvert A\right\rvert )\varepsilon
+        \end{align*}
+        当 $A = +\infty$ 时， \\
+        对 $M > 0$, 有 $$\exists N > a, \forall x > N, \frac{f'(x)}{g'(x)} > \frac{M + \varepsilon}{1 - \varepsilon}$$
+        因此 $x > \max\{N, N'\}$ 时
+        \begin{align*}
+            \frac{f(x)}{g(x)}\ =\ & \left(1 - \frac{g(y)}{g(x)}\right)\frac{f'(\xi)}{g'(\xi)} + \frac{f(y)}{g(x)} \\
+            >\ & (1 - \varepsilon)\frac{M + \varepsilon}{1 - \varepsilon} - \varepsilon \\
+            =\ & M
+        \end{align*}
+        $A = -\infty$ 同理.
+    \end{itemize}
+\end{proof}
+
+\end{document}

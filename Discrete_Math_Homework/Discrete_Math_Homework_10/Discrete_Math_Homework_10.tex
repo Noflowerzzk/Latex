@@ -1,0 +1,102 @@
+\documentclass{article}
+\usepackage{amsmath}  % 数学符号包
+\usepackage{amssymb}  % 更多数学符号
+\usepackage{enumitem} % 列表样式
+\usepackage{fancyhdr} % 页眉设置
+\usepackage{geometry} % 页面设置
+% \usepackage[UTF8]{ctex}
+\usepackage{bm}
+\usepackage{amsthm}
+\everymath{\displaystyle}  % 让所有数学模式都使用 \displaystyle
+\newcommand{\lb}{\left\llbracket}
+\newcommand{\rb}{\right\rrbracket}
+% DISABLE_SMART_IME
+
+
+\geometry{a4paper, margin=1in}
+
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[C]{Discrete Math Homework 10}
+\fancyhead[R]{2024.11.14}
+
+
+\title{Discrete Math Homework 10}
+\author{noflowerzzk}
+\date{2024.11.14}
+
+
+\begin{document}
+\maketitle
+
+\section{}
+
+\begin{proof}
+    \begin{align*}
+        R_1 \subseteq R_2 \Leftrightarrow\ & \forall (x, y)((x, y) \in R_1 \rightarrow (x, y) \in R_2) \\
+        \Leftrightarrow\ & \forall (x, y)(\exists X(X\in P_1 \land x \in X \land y \in X) \rightarrow \exists Y(Y \in P_2 \land x \in Y \land y \in Y)) \\
+        \Leftrightarrow\ & \forall X(X \in P_1 \rightarrow \forall x (x \in X \rightarrow \forall y(y \in X \rightarrow \exists Y(Y \in P_2 \land x \in Y \land y \in Y)))) \\
+        \Leftrightarrow\ &  \forall X(X \in P_1 \rightarrow \forall x(x \in X \rightarrow \exists Y(Y \in P_2 \land \forall y(y \in X \rightarrow y \in Y \land x \in Y)))) \\
+        \Leftrightarrow\ & \forall X(X \in P_1 \rightarrow \exists Y(Y \in P_2 \land \forall x (x \in X \rightarrow x \in Y))) \\
+        \Leftrightarrow\ & \forall X(X \in P_1 \rightarrow \exists Y(Y \in P_2 \land X \subseteq Y)) \\
+        \Leftrightarrow\ & P_1 \text{ is the refinement of } P_2
+    \end{align*}
+\end{proof}
+
+\section{}
+
+\begin{proof}
+    Noting that $R$ is a symmetric relation, we have $R = R^{-1}$. \\
+    Then $\left(R^n\right)^{-1} = \underbrace{R^{-1}\circ R^{-1}\circ \cdots \circ R^{-1}}_{n \text{ times}} = \left(R^{-1}\right)^n = R^n $, i.e. $R^n$ is a symmetric relation.
+\end{proof}
+
+\section{}
+
+\begin{proof} \quad \\
+    \begin{itemize}
+        \item [$\Leftarrow$]: \\
+        Noting that $R \subseteq \bigcup_{n \in \mathbb{Z}^+}R^n$, $S \subseteq S$. Then $R \circ S \subseteq \bigcup_{n \in \mathbb{Z}^+}R^n \circ S \subseteq S$.
+        \item [$\Rightarrow$]: \\
+        Let's proof $\forall n \in \mathbb{Z}^+$, $R^n \circ S \subseteq S$. \\
+        Induction on $n$: \\
+        $n = 1$, obviously the conclusion holds. \\
+        Assume the conclusion holds at $n \geqslant 1$. Then we have for any $a, b, c$, $(a, b) \in S, (b, c) \in R^n$, we have $(a, c) \in R^n \circ S$, i,e, $(a, c) \in S$ \\
+        Then if there exists $d$, $(c, d) \in R$, then $(a, d) \in S$, i.e. $R \circ (R^n \circ S) = R^{n + 1} \circ S \subseteq S$.
+        So by the principle of induction, $\forall n \in \mathbb{Z}^+$, $R^n \circ S \subseteq S$. \\
+        So $\bigcup_{n \in \mathbb{Z}^+}R^n \circ S = \bigcup_{n \in \mathbb{Z}^+}(R^n \circ S) \subseteq S$.
+    \end{itemize}
+\end{proof}
+
+\section{}
+
+\begin{itemize}
+    \item [a)]
+    \begin{proof}\quad \\
+        For any $a \in \mathbb{R}$, obviously there is no integer $n$ that satisfies $a < n \leqslant a$, so $(a, a) \in R$, $R$ is reflexive. \\
+        Noting that $(a, b) \in R \Leftrightarrow \exists n \in \mathbb{Z}, n \leqslant a < b < n + 1 \lor b \leqslant a$. So $\forall a, b, c \in \mathbb{R}, (a, b) \in R, (b, c) \in R$, then $\exists n \in \mathbb{Z}, n \leqslant a < b < n + 1, n \leqslant b < c < n + 1 $ or $n \leqslant a < b < n + 1, c \leqslant b $ or $ b \leqslant a, n \leqslant b < c < n + 1$ or $b \leqslant a, c \leqslant b$, in any case, $(a, c) \in R$, $R$ is transitive. \\
+        But $(0, \frac{1}{2}) \in R$ and $(\frac{1}{2}, 0) \in R$, but $0 \neq \frac{1}{2}$, $R$ is not antisymmetric.
+    \end{proof} 
+    \item [b)] 
+    \begin{proof}\quad \\
+        Given $R$'s transitive, so $R \circ R = R^2 \subseteq R$, according to the principle of induction, $\forall n \in \mathbb{Z}^+, R^n \subseteq R$. So $R^+ = \bigcup_{n \in \mathbb{Z}^+}R^n \subseteq R$. \\
+        And it's obvious that $R \subseteq \bigcup_{n \in \mathbb{Z}^+}R^n = R^+$. \\
+        So $R = \bigcup_{n \in \mathbb{Z}^+}R^n = R^+$.
+    \end{proof}
+    \item [c)]
+    \begin{proof} \quad \\
+        $I_A \subseteq R \Rightarrow I_A \subseteq R \cap R^{-1}$, $R \cap R^{-1}$ is reflexive. \\
+        $\forall (x, y) \in R \cap R^{-1}$, obviously that $(x, y) \in R \Rightarrow (y, x) \in R^{-1}, (x, y) \in R^{-1} \Rightarrow (y, x) \in R$, i.e. $(y, x) \in R \cap R^{-1}$, $R \cap R^{-1}$ is symmetric. \\
+        $\forall x, y, z \in A, (x, y) \in R \cap R^{-1}, (y, z) \in R \cap R^{-1}$. Given $R$ is transitive, so $R \circ R \subseteq R \Rightarrow (R \circ R)^{-1} = R^{-1} \circ R^{-1} \subseteq R^{-1}$, $R^{-1}$ is transitive. So $(x, z) \in R$ and $(x, z) \in R^{-1} \Leftrightarrow (x, z) \in R \cap R^{-1}$, i.e. $R \cap R^{-1}$ is transitive. \\
+        In summary, $R \cap R^{-1}$ is an equivalence relation on $A$.
+    \end{proof}
+    \item [d)]
+    \begin{proof}\quad \\
+        $\forall a, b \in A, [a]_{R \cap R^{-1}} = [b]_{R \cap R^{-1}} \Leftrightarrow a(R \cap R^{-1})b \Rightarrow aRb$. So $\forall [a]_{R \cap R^{-1}} = [b]_{R \cap R^{-1}}, ([a]_{R \cap R^{-1}}, [b]_{R \cap R^{-1}}) \in S$, $S$ is reflexive. \\
+        $\forall [a]_{R \cap R^{-1}}, [b]_{R \cap R^{-1}} \in B$, if $([a]_{R \cap R^{-1}}, [b]_{R \cap R^{-1}}) \in S$ and $([b]_{R \cap R^{-1}}, [a]_{R \cap R^{-1}}) \in S$, then $aRb$ and $bRa \Leftrightarrow aR^{-1}b$, i.e. $a(R \cap R^{-1})b$, so  $[b]_{R \cap R^{-1}} = [a]_{R \cap R^{-1}}$, $S$ is antisymmetric. \\
+        $\forall [a]_{R \cap R^{-1}}, [b]_{R \cap R^{-1}}, [c]_{R \cap R^{-1}} \in B$, if $([a]_{R \cap R^{-1}}, [b]_{R \cap R^{-1}}) \in S, ([b]_{R \cap R^{-1}}, [c]_{R \cap R^{-1}}) \in S$, so $aRb, bRc$. Noting that $R$ is transitive, $aRc \Leftrightarrow ([a]_{R \cap R^{-1}}, [c]_{R \cap R^{-1}}) \in S$. $S$ is transitive. \\
+        In summary, $S$ is a partial order on $B$. 
+    \end{proof}
+\end{itemize}
+
+\end{document}

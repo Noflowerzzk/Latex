@@ -326,6 +326,18 @@
     \end{jiehj}
 \end{lt}
 
+\begin{lt}
+    求极限： $\lim_{n \to \infty}\sin\left(\sqrt{4n^2 + n}\pi \right)$.
+    \begin{jiehj}
+        \begin{align*}
+            \sin\left(\sqrt{4n^2 + n}\pi\right) = \ & \sin\left(\left(\sqrt{4n^2 + n} - 2n\right)\pi\right) \\
+            = \ & \sin \left(\frac{n}{\sqrt{4n^2 + n} + 2n}\pi\right) \\
+            = \ & \sin \left(\frac{1}{\sqrt{4 + \frac{1}{n}} + 2}\pi\right)
+        \end{align*}
+        所以 $$\lim_{n \to \infty}\sin\left(\sqrt{4n^2 + n}\pi \right) = \sin \frac{\pi}{4} = \frac{\sqrt{2}}{2}$$
+    \end{jiehj}
+\end{lt}
+
 \begin{kuang2}
     \section{函数极限、连续相关定理}
 \end{kuang2}
@@ -336,12 +348,14 @@
 
 \begin{dl}\label{单调函数任意一点左右极限均存在}
     单调函数任意一点左右极限均存在
-    \begin{zmhj}
-        不妨 $f(x)$ 在 $(a, b)$ 上单增，对任意 $x_0 \in (a, b)$, $\{f(x) | x \in (a, x_0)\}$ 有上确界 $\alpha$. \\
-        对任意 $x \in (a, x_0), f(x) \leqslant \alpha$, 但 $\forall \varepsilon > 0, \exists x' \in (a, x_0), f(x') > \alpha$. 由 $f(x)$ 单调性，$\forall x \in (x', x_0), -\varepsilon < f(x') \leqslant f(x) - \alpha \leqslant 0$, 即 $\lim_{x \to x_0^-}f(x) = \alpha$. \\
-        右极限同理. \qed
-    \end{zmhj}
 \end{dl}
+
+\begin{zm}
+    不妨 $f(x)$ 在 $(a, b)$ 上单增，对任意 $x_0 \in (a, b)$, $\{f(x) | x \in (a, x_0)\}$ 有上确界 $\alpha$. \\
+    对任意 $x \in (a, x_0), f(x) \leqslant \alpha$, 但 $\forall \varepsilon > 0, \exists x' \in (a, x_0), f(x') > \alpha$. 由 $f(x)$ 单调性，$\forall x \in (x', x_0), -\varepsilon < f(x') \leqslant f(x) - \alpha \leqslant 0$, 即 $\lim_{x \to x_0^-}f(x) = \alpha$. \\
+    右极限同理. 
+\end{zm}
+
 
 \begin{kuang3}
     \subsection{连续函数与间断}
@@ -349,21 +363,33 @@
 
 \begin{yl}[单调函数的不连续点]\label{单调函数的不连续点必然是跳跃间断点}
     单调函数的不连续点必然是跳跃间断点
-    \begin{zmhj}
-        由\textbf{定理\ref{单调函数任意一点左右极限均存在}}即得  \qed
-    \end{zmhj}
 \end{yl}
+
+\begin{zm}
+    由\textbf{定理\ref{单调函数任意一点左右极限均存在}}即得 
+\end{zm}
+
 
 \begin{dl}
     单调函数至多有可列个间断点
-    \begin{zmhj}
-        由单调性及间断点的性质，$\lim_{x \to x_0^-}f(x) < f(x_0) < \lim_{x \to x_0^+}f(x)$. \\
-        由有理数的稠密性，在每个间断点 $x_0$ 的区间（由单调性，它们两两不交） $\left(\lim_{x \to x_0^-}f(x), \lim_{x \to x_0^+}f(x)\right)$, 必存在一个有理数，用这个有理数代表这个区间. 则这些有理数与这些间断点一一对应. \\
-        因此间断点至多有可列个. \qed
-    \end{zmhj}
 \end{dl}
 
+\begin{zm}
+    由单调性及间断点的性质，$\lim_{x \to x_0^-}f(x) < f(x_0) < \lim_{x \to x_0^+}f(x)$. \\
+    由有理数的稠密性，在每个间断点 $x_0$ 的区间（由单调性，它们两两不交） \\ $\left(\lim_{x \to x_0^-}f(x), \lim_{x \to x_0^+}f(x)\right)$, 必存在一个有理数，用这个有理数代表这个区间. 则这些有理数与这些间断点一一对应. \\
+    因此间断点至多有可列个. 
+\end{zm}
 
+\begin{lt}
+    $f: \RR \to \RR$ 是一个连续函数. 定义 $L(f) = \{x \in \RR | f(x) = 0\}$. 证明：若 $L(f)$ 非空，则 $L(f)$ 是一个闭集. （闭集是包含所有聚点的集合）
+    \begin{jiehj}
+        
+    \end{jiehj}
+\end{lt}
+
+\begin{kuang1}
+    \part{微分与积分}
+\end{kuang1}
 
 \begin{kuang2}
     \section{函数微分、导数相关定理}
@@ -382,23 +408,23 @@
 
 \begin{yl}
     若 $r(x_0) = r'(x_0) = r''(x_0) = \cdots = r^{(n)}(x_0) = 0$，则 $r(x) = o((x - x_0)^n)\ (x \to x_0)$.
-    \begin{zmhj}
-        对 $n$ 归纳. \\
-        当 $n = 1$ 时，$r(x) = r(x_0) + r'(x_0)(x - x_0) + o(x - x_0) = o(x - x_0)$ \\
-        假设当 $n \geqslant 1$ 有 $r^{(n)}(x) = o((x - x_0)^n)$ 成立. \\
-        则当 $n + 1$ 时，由 Lagrange 中值定理，
-        \[
-            r(x) = r(x_0) + r'(x_0 + \theta(x - x_0))\cdot(x - x_0) = r'(x_0 + \theta(x - x_0))\cdot(x - x_0) 
-        \]
-        当 $x \to x_0$ 时，
-        \[
-            r'(x_0 + \theta(x - x_0))\cdot(x - x_0) = o((x - x_0)^n)\cdot (x - x_0) = o((x - x_0)^{n + 1})
-        \]
-        由归纳原理，原命题成立. \qed
-    \end{zmhj}
-    \begin{zmhj}
-    \end{zmhj}
 \end{yl}
+
+\begin{zm}
+    对 $n$ 归纳. \\
+    当 $n = 1$ 时，$r(x) = r(x_0) + r'(x_0)(x - x_0) + o(x - x_0) = o(x - x_0)$ \\
+    假设当 $n \geqslant 1$ 有 $r^{(n)}(x) = o((x - x_0)^n)$ 成立. \\
+    则当 $n + 1$ 时，由 Lagrange 中值定理，
+    \[
+        r(x) = r(x_0) + r'(x_0 + \theta(x - x_0))\cdot(x - x_0) = r'(x_0 + \theta(x - x_0))\cdot(x - x_0) 
+    \]
+    当 $x \to x_0$ 时，
+    \[
+        r'(x_0 + \theta(x - x_0))\cdot(x - x_0) = o((x - x_0)^n)\cdot (x - x_0) = o((x - x_0)^{n + 1})
+    \]
+    由归纳原理，原命题成立. 
+\end{zm}
+
 
 \begin{dl}[带 Lagrange 余项的泰勒公式]
     设 $f(x)$ 在 $[a, b]$ 上$n$阶可导，在 $(a, b)$ 上有 $n + 1$ 阶导. 设 $x_0$ 为 $[a, b]$ 内一点，则对任意 $x \in [a, b]$ 存在 $\theta \in (0, 1)$, 使得
@@ -406,22 +432,22 @@
         f(x) & = f(x_0) + f'(x_0)(x - x_0) + \frac{1}{2}f''(x_0)(x - x_0)^2 +  \\
         & \cdots + \frac{1}{n!}f^{(n)}(x_0)(x - x_0)^n + \frac{1}{(n + 1)!}f^{(n + 1)}(x_0 + \theta(x - x_0))(x - x_0)^{(n + 1)}
     \end{align*}
-    \begin{zmhj}
-        令 $r(x) = f(x) - f(x_0) + f'(x_0)(x - x_0) + \frac{1}{2}f''(x_0)(x - x_0)^2 + \cdots + \frac{1}{n!}f^{(n)}(x_0)(x - x_0)^n$, 有 $r(x_0) = r'(x_0) = r''(x_0) = \cdots = r^{(n)}(x_0) = 0$. \\
-        由 Cauchy 中值定理，
-        \begin{align*}
-            \frac{r(x)}{(x - x_0)^{n + 1}} & = \frac{r(x) - r(x_0)}{(x - x_0)^{n + 1} - (x_0 - x_0)^{n + 1}} \\
-            & = \frac{r'(\xi_1) - r'(x_0)}{(n + 1)((\xi_1 - x_0)^n - (x_0 - x_0)^n)} & \xi_1 \in (x_0, x) \text{或} (x, x_0) \\
-            & =  \frac{r''(\xi_2) - r''(x_0)}{(n + 1)\cdot n\cdot ((\xi - x_0)^{(n - 1)} - (x_0 - x_0)^{(n - 1)})} & \xi_1 \in (x_0, \xi_1) \text{或} (x, \xi_1) \\
-            & = \cdots \\
-            & = \frac{1}{(n + 1)!}\cdot \frac{r^{(n)}(\xi_n)}{\xi_n - x_0} & \xi_n \in (x_0, \xi_{n - 1}) \text{或} (\xi_{n - 1}, x_0) \\
-            & = \frac{1}{(n + 1)!}r^{(n + 1)}(\xi) & \xi \in (x_0, \xi_{n}) \text{或} (\xi_{n}, x_0) \\
-            & = \frac{1}{(n + 1)!}f^{(n + 1)}(\xi)
-        \end{align*}
-        因此 $r(x) = \frac{1}{(n + 1)!}f^{(n + 1)}(\xi)(x - x_0)^{n + 1}$  \qed
-    \end{zmhj}
 \end{dl}
 
+\begin{zm}
+    令 $r(x) = f(x) - f(x_0) + f'(x_0)(x - x_0) + \frac{1}{2}f''(x_0)(x - x_0)^2 + \cdots + \frac{1}{n!}f^{(n)}(x_0)(x - x_0)^n$, 有 $r(x_0) = r'(x_0) = r''(x_0) = \cdots = r^{(n)}(x_0) = 0$. \\
+    由 Cauchy 中值定理，
+    \begin{align*}
+        \frac{r(x)}{(x - x_0)^{n + 1}} & = \frac{r(x) - r(x_0)}{(x - x_0)^{n + 1} - (x_0 - x_0)^{n + 1}} \\
+        & = \frac{r'(\xi_1) - r'(x_0)}{(n + 1)((\xi_1 - x_0)^n - (x_0 - x_0)^n)} & \xi_1 \in (x_0, x) \text{或} (x, x_0) \\
+        & =  \frac{r''(\xi_2) - r''(x_0)}{(n + 1)\cdot n\cdot ((\xi - x_0)^{(n - 1)} - (x_0 - x_0)^{(n - 1)})} & \xi_1 \in (x_0, \xi_1) \text{或} (x, \xi_1) \\
+        & = \cdots \\
+        & = \frac{1}{(n + 1)!}\cdot \frac{r^{(n)}(\xi_n)}{\xi_n - x_0} & \xi_n \in (x_0, \xi_{n - 1}) \text{或} (\xi_{n - 1}, x_0) \\
+        & = \frac{1}{(n + 1)!}r^{(n + 1)}(\xi) & \xi \in (x_0, \xi_{n}) \text{或} (\xi_{n}, x_0) \\
+        & = \frac{1}{(n + 1)!}f^{(n + 1)}(\xi)
+    \end{align*}
+    因此 $r(x) = \frac{1}{(n + 1)!}f^{(n + 1)}(\xi)(x - x_0)^{n + 1}$  
+\end{zm}
 
 
 \begin{kuang3}
@@ -430,36 +456,45 @@
 
 \subsubsection{凸函数与二阶导的关系}
 
+\begin{dy}[凸函数]
+    对某函数 $f(x)$ 定义域的任意区间 $[a, b]$ ，有任意 $\lambda \in [0, 1]$, 满足
+    \[
+        f(\lambda x_1 + (1 - \lambda) x_2) \leq \lambda f(x_1) + (1 - \lambda) f(x_2)
+    \]
+    则成 $f(x)$ 为其定义区间上的\textbf{下凸函数}
+\end{dy}
+
 \begin{dl}
     $f(x)$ 在区间 $I$ 上二阶可导，则 $\forall x \in I, f\dds(x) \geqslant 0$ 是 $f(x)$ 在 $I$ 上下凸的充要条件. 
-    \begin{zmhj}
-        充分性: \\
-        任取 $x_1, x_2 \in I$，不妨设 $x_1 < x_2$。任取 $\lambda \in (0,1)$，根据 Lagrange 中值定理
-        \begin{align*}
-            & \lambda f(x_1) + (1 - \lambda) f(x_2) - f(\lambda x_1 + (1 - \lambda)x_2) \\
-            = & -\lambda \left( f(\lambda x_1 + (1 - \lambda)x_2) - f(x_1) \right) + (1 - \lambda) \left( f(x_2) - f(\lambda x_1 + (1 - \lambda)x_2) \right) \\
-            = & -\lambda f'(\xi_1) \cdot (1 - \lambda)(x_2 - x_1) + (1 - \lambda)f'(\xi_2) \cdot \lambda(x_2 - x_1) \quad \\
-            & \qquad (x_1 < \xi_1 < \lambda x_1 + (1 - \lambda)x_2 < \xi_2 < x_2) \\
-            = & \ \lambda (1 - \lambda) f''(\xi) (x_2 - x_1)(\xi_2 - \xi_1) \quad (\xi_1 \leq \xi \leq \xi_2) \\
-            \geqslant & \  0
-        \end{align*}
-        必要性: 假设 $f(x)$ 是 $I$ 上的下凸函数，且处处二阶可导。取 $x_0 \in I$，则 $\forall \Delta x > 0$，有
-        \begin{align*}
-            \frac{f(x_0 + \Delta x) + f(x_0 - \Delta x) - 2f(x_0)}{\Delta x^2} \geq 0 
-            \qquad \left( x_0 = \frac{1}{2} (x_0 - \Delta x) + \frac{1}{2}(x_0 + \Delta x) \right)
-        \end{align*}
-        另一方面，根据带 Peano 余项的 Taylor 公式, 
-        \begin{align*}
-            & \frac{f(x_0 + \Delta x) + f(x_0 - \Delta x) - 2f(x_0)}{\Delta x^2} \\
-            = & \ \frac{1}{\Delta x^2} \Bigg( f(x_0) + f'(x_0) \Delta x + \frac{1}{2} f''(x_0) \Delta x^2 + o(\Delta x^2)  \\
-            & \  + f(x_0) + f'(x_0)(-\Delta x) + \frac{1}{2} f''(x_0)(-\Delta x)^2 + o(\Delta x^2) - 2f(x_0) \Bigg)\\
-            = &\  f''(x_0) + \frac{o(\Delta x^2)}{\Delta x^2} \quad (\Delta x \to 0) \\
-            = & \ f(x_0) \\
-            \geqslant & \ 0
-        \end{align*}
-        \qed
-    \end{zmhj}
 \end{dl}
+
+\begin{zm}
+    充分性: \\
+    任取 $x_1, x_2 \in I$，不妨设 $x_1 < x_2$。任取 $\lambda \in (0,1)$，根据 Lagrange 中值定理
+    \begin{align*}
+        & \lambda f(x_1) + (1 - \lambda) f(x_2) - f(\lambda x_1 + (1 - \lambda)x_2) \\
+        = & -\lambda \left( f(\lambda x_1 + (1 - \lambda)x_2) - f(x_1) \right) + (1 - \lambda) \left( f(x_2) - f(\lambda x_1 + (1 - \lambda)x_2) \right) \\
+        = & -\lambda f'(\xi_1) \cdot (1 - \lambda)(x_2 - x_1) + (1 - \lambda)f'(\xi_2) \cdot \lambda(x_2 - x_1) \quad \\
+        & \qquad (x_1 < \xi_1 < \lambda x_1 + (1 - \lambda)x_2 < \xi_2 < x_2) \\
+        = & \ \lambda (1 - \lambda) f''(\xi) (x_2 - x_1)(\xi_2 - \xi_1) \quad (\xi_1 \leq \xi \leq \xi_2) \\
+        \geqslant & \  0
+    \end{align*}
+    必要性: 假设 $f(x)$ 是 $I$ 上的下凸函数，且处处二阶可导。取 $x_0 \in I$，则 $\forall \Delta x > 0$，有
+    \begin{align*}
+        \frac{f(x_0 + \Delta x) + f(x_0 - \Delta x) - 2f(x_0)}{\Delta x^2} \geq 0 
+        \qquad \left( x_0 = \frac{1}{2} (x_0 - \Delta x) + \frac{1}{2}(x_0 + \Delta x) \right)
+    \end{align*}
+    另一方面，根据带 Peano 余项的 Taylor 公式, 
+    \begin{align*}
+        & \frac{f(x_0 + \Delta x) + f(x_0 - \Delta x) - 2f(x_0)}{\Delta x^2} \\
+        = & \ \frac{1}{\Delta x^2} \Bigg( f(x_0) + f'(x_0) \Delta x + \frac{1}{2} f''(x_0) \Delta x^2 + o(\Delta x^2)  \\
+        & \  + f(x_0) + f'(x_0)(-\Delta x) + \frac{1}{2} f''(x_0)(-\Delta x)^2 + o(\Delta x^2) - 2f(x_0) \Bigg)\\
+        = &\  f''(x_0) + \frac{o(\Delta x^2)}{\Delta x^2} \quad (\Delta x \to 0) \\
+        = & \ f(x_0) \\
+        \geqslant & \ 0
+    \end{align*}
+\end{zm}
+
 
 \subsubsection{Lipschitz 条件}
 
@@ -487,46 +522,47 @@
 
 \subsubsection{开区间上的凸函数}
 
-\begin{yl}
+\begin{yl}\label{凸函数另一定义}
     $f(x)$ 是 $(a, b)$ 上的下凸函数当且仅当任意 $(x_1, x_2) \subseteq (a, b)$, 任意 $x \in (x_1, x_2)$, 有
     \[
         \frac{f(x) - f(x_1)}{x - x_1} \leqslant \frac{f(x_2) - f(x_1)}{x_2 - x_1} \leqslant \frac{f(x_2) - f(x)}{x_2 - x}
     \]
-    \begin{ylzmhj}
-        由 $x = \frac{x_2 - x}{x_2 - x_1}x_1 + \frac{x - x_1}{x_2 - x_1}x_2$, 有
-        \begin{align*}
-            f(x) \text{是下凸函数} \Leftrightarrow\quad 
-            & f(x) \leqslant \frac{x_2 - x}{x_2 - x_1}f(x_1) + \frac{x - x_1}{x_2 - x_1}f(x_2)\quad (\forall a < x_1 < x < x_2 < b)\\
-            \Leftrightarrow\quad & \frac{f(x) - f(x_1)}{x - x_1} \leqslant \frac{f(x_2) - f(x_1)}{x_2 - x_1}
-        \end{align*}
-        另一边同理.
-    \end{ylzmhj}
 \end{yl}
+
+\begin{zm}
+    由 $x = \frac{x_2 - x}{x_2 - x_1}x_1 + \frac{x - x_1}{x_2 - x_1}x_2$, 有
+    \begin{align*}
+        f(x) \text{是下凸函数} \Leftrightarrow\quad 
+        & f(x) \leqslant \frac{x_2 - x}{x_2 - x_1}f(x_1) + \frac{x - x_1}{x_2 - x_1}f(x_2)\quad (\forall a < x_1 < x < x_2 < b)\\
+        \Leftrightarrow\quad & \frac{f(x) - f(x_1)}{x - x_1} \leqslant \frac{f(x_2) - f(x_1)}{x_2 - x_1}
+    \end{align*}
+    另一边同理.
+\end{zm}
 
 \begin{yl}
     闭区间上的下凸函数有界.
-    \begin{ylzmhj}
-        设闭区间 $[a, b]$, 任取 $x \in [a, b]$, $\exists \lambda \in (0, 1), x = \lambda a + (1 - \lambda) b, f(x) \leqslant \lambda f(a) + (1 - \lambda )f(b) \leqslant \max\{f(a), f(b)\}$. \\
-        又将 $f(x)$ 连续延拓到 $[c, d] \supseteq [a, b]$ 上且保证其在 $[c, d]$ 上下凸，有 $f(x)$ 在 $[c, d]$ 上有上界. \\
-        由于 $f(a) \leqslant \lambda_1f(x) + (1 - \lambda_1)f(c)$, 有 $f(x) \geqslant \frac{1}{\lambda_1}f(a) - \left(\frac{1}{\lambda_1} - 1\right)f(c)$. \\
-        同理 $f(x) \geqslant \frac{1}{\lambda_2}f(b) - \left(\frac{1}{\lambda_2} - 1\right)f(d)$. 即 $f(x)$ 有下界.
-        \qed
-    \end{ylzmhj}
 \end{yl}
 
+\begin{zm}
+    设闭区间 $[a, b]$, 任取 $x \in [a, b]$, $\exists \lambda \in (0, 1), x = \lambda a + (1 - \lambda) b, f(x) \leqslant \lambda f(a) + (1 - \lambda )f(b) \leqslant \max\{f(a), f(b)\}$. \\
+    又将 $f(x)$ 连续延拓到 $[c, d] \supseteq [a, b]$ 上且保证其在 $[c, d]$ 上下凸，有 $f(x)$ 在 $[c, d]$ 上有上界. \\
+    由于 $f(a) \leqslant \lambda_1f(x) + (1 - \lambda_1)f(c)$, 有 $f(x) \geqslant \frac{1}{\lambda_1}f(a) - \left(\frac{1}{\lambda_1} - 1\right)f(c)$. \\
+    同理 $f(x) \geqslant \frac{1}{\lambda_2}f(b) - \left(\frac{1}{\lambda_2} - 1\right)f(d)$. 即 $f(x)$ 有下界.
+\end{zm}
 
 \begin{dl}
     开区间上的凸函数必为连续函数. 
-    \begin{zmhj}
-        对任意 $\varepsilon > 0$, 任意 $x_0 \in (a, b)$, 存在 $\delta > 0, [x_0 - 2\delta, x_0 + 2\delta] \subseteq (a, b)$. \\
-        任取 $x > y \in (x_0 - \delta, x_0 + \delta)$, $x = \lambda (x_0 + 2\delta) + (1 - \lambda)y, \lambda \in (0, 1)$. \\
-        由凸函数性质， $f(x) \leqslant \lambda f(x_0 + 2\delta) + (1 - \lambda)f(y) \Leftrightarrow f(x) - f(y)\leqslant \lambda[f(x_0 + 2\delta) - f(y)]$. \\
-        由\textcolor{shuang}{\textbf{引理 3.3.2}}， $\left\lvert f(x)\right\rvert < M, \exists M > 0$. 故 $\left\lvert f(y) - f(x)\right\rvert \leqslant \lambda[f(x_0 + 2\delta) - f(y)] \leqslant 2\lambda M$. \\
-        又由 $x = \lambda (x_0 + 2\delta) + (1 - \lambda)y \Rightarrow \left\lvert x - y\right\rvert = \lambda(x_0 + 2\delta - y) > \lambda\delta$, 故 $2\lambda M < \frac{\left\lvert x - y\right\rvert}{\delta}$. \\
-        代入有 $\left\lvert f(x) - f(y)\right\rvert < \frac{\left\lvert x - y\right\rvert }{\delta}$, 满足 \textbf{局部 Lipschitz 性质}，因此 $f(x)$ 连续.
-        \qed
-    \end{zmhj}
 \end{dl}
+
+\begin{zm}
+    对任意 $\varepsilon > 0$, 任意 $x_0 \in (a, b)$, 存在 $\delta > 0, [x_0 - 2\delta, x_0 + 2\delta] \subseteq (a, b)$. \\
+    任取 $x > y \in (x_0 - \delta, x_0 + \delta)$, $x = \lambda (x_0 + 2\delta) + (1 - \lambda)y, \lambda \in (0, 1)$. \\
+    由凸函数性质， $f(x) \leqslant \lambda f(x_0 + 2\delta) + (1 - \lambda)f(y) \Leftrightarrow f(x) - f(y)\leqslant \lambda[f(x_0 + 2\delta) - f(y)]$. \\
+    由\textcolor{shuang}{\textbf{引理 3.3.2}}， $\left\lvert f(x)\right\rvert < M, \exists M > 0$. 故 $\left\lvert f(y) - f(x)\right\rvert \leqslant \lambda[f(x_0 + 2\delta) - f(y)] \leqslant 2\lambda M$. \\
+    又由 $x = \lambda (x_0 + 2\delta) + (1 - \lambda)y \Rightarrow \left\lvert x - y\right\rvert = \lambda(x_0 + 2\delta - y) > \lambda\delta$, 故 $2\lambda M < \frac{\left\lvert x - y\right\rvert}{\delta}$. \\
+    代入有 $\left\lvert f(x) - f(y)\right\rvert < \frac{\left\lvert x - y\right\rvert }{\delta}$, 满足 \textbf{局部 Lipschitz 性质}，因此 $f(x)$ 连续.
+\end{zm}
+
 
 \begin{dl}
     开区间上的凸函数必为 Lipschitz 函数.
@@ -541,16 +577,58 @@
     \end{enumerate}
     \begin{zmhj} \quad
         \begin{enumerate}
-            \item [(1)] 取 $x_0 \in (a, b)$, 由由\textcolor{shuang}{\textbf{引理 3.3.1}}, $\frac{f(x_0) - f(x_0 - \Delta x)}{\Delta x} \geqslant \frac{f(x_0) - f(x_0 - 2 \Delta x_0)}{2\Delta x}$, 表明 $F_-(\Delta x) = \frac{f(x_0) - f(x_0 - \Delta x)}{\Delta x}$ 关于 $\Delta x$ 单减. \\
+            \item [(1)] 取 $x_0 \in (a, b)$, 由\textbf{引理\ref{凸函数另一定义}}, $\frac{f(x_0) - f(x_0 - \Delta x)}{\Delta x} \geqslant \frac{f(x_0) - f(x_0 - 2 \Delta x_0)}{2\Delta x}$, 表明 $F_-(\Delta x) = \frac{f(x_0) - f(x_0 - \Delta x)}{\Delta x}$ 关于 $\Delta x$ 单减. \\
             又取定 $x' > x_0, F_-(\Delta x) \leqslant \frac{f(x') - f(x_0)}{x' - x_0}$, $F_-(\Delta x)$ 在 $\Delta x \to 0^+$ 时单调递增且有上界，故极限存在，即 $f\ds_-(x_0) = \lim_{\Delta x \to 0}F_-(\Delta x)$ 存在. 同理 $f\ds_+(x_0)$ 也存在.\\
-            $f\ds_-(x_0) = \lim_{x \to x_0^-}\frac{f(x_0) - f(x)}{x_0 - x} \leqslant \lim_{x \to x_0^+}\frac{f(x) - f(x_0)}{x - x_0} = f\ds_+(x_0)$ \quad(由\textcolor{shuang}{\textbf{引理 3.3.1}}) 
+            $f\ds_-(x_0) = \lim_{x \to x_0^-}\frac{f(x_0) - f(x)}{x_0 - x} \leqslant \lim_{x \to x_0^+}\frac{f(x) - f(x_0)}{x - x_0} = f\ds_+(x_0)$ \quad(由\textbf{引理\ref{凸函数另一定义}}) 
             \item [(2)] 任取 $x \in (x_1, x_2)$, \\
             有 $f'_+(x_1) = \lim_{x \to x_1^+}\frac{f(x) - f(x_1)}{x - x_1} \leqslant \frac{f(x) - f(x_1)}{x - x_1} \leqslant \frac{f(x_2) - f(x)}{x_2 - x} \leqslant \lim_{x \to x_2^-}\frac{f(x_2) - f(x)}{x_2 - x} = f'_-(x_2)$
             \item [(3)] 由 $(2)$ 知，如果存在一点 $x_0 \in (a, b)$, 使得 $f'_-(x_0) < f'_+(x_0)$, 则开区间 $(f'_-(x_0), f'_+(x_0))$ 中不含 $f'_-(x), f'_+(x), \ \forall x \in (a, b)$ 的所有值.|\\
             假设有两点 $x_1 < x_2$, 有 $f'_-(x_i) < f'_+(x_i), \ i \in \{1, 2\}$. 则易得 $f'_-(x_1) < f'_+(x_1) \leqslant f'_-(x_2) < f'_+(x_2)$. \\
-            由\textbf{引理\ref{单调函数的不连续点必然是跳跃间断点}}, 同理有这样的 $x_0$ 有可列个. \qed
+            由\textbf{引理\ref{单调函数的不连续点必然是跳跃间断点}}, 同理有这样的 $x_0$ 有可列个. 
         \end{enumerate}
     \end{zmhj}
 \end{lt}
+
+\subsubsection{相关不等式}
+
+\begin{dl}[Young 不等式]
+    $p, q$ 不等于 $0$ 或 $1$, $\frac{1}{p} + \frac{1}{q} = 1$, 则对任意正数 $a, b$, 有
+    \[
+        ab \leqslant \frac{1}{p}a^p + \frac{1}{q}b^q  \quad  p > 1
+    \]
+    \[
+        ab \geqslant \frac{1}{p}a^p + \frac{1}{q}b^q  \quad  p < 1
+    \]
+\end{dl}
+
+\begin{zm}
+    求导即可.
+\end{zm}
+
+\begin{dl}[H$\ddot{\mathrm{o}}$lder 不等式]
+    $p, q$ 不等于 $0$ 或 $1$, $\frac{1}{p} + \frac{1}{q} = 1$, 则对任意正数数列 $\{a_k\}_{k = 1}^{n}, \{b_k\}_{k = 1}^{n}$, 有
+    \[
+        \sum_{i = 1}^n a_ib_i \leqslant \left(\sum_{i = 1}^{n}a_i^p\right)^{\frac{1}{p}} \cdot \left(\sum_{i = 1}^{n}b_i^q\right)^{\frac{1}{q}}  \quad p > 1
+    \]
+    \[
+        \sum_{i = 1}^n a_ib_i \geqslant \left(\sum_{i = 1}^{n}a_i^p\right)^{\frac{1}{p}} \cdot \left(\sum_{i = 1}^{n}b_i^q\right)^{\frac{1}{q}}  \quad p < 1
+    \]
+\end{dl}
+
+\begin{zm}
+    令 $A = \sum_{i = 1}^{n}a_i^p, B = \sum_{i = 1}^{n}b_i^q$ \\
+    $p > 1$ 时，对 $\forall i \in \{1, 2, \cdots , n\}$, 由 \textbf{Young 不等式}，
+    \[
+        \frac{a_ib_i}{A^{\frac{1}{p}}B^{\frac{1}{q}}} \leqslant \frac{1}{p}\frac{a_i^p}{A} + \frac{1}{q}\frac{b_i^p}{B}
+    \]
+    故 
+    \[
+        \frac{1}{A^{\frac{1}{p}}B^{\frac{1}{q}}}\sum_{i = 1}^{n}a_ib_i \leqslant \frac{1}{p} + \frac{1}{q} = 1
+    \]
+    即
+    \[
+        \sum_{i = 1}^{n}a_ib_i \leqslant A^{\frac{1}{p}}B^{\frac{1}{q}} = \left(\sum_{i = 1}^{n}a_i^p\right)^{\frac{1}{p}} \cdot \left(\sum_{i = 1}^{n}b_i^q\right)^{\frac{1}{q}}
+    \]
+\end{zm}
 
 \end{document}
