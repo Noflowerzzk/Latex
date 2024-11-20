@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999996 (TeX Live 2024) (preloaded format=xelatex 2024.9.25)  15 NOV 2024 22:02
+This is XeTeX, Version 3.141592653-2.6-0.999996 (TeX Live 2024) (preloaded format=xelatex 2024.9.25)  20 NOV 2024 20:08
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1258,16 +1258,23 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2022/08/05>
  ***********
-Package rerunfilecheck Info: File `数分例题整理.out' has not changed.
-(rerunfilecheck)             Checksum: 3C5E0166DC2EFA7646D93D47F75473AC;2579.
+
+
+Package rerunfilecheck Warning: File `数分例题整理.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `数分例题整理.out':
+(rerunfilecheck)             Before: 3C5E0166DC2EFA7646D93D47F75473AC;2579
+(rerunfilecheck)             After:  EA8C92068450788E8BC8DD719062E22E;2913.
  ) 
 Here is how much of TeX's memory you used:
- 35046 strings out of 474773
- 779849 string characters out of 5761289
- 1944842 words of memory out of 5000000
- 56573 multiletter control sequences out of 15000+600000
+ 35057 strings out of 474773
+ 780117 string characters out of 5761289
+ 1943842 words of memory out of 5000000
+ 56584 multiletter control sequences out of 15000+600000
  564453 words of font info for 106 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 101i,14n,107p,1217b,888s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 101i,13n,107p,1217b,988s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
 Output written on 数分例题整理.pdf (13 pages).

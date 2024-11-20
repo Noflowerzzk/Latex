@@ -1,0 +1,162 @@
+\documentclass{article}
+\usepackage{amsmath}  % 数学符号包
+\usepackage{amssymb}  % 更多数学符号
+\usepackage{enumitem} % 列表样式
+\usepackage{fancyhdr} % 页眉设置
+\usepackage{geometry} % 页面设置
+\usepackage[UTF8]{ctex}
+\usepackage{bm}
+\usepackage{amsthm}
+\usepackage{extarrows}
+\everymath{\displaystyle}  % 让所有数学模式都使用 \displaystyle
+\newcommand{\lb}{\left\llbracket}
+\newcommand{\rb}{\right\rrbracket}
+\newcommand{\dd}{\mathrm{d}}
+\newcommand{\dx}{\dd x}
+\newcommand{\ee}{\mathrm{e}}
+
+
+\geometry{a4paper, margin=1in}
+
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[C]{作业九}
+\fancyhead[R]{2024.11.20}
+
+
+\title{作业九}
+\author{noflowerzzk}
+\date{2024.11.20}
+
+
+\begin{document}
+\maketitle
+
+\section*{P221 T1}
+
+\begin{itemize}
+    \item [(16)]
+    \begin{align*}
+        \int \frac{\dx}{\left(\arcsin x\right)^2 \sqrt{1 - x^2}} = \int \frac{\dd \left(\arcsin x\right)}{\left(\arcsin x\right)^2} = -\frac{1}{\arcsin x} + C
+    \end{align*}
+    \item [(17)]
+    \begin{align*}
+        \int \frac{\dx}{x^2 - 2x + 2} = \int \frac{\dd (x - 1)}{(x - 1)^2 + 1} = \arctan (x - 1) + C
+    \end{align*}
+    \item [(18)]
+    \begin{align*}
+        \int \frac{(1 - x)\dx}{\sqrt{9 - 4x^2}} = \frac{1}{2}\int \frac{\dd(\frac{2x}{3})}{\sqrt{1 - \left(\frac{2}{3}x\right)^2}} + \frac{3}{8}\int \frac{\dd \left(1 - \frac{4}{9}x^2\right)}{\sqrt{1 - \frac{4}{9}x^2}} = \frac{1}{2}\arcsin \left(\frac{2}{3}x\right) + \frac{1}{4}\sqrt{9 - 4x^2} + C
+    \end{align*}
+    \item [(19)]
+    \begin{align*}
+        \int \tan \sqrt{1 + x^2}\frac{x}{\sqrt{1 + x^2}}\dx = \int \tan \sqrt{1 + x^2} \dd(\sqrt{1 + x^2}) = - \ln \left\lvert \cos \sqrt{1 + x^2}\right\rvert + C
+    \end{align*}
+    \item [(20)]
+    \begin{align*}
+        \int \frac{\sin x \cos x }{1 + \sin^4 x}\dx = \frac{1}{2}\int \frac{\dd (\sin^2 x)}{1 + \sin^4 x} = \frac{1}{2}\arctan\left(\sin^2 x\right) + C
+    \end{align*}
+\end{itemize}
+
+\section*{P222 T3}
+
+\begin{itemize}
+    \item [(16)]
+    \begin{align*}
+        \int \cos\left(\ln x\right)\dx\ =\ & x \cos\left(\ln x\right) - \int x \dd\left(\cos\left(\ln x\right)\right) \\
+        =\ & x \cos\left(\ln x\right) + \int \sin\left(\ln x\right)\dx \\
+        =\ & x \cos\left(\ln x\right) + x \sin\left(\ln x\right) - \int x\dd\left(\sin\left(\ln x\right)\right) \\
+        =\ & x \cos\left(\ln x\right) + x \sin\left(\ln x\right) - \int \cos\left(\ln x\right)\dx
+    \end{align*}
+    解得 $$\int \cos\left(\ln x\right)\dx = \frac{x}{2}\left(\cos\left(\ln x\right) + \sin \left(\ln x\right)\right)$$
+    \item [(17)]
+    \begin{align*}
+        \int \left(\arcsin x\right)^2 \dx\ =\ & x \left(\arcsin x\right)^2 - 2\int \frac{x\arcsin x}{\sqrt{1 - x^2}}\dx \\
+        =\ & x \left(\arcsin x\right)^2 + 2\int \arcsin x \dd \left(\sqrt{1 - x^2}\right) \\
+        =\ & x \left(\arcsin x\right)^2 + 2 \sqrt{1 - x^2} \arcsin x - 2 \int \sqrt{1 - x^2}\dd\left(\arcsin x\right) \\
+        =\ & x \left(\arcsin x\right)^2 + 2 \sqrt{1 - x^2} \arcsin x - 2x + C
+    \end{align*}
+    \item [(18)]
+    \begin{align*}
+        \int \sqrt{x}\ee^{\sqrt{x}} \dx\ \xlongequal[]{t = \sqrt{x}}\ & \int 2t^2 \dd \ee^t \\
+        =\ & 2t^2 \ee^t - \int 4t \dd \ee^t \\
+        =\ & 2t^2 \ee^t - 4t \ee^t + 4 \int \ee^t \dd t \\
+        =\ & 2t^2 \ee^t - 4t \ee^t + 4\ee^t + C \\
+        =\ & 2x\ee^{\sqrt{x}} - 4\sqrt{x}\ee^{\sqrt{x}} + 4\ee^{\sqrt{x}} + C
+    \end{align*}
+    \item [(19)]
+    \begin{align*}
+        \int \dx \xlongequal[]{t = \sqrt{x + 1}} \int 2t \dd \ee^t = 2t \ee^t - 2 \int \ee^t \dd t = 2t \ee^t - 2\ee^t + C = 2\sqrt{x + 1}\ee^{\sqrt{x + 1}} - 2\ee^{\sqrt{x + 1}} + C
+    \end{align*}
+    \item [(20)]
+    \begin{align*}
+        \int \ln \left(x + \sqrt{1 + x^2}\right) \dx\ =\ & x \ln \left(x + \sqrt{1 + x^2}\right) - \int x \dd \left(\ln \left(x + \sqrt{1 + x^2}\right)\right) \\
+        =\ & x \ln \left(x + \sqrt{1 + x^2}\right) - \int \frac{x}{\sqrt{1 + x^2}}\dx \\
+        =\ & x \ln \left(x + \sqrt{1 + x^2}\right) - \sqrt{1 + x^2} + C
+    \end{align*}
+\end{itemize}
+
+\section*{P222 T8}
+
+\begin{itemize}
+    \item [(7)]
+    \begin{align*}
+        I_n\ =\ & \int -x^{n - 1}\dd\left(\sqrt{1 - x^2}\right) \\
+        =\ & -x^{n - 1}\sqrt{1 - x^2} + (n - 1)\int \sqrt{1 - x^2}x^{n - 2} \dx \\
+        =\ & -x^{n - 1}\sqrt{1 - x^2} + (n - 1)\int\left(\frac{x^{n - 2}}{\sqrt{1 - x^2}} - \frac{x^n}{\sqrt{1 - x^n}}\right)\dx \\
+        =\ & -x^{n - 1}\sqrt{1 - x^2} + (n - 1)I_{n - 2} - (n - 1)I_n
+    \end{align*}
+    故
+    \[
+        I_n = -\frac{x^{n - 1}\sqrt{1 - x^2}}{n} + \frac{n - 1}{n}I_{n - 2}
+    \]
+    其中
+    \[
+        I_0 = \arcsin x + C, \quad I_1 = -\sqrt{1 - x^2} + C
+    \]
+    \item [(8)]
+    \begin{align*}
+        I_n\ =\ & -\frac{1}{n - 1} \int \frac{\dd x^{-(n - 1)}}{\sqrt{1 + x}} \\
+        =\ & -\frac{1}{n - 1} \cdot \frac{1}{x^{n - 1}\sqrt{1 + x}} + \frac{1}{n - 1} \int \frac{\dx}{2\sqrt{1 + x}x^{n - 1}} \\
+        =\ & -\frac{1}{n - 1} \cdot \frac{1}{x^{n - 1}\sqrt{1 + x}} + \frac{1}{2(n - 1)}I_{n - 1} 
+    \end{align*}
+    其中
+    \[
+        I_0 = 2\sqrt{1 + x} + C
+    \]
+\end{itemize}
+
+\section*{P243 T2}
+
+\begin{proof}
+    假设 $f(X)$ 无界，不妨 $f(x)$ 无上界. 则对任意的一个划分 $P$, 有一个区间 $[x_k, x_{k + 1}]$ 上 $f(x)$ 无上界. 即 $\forall M > 0, \exists \xi_k \in [x_k, x_{k + 1}], f(\xi_k) > M$. \\
+    现对任意的 $M > 0$, $p - 1$ 等分 $P: a = x_1 < x_2 < \cdots < x_p = b$，取 $\delta = \frac{b - a}{p - 1}$, 在有上界区间取代表元 $\xi_i = \sup_{x \in [x_{i - 1}, x_i]}f(x)$, 记所有有上界区间的上确界的最小值为 $m_0$; 无上界区间取 $\xi_i$ 使得 $f(\xi_i) > \max\left\{\frac{M}{\delta} - (p - 2)m_0,  \frac{M}{\delta}\right\}$, 则此时
+    \begin{align*}
+        & \sum_{i = 1}^{p}f(\xi_i)\Delta x_i \geqslant (p - 1)m_0\delta + \left(\frac{M}{\delta} - (p - 2)m_0\right)\delta = M &\quad m_0 < 0 \\
+        & \sum_{i = 1}^{p}f(\xi_i)\Delta x_i \geqslant \frac{M}{\delta} \delta = M &\quad m_0 \geqslant 0
+    \end{align*}
+    综上，存在一个特定的划分与代表元的选取方式使得 $\sum_{i = 1}^{p}f(\xi_i)\Delta x_i \quad (\lambda(P) \to 0)$ 无界，因此其极限是否存在依赖代表元与划分的选取，该极限不存在，矛盾！\\
+    因此， $f(x)$ 有界.
+\end{proof}
+
+\section*{P243 T8}
+
+\begin{proof}
+    $f(x)$ 可积等价于 $\lim_{\lambda(P) \to 0}\sum_{i = 1}^{p}w_i\Delta x_i = 0$. 令 $\max_{x \in [a, b]} f(x) = M, \min_{x \in [a, b]} f(x) = m$ \\
+    \begin{itemize}
+        \item 充分性： \\
+        对任意 $\varepsilon > 0$, 存在 $\delta = \sqrt{\frac{\varepsilon}{2(p - 1)}}, \sigma = \frac{\varepsilon}{2(p - 1)(M - m)}, \varepsilon_0 = \sqrt{\frac{\varepsilon}{2(p - 1)}}$ 取分划 $P$ 满足 $\lambda(P) < \delta$, 有
+        \begin{align*}
+            \sum_{i = 1}^{p}w_i\Delta x_i = \sum_{w_i \geqslant \varepsilon_0}w_i\Delta x_i + \sum_{w_i < \varepsilon_0}w_i\Delta x_i < (p - 1)(M - m)\sigma + (p - 1)\varepsilon_0\delta = \varepsilon
+        \end{align*}
+        即 $\lim_{\lambda(P) \to 0}\sum_{i = 1}^{p}w_i\Delta x_i = 0$, $f(x)$ 可积.
+        \item 必要性：\\
+        取定 $\varepsilon_0 > 0$, 存在 $\sigma = \min \{b - a, \sqrt{\varepsilon_0}\}, \varepsilon = \frac{\varepsilon_0}{\sigma}$, 对任意分划 $P$ 满足 $\sum_{w_i \geqslant \varepsilon}\Delta x_i \geqslant \sigma$, 有
+        \begin{align*}
+            \sum_{i = 1}^{p}w_i\Delta x_i = \sum_{w_i \geqslant \varepsilon_0}w_i\Delta x_i + \sum_{w_i < \varepsilon_0}w_i\Delta x_i \geqslant \varepsilon \sigma + 0 = \varepsilon_0
+        \end{align*}
+        表明 $f(x)$ 不可积，矛盾！因此对任意 $\varepsilon > 0, \sigma > 0$, 存在划分 $P$, $\sum_{w_i \geqslant \varepsilon}\Delta x_i < \sigma$
+    \end{itemize}
+\end{proof}
+
+\end{document}

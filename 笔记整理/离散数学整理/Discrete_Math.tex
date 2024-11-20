@@ -68,27 +68,27 @@
 % 将borderline换为borderline east/borderline west/borderline north/borderline south可分别为四边添加框线，同一边可以添加多条
 % 偏移量为正值时，框线向盒子内部移动相应距离，负值反之
 \newenvironment{kuang3}{
-    \begin{tcolorbox}[enhanced, colback=hlan!5!white, boxrule=0pt, frame hidden,
+    \begin{tcolorbox}[enhanced, breakable, colback=hlan!5!white, boxrule=0pt, frame hidden,
         borderline south={0.5mm}{0.1mm}{hlan}]
     }
     {\end{tcolorbox}}
 \newenvironment{lvse}{
-    \begin{tcolorbox}[enhanced, colback=qlv, boxrule=0pt, frame hidden,
+    \begin{tcolorbox}[enhanced, breakable, colback=qlv, boxrule=0pt, frame hidden,
         borderline west={0.7mm}{0.1mm}{slv}]
     }
     {\end{tcolorbox}}
 \newenvironment{lanse}{
-    \begin{tcolorbox}[enhanced, colback=qlan, boxrule=0pt, frame hidden,
+    \begin{tcolorbox}[enhanced, breakable, colback=qlan, boxrule=0pt, frame hidden,
         borderline west={0.7mm}{0.1mm}{slan}]
     }
     {\end{tcolorbox}}
 \newenvironment{huangse}{
-    \begin{tcolorbox}[enhanced, colback=qhuang, boxrule=0pt, frame hidden,
+    \begin{tcolorbox}[enhanced, breakable, colback=qhuang, boxrule=0pt, frame hidden,
         borderline west={0.7mm}{0.1mm}{shuang}]
     }
     {\end{tcolorbox}}
 \newenvironment{zise}{
-    \begin{tcolorbox}[enhanced, colback=qzi, boxrule=0pt, frame hidden,
+    \begin{tcolorbox}[enhanced, breakable, colback=qzi, boxrule=0pt, frame hidden,
         borderline west={0.7mm}{0.1mm}{szi}]
     }
     {\end{tcolorbox}}
@@ -317,7 +317,7 @@
     $\phi \equiv \phi$
 \end{dl}
 
-\subsubsection{Relation among tautologies, contradictions, satisfiable asser-tions, consequence relations and logic equivalence}
+\subsubsection{Relation among tautologies, contradictions, satisfiable assertions, consequence relations and logic equivalence}
 
 \begin{dl} \quad 
     \begin{itemize}
@@ -508,6 +508,147 @@ With a structure, we can determine the truth of an closed proposition.
         \item $\phi \rightarrow \psi \equiv \lnot \phi \lor \psi$
     \end{itemize}
 \end{dl}
+
+\begin{kuang1}
+    \part{Discrete Math: Set Theory}
+\end{kuang1}
+
+\begin{kuang2}
+    \section{The definition of set}
+\end{kuang2}
+
+(Omitted)
+
+\begin{kuang2}
+    \section{Relations}
+\end{kuang2}
+
+\begin{kuang3}
+    \subsection{Relations}
+\end{kuang3}
+
+\subsubsection{Properties of relations}
+
+\begin{dy}
+    Given $R$, a relation on $A$, 
+    \begin{itemize}
+        \item \textbf{Reflexive} on $A$ if it holds that $\forall a \in A, (aRa) \Leftrightarrow I_A \subseteq R$
+        \item \textbf{Symmetric} on $A$ if it holds that $\forall a, b \in A$ if $aRb$, then $bRa$ $\Leftrightarrow R^{-1} = R$
+        \item \textbf{Transitive} on $A$ if it holds that $\forall a, b, c \in A$ if $aRb, bRc$, then $aRc$ $\Leftrightarrow R \circ R \subseteq R$
+        \item \textbf{Antisymmetric} on $A$ if it holds that $\forall a, b \in A$ if $aRb, bRa$, then $a = b$ $\Leftrightarrow R \cap R^{-1} = I_A$
+    \end{itemize}
+\end{dy}
+
+\subsubsection{Equivalence relations}
+
+\begin{dy}
+    If $R \subseteq A \times A$ is reflexive, symmetric and transitive, then $R$ is called a \textbf{equivalence relation} on $A$
+\end{dy}
+
+\begin{kuang3}
+    \subsection{Relations and Sets}
+\end{kuang3}
+
+\subsubsection{Equivalence classes and Partitions}
+
+\begin{dy}
+    $R$ is an equivalence relation on $A$, $a \in A$, then we define the equivalence class $[a]_R$ of $A$ by
+    \[
+        [a]_R = \left\{b \in A | bRa \right\}
+    \]
+\end{dy}
+
+\begin{dl}
+    $aRb$ iff. $[a]_R = [b]_R$
+\end{dl}
+
+\subsubsection{Transitive Closures and Reflexive Transitive Closures}
+
+\begin{dy}[Transitive Closures]
+    Suppose $R$ is a relation on $A$, $R'$ is a transitive closure of $R$ if 
+    \begin{itemize}
+        \item $R \subseteq R'$
+        \item $R'$ is transitive
+        \item $\forall T$, $T$ is transitive, $R \subseteq T$, then $R' \subseteq T$. 
+    \end{itemize}
+    \begin{dyhj}[Another definition]
+        $R^+ = \bigcup_{n = 1}^\infty R^n$ is the transitive closure 
+    \end{dyhj}
+\end{dy}
+
+\begin{zm}
+    Let's prove that the two definitions are equivalent. 
+    \begin{itemize}
+        \item $R \subseteq R^+$
+        \item If $aR^+b, bR^+c$, then there exists $m, n$, $aR^mb$, $bR^nc$, then $aR^{m + n}c$, $R^+$ is transitive.
+        \item If $R \subseteq T$ and $T$ is transitive, if $R^n \subseteq T$, then $R^{n + 1} = R^n \circ R \subseteq T \circ T \subseteq T$, so $R^+ = \bigcup_{n = 1}^\infty R^n \subseteq T$.
+    \end{itemize}
+    So such $R^+$ is a transitive closure.
+\end{zm}
+
+\begin{kuang2}
+    \section{Functions}
+\end{kuang2}
+
+\begin{kuang3}
+    \subsection{Functions}
+\end{kuang3}
+
+\begin{kuang3}
+    \subsection{Funcions and Sets}
+\end{kuang3}
+
+\begin{dy} \quad \\
+    $F: A \to B$,
+    \begin{itemize}
+        \item \textbf{Injection}(one-to-one map): $\forall a, a' \in A$, if $F(a) = F(a')$, then $a = a'$.
+        \item \textbf{Surjection}(onto map): $\forall b \in B, \exists a \in A, F(a) = b$.
+        \item \textbf{Bijection}(one-to-one correspondence): both one-to-one and onto.
+    \end{itemize}
+\end{dy}
+
+\begin{dl} \quad
+    \begin{itemize}
+        \item If $F, G$ are both injections, then $F \circ G$ is also an injection.
+        \item If $F, G$ are both surjection, then $F \circ G$ is also a surjection.
+        \item If $F \circ G$ is an injection, then $G$ is also an injection.
+        \item If $F$ is an bijection, then $F^{-1}$ is also a bijection.
+    \end{itemize}
+\end{dl}
+
+\begin{dl}[Berstern's Theorem]
+    If there exist an injection from $A$ to $B$ and an injection from $B$ to $A$, then there exists a bijection between $A$ and $B$
+\end{dl}
+
+\begin{zm}
+    Suppose $F$ is an one-to-one function from $A$ to $B$, $G$ is an one-to-one function from $B$ to $A$. \\
+    Then we can construct a sequence of set as follow:
+    \begin{align*}
+        C_0 =& \left\{a \in A | \forall b \in B, G(b) \neq a\right\} = A \setminus \left\{a | \exists b \in B, G(b) = a\right\}, \\
+        \quad D_0 =& \left\{F(a) | a \in C_0\right\} =B \setminus \left\{b \in B | \exists a \in A \setminus C_0 , b = F(a) \right\}
+    \end{align*}
+    $\forall n \geqslant 1$,
+    \begin{align*}
+        C_n =& \left\{a \in A \vert \forall b \in B \setminus \bigcup_{i = 0}^{n - 1}D_i, G(b) \neq a\right\} \\
+        D_n =& \left\{F(a) \vert a \in C_n \right\} 
+    \end{align*}
+    Now we define a function $H$, where \\
+    \[H(a) = \begin{cases}
+        F(a), & \quad a \in \bigcup_{n = 0}^{\infty}C_n \\
+        b\ (a = G(b)), & \quad a \notin \bigcup_{n = 0}^{\infty}C_n
+    \end{cases}\]
+    Let $C = A \setminus \bigcup_{n = 0}^{\infty}C_n$, $D = B \setminus \bigcup_{n = 0}^{\infty}D_n$ \\
+    Now we prove that $H$ is well-defined and is a bijection.
+    \begin{itemize}
+        \item Firstly we prove that such $b$ exists. \\
+        $\forall a \in C, a \notin C_0$, so $\exists b \in B$, $G(b) = a$. If $b \in D_n$, then $a = G(b) \in C_{n + 1}$, contradictive! So $b \in D$. Due to $G$ is an injection, such $b$ is unique.
+        \item Then we prove that $H$ is an injection. \\
+        $\forall a \in \bigcup_{n = 0}^{\infty}C_n, F(a) \in \bigcup_{n = 0}^{\infty}D_n$, and due to $F$ is an injection, on $\bigcup_{n = 0}^{\infty}C_n$ $H$ is an injection. \\
+        $\forall a \in C, \exists b \in D, a = G(b)$, due to $G$ is an injection, on $C$ $H$ is an injection. 
+        \item Finallty we prove that $H$ is a surjection. \\
+        $\forall b \in \bigcup_{n = 0}^{\infty}D_n$ according to the define. $\forall b \in D, \exists a \in A, G(b) = a$, so $a \notin C_0$. If $a \in C_n, n \geqslant 1$, then $b \in D_{n - 1}$, contradictive! So $a \in C$.
+    \end{itemize}
+\end{zm}
 
 
 \end{document}

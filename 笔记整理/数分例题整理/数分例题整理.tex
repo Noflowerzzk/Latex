@@ -84,27 +84,27 @@
 % 将borderline换为borderline east/borderline west/borderline north/borderline south可分别为四边添加框线，同一边可以添加多条
 % 偏移量为正值时，框线向盒子内部移动相应距离，负值反之
 \newenvironment{kuang3}{
-    \begin{tcolorbox}[enhanced, colback=hlan!5!white, boxrule=0pt, frame hidden,
+    \begin{tcolorbox}[enhanced, breakable, colback=hlan!5!white, boxrule=0pt, frame hidden,
         borderline south={0.5mm}{0.1mm}{hlan}]
     }
     {\end{tcolorbox}}
 \newenvironment{lvse}{
-    \begin{tcolorbox}[enhanced, colback=qlv, boxrule=0pt, frame hidden,
+    \begin{tcolorbox}[enhanced, breakable, colback=qlv, boxrule=0pt, frame hidden,
         borderline west={0.7mm}{0.1mm}{slv}]
     }
     {\end{tcolorbox}}
 \newenvironment{lanse}{
-    \begin{tcolorbox}[enhanced, colback=qlan, boxrule=0pt, frame hidden,
+    \begin{tcolorbox}[enhanced, breakable, colback=qlan, boxrule=0pt, frame hidden,
         borderline west={0.7mm}{0.1mm}{slan}]
     }
     {\end{tcolorbox}}
 \newenvironment{huangse}{
-    \begin{tcolorbox}[enhanced, colback=qhuang, boxrule=0pt, frame hidden,
+    \begin{tcolorbox}[enhanced, breakable, colback=qhuang, boxrule=0pt, frame hidden,
         borderline west={0.7mm}{0.1mm}{shuang}]
     }
     {\end{tcolorbox}}
 \newenvironment{zise}{
-    \begin{tcolorbox}[enhanced, colback=qzi, boxrule=0pt, frame hidden,
+    \begin{tcolorbox}[enhanced, breakable, colback=qzi, boxrule=0pt, frame hidden,
         borderline west={0.7mm}{0.1mm}{szi}]
     }
     {\end{tcolorbox}}
@@ -630,5 +630,41 @@
         \sum_{i = 1}^{n}a_ib_i \leqslant A^{\frac{1}{p}}B^{\frac{1}{q}} = \left(\sum_{i = 1}^{n}a_i^p\right)^{\frac{1}{p}} \cdot \left(\sum_{i = 1}^{n}b_i^q\right)^{\frac{1}{q}}
     \]
 \end{zm}
+
+\begin{zm}[用 Jesen 不等式的证明]
+    $p > 1$ 时， $f(x) = x^p$ 为下凸函数. \\
+    由于 $q = \frac{p}{p - 1}$, 把 $x_iy_i$ 分解为
+    \[
+        x_iy_i = y_i^q\left(\sum_{i = 1}^{n}y_i^q\right)^{-1} \cdot x_iy_i^{1 - q}\left(\sum_{i = 1}^{n}y_i^q\right)
+    \]
+    注意到
+    \[
+        \sum_{i = 1}^{n}\left(y_i^q\left(\sum_{i = 1}^{n}y_i^q\right)^{-1}\right) = 1
+    \]
+    由 \textbf{Jesen 不等式}，
+    \begin{align*}
+        \left(\sum_{i = 1}^{n}x_iy_i\right)^p\  =\ & \left\{\sum_{i = 1}^{n}\left[y_i^q\left(\sum_{i = 1}^{n}y_i^q\right)^{-1} \cdot x_iy_i^{1 - q}\left(\sum_{i = 1}^{n}y_i^q\right)\right]\right\}^p \\
+        \leqslant\ & \sum_{i = 1}^{n}y_i^q\left(\sum_{i = 1}^{n}y_i^q\right)^{-1} \cdot x_i^p y_i^{p - pq}\left(\sum_{i = 1}^{n}y_i^q\right)^p \\
+        = \ & \left(\sum_{i = 1}^{n}x_i^p\right)\cdot \left(\sum_{i = 1}^{n}y_i^q\right)^{p - 1} \\
+    \end{align*}
+    因此，
+    \begin{align*}
+        \sum_{i = 1}^{n}x_iy_i =  \left(\sum_{i = 1}^{n}a_i^p\right)^{\frac{1}{p}} \cdot \left(\sum_{i = 1}^{n}b_i^q\right)^{\frac{1}{q}}
+    \end{align*}
+\end{zm}
+
+\begin{kuang2}
+    \section{函数不定积分、定积分相关定理}
+\end{kuang2}
+
+\begin{kuang3}
+    \subsection{不定积分}
+\end{kuang3}
+
+(全是计算题)
+
+\begin{kuang3}
+    \subsection{定积分}
+\end{kuang3}
 
 \end{document}
