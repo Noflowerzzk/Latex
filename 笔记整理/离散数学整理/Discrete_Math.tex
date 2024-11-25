@@ -598,6 +598,8 @@ With a structure, we can determine the truth of an closed proposition.
     \subsection{Funcions and Sets}
 \end{kuang3}
 
+\subsubsection{Injection and Surjection}
+
 \begin{dy} \quad \\
     $F: A \to B$,
     \begin{itemize}
@@ -643,12 +645,85 @@ With a structure, we can determine the truth of an closed proposition.
         \item Firstly we prove that such $b$ exists. \\
         $\forall a \in C, a \notin C_0$, so $\exists b \in B$, $G(b) = a$. If $b \in D_n$, then $a = G(b) \in C_{n + 1}$, contradictive! So $b \in D$. Due to $G$ is an injection, such $b$ is unique.
         \item Then we prove that $H$ is an injection. \\
-        $\forall a \in \bigcup_{n = 0}^{\infty}C_n, F(a) \in \bigcup_{n = 0}^{\infty}D_n$, and due to $F$ is an injection, on $\bigcup_{n = 0}^{\infty}C_n$ $H$ is an injection. \\
-        $\forall a \in C, \exists b \in D, a = G(b)$, due to $G$ is an injection, on $C$ $H$ is an injection. 
+        $\forall a \in \bigcup_{n = 0}^{\infty}C_n, F(a) \in \bigcup_{n = 0}^{\infty}D_n$, and due to $F$ is an injection on $\bigcup_{n = 0}^{\infty}C_n$, $H$ is an injection. \\
+        $\forall a \in C, \exists b \in D, a = G(b)$, due to $G$ is an injection on $C$, $H$ is an injection. 
         \item Finallty we prove that $H$ is a surjection. \\
-        $\forall b \in \bigcup_{n = 0}^{\infty}D_n$ according to the define. $\forall b \in D, \exists a \in A, G(b) = a$, so $a \notin C_0$. If $a \in C_n, n \geqslant 1$, then $b \in D_{n - 1}$, contradictive! So $a \in C$.
+        $\forall b \in \bigcup_{n = 0}^{\infty}D_n$ according to the define. \\
+         $\forall b \in D, \exists a \in A, G(b) = a$, so $a \notin C_0$. If $a \in C_n (n \geqslant 1) $, then $b \in D_{n - 1}$, contradictive! So $a \in C$.
     \end{itemize}
 \end{zm}
+
+\subsubsection{Equinumerous Sets}
+
+\begin{dy}\quad
+    \begin{itemize}
+        \item If there exists an injection from $A$ to $B$, then we write $A \preccurlyeq B$.
+        \item If there exists a bijection between $A, B$, then we call $A, B$ are equinumerous, i.e. $A \approx B$ 
+    \end{itemize}
+\end{dy}
+
+\begin{dy}
+    Denote the set of function (or its cardinality) $\left\{F\ |\ F:\ A \to B\right\}$ by $B^A$
+\end{dy}
+
+\begin{dl}
+    $\mathcal{P}(A) \approx \left\{F\ |\ F:\ A \to \left\{0, 1\right\}\right\}$
+\end{dl}
+
+\begin{zm}
+    Let function $H:\ \mathcal{P}(A) \to \left\{F\ |\ F:\ A \to \left\{0, 1\right\}\right\}$, \\
+    $\forall X \in \mathcal{P}(A), H(X)(a) = 1 \text{ iff. } a \in X$. \\
+    For any $F \in \left\{F\ |\ F:\ A \to \left\{0, 1\right\}\right\}$, $X = \left\{a\ |\ F(a) = 1\right\} \in \mathcal{P}(A)$, $H(X) = F$.\\
+    If $H(X_1) = H(X_2) = F$, then $X_1 = X_2 = \left\{a\ |\ F(a) = 1\right\}$.
+\end{zm}
+
+\begin{dl}
+    If $A_1 \approx A_2, B_1 \approx B_2$, then $(A_1 \to B_1) \approx (A_2 \to B_2)$, i.e. $B_1^{A_1} \approx B_2^{A_2}$
+\end{dl}
+
+\begin{zm}
+    There exist $f \in (A_1 \to A_2), g \in (B_1 \to B_2)$, $f, g$ are both bijections. \\
+    Then let $H:\ (A_1 \to B_1) \to (A_2 \to B_2)$, for any $F: A_1 \to B_1$, $H(F) = g \circ F \circ f^{-1}$ \\
+    $H(F_1) = H(F_2) \Rightarrow g \circ F_1 \circ f^{-1} = g \circ F_2 \circ f^{-1} \Rightarrow F_1 \circ f^{-1} = F_2 \circ f^{-1}$. According to $\forall b \in A_2, \exists a \in A_1, f(a) = b$. So $F_1 \circ f^{-1} = F_2 \circ f^{-1} \Rightarrow \forall b \in A_2, F_1 \circ f^{-1}(b) = F_2 \circ f^{-1}(b) \Rightarrow F_1(a) = F_2(a) \Rightarrow F_1 = F_2$. \\
+    $\forall F_2 \in (A_2 \to B_2)$, let $F_1 = g^{-1} \circ F_2 \circ f$.
+\end{zm}
+
+\begin{dl}
+    $(A \times B \to C) \approx (A \to (B \to C))$, i.e. $C^{A \times B} \approx \left(C^B\right)^A$
+\end{dl}
+
+\begin{zm}
+    Let $H:\ (A \times B \to C) \to (A \to (B \to C))$, $H(F)(a)(b) = F(a, b)$. \\
+    Omit the following proof.
+\end{zm}
+
+\begin{dl}[Cantor's Theorem]
+    $\mathcal{P}(A)$'s cardinality is bigger than $A$'s.
+\end{dl}
+
+\begin{zm}
+    Prove by contradiction. \\
+    Assume that exists $A$, $\mathcal{P}(A) \approx A$, then there exists an bijection $\theta$ from $A$ to $\mathcal{P}(A)$. \\
+    Let $X = \left\{x \in A\ |\ x \in \theta(x) \right\} \subseteq A$. \\
+    Consider $x = \theta^{-1}(X)$. 
+    \begin{itemize}
+        \item If $x \in \theta(x) = X$, then according to the definition of $X$, $x \notin X$, impossiable! 
+        \item If $x \notin \theta(x) = X$, then according to the definition of $X$, $x \in X$, impossiable!
+    \end{itemize}
+\end{zm}
+
+\subsubsection{Countable Infinity}
+
+\begin{lt}\quad
+    \begin{itemize}
+        \item $\NN$, $\NN \times \NN$, $\underbrace{\NN \times \cdots \times \NN}_{n \text{ times}}$ is countable.
+        \item The set of all finit sequence of $\NN$ is countable. \\
+        (equal to $\bigcup_{n = 1}^{+\infty}\underbrace{\NN \times \cdots \times \NN}_{n \text{ times}}$)
+        \item $\QQ$ is countable. \\
+        $\QQ \preccurlyeq \ZZ^+ \times \ZZ \approx \NN \times \NN \approx \NN$, $\NN \preccurlyeq \QQ$
+    \end{itemize}
+\end{lt}
+
 
 
 \end{document}

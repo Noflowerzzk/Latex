@@ -12,13 +12,18 @@
 \contentsline {part}{第二部分\hspace {1em}微分与积分}{4}{part.2}%
 \contentsline {section}{\numberline {\textbf {第}\textbf {四}\textbf {章}\hspace {18pt}}函数微分、导数相关定理}{4}{section.4}%
 \contentsline {subsection}{\numberline {\S \hspace {6pt}4.1\hspace {8pt}}导数基本性质与中值定理}{4}{subsection.4.1}%
-\contentsline {subsection}{\numberline {\S \hspace {6pt}4.2\hspace {8pt}}Taylor 公式}{4}{subsection.4.2}%
-\contentsline {subsubsection}{\numberline {一、}推导与证明}{4}{subsubsection.4.2.1}%
-\contentsline {subsection}{\numberline {\S \hspace {6pt}4.3\hspace {8pt}}凸函数与 Lipschitz 条件}{5}{subsection.4.3}%
-\contentsline {subsubsection}{\numberline {一、}凸函数与二阶导的关系}{6}{subsubsection.4.3.1}%
-\contentsline {subsubsection}{\numberline {二、}Lipschitz 条件}{7}{subsubsection.4.3.2}%
-\contentsline {subsubsection}{\numberline {三、}开区间上的凸函数}{8}{subsubsection.4.3.3}%
-\contentsline {subsubsection}{\numberline {四、}相关不等式}{10}{subsubsection.4.3.4}%
-\contentsline {section}{\numberline {\textbf {第}\textbf {五}\textbf {章}\hspace {18pt}}函数不定积分、定积分相关定理}{11}{section.5}%
-\contentsline {subsection}{\numberline {\S \hspace {6pt}5.1\hspace {8pt}}不定积分}{11}{subsection.5.1}%
-\contentsline {subsection}{\numberline {\S \hspace {6pt}5.2\hspace {8pt}}定积分}{11}{subsection.5.2}%
+\contentsline {subsubsection}{\numberline {一、}中值定理}{4}{subsubsection.4.1.1}%
+\contentsline {subsubsection}{\numberline {二、}导函数的性质}{5}{subsubsection.4.1.2}%
+\contentsline {subsection}{\numberline {\S \hspace {6pt}4.2\hspace {8pt}}Taylor 公式}{6}{subsection.4.2}%
+\contentsline {subsubsection}{\numberline {一、}推导与证明}{6}{subsubsection.4.2.1}%
+\contentsline {subsection}{\numberline {\S \hspace {6pt}4.3\hspace {8pt}}凸函数与 Lipschitz 条件}{9}{subsection.4.3}%
+\contentsline {subsubsection}{\numberline {一、}凸函数与二阶导的关系}{9}{subsubsection.4.3.1}%
+\contentsline {subsubsection}{\numberline {二、}Lipschitz 条件}{10}{subsubsection.4.3.2}%
+\contentsline {subsubsection}{\numberline {三、}开区间上的凸函数}{11}{subsubsection.4.3.3}%
+\contentsline {subsubsection}{\numberline {四、}相关不等式}{13}{subsubsection.4.3.4}%
+\contentsline {section}{\numberline {\textbf {第}\textbf {五}\textbf {章}\hspace {18pt}}函数不定积分、定积分相关定理}{14}{section.5}%
+\contentsline {subsection}{\numberline {\S \hspace {6pt}5.1\hspace {8pt}}不定积分}{14}{subsection.5.1}%
+\contentsline {subsubsection}{\numberline {一、}计算计巧}{15}{subsubsection.5.1.1}%
+\contentsline {subsubsection}{\numberline {二、}一些例题}{15}{subsubsection.5.1.2}%
+\contentsline {subsection}{\numberline {\S \hspace {6pt}5.2\hspace {8pt}}定积分}{15}{subsection.5.2}%
+\contentsline {subsubsection}{\numberline {一、}定积分的定义与 Darboux 和}{16}{subsubsection.5.2.1}%

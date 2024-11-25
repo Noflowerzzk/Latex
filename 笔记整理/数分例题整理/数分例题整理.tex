@@ -20,6 +20,7 @@
 \usepackage{tcolorbox} % 盒子效果
 \usepackage{hyperref}
 \usepackage{fancyhdr}
+\usepackage{extarrows}
 \tcbuselibrary{most} % tcolorbox宏包的设置，详见宏包说明文档
 \everymath{\displaystyle}  % 让所有数学模式都使用 \displaystyle
 
@@ -51,6 +52,8 @@
 \newcommand{\NN}{\mathbb{N}} % 黑板粗体N
 \newcommand{\ds}{^\prime}
 \newcommand{\dds}{^{\prime\prime}}
+\newcommand{\dx}{\mathrm{d}x}
+\newcommand{\dd}{\mathrm{d}}
 % ————————————————————————————————————自定义符号————————————————————————————————————
 
 % ————————————————————————————————————自定义颜色————————————————————————————————————
@@ -399,6 +402,78 @@
     \subsection{导数基本性质与中值定理}
 \end{kuang3}
 
+\subsubsection{中值定理}
+
+\begin{lt}
+    $f(x) \in C[a, b] \cap D(a, b)$, 其中 $a > 0$ 且 $f(a) = 0$. 证明： $\exists \xi \in (a, b), f(\xi) = \frac{b - \xi}{a}f'(\xi)$.
+    \begin{jiehj}
+        令 $F(x) = (b - x)^af(x)$, 易知 $F(x) \in C[a, b] \cap D(a, b), F(a) = F(b) = 0$, 由 Rolle 定理， $\exists \xi \in (a, b), F'(\xi) = 0 \Rightarrow f(\xi) = \frac{b - \xi}{a}f'(\xi)$
+    \end{jiehj} 
+\end{lt}
+
+用 Rolle 定理证明等式的基本方法：
+\begin{itemize}
+    \item 将等号一端改写成只有零，形成 $g(\xi) = 0$
+    \item 求积分 $G(x) = \int g(x) \dx$
+    \item 验证 $G(x)$ 满足 Rolle 中值定理条件
+\end{itemize}
+
+例如上题，化简为 $\frac{f'(x)}{f(x)} - \frac{a}{b - x} = 0$, 有 $G(x) = (b - x)^af(x)$
+
+\begin{lt}
+    $f(x)$ 在 $[0, 1]$ 上二阶可导， $f(0) = f(1), f'(1) = 1$, 求证：存在 $\xi \in (0, 1), f''(\xi) = 2$.
+    \begin{jiehj}
+        $f''(x) - 2 = 0$，有 $f'(x) - 2x = C_1$，由条件 $f'(1) = 1$，有 $C_1 = -1$，化简有 $f'(x) - 2x + 1 = 0$，故 $F(x) = f(x) - x^2 + x$. 下略.
+    \end{jiehj}
+\end{lt}
+
+\begin{lt}
+    证明 $2^x - x^2 = 1$ 有且仅有三个实根
+    \begin{jiehj}
+        有三个解证明略.\\
+        假设有四个解，反复使用中值定理可以证明最后的导函数没有解。
+    \end{jiehj}
+\end{lt}
+
+\begin{lt}
+    $f(x)$ 在 $(-\infty, + \infty)$ 上可微，且 $f(0) = 0$, $\left\lvert f'(x)\right\rvert \leqslant p\left\lvert f(x)\right\rvert $, 证明 $f(x) \equiv 0, x \in \RR$
+    \begin{zmhj}
+        先考虑 $x \in \left[0, \frac{1}{2p}\right]$ 的情形. $\left\lvert f(x)\right\rvert $ 在 $\left[0, \frac{1}{2p}\right]$ 的最大值为 $\left\lvert f(x_0)\right\rvert = M \geqslant 0$\\
+        \[
+            M = \left\lvert f(x) - f(0)\right\rvert = \left\lvert f'(\xi)x_0\right\rvert \leq \frac{1}{2p} \cdot p \left\lvert f(\xi)\right\rvert \leqslant \frac{1}{2}M
+        \]
+        因此 $M = 0$. 对其它区间同理归纳即可.
+    \end{zmhj}
+\end{lt}
+
+\subsubsection{导函数的性质}
+
+\begin{dl}[导数的 Darboux 定理(介值性)]
+    $f(x)$ 可导且 $f'(a) \neq f'(b)$, 则对任意介于 $f'(a), f'(b)$ 之间的 $r$, 都存在 $\xi \in (a, b)$, 使得 $r = f'(\xi)$
+\end{dl}
+
+两种证明方法
+
+\begin{zm}
+    不妨 $f'(a) < f'(b)$, 对任意 $r \in (f'(a), f'(b))$, 令 $F(x) = f(x) - rx$, 有 $F(a) < 0, F(b) > 0$. 故由极限保号性，存在 $\delta > 0, \forall x \in (a, a + \delta), \frac{F(x) - F(a)}{x - a} < 0$, 即 $F(x) < F(a)$, $F(a)$ 不是最小值. \\
+    同理 $F(b)$ 也不是最小值. 因此最小值 $F(\xi)$ 在开区间 $(a, b)$ 上取到，由费马定理， $F'(\xi) = 0 \Rightarrow f'(\xi) = r$.
+\end{zm}
+
+\begin{zm}
+    假设同上，作函数 
+    \begin{align*}
+        F(x) = \left\{\begin{matrix}
+            \frac{f(x) - f(a)}{x - a}, \quad & x \neq a \\
+            f'(a), \quad & x = a
+        \end{matrix}\right., \quad 
+        G(x) = \left\{ \begin{matrix}
+            \frac{f(x) - f(b)}{x - b}, \quad & x \neq b \\
+            f'(b), \quad & x = b
+        \end{matrix}\right.
+    \end{align*}
+    $r$ 要么在 $F(a), F(b)$ 之间，要么在 $G(a), G(b)$ 之间. \\
+    如果 $r$ 在 $F(a), F(b)$ 之间，由连续函数的介值定理，存在 $x_0 \in (a, b), r = \frac{f(x_0) - f(a)}{x_0 - a}$ 再对 $F(x)$ 用 Lagrange 中值定理即可. $r$ 在 $G(a), G(b)$ 之间同理. 
+\end{zm}
 
 \begin{kuang3}
     \subsection{Taylor 公式}
@@ -449,6 +524,64 @@
     因此 $r(x) = \frac{1}{(n + 1)!}f^{(n + 1)}(\xi)(x - x_0)^{n + 1}$  
 \end{zm}
 
+\begin{lt}[Taylor 公式的应用套路]
+    $f(x)$ 在 $[a, b]$ 上二阶可导， $f(a) = f(b) = 0$, 证明：
+    \[
+        \max_{a \leqslant x \leqslant b}\left\lvert f(x)\right\rvert \leqslant \frac{1}{8} (b - a)^2 \max_{a \leqslant x \leqslant b}\left\lvert f''(x)\right\rvert 
+    \]
+    \begin{zmhj}
+        由最值存在定理， $\exists x_0 \in [a, b], \left\lvert f(x_0)\right\rvert = \max_{a \leqslant x \leqslant b}\left\lvert f(x)\right\rvert$, 且 $f'(x_0) = 0$ \\
+        把 $f(x)$ 在 $x = x_0$ 处展开，有
+        \[
+            f(x) = f(x_0) + f'(x_0)(x - x_0) + \frac{1}{2}f''(\xi)(x - x_0)^2, \quad \xi \text{在} x, x_0 \text{之间}
+        \]
+        代入 $x = a, x = b$ 有:
+        \begin{align*}
+            & \frac{1}{2}f''(\xi_1)(a - x_0)^2 = f(a) - f(x_0) - f'(x_0)(a - x_0) & a < \xi_1 < x_0 \\
+            & \frac{1}{2}f''(\xi_2)(x_0 - b)^2 = f(b) - f(x_0) - f'(x_0)(b - x_0) & x_0 < \xi_2 < b
+        \end{align*}
+        相加有
+        \begin{align*}
+            \left\lvert f''(\xi_1)\right\rvert  + \left\lvert f''(\xi_2)\right\rvert  =\  & 2\left\lvert f(x_0)\right\rvert \left(\frac{1}{(a - x_0)^2} + \frac{1}{(b - x_0)^2}\right) \\
+            \geqslant \ & 2\left\lvert f(x_0)\right\rvert\left(\frac{(1 + 1)^3}{(a - x_0 + x_0 - b)^2}\right)\\
+            = \ & \frac{16}{(a - b)^2}\left\lvert f(x_0)\right\rvert
+        \end{align*}
+        而
+        \begin{align*}
+            \max_{a \leqslant x \leqslant b}\left\lvert f''(x)\right\rvert  \geqslant\ & \frac{1}{2}\left(\left\lvert f''(\xi_1)\right\rvert  + \left\lvert f''(\xi_2)\right\rvert\right) \\
+            = \ & \frac{8}{(a - b)^2}\left\lvert f(x_0)\right\rvert \\
+            = \ & \frac{8}{(a - b)^2}\max_{a \leqslant x \leqslant b}\left\lvert f(x)\right\rvert
+        \end{align*}
+        即 \[\max_{a \leqslant x \leqslant b}\left\lvert f(x)\right\rvert \leqslant \frac{1}{8}(a - b)^2\max_{a \leqslant x \leqslant b}\left\lvert f''(x)\right\rvert \] \qed
+    \end{zmhj}
+\end{lt}
+
+\begin{lt}
+    $f(x)$ 在 $(-\infty, +\infty)$ 上二阶可导， $\left\lvert f(x)\right\rvert < k_0, \left\lvert f''(x)\right\rvert < k_1$, 证明：
+    \[
+        \left\lvert f'(x)\right\rvert \leqslant \sqrt{2k_0k_1}
+    \]
+    \begin{zmhj}
+        由 Taylor 公式，
+        \begin{align*}
+            f(x + h) &= f(x) + f'(x)h + \frac{1}{2}f''(\xi_1)h^2 \\
+            f(x - h) &= f(x) - f'(x)h + \frac{1}{2}f''(\xi_2)h^2
+        \end{align*}
+        化简有：
+        \[
+            f'(x) = \frac{f(x + h) - f(x - h)}{2h} + \frac{1}{4}\left(f''(\xi_2) - f(\xi_1)\right)h
+        \]
+        因此
+        \[
+            \left\lvert f'(x)\right\rvert \leqslant \frac{\left\lvert f(x + h)\right\rvert + \left\lvert f(x - h)\right\rvert}{2h} + \frac{1}{4}\left(\left\lvert f''(\xi_2)\right\rvert  + \left\lvert f''(\xi_1)\right\rvert \right)h \leqslant \frac{k_0}{h} + \frac{h}{2}k_1 \qquad \forall h > 0
+        \]
+        因此
+        \[
+            \left\lvert f'(x)\right\rvert \leqslant \min_{h \in (0, + \infty)} \left(\frac{k_0}{h} + \frac{h}{2}k_1\right) = \sqrt{2k_0k_1}
+        \]
+        \qed
+    \end{zmhj}
+\end{lt}
 
 \begin{kuang3}
     \subsection{凸函数与 Lipschitz 条件}
@@ -662,9 +795,59 @@
 \end{kuang3}
 
 (全是计算题)
+\subsubsection{计算计巧}
+
+\begin{lt}[凑微分技巧] \quad
+    \begin{itemize}
+        \item $\frac{x \dx}{\sqrt{1 + x^2}} = \dd \left(\sqrt{1 + x^2}\right)$
+        \item $\int x^{2k + 1}\sqrt{a + bx^2} \dx \xlongequal[]{t = \sqrt{a + bx^2}} \cdots, (b x \dx = t \dd t)$
+    \end{itemize}
+\end{lt}
+
+\begin{lt}[分部积分法则] \quad
+    \begin{itemize}
+        \item $\int f(x) \ln g(x) \dx = \int \ln g(x) \dd F(x)$
+        \item $\int f(x) \arctan g(x) \dx$ 分两种情况. \begin{itemize}
+            \item $f(x)$ 能凑微分，则化为 $\int \arctan g(x) \dd F(x)$
+            \item $f(x)$ 不能凑微分，则换元 $t = \arctan g(x)$
+        \end{itemize} 
+    \end{itemize}
+\end{lt}
+
+\begin{dl}[用于求分段函数积分]
+    \[
+        \int f(x) \dx = \int_{a}^{x} f(t) \dd t
+    \]
+\end{dl}
+
+\subsubsection{一些例题}
+
+\begin{lt}[正余弦齐次分式函数]
+    计算 $\int \frac{7 \sin x + \cos x}{3 \sin x + 4 \cos x} \dx$.
+    \begin{jiehj}
+        由于 $7 \sin x + \cos x = 3 \sin x + 4 \cos x - \left(3 \sin x + 4 \cos x\right)'$, 有 
+        \[
+            \int \frac{7 \sin x + \cos x}{3 \sin x + 4 \cos x} \dx = \int \dx - \int \frac{\dd \left(3 \sin x + 4 \cos x\right)}{3 \sin x + 4 \cos x} = x - \ln \left|3 \sin x + 4 \cos x \right| + C
+        \]
+    \end{jiehj}
+\end{lt}
 
 \begin{kuang3}
     \subsection{定积分}
 \end{kuang3}
+
+\subsubsection{定积分的定义与 Darboux 和}
+
+\begin{dy}[Riemann 和与定积分]
+    (略)
+\end{dy}
+
+\begin{dy}[Darboux 和]
+    (略)
+\end{dy}
+
+
+
+
 
 \end{document}

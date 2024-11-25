@@ -19,6 +19,7 @@
 \usepackage{fancyhdr}
 \usepackage{rotating}
 \usepackage{bm} % 加载 bm 包
+\usepackage{circuitikz}
 \tcbuselibrary{most} % tcolorbox宏包的设置，详见宏包说明文档
 \everymath{\displaystyle}  % 让所有数学模式都使用 \displaystyle
 
@@ -355,5 +356,20 @@
     \section{例题们}
 \end{kuang2}
 dfdf
+$\bm{A}\bm{x} = \bm{\beta}\Omega $
+$R_1 = 2  \Omega$
+
+\[\left\{
+\begin{array}{cccccccc}
+    +i_a &- i_{CF} &- i_{CD} & & & & & = 0\\
+    +i_a & & &- i_3 & -i_{ED} & & & = 0 \\
+     & & & & +i_{ED} & -i_{FE} & -i_c & = 0 \\
+     &+i_{CF} & & & & -i_{FE} & -i_c & = 0 \\
+    (R_1 + R_2)i_a & & & R_3i_3 & & & & \ \ = u_s \\
+     & -R_4i_{CF} & & R_3i_3 & & -R_5i_{FE} & & = 0 \\
+     & & & & & R_5i_{FE} & (R_6 + R_7)i_c & = 0
+\end{array}\right.
+\]
+
 
 \end{document}
