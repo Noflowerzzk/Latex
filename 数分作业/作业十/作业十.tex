@@ -1,0 +1,139 @@
+\documentclass{article}
+\usepackage{amsmath}  % 数学符号包
+\usepackage{amssymb}  % 更多数学符号
+\usepackage{enumitem} % 列表样式
+\usepackage{fancyhdr} % 页眉设置
+\usepackage{geometry} % 页面设置
+\usepackage[UTF8]{ctex}
+\usepackage{bm}
+\usepackage{amsthm}
+\everymath{\displaystyle}  % 让所有数学模式都使用 \displaystyle
+\newcommand{\lb}{\left\llbracket}
+\newcommand{\rb}{\right\rrbracket}
+\newcommand{\dd}{\mathrm{d}}
+\newcommand{\dx}{\dd x}
+
+
+\geometry{a4paper, margin=1in}
+
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[C]{作业十}
+\fancyhead[R]{2024.11.28}
+
+
+\title{作业十}
+\author{noflowerzzk}
+\date{2024.11.28}
+
+
+\begin{document}
+\maketitle
+
+\section*{P250 T6}
+
+\begin{proof}
+    先证明第五题的结论. \\
+    设 $f(x)$ 在 $[a, b]$ 上连续，大于等于零且不恒为零，则存在 $x_0 \in [a, b], f(x_0) > 0$. 由于 $f(x)$ 连续，存在 $\delta > 0$, 任意 $x \in (x_0 - \delta, x_0 + \delta) \subseteq [a, b]$, $f(x) > 0 \Rightarrow \int_{x - \delta}^{x + \delta}f(x) \dx > 0$. 因此有
+    \[
+        \int_a^b f(x) \dx = \int_a^{x - \delta} f(x) \dx + \int_{x - \delta}^{x + \delta}f(x) \dx + \int_{x + \delta}^b f(x) \dx > 0
+    \]
+    回到原题，假设 $\exists x_0 \in [a, b], f(x_0) \neq 0$. 由于 $f(x)$ 在 $[a, b]$ 上连续，因此 $f^2(x)$ 在 $[a, b]$ 上连续. 由于 $f^2(x_0) > 0$, $\int_a^b f^2(x) \dx > 0$，不成立. 因此 $f(x) = 0, \forall x \in [a, b]$. 
+\end{proof}
+
+\section*{P250 T7}
+
+\begin{proof}
+    原式等价于
+    \[
+        \frac{2}{b - a}\int_a^{\frac{a + b}{2}}\left(f(x) - f(b)\right)\dx = 0
+    \]
+    因此必然存在 $\eta \in \left(a, \frac{a + b }{2}\right)$, $f(\eta) - f(b) = 0$. 否则由于 $f(x)$连续，$f(x)$ 恒正或恒负，积分不可能等于零. $f(x)$ 在闭区间 $[\eta, b]$ 间用 Rolle 中值定理即证. 
+\end{proof}
+
+\section*{P250 T8}
+
+\begin{proof}
+    易得 $f(x)$ 是下凸函数，满足 Jesen 不等式. 取 $[0, a]$ 的任意分划 $P: 0 = x_0 < x_1 < \cdots < x_n = b$, 有
+    \[
+        f\left(\sum_{i = 1}^n \frac{\Delta x_i}{a}\varphi(\xi_i)\right) \leqslant \sum_{i = 1}^n\frac{\Delta x_i}{a}f(\varphi(\xi_i))
+    \] $\xi_i \in (x_{i - 1}, x_i)$. \\
+    由 $f(x)$ 连续性及 $\varphi(x)$ 可积性，两边对 $\lambda(P) \to 0$ 取极限，即有
+    \[
+        f\left(\frac{1}{a}\int_{0}^{a}\varphi(t)\dd t\right) \leqslant \frac{1}{a}\int_{0}^{a}f(\varphi(t))\dd t
+    \]
+\end{proof}
+
+\section*{P251 T9}
+
+\begin{proof}
+    注意到 
+    \begin{align*}
+        \int_{0}^{\alpha}f(x)\dx &\geqslant \int_{0}^{\alpha}f(\alpha)\dx = \alpha f(\alpha) \\
+        \int_{\alpha}^{1}f(x)\dx &\leqslant \int_{\alpha}^{1}f(\alpha)\dx = (1 - \alpha)f(\alpha)
+    \end{align*}
+    消去 $f(\alpha)$ 即得 
+    \[
+        \int_{0}^{\alpha}f(x)\dx \geqslant \alpha\left( \int_{0}^{\alpha}f(x)\dx + \int_{\alpha}^{1}f(x)\dx\right) = \int_{0}^{1}f(x)\dx
+    \]
+\end{proof}
+
+\section*{P251 T11}
+
+\begin{proof}
+    由 Lebesgue 定理， $f(x)$ 仅有可列个间断点. 由 $f(x)$ 有界，设 $\left\lvert f(x)\right\rvert \leqslant M$. 对任意 $f(x)$ 的连续点，对任意 $\varepsilon > 0$，当 $h < \delta$ 时 $\left\lvert f_h(x) - f(x)\right\rvert < \varepsilon$. \\
+    对任意划分 $P: a = x_0 < x_1 < \cdots < x_n = b$, 某个区间 $[x_{i - 1}, x_i]$ 的振幅为 $\omega_i$. 将所有区间分为含间断点的区间和不含间断点是区间. 
+    \begin{itemize}
+        \item 对含有间断点的区间 $[x_{i - 1}, x_i]$, 由间断点仅有可列个，即间断点组成的集合为零测集，因此当 $\lambda(P)$ 充分小时，所有这些区间的长度和小于 $\frac{\varepsilon_1}{2}$，延长这些区间为开区间，长度和可以小于 $\varepsilon_1 = \frac{1}{4M}\varepsilon$. 有这些区间的对应的 Darboux 大小和的差的部分为 $S_1 < 2\varepsilon_1 M$.
+        \item 对不含间断点的区间 $[x_{i - 1}, x_i]$, 由于 $f(x)$ 的连续性，当 $h < \delta$ 时， $\left\lvert f_h(x) - f(x)\right\rvert < \varepsilon_2 = \frac{1}{2(b - a)}\varepsilon$, 因此这些区间对应的 Darboux 大小和的差的部分 $S_2 \leqslant (b - a)\varepsilon_2$.
+    \end{itemize}
+    因此
+    \[
+        \lim_{h \to 0}\left(\bar{S}(P) - \underbar{S}(P)\right) \leqslant 2 \varepsilon_1 M + (b - a)\varepsilon_2 = \varepsilon
+    \]
+    即
+    \[
+        \lim_{h \to 0}\int_{a}^{b}\left\lvert f_h(x) - f(x)\right\rvert \dx = 0
+    \]
+\end{proof}
+
+\section*{P251 T13}
+
+\begin{proof}
+    由于 $g(x)$ 在区间 $[a, b]$ 上连续， $g(x)$ 有界. 设 $0 < m_0 \leqslant g(x) \leqslant M_0$. \\
+    设 $\max_{a \leqslant x \leqslant b} f(x) = f(\xi) = M \geqslant 0$. 若 $f(\xi) = 0$, 结论显然成立. \\
+    若 $f(\xi) > 0$, 则由 $f(x)$ 连续性，对任意 $\varepsilon > 0$， 存在 $\delta > 0$, $\forall x \in (\xi - \delta, \xi + \delta), f(x) \in (M - \varepsilon, M]$. 因此
+    \begin{align*}
+        (M - \varepsilon)^n\cdot 2\delta m_0 <& \int_{\xi - \delta}^{\xi + \delta}f^n(x)g(x)\dx \\
+        <& \int_{a}^{b}f^n(x)g(x) \dx 
+        < M^n (b - a) M_0
+    \end{align*}
+    而
+    \begin{align*}
+        \lim_{n \to \infty}\left[(M - \varepsilon)^n\cdot 2\delta m_0\right]^\frac{1}{n} = M - \varepsilon, \quad \lim_{n \to \infty}\left[M^n (b - a) M_0\right] = M^n
+    \end{align*}
+    有
+    \begin{align}
+        M - \varepsilon < \lim_{n \to \infty}\left[\int_{a}^{b}f^n(x)g(x) \dx\right]^\frac{1}{n} < M
+    \end{align}
+    由夹逼原理， \[\lim_{n \to \infty}\left[\int_{a}^{b}f^n(x)g(x) \dx\right]^\frac{1}{n} = M = \max_{a \leqslant x \leqslant b} f(x)\]
+\end{proof}
+
+\section*{推论 6.26 的练习}
+
+\begin{proof}
+    任意取定 $\varepsilon > 0$, \\
+    $f(x)$ 在 $[a, b]$ 上连续，设 $\left\lvert f(x)\right\rvert < M$，$f(x)$ 在 $[a, b]$ 上一致连续，存在 $\sigma > 0$, $\left\lvert x_1 - x_2\right\rvert \leqslant \sigma \Rightarrow  \left\lvert f(x_1) - f(x_2)\right\rvert < \frac{\varepsilon}{2(b - a)} $ \\
+    由于 $\varphi(x)$ 在 $[\alpha, \beta]$ 上可积，存在 $\delta_1 > 0$, 存在划分 $P: \alpha = x_0 < x_1 < \cdots < x_n = \beta, \lambda(P) < \delta_1$, 有 $\sum_{i = 1}^{n}\omega_i \Delta x_i < \varepsilon$. \\
+    由先前的作业题，满足存在划分 $P$, $\sum_{\omega_i \geqslant \sigma} \Delta x_i \leqslant \frac{\varepsilon}{4M}$. 因此 $\sum_{\omega_i \geqslant \sigma}(f \circ \varphi_\mathrm{max} (x) - f \circ \varphi_\mathrm{min} (x)) \Delta x_i \leqslant 2M\frac{\varepsilon}{4M} = \frac{\varepsilon}{2}$, 同时 $\sum_{\omega_i < \sigma}(f \circ \varphi_\mathrm{max} (x) - f \circ \varphi_\mathrm{min} (x)) \Delta x_i < \frac{\varepsilon}{2(b - a)} (b - a) = \frac{\varepsilon}{2}$. 
+    因此对 $f(x)$ 的 Darboux 大小和之差为
+    \begin{align*}
+        \bar{S}(P) - \underbar{S}(P) &= \sum_{\omega_i \geqslant \sigma}(f \circ \varphi_\mathrm{max} (x) - f \circ \varphi_\mathrm{min} (x)) \Delta x_i \\
+        &  + \sum_{\omega_i < \sigma}(f \circ \varphi_\mathrm{max} (x) - f \circ \varphi_\mathrm{min} (x)) \Delta x_i \\
+        & < \varepsilon 
+    \end{align*}
+    即 $f \circ \varphi$ 在 $[a, b]$ 上可积.
+\end{proof}
+
+\end{document}

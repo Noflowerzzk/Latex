@@ -815,9 +815,31 @@
 \end{lt}
 
 \begin{dl}[用于求分段函数积分]
-    \[
+    $$
         \int f(x) \dx = \int_{a}^{x} f(t) \dd t
-    \]
+    $$
+\end{dl}
+
+\begin{dl}[记不住就完了!] \quad
+    \begin{itemize}
+        \item 
+        \[
+            \int \sqrt{a^2 \pm x^2} \dx = \frac{x\sqrt{x^2 \pm a^2}}{2} \pm \frac{a^2}{2} \ln\left\lvert x + \sqrt{x^2 \pm a^2}\right\lvert + C
+        \]
+        \item $
+            I_n = \int \frac{\dx}{\left(x^2 + a^2\right)^n}
+        $ \\ 则
+        \[
+            I_n = 
+            \left\{
+                \begin{matrix}
+                    \frac{1}{a}\arctan \frac{x}{a} + C &\qquad n = 1 \\
+                    \frac{2n - 3}{2a^2(n - 1)}I_{n - 1} + \frac{1}{2a^2(n - 1)}\frac{x}{\left(x^2 + a^2\right)^{n - 1}} & \qquad n \geqslant 2
+                \end{matrix}
+            \right.
+        \]
+    \end{itemize}
+    
 \end{dl}
 
 \subsubsection{一些例题}

@@ -1,0 +1,96 @@
+\documentclass{article}
+\usepackage{amsmath}  % 数学符号包
+\usepackage{amssymb}  % 更多数学符号
+\usepackage{enumitem} % 列表样式
+\usepackage{fancyhdr} % 页眉设置
+\usepackage{geometry} % 页面设置
+% \usepackage[UTF8]{ctex}
+\usepackage{bm}
+\usepackage{amsthm}
+\everymath{\displaystyle}  % 让所有数学模式都使用 \displaystyle
+\newcommand{\lb}{\left\llbracket}
+\newcommand{\rb}{\right\rrbracket}
+\newcommand{\RR}{\mathbb{R}}
+\newcommand{\NN}{\mathbb{N}}
+\newcommand{\QQ}{\mathbb{Q}}
+
+\geometry{a4paper, margin=1in}
+
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[C]{Dscrete Math Homework 13}
+\fancyhead[R]{2024.11.28}
+
+
+\title{Dscrete Math Homework 13}
+\author{noflowerzzk}
+\date{2024.11.28}
+
+
+\begin{document}
+\maketitle
+
+\section{}
+
+\begin{proof}\quad
+    \begin{itemize}
+        \item Noiting that $0 = \varnothing$, so $\forall x(x\subseteq A\wedge\neg x=\varnothing\rightarrow\exists y(y\in x \wedge\forall z(z\in x\to y\in z\lor y=z)))\qquad (*)$ is always true. So $0$ is $\in$-well-ordered.
+        \item If $x \subseteq n$, then according to the condition, $x$ satisfies the expression $(*)$. \\
+        If $x = x' \cup \{n\}$, where $x' \subseteq n$, let $y$ be the $\in$-least element of $x'$, so $y \in x' \subseteq n \Rightarrow y \in \{n\}$. And for any $z \in x'$, it holds that $y \in z \lor y = z$. \\
+        In summary, $n \cup \{n\}$ is also $\in$-well-ordered.
+    \end{itemize} 
+\end{proof}
+
+\section{}
+
+\begin{proof}
+    Obviously $\mathrm{Inducive}(u) \rightarrow u \subseteq v$, $\mathrm{Inducive}(u) \rightarrow v \subseteq u$. \\
+    So $\forall a(a \in v \rightarrow a \in u), \forall a(a \in v \rightarrow a \in u)$, i.e. $u = v$.
+\end{proof}
+
+\section{}
+
+\begin{proof}\quad
+    \begin{itemize}
+        \item Noting that $\varnothing \in u, \varnothing \in v$, so $varnothing \in u \cap v$. 
+        \item $\forall a \in u, a \cup \{a\} \in u, \forall a \in v, a \cup \{a\} \in u$, so $\forall a \in u \cap v$, we have $a \cup \{a\} \in u, a \cup \{a\} \in v$, i.e. $a \cup \{a\} \in u \cap v$.
+    \end{itemize}
+    So  $u \cap v$ is alse inducive.
+\end{proof}
+
+\section{}
+
+Let $V$ denote $ \left\{x \in u\ | \ \forall v (v \subseteq u \land \mathrm{Inducive}(v)\rightarrow x \in v)\right\}$
+
+\begin{itemize}
+    \item \begin{proof}
+        Given $v \subseteq u \land \mathrm{Inducive}(v)$, we know that $\forall x \in V, x \in v$. Noting that $v$ is inducive, $x \cup \{x\} \in v$. Due to the arbitrariness of $v$, $x \cup \{x\} \in V$. And obviously $\varnothing \in V$. So $V = \left\{x \in u\ | \ \forall v (v \subseteq u \land \mathrm{Inducive}(v)\rightarrow x \in v)\right\}$ is also inducive. 
+    \end{proof}
+    \item \begin{proof}
+        If there exists an inducive subset $v_0$ of $u$ that $v_0 \subseteq V$, we prove that $v_0 = V$. \\
+        According to the definition of $V$, for any $x \in V$, due to $v_0$ is inducive, $x \in v_0$, so $V \subseteq v_0$. So $V = v_0$, $V$ is the smallest inducive subset of $u$.
+    \end{proof}
+\end{itemize}
+
+\section{}
+
+\begin{proof}
+    Let $K$ denote the set of all inducive sets, $T_u$ denote the smallest inducive subseteq of the inducive set $u$. \\
+    Then we prove that $\bigcap_{u \in K}T_u$ is the smallest inducive set. \\
+    According to \textbf{3}, $\bigcap_{u \in K}T_u$ is an inducive set. \\
+    For any inducive set $u' \subseteq \bigcap_{u \in K}T_u, \mathrm{Inducive}(u')$. Noting that $u' \in K$, so $T_{u'} \subseteq u'$, so $\bigcap_{u \in K}T_u \subseteq u'$, i.e. $u' = \bigcap_{u \in K}T_u$. \\
+    So $\bigcap_{u \in K}T_u$ is the smallest inducive set.
+\end{proof}
+
+\section{}
+
+\begin{proof}\quad
+    \begin{itemize}
+        \item [a)] Noting that $0 = \varnothing \in X$, so $\varnothing = 0 \in \NN \cap X$. \\
+        Also, for any $n \in \NN \cap X$, $n \cup \{n\} \in X$, so $\NN \cap X$ is an inducive set. 
+        \item [b)] Noting that $\NN \cap X \subseteq \NN$, $\NN \cap X$ is an inducive set and $\NN$ is the smallest inducive set, we have $\NN = \NN \cap X$, i.e. $\forall n \in \NN$, $n \in X$ always holds.        
+    \end{itemize}
+\end{proof}
+
+\end{document}

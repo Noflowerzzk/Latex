@@ -712,7 +712,7 @@ With a structure, we can determine the truth of an closed proposition.
     \end{itemize}
 \end{zm}
 
-\subsubsection{Countable Infinity}
+\subsubsection{Countable Infinity and Uncountable Infinity}
 
 \begin{lt}\quad
     \begin{itemize}
@@ -724,6 +724,62 @@ With a structure, we can determine the truth of an closed proposition.
     \end{itemize}
 \end{lt}
 
+\begin{lt}
+    \begin{itemize}
+        \item $2^{\NN} \approx \NN^{\NN}$
+        \item $\RR \approx 2^{\NN}$
+        \item $\RR^{\RR} \approx 2^{\RR} \approx \mathcal{P}(\RR)$
+    \end{itemize}
+\end{lt}
 
+\begin{kuang3}
+    \subsection{ZFC Set Theory}
+\end{kuang3}
+
+\subsubsection{The Definition of "="}
+
+\begin{dy} Assembling a prelicate.
+    \begin{itemize}
+        \item (Axiom of reflexivity) $\forall x(x = x)$
+        \item (Axiom of symmetry) (Omitted)
+        \item (Axiom of transitivity) (Omitted)
+        \item (Axiom of substitution) $\forall a \forall b (a = b \rightarrow (\phi[x \mapsto a] \rightarrow \phi[x \mapsto b]))$
+    \end{itemize}
+\end{dy}
+
+\subsubsection{The Axioms of ZFC Set Theory}
+
+
+
+\begin{dl}\quad
+    \begin{itemize}
+        \item (Axiom of Extension) $\forall A \forall B (A = B \Leftrightarrow \forall x (x \in A \leftrightarrow x \in B))$
+        \item (Axiom of Union) $\forall \mathcal{A} \exists B \forall x (x \in B \leftrightarrow \exists C (C \in \mathcal{A} \land x \in C))$, we denote $B$ as $\bigcup \mathcal{A}$
+        \item (Axiom of Power Set) $\forall A \exists \mathcal{B} \forall C(C \in \mathcal{B} \leftrightarrow C \subseteq A)$, we denote $\mathcal{B}$ as $\mathcal{P}(A)$
+        \item (Axiom of Empty Set) $\exists X \forall x(\lnot x \in X)$, we denote such $X$ as $\varnothing$
+        \item (Axiom of Infinity) $\exists X(\varnothing \in X \land \forall y(y \in X \rightarrow y \cup \{y\} \in X))$, we call such $X$ \textbf{inducive set}.
+        \item (Axiom Schema of Specification) $\forall A \exists B \forall x (x \in B \leftrightarrow (x \in A \land \phi(x)))$, we denote such $B$ as $\left\{x \in A\ |\ \phi(x)\right\}$
+        \item (Axiom of Regularity) $\forall A \exists y(y \in A \land y \cap A = \varnothing) \Leftrightarrow \forall A \exists y(y \in A \land \forall x (x \in A \rightarrow \lnot x \in y))$
+    \end{itemize}
+\end{dl}
+
+\subsubsection{The Re-definition of Certain Concepts with ZFC}
+
+\begin{dy}[The definition of nature numbers]\quad \\
+    $0\ :\ \varnothing$ \\
+    $1\ :\ 0 \cup \{0\}$ \\
+    $2\ :\ 1 \cup \{1\}$ \\
+    $\cdots$ \\
+    We define $\NN$ as the smallest inducive set, i.e. for any inducive set $T$, $\NN \subseteq T$. \\
+    Obviously all the numbers we defined above is the elements of $\NN$.
+\end{dy}
+
+\begin{dy}[The definition of ordered pairs]\quad \\
+    We define $(a, b)$ as $\{\{a\}, \{a, b\}\}$.
+\end{dy}
+
+\begin{dy}[The options of nature numbers]
+    
+\end{dy}
 
 \end{document}

@@ -1,0 +1,88 @@
+\documentclass{article}
+\usepackage{amsmath}  % 数学符号包
+\usepackage{amssymb}  % 更多数学符号
+\usepackage{enumitem} % 列表样式
+\usepackage{fancyhdr} % 页眉设置
+\usepackage{geometry} % 页面设置
+% \usepackage[UTF8]{ctex}
+\usepackage{bm}
+\usepackage{amsthm}
+\everymath{\displaystyle}  % 让所有数学模式都使用 \displaystyle
+\newcommand{\lb}{\left\llbracket}
+\newcommand{\rb}{\right\rrbracket}
+\newcommand{\RR}{\mathbb{R}}
+\newcommand{\NN}{\mathbb{N}}
+\newcommand{\QQ}{\mathbb{Q}}
+
+
+\geometry{a4paper, margin=1in}
+
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[C]{Discrete Math Homework 12}
+\fancyhead[R]{2024.11.27}
+
+
+\title{Discrete Math Homework 12}
+\author{nofowerzzk}
+\date{2024.11.27}
+
+
+\begin{document}
+\maketitle
+
+\section{}
+
+\begin{itemize}
+    \item [a)] countably infinit. $f(x) = x - 10$
+    \item [b)] countable infinit. $f(x) = -\frac{x}{2}$
+    \item [c)] uncountable.
+    \item [d)] countably infinit. $f: A \times \mathbb{Z}^+ \to \mathbb{Z}^+$
+    \[
+        f(a, b) = \left\{\begin{matrix}
+            2b, &\qquad a = 2 \\
+            2b - 1, &\qquad a = 3
+        \end{matrix}\right.
+    \]
+\end{itemize}
+
+\section{}
+
+\begin{proof}
+    Let $F: (A \to B) \times (A \to C) \to (A \to B \times C)$, $\forall a \in A, F(f_1, f_2)(a) = (f_1(a), f_2(a))$. Now to prove that $F$ is a bijection between $(A \to B) \times (A \to C)$ and $(A \to B \times C)$. \\
+    If $F(f_1, f_2) = F(f'_1, f'_2)$, then $\forall a \in A, f_1(a) = f'_1(a), f_2(a) = f'_2(a)$ so $f_1 = f'_1, f_2 = f'_2$, $F$ is a injection. \\
+    For any $g: A \to B \times C$, let $(f_1, f_2): (A \to B) \times (A \to C)$, $\forall a \in A, (f_1(a), f_2(a)) = g(a)$, then $F(f_1, f_2) = g$. $F$ is a surjection. \\
+    In summary, $(A \to B) \times (A \to C) \approx (A \to B \times C)$.
+\end{proof}
+
+\section{}
+
+\begin{proof}
+    Let $K = \left\{R\ |\ R \text{ is a binary relation on } \mathbb{R}\right\} = \mathcal{P}(\mathbb{R} \times \mathbb{R})$. \\
+    Noting that $\mathcal{P}(\mathbb{R} \times \mathbb{R}) \approx 2^{\RR \times \RR} \approx 2^{2^\NN \times 2^\NN} \preceq 2^{\left(2^\NN\right)^\NN} \approx 2^{2^\NN} \approx 2^\RR$, and obviously $\RR \preceq \RR \times \RR$, so $2^\RR \preceq 2^{\RR \times \RR} \approx \mathcal{P}(\RR \times \RR) $. \\
+    So $\mathcal{P}(\RR \times \RR) \approx 2^\RR \approx \RR^\RR$, i.e. the set of all binary relations on $\RR$ is equinumerous to the set of all functions from $\RR$ into $\RR$.
+\end{proof}
+
+\section{}
+
+\begin{proof}
+    Accoding to the conclution of mathematical analysis, a monotonically increasing functions from $\RR \to \RR$ has at most countable points of incontinuity. So such functions have at most countable intervals of continuity. \\
+    When the functions values of $f(x)$ are determined at all rational numbers, then the function values at all its continuous points are also determined because we can take two sequences of rational numbers approaching the continuous point from the left and right, thereby determining the function value. And for all the incontinuous points, they are at most countable. \\
+    So let $K$ denote the set of all monotonically increasing functions, $K \preceq \RR^\QQ \times \RR^\NN \approx \RR \times \RR \preceq \RR$. And obviously $\RR \preceq K$. So $K \approx \RR$.
+\end{proof}
+
+\section{}
+
+\begin{proof}
+    Select one representative element in each equivalence class, and collect them into a set $T$. Let $T_p$ denote $\{x\ |\ x - p \in T\}, p \in \QQ$. We assume that $\RR = \bigcup_{p \in \QQ}T_p$. \\
+    If there exists a $a \in \RR, a \notin \bigcup_{p \in \QQ}T_p$, then $a$ isn't belong to any equivalence class in $R$, that contradicts with the definition of $R$ (which is a divdsion of $\RR$). \\
+    And obviously all elements of $\bigcup_{p \in \QQ}T_p$ belong to $\RR$. \\
+    So $\RR = \bigcup_{p \in \QQ}T_p$. \\
+    Noting that $\bigcup P = \bigcup_{p \in \QQ}T_p = \RR \approx \QQ \times P$. \\
+    If $P \prec \RR$ (i.e. there exists a injection from $P$ to $\RR$, but there is no bijection between $P$ and $\RR$), then $\RR \approx \QQ \times P \prec \QQ \times \RR \approx \RR$, impossiable! \\
+    So $\RR \preceq P$. \\
+    And obviously $P \approx T \preceq \RR$. So $P \approx \RR$.
+\end{proof}
+
+\end{document}

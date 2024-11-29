@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999996 (TeX Live 2024) (preloaded format=xelatex 2024.9.25)  25 NOV 2024 20:14
+This is XeTeX, Version 3.141592653-2.6-0.999996 (TeX Live 2024) (preloaded format=xelatex 2024.9.25)  26 NOV 2024 13:14
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1313,10 +1313,10 @@ Package rerunfilecheck Info: File `数分例题整理.out' has not changed.
 (rerunfilecheck)             Checksum: 45A59DD44BC0DD502FE506F573356799;3512.
  ) 
 Here is how much of TeX's memory you used:
- 35132 strings out of 474773
- 781616 string characters out of 5761289
+ 35133 strings out of 474773
+ 781632 string characters out of 5761289
  1943842 words of memory out of 5000000
- 56655 multiletter control sequences out of 15000+600000
+ 56656 multiletter control sequences out of 15000+600000
  564453 words of font info for 106 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  101i,15n,107p,1193b,988s stack positions out of 10000i,1000n,20000p,200000b,200000s
