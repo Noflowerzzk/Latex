@@ -373,7 +373,7 @@
 \end{zm}
 
 
-\begin{dl}
+\begin{dl}\label{单调函数至多有可列个间断点}
     单调函数至多有可列个间断点
 \end{dl}
 
@@ -868,8 +868,238 @@
     (略)
 \end{dy}
 
+\subsubsection{定积分存在的充要条件 ---- Darboux 定理}
 
+\begin{yl}[Darboux 引理]
+    对于 [a, b] 上的有界函数 f(x)，成立
+    \[
+        \lim_{\lambda(P) \to 0} \overline{S}(P) = \overline{\int_a^b} f(x) \dx, \quad \lim_{\lambda(P) \to 0} \underline{S}(P) = \underline{\int_a^b} f(x) \dx.
+    \]
+    确切地说，对任意 $\varepsilon > 0$，存在 $\delta > 0$，使得对任意划分 P，只要 $0 < \lambda(P) < \delta$，则有
+    $$
+        \left|\overline{S}(P) - \overline{\int_a^b} f(x)  \dx\right| < \varepsilon,\quad     \left|\underline{S}(P) - \underline{\int_a^b} f(x)  \dx\right| < \varepsilon
+    $$ 
+\end{yl}
 
+\begin{dl}[可积的充要条件， Darboux 定理]
+    设 $f(x)$ 在 $[a, b]$ 上有界，则以下命题等价：
+    \begin{enumerate}
+        \item $f(x)$ 在 $[a, b]$ 上 Riemann 可积；
+        \item $\overline{\int_a^b} f(x) \dx = \underline{\int_a^b} f(x) \dx$;
+        \item $\lim_{\lambda(P) \to 0} \left( \overline{S}(P) - \underline{S}(P) \right) = 0$;
+        \item 存在一列划分 $\{P_l\}_{l=1}^{\infty}$，使得 $\lim_{l \to \infty} \left( \overline{S}(P_l) - \underline{S}(P_l) \right) = 0$.
+        \item [4'.] 对任意 $\varepsilon > 0$，存在划分 $P$，使得 $\overline{S}(P) - \underline{S}(P) < \varepsilon$。
+    \end{enumerate}
+    最后，若 $f(x)$ 可积，则成立
 
+    $$
+        \int_a^b f(x) \dx = \overline{\int_a^b} f(x) \dx = \underline{\int_a^b} f(x) \dx.
+    $$ 
+\end{dl}
+
+\subsubsection{定积分存在的充要条件 ---- Lebesgue 判别法}
+
+先给出一个较弱的定理
+\begin{dl}
+    闭区间上的连读函数可积.
+\end{dl}
+
+\begin{zm}
+    由一致连续性即得.
+\end{zm}
+
+\begin{dy}[区间的测度与零测集]
+    定义开、闭区间 $I = (a, b)$ 的长度 $\left\lvert I\right\rvert = b - a$ \\
+    设集合 $S \subseteq \mathbb{R}$。如果对于任意 $\varepsilon > 0$，存在至多可列个开区间 $\{I_n\}_{n=1}^{\infty}$，使得
+    $$ S \subset \bigcup_{n=1}^{\infty} I_n \quad \text{且} \quad \sum_{n=1}^{\infty} |I_n| < \varepsilon, $$ 
+    则称 $S$ 是一个零测集。
+\end{dy}
+
+\begin{lt}
+    证明： $\RR$ 中的可列集是零测集. 
+    \begin{zmhj}
+        设 $S \subset \mathbb{R}$ 是可列集，记
+        $$ S = \{x_1, x_2, x_3, \ldots, x_n, \ldots\}. $$ 
+        任取 $\varepsilon > 0$，对每个 $n$，记
+        $$ I_n = \left(x_n - \frac{\varepsilon}{2^{n+2}}, x_n + \frac{\varepsilon}{2^{n+2}}\right). $$ 
+        则显然
+        $$ S \subset \bigcup_{n=1}^{\infty} I_n, $$ 
+        且
+        $$ \sum_{n=1}^{\infty} |I_n| = \sum_{n=1}^{\infty} \frac{\varepsilon}{2^{n+1}} = \varepsilon. $$ 
+        所以，$S$ 是零测集。
+    \end{zmhj}
+\end{lt}
+
+\textbf{注：}如果在某区间上，某数学性质在一个零测集之外均成立，则称该区间上该性质\textbf{几乎处处成立}. \\
+
+再给出一道相关例题 
+
+\begin{lt}\label{可积当且仅当对任意}
+    证明：对任意有界函数 $f(x)$, $f(x)$ 可积当且仅当对任意 $\varepsilon, \sigma > 0$, 存在一划分 $P$, 使得
+    \[
+        \sum_{\omega_i \geqslant \varepsilon}\omega_i \Delta x_i < \sigma 
+    \]
+    \begin{zmhj}
+        $f(x)$ 可积等价于 $\lim_{\lambda(P) \to 0}\sum_{i = 1}^{p}w_i\Delta x_i = 0$. 令 $\max_{x \in [a, b]} f(x) = M, \min_{x \in [a, b]} f(x) = m$ \\
+        \begin{itemize}
+            \item 充分性： \\
+            对任意 $\varepsilon > 0$, 存在 $\delta = \sqrt{\frac{\varepsilon}{2(p - 1)}}, \sigma = \frac{\varepsilon}{2(p - 1)(M - m)}, \varepsilon_0 = \sqrt{\frac{\varepsilon}{2(p - 1)}}$ 取分划 $P$ 满足 $\lambda(P) < \delta$, 有
+            \begin{align*}
+                \sum_{i = 1}^{p}w_i\Delta x_i = \sum_{w_i \geqslant \varepsilon_0}w_i\Delta x_i + \sum_{w_i < \varepsilon_0}w_i\Delta x_i < (p - 1)(M - m)\sigma + (p - 1)\varepsilon_0\delta = \varepsilon
+            \end{align*}
+            即 $\lim_{\lambda(P) \to 0}\sum_{i = 1}^{p}w_i\Delta x_i = 0$, $f(x)$ 可积.
+            \item 必要性：\\
+            取定 $\varepsilon_0 > 0$, 存在 $\sigma = \min \{b - a, \sqrt{\varepsilon_0}\}, \varepsilon = \frac{\varepsilon_0}{\sigma}$.假设对任意分划 $P$ 满足 $\sum_{w_i \geqslant \varepsilon}\Delta x_i \geqslant \sigma$, 有
+            \begin{align*}
+                \sum_{i = 1}^{p}w_i\Delta x_i = \sum_{w_i \geqslant \varepsilon_0}w_i\Delta x_i + \sum_{w_i < \varepsilon_0}w_i\Delta x_i \geqslant \varepsilon \sigma + 0 = \varepsilon_0
+            \end{align*}
+            表明 $f(x)$ 不可积，矛盾！因此对任意 $\varepsilon > 0, \sigma > 0$, 存在划分 $P$, $\sum_{w_i \geqslant \varepsilon}\Delta x_i < \sigma$
+        \end{itemize}
+    \end{zmhj}
+\end{lt}
+
+\begin{dl}[Lebesgue 判别法]
+    $f(x)$ 是 $[a, b]$ 上的有界函数， $f(x)$ 在 $[a, b]$ 上可积的充要条件是 $f(x)$ 的间断点集是一个可列集. ($f(x)$ 几乎处处连续)
+\end{dl}
+
+\begin{zm}
+    首先我们定义符号：对于任意 $x \in D_f$, 
+    \[
+        \omega_f(x, \varepsilon) := \sup_{x_1, x_2 \in (x - \varepsilon, x + \varepsilon)}\left\lvert f(x_1) - f(x_2)\right\rvert 
+    \]
+    以及由于 $\omega_f(x, \varepsilon)$ 关于 $\varepsilon$ 单增由下界，由单调有界定理，当 $\varepsilon \to 0^+$ 的极限存在. 因此定义
+    \[
+        \omega_f(x) := \lim_{\varepsilon \to 0^+}\omega_f(x, \varepsilon)
+    \]
+    因此我们易得如下引理：
+    \begin{yl}
+        $f(x)$ 在 $x = x_0$ 处连续当且仅当 $\omega_f(x_0) = 0$.
+    \end{yl}
+    \textbf{充分性}： \\
+    $f(x)$ 在 $[a, b]$ 上有界，记 $\left\lvert f(x)\right\rvert \leqslant M$.  \\
+    设 $K \subseteq [a, b]$ 是 $f(x)$ 所有间断点的集合，则 $K$ 为零测集. \\
+    任取 $\varepsilon > 0$.则由零测集的定义，存在至多可列个开区间 $\{I_k\}_{k=1}^{\infty}$，使得
+    \[
+        K \subset \bigcup_{k=1}^{\infty} I_k, \quad \sum_{k=1}^{\infty} |I_k| < \frac{\varepsilon}{4M}. 
+    \]
+    另一方面，对任意 $x \in [a, b] \setminus K$，由于 $x$ 是连续点，所以有
+    \[ 
+        \omega_f(x) = \lim_{\delta \to 0^+} \omega_f(x, \delta) = 0. 
+    \] 
+    由极限的定义，存在 $\delta_x > 0$，使得
+    \[ 
+        \omega_f(x, 2\delta_x) := \sup_{x', x'' \in (x-2\delta_x, x+2\delta_x) \cap [a, b]} |f(x') - f(x'')| < \frac{\varepsilon}{2(b-a)}
+    \] 
+    显然，$\{(x - \delta_x, x + \delta_x)\}_{x \in [a, b] \setminus K} \cup \{I_k\}_{k=1}^{\infty}$ 是 $[a, b]$ 的一个开覆盖，因为它分别地覆盖了 $[a, b] \setminus K$ 与 $K$ 中的每一个点.根据有限覆盖定理，它有有限子覆盖，记为
+    $$ [a, b] \subset \bigcup_{j=1}^{N} (y_j - \delta_{y_j}, y_j + \delta_{y_j}) \cup \bigcup_{l=1}^{M} I_{k_l}. $$ 
+    该子覆盖中所有开区间的端点构成了 $[a, b]$ 的一个划分 $P : a = x_0 < x_1 < x_2 < \cdots < x_n = b$ ($[a, b]$ 之外的端点忽略).该划分所决定的小区间 $[x_{i-1}, x_i]$ 可以分为两类：
+    \begin{itemize}
+        \item [\uppercase\expandafter{\romannumeral1}.] $(x_{i-1}, x_i)$ 包含于某个 $I_{k_l}$.则所有这类小区间 $[x_{i-1}, x_i]$ 的长度之和不超过所有 $I_{k_l}$ 的长度之和，从而小于 $\frac{\varepsilon}{4M}$. 记这些 $i$ 构成的集合为 $\Lambda_1$
+        \item [\uppercase\expandafter{\romannumeral2}.] $(x_{i-1}, x_i)$ 不包含于任何 $I_{k_l}$.根据覆盖关系，可以通过左端点 $x_{i-1}$ 的位置讨论 $[x_{i-1}, x_i]$ 的位置：
+        \begin{itemize}
+            \item $x_{i-1}$ 属于某个 $I_{k_l}$.由于 $x_i$ 是一切 $x_{i-1}$ 右侧端点中距离 $x_{i-1}$ 最近的那一个，所以它不比 $I_{k_l}$ 的右端点更靠右.此时 $(x_{i-1}, x_i) \subset I_{k_l}$.因此该情形不会发生.
+            \item $x_{i-1}$ 不属于任意 $I_{k_l}$，根据覆盖，它必属于某个 $(y_j - \delta_{y_j}, y_j + \delta_{y_j})$.利用类似于上一种情形的讨论，必有
+            $$ (x_{i-1}, x_i) \subset (y_j - \delta_{y_j}, y_j + \delta_{y_j}). $$ 
+            从而
+            $$ [x_{i-1}, x_i] \subset (y_j - 2\delta_{y_j}, y_j + 2\delta_{y_j}). $$ 
+        \end{itemize}
+        可见，第二类区间上函数的振幅小于 $\frac{\varepsilon}{2(b-a)}$. 记这些 $i$ 构成的集合为 $\Lambda_2$
+    \end{itemize}
+    最后，对于该划分 $P$
+    $$ S(P) - S(P) = \sum_{i \in \Lambda_1} \omega_i \Delta x_i + \sum_{i \in \Lambda_2} \omega_i \Delta x_i < 2M \cdot \frac{\varepsilon}{4M} + \frac{\varepsilon}{2(b-a)} \cdot (b-a) = \varepsilon. $$
+    \textbf{必要性}： \\
+    先证明一个引理：
+    \begin{yl}
+        如果 $f(x)$ 在 $[a, b]$ 上可积，则对任意 $\sigma > 0$, 集合
+        \[
+            \left\{x \in [a, b]\ |\ \omega_f(x) > \sigma\right\}
+        \]
+        是零测集.
+    \end{yl}
+    由 \textbf{例题 \ref{可积当且仅当对任意}} 立得. \\
+    注意到
+    \begin{align*}
+        x \in \left\{x \in [a, b]\ | \ \omega_f(x) > 0\right\} &\Leftrightarrow \exists n \in \NN, \ \omega_f(x) > \frac{1}{n} \\
+        &\Leftrightarrow x \in \bigcup_{n = 1}^{+\infty}\left\{x \in [a, b]\ \left| \ \omega_f(x) > \frac{1}{n}\right.\right\}  
+    \end{align*}
+    因此 
+    \[
+        \left\{x \in [a, b]\ | \ \omega_f(x) > 0\right\} = \bigcup_{n = 1}^{+\infty}\left\{x \in [a, b]\ \left| \ \omega_f(x) > \frac{1}{n}\right.\right\} 
+    \]
+    即 $\left\{x \in [a, b]\ | \ \omega_f(x) > 0\right\}$ 是可列集.
+\end{zm}
+
+\begin{lt}
+    闭区间上的单调有界函数可积.
+    \begin{zmhj}
+        由 \textbf{定理 \ref{单调函数至多有可列个间断点}} 立得.
+    \end{zmhj}
+\end{lt}
+
+\subsubsection{积分中值定理与微积分基本定理}
+
+\begin{dl}[积分第一中值定理]
+    设 $f(x), g(x)$ 为 $[a, b]$ 上的可积函数，且 $g(x)$ 在 $[a, b]$ 上不变号. 记 $M = \sup_{x \in [a, b]} f(x), m = \inf_{x \in [a, b]}f(x)$, 则存在 $\eta \in [m, M]$, 使得.
+    \[
+        \int_{a}^{b}f(x)g(x)\dx = \eta \int_{a}^{b}g(x)\dx
+    \]
+    特别地，当 $f(x)$ 在 $[a, b]$ 上连续，则存在 $\xi \in [a, b]$, 
+    \[
+        \int_{a}^{b}f(x)g(x)\dx = f(\xi) \int_{a}^{b}g(x)\dx
+    \]
+\end{dl}
+
+\begin{dy}
+    有界函数 $f(x)$ 在 $[a, b]$ 上可积，则对任意 $x \in [a, b]$, $F(x) = \int_{a}^{x}f(x)\dx$ 为 $f$ 的变上限积分.
+\end{dy}
+
+关于 $F(x)$ 有性质：
+
+\begin{dl}\quad
+    \begin{itemize}
+        \item $F(x)$ 有 Lipschitz 性质.
+        \item 若 $f(x)$ 连续， $F(x)$ 可导，且 $F'(x) = f(x)$
+    \end{itemize}
+\end{dl}
+
+\begin{zm}\quad
+    \begin{itemize}
+        \item 由 $\left\lvert f(x)\right\rvert \leqslant M$,
+        \begin{align*}
+            \left\lvert f(x) - f(y)\right\rvert =& \left\lvert \int_{x}^{y}f(x)\dx\right\rvert \\
+            \leqslant& \int_{x}^{y}\left\lvert f(x)\right\rvert \dx \\
+            \leqslant& \int_{x}^{y} M \dx = M\left\lvert y - x\right\rvert 
+        \end{align*}
+        即证.
+        \item 考虑 $x_0 \in (a, b)$ 的情形. 任取 $\varepsilon > 0$. 根据 $f(x)$ 在 $x_0$ 的连续性，存在 $\delta > 0$，使得
+        $$ \forall x \in (x_0 - \delta, x_0 + \delta) : |f(x) - f(x_0)| < \varepsilon. $$ 
+        对任意 $\Delta x$，根据定积分的区间可加性与第一中值定理：
+        $$ \frac{F(x_0 + \Delta x) - F(x_0)}{\Delta x} = \frac{1}{\Delta x} \int_{x_0}^{x_0 + \Delta x} f(t) \, dt = f(\xi), $$ 
+        其中 $\xi \in [x_0, x_0 + \Delta x]$ 或 $\xi \in [x_0 + \Delta x, x_0]$. 所以，只要 $0 < |\Delta x| < \delta$，就有
+        $$ \left| \frac{F(x_0 + \Delta x) - F(x_0)}{\Delta x} - f(x_0) \right| = |f(\xi) - f(x_0)| < \varepsilon. $$ 
+        由定义
+        $$ F'(x_0) = \lim_{\Delta x \to 0} \frac{F(x_0 + \Delta x) - F(x_0)}{\Delta x} = f(x_0). $$ 
+    \end{itemize}
+\end{zm}
+
+\begin{dl}[微积分第一基本定理]
+    若 $f(x)$ 是 $[a, b]$ 上的连续函数，则其变上限积分 $F(x) = \int_{a}^{x}f(x)\dx$ 是 $f(x)$ 的一个原函数.
+\end{dl}
+
+\begin{dl}[微积分第二基本定理， Newton-Leibniz 公式]\label{微积分第二基本定理}
+    设 $f(x)$ 在 $[a, b]$ 上连续， $F(x)$ 是 $f(x)$ 的一个原函数，则
+    \[
+        \int_{a}^{b}f(x)\dx = F(b) - F(a) = F(x) \bigg|_a^b
+    \]
+\end{dl}
+
+\textbf{定理 \ref{微积分第二基本定理}}可以加强为：
+
+\begin{dl}
+    设函数 $F(x)$ 在 $[a, b]$ 上连续，在 $(a, b)$ 上可导。函数 $f(x)$ 在 $[a, b]$ 上可积，且有 $F'(x) = f(x)$, $x \in (a, b)$。那么 
+    \[ 
+        \int_a^b f(x) \dx = F(b) - F(a)
+    \]
+\end{dl}
 
 \end{document}

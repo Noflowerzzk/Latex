@@ -33,3 +33,4 @@
 \contentsline {subsubsection}{\numberline {1\hspace {3pt}}The Definition of "="}{15}{subsubsection.5.3.1}%
 \contentsline {subsubsection}{\numberline {2\hspace {3pt}}The Axioms of ZFC Set Theory}{15}{subsubsection.5.3.2}%
 \contentsline {subsubsection}{\numberline {3\hspace {3pt}}The Re-definition of Certain Concepts with ZFC}{16}{subsubsection.5.3.3}%
+\contentsline {subsection}{\numberline {\S \hspace {6pt}\hspace {8pt}5.4\hspace {5pt}}Inference Rules and Proof Theory}{17}{subsection.5.4}%

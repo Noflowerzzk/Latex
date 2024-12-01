@@ -17,6 +17,7 @@
             ]
             {hyperref} % 实现引用超链接功能
 \usepackage{tcolorbox} % 盒子效果
+\usepackage{hyperref}
 \tcbuselibrary{most} % tcolorbox宏包的设置，详见宏包说明文档
 
 \geometry{a4paper,centering,scale=0.8}
@@ -771,7 +772,7 @@ With a structure, we can determine the truth of an closed proposition.
     $2\ :\ 1 \cup \{1\}$ \\
     $\cdots$ \\
     We define $\NN$ as the smallest inducive set, i.e. for any inducive set $T$, $\NN \subseteq T$. \\
-    Obviously all the numbers we defined above is the elements of $\NN$.
+    Obviously all the numbers we defined w is the elements of $\NN$.
 \end{dy}
 
 \begin{dy}[The definition of ordered pairs]\quad \\
@@ -779,7 +780,61 @@ With a structure, we can determine the truth of an closed proposition.
 \end{dy}
 
 \begin{dy}[The options of nature numbers]
-    
+    The sum of $m, n \in \NN$ is $r$ iff. $(m, n, r) \in T$ where $T$ is the least set such that 
+    \[
+        \forall n,\quad (n, 0, n) \in T
+    \]
+    \[
+        \forall n \forall m \forall r \left((n, m, r) \in T \rightarrow (n, m \cup \{m\}, r \cup \{r\}) \in T\right)
+    \]
+\end{dy}
+
+\begin{dy}[Define transitive closures with ZFC]\label{Define transitive closures with ZFC}
+    For any $R \subseteq A \times A$, we write $aR^nb$ iff. $(a, b, t) \in T$ where $T$ is the  least set such that 
+    \[
+        \forall a \forall b(aRb \rightarrow (a, b, 1) \in T)
+    \]
+    \[
+        \forall n \forall a \forall b \forall c (aRb \land (b, c, n) \in T \rightarrow (a, c, n \cup \{n\}) \in T)
+    \]
+\end{dy}
+
+\begin{dy}
+    For any $R \subseteq A \times A$, $R^+ = \bigcup_{n \in \NN^+}R^n$ defines the following set according to the axiom of separating.
+    \[
+        \left\{(a, b) \in A \times A\ | \ \exists n ((a, b, n) \in T)\right\}
+    \]
+    where $T$ is the set defined in \textbf{Define\ref{Define transitive closures with ZFC}}.
+\end{dy}
+
+\begin{kuang3}
+    \subsection{Inference Rules and Proof Theory}
+\end{kuang3}
+
+\begin{dy}[The natural deduction system] \quad \\
+    $\Phi \vdash \psi$ iff. it can be established by the following proof rules in finite steps:
+    \begin{itemize}
+        \item $\phi[x \mapsto t] \vdash \forall x \phi$; $\forall x \phi \vdash \phi[x \mapsto t]$
+        \item If $\Phi \vdash \psi$ and $x$ does not freely occur in $\Phi$, then $\Phi \vdash \forall x \psi$.
+        \item If $\Phi, \psi \vdash \chi$ and $x$ does not freely occur in $\Phi$ or $\chi$, then $\Phi, \forall x\ \psi \vdash \chi$.
+        \item $\phi, \psi \vdash \phi \land \psi$;\quad $\phi \land \psi \vdash \phi$;\quad $\phi \land \psi \vdash \psi$
+        \item $\phi \vdash \phi \lor \psi$;\quad $\psi \vdash \phi \lor \psi$
+        \item If $\Phi, \phi_1 \vdash \psi$ and $\Phi, \phi_2 \vdash \psi$, then $\Phi, \phi_1 \lor \phi_2 \vdash \psi$
+        \item If $\Phi, \psi \vdash \chi$ and $\Phi, \neg \psi \vdash \chi$, then $\Phi \vdash \chi$
+        \item If $\Phi, \neg \psi \vdash \chi$ and $\Phi, \neg \psi \vdash \neg \chi$, then $\Phi \vdash \psi$
+        \item If $\phi \in \Phi$, then $\Phi \vdash \phi$
+        \item If $\Phi \subseteq \Psi$ and $\Phi \vdash \phi$, then $\Psi \vdash \phi$
+        \item If $\Phi \vdash \psi$ and $\Phi \vdash \psi \rightarrow \chi$, then $\Phi \vdash \chi$.
+        \item If $\Phi, \psi \vdash \chi$, then $\Phi \vdash \psi \rightarrow \chi$.
+    \end{itemize}
+\end{dy}
+
+\begin{dy}[Soundness]
+    A first order logic (“$\vdash$”) is sound if $\Phi \vdash \psi$ implies $\Phi \models \psi$.
+\end{dy}
+
+\begin{dy}[Completeness]
+    A first order logic (“$\vdash$”) is complete if $\Phi \models \psi$ implies $\Phi \vdash \psi$.
 \end{dy}
 
 \end{document}

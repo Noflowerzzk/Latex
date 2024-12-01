@@ -27,3 +27,6 @@
 \contentsline {subsubsection}{\numberline {二、}一些例题}{16}{subsubsection.5.1.2}%
 \contentsline {subsection}{\numberline {\S \hspace {6pt}5.2\hspace {8pt}}定积分}{16}{subsection.5.2}%
 \contentsline {subsubsection}{\numberline {一、}定积分的定义与 Darboux 和}{16}{subsubsection.5.2.1}%
+\contentsline {subsubsection}{\numberline {二、}定积分存在的充要条件 ---- Darboux 定理}{16}{subsubsection.5.2.2}%
+\contentsline {subsubsection}{\numberline {三、}定积分存在的充要条件 ---- Lebesgue 判别法}{17}{subsubsection.5.2.3}%
+\contentsline {subsubsection}{\numberline {四、}积分中值定理与微积分基本定理}{21}{subsubsection.5.2.4}%
