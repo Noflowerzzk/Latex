@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999996 (TeX Live 2024) (preloaded format=xelatex 2024.9.25)  1 DEC 2024 14:49
+This is XeTeX, Version 3.141592653-2.6-0.999996 (TeX Live 2024) (preloaded format=xelatex 2024.9.25)  9 DEC 2024 18:52
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1102,20 +1102,25 @@ Underfull \hbox (badness 10000) in paragraph at lines 206--213
 
  []
 
+LaTeX Font Info:    Font shape `TU/TeXGyreTermesX(0)/b/n' will be
+(Font)              scaled to size 14.0pt on input line 218.
+
+Underfull \hbox (badness 10000) in paragraph at lines 216--223
+
+ []
+
 [1
 
 ]
 LaTeX Font Info:    Font shape `TU/TeXGyreTermesX(0)/m/n' will be
-(Font)              scaled to size 22.08249pt on input line 225.
+(Font)              scaled to size 22.08249pt on input line 235.
 LaTeX Font Info:    Font shape `TU/TeXGyreTermesX(0)/b/n' will be
-(Font)              scaled to size 22.08249pt on input line 225.
+(Font)              scaled to size 22.08249pt on input line 235.
  (./数分例题整理.toc
 LaTeX Font Info:    Font shape `TU/TeXGyreTermesX(0)/m/n' will be
 (Font)              scaled to size 16.79996pt on input line 1.
 LaTeX Font Info:    Font shape `TU/TeXGyreTermesX(0)/b/n' will be
 (Font)              scaled to size 16.79996pt on input line 1.
-LaTeX Font Info:    Font shape `TU/TeXGyreTermesX(0)/b/n' will be
-(Font)              scaled to size 14.0pt on input line 2.
 LaTeX Font Info:    Calculating math sizes for size <14> on input line 3.
 LaTeX Font Info:    Font shape `TU/TeXGyreTermesX(0)/m/n' will be
 (Font)              scaled to size 9.79996pt on input line 3.
@@ -1142,9 +1147,9 @@ Underfull \hbox (badness 10000) in paragraph at lines 29--29
 \openout5 = `数分例题整理.toc'.
 
 LaTeX Font Info:    Font shape `TU/TeXGyreTermesX(0)/m/n' will be
-(Font)              scaled to size 10.53937pt on input line 229.
+(Font)              scaled to size 10.53937pt on input line 239.
 LaTeX Font Info:    Font shape `TU/TeXGyreTermesX(0)/b/n' will be
-(Font)              scaled to size 10.53937pt on input line 229.
+(Font)              scaled to size 10.53937pt on input line 239.
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1155,11 +1160,11 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 [1]
 LaTeX Font Info:    Font shape `TU/TeXGyreTermesX(0)/b/n' will be
-(Font)              scaled to size 24.09pt on input line 237.
+(Font)              scaled to size 24.09pt on input line 247.
 LaTeX Font Info:    Font shape `TU/TeXGyreTermesX(0)/m/n' will be
-(Font)              scaled to size 18.06749pt on input line 245.
+(Font)              scaled to size 18.06749pt on input line 255.
 LaTeX Font Info:    Font shape `TU/TeXGyreTermesX(0)/m/n' will be
-(Font)              scaled to size 16.06pt on input line 248.
+(Font)              scaled to size 16.06pt on input line 258.
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1193,7 +1198,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-0.64723pt}.
 
 [4]
-Underfull \hbox (badness 10000) in paragraph at lines 441--442
+Underfull \hbox (badness 10000) in paragraph at lines 451--452
 
  []
 
@@ -1213,7 +1218,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-0.64723pt}.
 
 [6]
-Overfull \hbox (15.0942pt too wide) detected at line 523
+Overfull \hbox (15.0942pt too wide) detected at line 533
 []
  []
 
@@ -1249,7 +1254,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-0.64723pt}.
 
 [10]
-Overfull \hbox (4.53049pt too wide) detected at line 671
+Overfull \hbox (4.53049pt too wide) detected at line 681
 []
  []
 
@@ -1261,7 +1266,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-0.64723pt}.
 
 [11]
-Underfull \hbox (badness 2012) in paragraph at lines 716--718
+Underfull \hbox (badness 2012) in paragraph at lines 726--728
 \TU/SimSun(0)/m/n/14 有 $\OML/cmm/m/it/14 f[]\OT1/cmr/m/n/14 (\OML/cmm/m/it/14 x[]\OT1/cmr/m/n/14 ) = [] [] \U/msa/m/n/14 6 [] 6 [] 6
  []
 
@@ -1313,12 +1318,12 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-0.64723pt}.
 
 [17]
-Underfull \hbox (badness 10000) in paragraph at lines 933--934
+Underfull \hbox (badness 10000) in paragraph at lines 943--944
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 943--944
+Underfull \hbox (badness 10000) in paragraph at lines 953--954
 
  []
 
@@ -1363,8 +1368,13 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 [22]
 
-LaTeX Warning: Reference `微积分第二基本定理' on page 23 undefined on input line 1096.
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 12.64723pt, for example:
+(fancyhdr)                \setlength{\headheight}{12.64723pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+(fancyhdr)                \addtolength{\topmargin}{-0.64723pt}.
 
+[23]
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 12.64723pt, for example:
@@ -1372,28 +1382,45 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-0.64723pt}.
 
-[23] (./数分例题整理.aux)
+[24]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 12.64723pt, for example:
+(fancyhdr)                \setlength{\headheight}{12.64723pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+(fancyhdr)                \addtolength{\topmargin}{-0.64723pt}.
+
+[25]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 12.64723pt, for example:
+(fancyhdr)                \setlength{\headheight}{12.64723pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+(fancyhdr)                \addtolength{\topmargin}{-0.64723pt}.
+
+[26]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 12.64723pt, for example:
+(fancyhdr)                \setlength{\headheight}{12.64723pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+(fancyhdr)                \addtolength{\topmargin}{-0.64723pt}.
+
+[27] (./数分例题整理.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2022/08/05>
  ***********
-
-
-LaTeX Warning: There were undefined references.
-
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
 Package rerunfilecheck Info: File `数分例题整理.out' has not changed.
-(rerunfilecheck)             Checksum: 21E379167E134E8D2EFB69952A89F271;4177.
+(rerunfilecheck)             Checksum: 2D79DAD6D7F61710057C594F2E910266;4409.
  ) 
 Here is how much of TeX's memory you used:
- 35197 strings out of 474773
- 784258 string characters out of 5761289
- 1947842 words of memory out of 5000000
- 56720 multiletter control sequences out of 15000+600000
+ 35217 strings out of 474773
+ 784608 string characters out of 5761289
+ 1948842 words of memory out of 5000000
+ 56740 multiletter control sequences out of 15000+600000
  564453 words of font info for 106 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  101i,15n,107p,1193b,1464s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on 数分例题整理.pdf (25 pages).
+Output written on 数分例题整理.pdf (29 pages).

@@ -1,0 +1,247 @@
+\documentclass{article}
+\usepackage{amsmath}  % 数学符号包
+\usepackage{amssymb}  % 更多数学符号
+\usepackage{enumitem} % 列表样式
+\usepackage{fancyhdr} % 页眉设置
+\usepackage{geometry} % 页面设置
+\usepackage[UTF8]{ctex}
+\usepackage{bm}
+\usepackage{amsthm}
+\usepackage{extarrows}
+\everymath{\displaystyle}  % 让所有数学模式都使用 \displaystyle
+\newcommand{\lb}{\left\llbracket}
+\newcommand{\rb}{\right\rrbracket}
+\newcommand{\dd}{\mathrm{d}}
+\newcommand{\dx}{\dd x}
+\newcommand{\dt}{\dd t}
+\newcommand{\ee}{\mathrm{e}}
+
+
+\geometry{a4paper, margin=1in}
+
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[C]{作业十一}
+\fancyhead[R]{2024.12.04}
+
+
+\title{作业十一}
+\author{Noflowerzzk}
+\date{2024.12.04}
+
+
+\begin{document}
+\maketitle
+
+\section*{P264 T1(3)}
+
+\begin{align*}
+    F(x) & = \arctan x \bigg|_a^{\int_{0}^{x}\sin^2 t \dd t} \\
+    & = \arctan \int_{0}^{x}\sin^2 t \dd t - \arctan a \\
+    \text{且  } F'(x) &= \frac{1}{1 + \left(\int_{0}^{x}\sin^2 t \dt\right)^2}\left(\int_{0}^{x}\sin^2 t \dt\right)'
+\end{align*}
+
+又 
+\begin{align*}
+    \int_{0}^{x}\sin^2 t \dt &= -\sin t \cos t \bigg|_0^x + \int_{0}^{x}\cos^2 \dt \\
+    &= -\sin x \cos x + \int_0^x \dt - \int_{0}^{x} \sin^2 t \dt\\
+    &= -\sin x \cos x + x - \int_{0}^{x}\sin^2 t \dt \\
+    \text{且  } \left(\int_{0}^{x}\sin^2 t \dt\right)' &= \sin^2 x
+\end{align*}
+
+因此 $\int_{0}^{x}\sin^2 t \dt = \frac{1}{2}\left(-\sin x \cos x + x\right)$, 代入原式即有
+
+\[
+    F'(x) = \frac{1}{1 + \left(\int_{0}^{x}\sin^2 t \dt\right)^2}\left(\int_{0}^{x}\sin^2 t \dt\right)' = \frac{4\sin^2 x}{4 + \left(-\sin x \cos x + x\right)^2}
+\]
+
+\section*{P264 T2}
+
+\begin{itemize}
+    \item [(1)] 由洛必达法则，
+    \begin{align}
+        \lim_{x \to 0}\frac{\int_{0}^{x}\cos^t \dt}{x} = \lim_{x \to 0}\frac{\cos^2 x }{1} = 1
+    \end{align}
+    \item [(2)] 由于 $\left(\int_{\cos x}^{1}\ee^{-w^2} \dd w\right)' = - \ee^{-\cos^2 x}\left(\cos x\right)' = + \sin x \ee^{-\cos^2 x}$, 
+    \begin{align*}
+        \lim_{x \to 0}\frac{x^2}{\int_{\cos x}^{1}\ee^{-w^2} \dd w} &= \lim_{x \to 0}\frac{2x}{\sin x \ee^{-\cos^2 x}} \\
+        &= \lim_{x \to 0}\frac{2}{\ee^{-\cos^2 x}} = 2 \ee
+    \end{align*}
+    \item [(3)] 由洛必达法则，
+    \begin{align*}
+        \lim_{x \to +\infty}\frac{\int_{0}^{x}\arctan^2 t \dt}{\sqrt{1 + x^2}} &= \lim_{x \to +\infty}\frac{\arctan^2 x}{\frac{x}{\sqrt{1 + x^2}}} = \frac{\pi}{2}
+    \end{align*}
+    \item [(4)] 由洛必达法则，
+    \begin{align*}
+        \lim_{x \to +\infty}\frac{\left(\int_{0}^{x}\ee^{u^2}\dd u\right)^2}{\int_{0}^{x}\ee^{2u^2}\dd u} &= \lim_{x \to +\infty}\frac{2\left(\int_{0}^{x}\ee^{u^2}\dd u\right)\ee^{x^2}}{\ee^{2x^2}} \\
+        &= \lim_{x \to +\infty}2\frac{\ee^{x^2}}{2x\ee^{x^2}} = 0
+    \end{align*}
+\end{itemize}
+
+\section*{P264 T3}
+
+\begin{proof}
+    由积分第一中值定理，存在 $\xi \in (0, x)$, $\int_{0}^{x}t f(t) \dt = \xi \int_{0}^{x}f(t) \dt$. 因此
+    \begin{align*}
+        g'(x) &= \frac{xf(x)\int_{0}^{x}f(t)\dt - f(x)\int_{0}^{x}tf(t)\dt}{\left(x\int_{0}^{x}f(t)\dt\right)^2} \\
+        &= \frac{(x - \xi)f(x)\int_{0}^{x}f(t)\dt}{\left(x\int_{0}^{x}f(t)\dt\right)^2} > 0
+    \end{align*} 因此 $g(x)$ 是 $[0, +\infty)$ 上的单调增加函数.
+\end{proof}
+
+\section*{P265 T5}
+
+\begin{itemize}
+    \item [(1)] 由积分第一中值定理，存在 $\xi \in [0, 1]$, $\int_{0}^{1}\frac{x^n}{1 + x}\dx = \xi^n \int_{0}^{1}\frac{\dx}{x + 1} = \xi^n \ln 2$. 而 $\lim_{n \to \infty}\xi^n \ln 2 = 0$, 因此原极限为 $0$.
+    \item [(2)] 由积分第一中值定理，存在 $\xi \in [n, n + p]$, $\int_{n}^{n + p}\frac{\sin x}{x}\dx = \frac{1}{\xi}\int_{n}^{n + p}\sin x \dx$.  \\
+    由于 $\left\lvert \int_{n}^{n + p}\sin x \dx\right\rvert \leqslant \left\lvert \int_{n}^{n + p}\dx\right\rvert = p$, 有界，因此 $\lim_{n \to \infty}\frac{1}{\xi}\int_{n}^{n + p}\sin x \dx = 0$, 即原极限为 $0$.
+\end{itemize}
+
+\section*{P265 T6}
+
+\begin{itemize}
+    \item [(16)] 由于函数是偶函数，有
+    \begin{align*}
+        \int_{-\frac{1}{2}}^{\frac{1}{2}}\frac{\dx}{\sqrt{(1 - x^2)^3}} &\xlongequal[]{x = \sin t} 2\int_{0}^{\frac{\pi}{6}}\frac{\dd(\sin t)}{\cos^3 t} \\
+        &= 2 \int_{0}^{\frac{\pi}{6}}\frac{\dx}{\cos^2 x}\\
+        &= 2 \tan x \bigg|_{0}^{\frac{\pi}{6}} = \frac{2\sqrt{3}}{3}
+    \end{align*}
+    \item [(17)] 令 $t = \frac{x - 1}{x + 1}$, 有 $x = \frac{1 + t}{1 - t}, \dx = \frac{2\dt}{(1 - t)^2}$.
+    \begin{align*}
+        \int_{0}^{1}\left(\frac{x - 1}{x + 1}\dx\right) &= \int_{-1}^{0}\frac{2t^4\dt}{(1 - t)^2} \\
+        &= 2\int_{-1}^{0}\left(t^2 + 2t + 3 - \frac{1}{1 - t} + \frac{4}{(1 - t)^2}\right)\dt \\
+        &= 2\left(\frac{1}{3} - 2\frac{1}{2} + 3 - 4 \ln 2 + 1 - \frac{1}{2}\right) = \frac{17}{3} - 8 \ln 2
+    \end{align*}
+    \item [(18)] 
+    \begin{align*}
+        \int_{0}^{1}\frac{x^2 + 1}{x^4 + 1}\dx &= \int_{0}^{1}\frac{\dd (x - x^{-1})}{(x - x^{-1})^2 + 2} \\
+        &= \frac{1}{\sqrt{2}}\arctan \frac{x - x^{-1}}{\sqrt{2}}\bigg|_0^1 \\
+        &= \frac{\sqrt{2}\pi}{4}
+    \end{align*}
+    \item [(19)] 
+    \begin{align*}
+        \int_{1}^{\sqrt{2}}\frac{\dx}{x\sqrt{1 + x^2}} &\xlongequal[]{t = \sqrt{1 + x^2}} \int_{\sqrt{2}}^{\sqrt{3}}\frac{\dt}{t^2 - 1} \\
+        &= \frac{1}{2}\left(\ln \left\lvert x - 1\right\rvert \bigg|_{\sqrt{2}}^{\sqrt{3}} - \ln \left\lvert x + 1\right\rvert \bigg|_{\sqrt{2}}^{\sqrt{3}}\right) \\
+        &= \frac{1}{2}\ln \frac{\sqrt{3} - 1}{\sqrt{2} - 1}\frac{\sqrt{2} + 1}{\sqrt{3} + 1}
+    \end{align*}
+    \item [(20)] 令 $x = 1 + \sin t$.
+    \begin{align*}
+        \int_{0}^{1}x\sqrt{\frac{x}{2 - x}}\dx &= \int_{-\frac{\pi}{2}}^{0}\left\lvert \frac{\sin \frac{t}{2} + \cos \frac{t}{2}}{\sin \frac{t}{2} - \cos \frac{t}{2}}\right\rvert (1 + \sin t) \cos t \dt \\
+        &= \int_{-\frac{\pi}{2}}^{0}\left\lvert \frac{\sin \frac{t}{2} + \cos \frac{t}{2}}{\sin \frac{t}{2} - \cos \frac{t}{2}}\right\rvert (1 + \sin t) \left(\cos^2 \frac{t}{2} - \sin^2 \frac{t}{2}\right) \dt \\
+        &= \int_{-\frac{\pi}{2}}^{0}(1 + \sin t)^2 \dt \\
+        &= \int_{-\frac{\pi}{2}}^{0}\left(1 + 2 \sin t + \frac{1 - \cos 2t}{2}\right)\dt \\
+        &= \frac{3}{2}\frac{\pi}{2} - 2\cos t\bigg|_{-\frac{\pi}{2}}^{0} - \frac{1}{4}\sin 4t \bigg|_{-\frac{\pi}{2}}^{0} \\
+        &= \frac{3\pi}{4} - 2
+    \end{align*}
+\end{itemize}
+
+\section*{P265 T7}
+
+\begin{itemize}
+    \item [(1)] 
+    \begin{align*}
+        \lim_{n \to \infty}\left(\frac{1}{n^2} + \frac{2}{n^2} + \cdots + \frac{n - 1}{n^2}\right) &= \lim_{n \to \infty}\sum_{i = 1}^{n}\frac{i}{n}\frac{1}{n} \\
+        &= \int_{0}^{1}\dx = \frac{1}{2}
+    \end{align*}
+    \item [(2)]
+    \begin{align*}
+        \lim_{n \to \infty}\left(\frac{1^p}{n^{p + 1}} + \frac{2^p}{n^{p + 1}} + \cdots + \frac{(n - 1)^p}{n^{p + 1}}\right) &= \lim_{n \to \infty}\sum_{i = 1}^{n}\left(\frac{i}{n}\right)^p\frac{1}{n}\\
+        &= \int_{0}^{1}x^p \dx = \frac{1}{p + 1}
+    \end{align*}
+    \item [(3)]
+    \begin{align*}
+        \lim_{n \to \infty}\frac{1}{n}\left(\sin\frac{\pi}{n} + \sin \frac{2\pi}{n} + \cdots + \sin \frac{(n - 1)\pi}{n}\right) = \int_{0}^{1}\sin \pi x \dx = \frac{2}{\pi}
+    \end{align*}
+\end{itemize}
+
+\section*{P265 T8}
+
+\begin{itemize}
+    \item [(4)] 令 $x = \frac{\cos t }{2}$，
+    \begin{align*}
+        \int_{0}^{\frac{1}{2}}x^2(1 - 4x^2)^10\dx &= -\frac{1}{8}\int_{\frac{\pi}{2}}^{0} \cos t \sin^21 t \dt \\
+        &= -\frac{1}{8}\left(\int_{\frac{\pi}{2}}^{0}\sin^21 t \dt - \int_{\frac{\pi}{2}}^{0} \sin^23 t \dt\right) \\
+        &= \frac{1}{8}\left(\frac{20!!}{21!!} - \frac{22!!}{23!!}\right) = \frac{1}{184}\frac{20!!}{21!!}
+    \end{align*}
+    \item [(5)] 令 $I(n, m) = \int_{0}^{1}x^n\ln^m x\dx$. 有
+    \begin{align*}
+        I(n, m) = \frac{1}{n + 1}\left(x^{n + 1}\ln^m x \bigg|_0^1 - m\int_{0}^{1}x^n\ln^{m - 1}\dx\right) = -\frac{m}{n + 1}I(n, m - 1)
+    \end{align*}
+    因此 $I(n, m) = \left(-\frac{1}{n + 1}\right)^{m - 1}m!I(n, 1)$. 又 $I(n, 1) = -\frac{1}{(n + 1)^2}$. 故
+    \[
+        I(n, m) = \frac{(-1)^m}{(n + 1)^{m + 1}}m!
+    \]
+    \item [(6)] 令 $I_n = \int_{1}^{\ee} x\ln^n x \dx$. $I_0 = \int_{1}^{\ee}x\dx = \frac{1}{2}(\ee^2 - 1)$. 
+    \begin{align*}
+        I_n = \frac{1}{2}\left(x^2\ln^n x \bigg|_1^\ee - n\int_{1}^{e}x \ln^{n - 1}x \dx\right) = \frac{1}{2}\ee^2 - \frac{n}{2}I_{n - 1}
+    \end{align*}
+    通项……？
+\end{itemize}
+
+\section*{P266 T14}
+
+\begin{proof}
+    \begin{align*}
+        f(x) = \frac{1}{2}\left(x^2\int_{0}^{x}g(t)\dt - 2x \int_{0}^{x}tg(t)\dt + \int_{0}^{x}t^2g(t)\dt\right)
+    \end{align*}
+    \begin{align*}
+        f'(x) &= \frac{1}{2}\left(2x\int_{0}^{x}g(t)\dt + x^2 g(x) - 2\int_{0}^{x}tg(t)\dt - 2x^2g(x) + x^2g(x)\right) \\
+        &= x\int_{0}^{x}g(t)\dt - \int_{0}^{x}tg(t)\dt
+    \end{align*}
+    因此
+    \begin{align*}
+        f''(x) = \int_{0}^{x}g(t)\dt + xg(x) - g(x)
+    \end{align*}
+    $f''(1) = 2 + 1 \times 5 - 5 = 2$.
+    \begin{align*}
+        f'''(x) = g(x) + g(x) + xg'(x) - g'(x)
+    \end{align*}
+    $f'''(1) = 5 + 5 + g'(1) - g'(1) = 10$
+\end{proof}
+
+\section*{P266 T15}
+
+设 $f(x)$ 的一个原函数是 $F(x)$. $F(x)$ 可导，且 $F'(x) = f(x)$. 有 $F(x) = \int f(x) \dx = x \ln x - x\int_{1}^{\ee}f(t)\dt + C$. \\
+故 $\int_{1}^{\ee}f(x)\dx = F(x)\bigg|_1^\ee = \ee - (\ee - 1)\int_{1}^{\ee}f(x)\dx$, 解得 $\int_{1}^{\ee}f(x)\dx = 1$.
+
+\section*{P266 T16}
+
+令 $m = 2x - t$. 有
+\begin{align*}
+    \frac{1}{2}\arctan x^2 &= \int_{2x - 1}^{2x}(2x - m)f(m)\dd m \\
+    &= 2x \int_{2x - 1}^{2x}f(t)\dt - \int_{2x - 1}^{2x}tf(t)\dt
+\end{align*}
+两边求导，得
+\begin{align*}
+    \frac{x}{1 + x^4} &= 2\int_{2x - 1}^{2x}f(t)\dt + 4x\left(f(2x) - f(2x - 1)\right) - 4xf(2x) + (2x - 1)f(2x - 1) \\
+    &= 2\int_{2x - 1}^{2x}f(t)\dt - f(2x - 1)
+\end{align*}
+令 $x = 1$ 得
+\begin{align*}
+    \int_{1}^{2}f(x)dx = \frac{5}{4}
+\end{align*}
+
+\section*{P266 T19}  
+
+\begin{proof}
+    $g(x)$ 两边求导有：
+    \[
+        af(ax) - f(x) = 0, \quad \forall x \in (0, +\infty)
+    \]
+    取定 $x = 1$, 有 $af(a) - f(1) = 0, \quad \forall a > 0$. 因此 $f(x) = \frac{f(1)}{x}$, $\forall x \in (0, +\infty)$.
+\end{proof}
+
+\section*{补充题}
+
+\begin{proof}
+    取 $\varphi$ 的一个划分 $P: a = x_0 < x_1 < \cdots < x_n = b$. 有
+    \begin{align*}
+        \int_{a}^{b}f(g(x))\varphi(x)\dx &= \lim_{\lambda(P) \to 0}\sum_{i = 1}^{n}f(g(\xi_i))\varphi(\xi_i) \Delta x_i \\
+        &= \lim_{\lambda(P) \to 0}\sum_{i = 1}^{n}\varphi(\xi_i) \Delta x_i \sum_{i = 1}^{n}f(g(\xi_i))\frac{\varphi(x_i) \Delta x_i}{\sum_{i = 1}^{n}\varphi(\xi_i) \Delta x_i} \\
+        &\geqslant \lim_{\lambda(P) \to 0}\left(\sum_{i = 1}^{n}\varphi(\xi_i) \Delta x_i\right) f\left(\sum_{i = 1}^{n}g(\xi_i)\varphi(\xi_i)\Delta x_i\right)  \\
+        &= 1 \cdot f\left(\lim_{\lambda(P) \to 0}\sum_{i = 1}^{n}g(\xi_i)\varphi(\xi_i)\Delta x_i\right)\\
+        &= f\left(\int_{a}^{b}g(x)\varphi(x) \dx\right)
+    \end{align*}
+\end{proof}
+
+\end{document}

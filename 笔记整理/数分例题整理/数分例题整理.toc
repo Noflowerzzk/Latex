@@ -30,3 +30,5 @@
 \contentsline {subsubsection}{\numberline {二、}定积分存在的充要条件 ---- Darboux 定理}{16}{subsubsection.5.2.2}%
 \contentsline {subsubsection}{\numberline {三、}定积分存在的充要条件 ---- Lebesgue 判别法}{17}{subsubsection.5.2.3}%
 \contentsline {subsubsection}{\numberline {四、}积分中值定理与微积分基本定理}{21}{subsubsection.5.2.4}%
+\contentsline {subsubsection}{\numberline {五、}积分不等式}{25}{subsubsection.5.2.5}%
+\contentsline {subsubsection}{\numberline {六、}有关可求长曲线}{26}{subsubsection.5.2.6}%

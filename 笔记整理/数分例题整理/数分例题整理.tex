@@ -213,6 +213,16 @@
 \end{kuang3}
 }
 
+\quad \\
+{
+\bf
+\begin{kuang3}
+    \color{hlan}
+    \centering
+    Noflowerzzk    
+\end{kuang3}
+}
+
 \thispagestyle{empty} % 取消这一页的页码
 \newpage
 
@@ -748,7 +758,7 @@
     \]
 \end{dl}
 
-\begin{zm}
+\begin{zm} \label{离散 holder 证明}
     令 $A = \sum_{i = 1}^{n}a_i^p, B = \sum_{i = 1}^{n}b_i^q$ \\
     $p > 1$ 时，对 $\forall i \in \{1, 2, \cdots , n\}$, 由 \textbf{Young 不等式}，
     \[
@@ -1096,10 +1106,160 @@
 \textbf{定理 \ref{微积分第二基本定理}}可以加强为：
 
 \begin{dl}
-    设函数 $F(x)$ 在 $[a, b]$ 上连续，在 $(a, b)$ 上可导。函数 $f(x)$ 在 $[a, b]$ 上可积，且有 $F'(x) = f(x)$, $x \in (a, b)$。那么 
+    设函数 $F(x)$ 在 $[a, b]$ 上连续，在 $(a, b)$ 上可导. 函数 $f(x)$ 在 $[a, b]$ 上可积，且有 $F'(x) = f(x)$, $x \in (a, b)$。那么 
     \[ 
         \int_a^b f(x) \dx = F(b) - F(a)
     \]
 \end{dl}
+
+\begin{dl}[积分第二中值定理]
+    $f(x)$ 在 $[a, b]$ 可积， $g(x)$ 在 $[a, b]$ 上单调有界. 则存在 $\xi \in [a, b]$，使得 
+    \[
+        \int_{a}^{b}f(x)g(x)\dx = g(a)\int_{a}^{\xi}f(x)\dx + g(b) \int_{\xi}^{b}f(x) \dx
+    \] 
+\end{dl}
+
+\begin{zm}
+    不妨 $g(x)$ 单增. \\
+    令 $F(x) = \int_{a}^{x}f(x) \dx$. $F(x)$ 连续, $F(x)$ 有最大、最小值 $M, m$.\\
+    由于 
+    \begin{align*}
+        g(a)\int_{a}^{\xi}f(x)\dx + g(b) \int_{\xi}^{b}f(x) \dx &= g(a)F(x)\bigg|_a^{\xi} + g(b)F(x)\bigg|_{\xi}^b \\
+        &= F(b)g(b) - F(a)g(a) - F(\xi)(g(b) - g(a))
+    \end{align*}
+    因此原式等价于：
+    \[
+        -\int_{a}^{b}f(x)g(x)\dx + F(x)g(x)\bigg|_a^b = F(\xi)g(x)\bigg|_a^b
+    \]
+    由于 $F(x)$ 连续， $g(x)$ 单增，只需证
+    \[
+        mg(x)\bigg|_a^b \leqslant -\int_{a}^{b}f(x)g(x)\dx + F(x)g(x)\bigg|_a^b \leqslant Mg(x)\bigg|_a^b
+    \] $\Leftrightarrow$
+    \begin{align}\label{需要证的式子}
+        mg(x)\bigg|_a^b + \int_{a}^{b}f(x)g(x)\dx \leqslant F(x)g(x)\bigg|_a^b \leqslant Mg(x)\bigg|_a^b + \int_{a}^{b}f(x)g(x)\dx
+    \end{align}
+    取 $[a, b]$ 的任意划分 $P: a = x_0 < x_1 < \cdots < x_n = b$, 有
+    \begin{align*}
+        F(x)g(x)\bigg|_a^b =& \sum_{i = 1}^{n}\left(F(x_i)g(x_i) - F(x_{i - 1}g(x_{i - 1}))\right) \\
+        =& \sum_{i = 1}^{n}F(x_i)(g(x_i) - g(x_{i - 1})) + \sum_{i = 1}^{n}g(x_{i - 1})(F(x_i) - F(x_{i - 1}))
+    \end{align*}
+    显然
+    \[
+        mg(x)\bigg|_a^b \leqslant \sum_{i = 1}^{n}F(x_i)(g(x_i) - g(x_{i - 1})) \leqslant Mg(x)\bigg|_a^b
+    \]
+    而
+    \begin{align*}
+        &\left\lvert \sum_{i = 1}^{n}g(x_{i - 1})(F(x_i) - F(x_{i - 1})) - \int_{a}^{b}f(x)g(x)\dx\right\rvert \\
+        = & \left\lvert \sum_{i = 1}^{n}g(x_{i - 1})\int_{x_{i - 1}}^{x_i}f(t)\dd t - \sum_{i = 1}^{n}f(t)g(t)\dd t\right\rvert \\
+        \leqslant & \sum_{i = 1}^{n}\int_{x_{i - 1}}^{x_i}\left\lvert f(t)\right\rvert \left\lvert g(x_{i - 1}) - g(t)\right\rvert \dd t \\
+        \leqslant & M \sum_{i = 1}^{n}\int_{x_{i - 1}}^{x_i}\omega_i(g)\dx \\
+        = & M \sum_{i = 1}^{n}\omega_i(g)\Delta x_i
+    \end{align*}
+    当 $\lambda(P) \to 0$ 时，上式趋近于 $0$. 因此式 (\ref{需要证的式子}) 成立. 
+\end{zm}
+
+\subsubsection{积分不等式}
+
+\begin{dy}[函数的 $p$-范数]
+    对 $[a, b]$ 上可积的函数 $f(x)$, 定义 $f(x)$ 的 $p$-范数：
+    \[
+        \left\lVert f(x)\right\rVert_p = \left(\int_{a}^{b}\left\lvert f(x)\right\rvert ^p \dx \right)^\frac{1}{p}
+    \]
+\end{dy}
+
+\begin{dl}[$\text{H}\ddot{\text{o}}\text{lder}$ 不等式]
+    $f(x), g(x)$ 在 $[a, b]$ 上可积，且有 $p, q > 1$ 且 $\frac{1}{p} + \frac{1}{q} = 1$, 则有
+    \[
+        \int_{a}^{b}f(x)g(x)\dx \leqslant \left(\int_{a}^{b}\left\lvert f(x)\right\rvert^p \dx \right)^\frac{1}{p} \cdot \left(\int_{a}^{b}\left\lvert g(x)\right\rvert^q\dx \right)^\frac{1}{q}
+    \]
+    即 
+    \[
+        \int_{a}^{b}f(x)g(x)\dx \leqslant \left\lVert f(x)\right\rVert_p \cdot \left\lVert g(x)\right\rVert_q
+    \]
+    当 $p = q = 2$ 时，即 Cauchy-Schwarz 不等式：
+    \[
+        \left(\int_{a}^{b}f(x)g(x)\dx\right)^2 \leqslant \int_{a}^{b}\left\lvert f(x)\right\rvert^2 \dx \cdot \int_{a}^{b}\left\lvert g(x)\right\rvert^2 \dx
+    \]
+\end{dl}
+
+\begin{zm}
+    由 Young 不等式，类似 \ref{离散 holder 证明}离散 $\text{H}\ddot{\text{o}}\text{lder}$ 不等式 即可.
+\end{zm}
+
+\begin{lt}
+    设函数 $f(x)$ 在区间 $[a, b]$ 上有连续导数，$f(a)=f(b)=0$，且 $\int_{a}^{b} f(x)^2 \dx = 1$. 证明： 
+    \[
+        \int_{a}^{b} x^2 (f'(x))^2 \dx \geq \frac{1}{4}
+    \]
+    \begin{zmhj}
+        \begin{align*}
+            1 &= \int_{a}^{b} f(x)^2 \dx \\
+              &= x f(x)^2 \bigg|_{a}^{b} - \int_{a}^{b} x (f(x)^2)' \dx \\
+              &= - \int_{a}^{b} 2x f'(x) f(x) \dx \\
+              &= 2 \int_{a}^{b} (-x f'(x)) f(x) \dx \\
+              &\leq 2 \left( \int_{a}^{b} (-x f'(x))^2 \dx \right)^{\frac{1}{2}} \left( \int_{a}^{b} f(x)^2 \dx \right)^{\frac{1}{2}} \\
+              &= 2 \left( \int_{a}^{b} x^2 (f'(x))^2 \dx \right)^{\frac{1}{2}}
+        \end{align*}
+        \qed
+    \end{zmhj}
+\end{lt}
+
+\subsubsection{有关可求长曲线}
+
+\begin{dy}[曲线的定义]
+    \begin{itemize}
+        \item 参数方程：闭区间 $[a, b]$ 到 $\RR^2$ 的连续映射 $\gamma$
+        \item 曲线：映射 $\gamma$ 的象空间
+    \end{itemize}
+\end{dy}
+
+\begin{dy}[可求长曲线]
+    若对 $[a, b]$ 的任意划分 $P: a = t_0 < t_1 < \cdots < t_n = b$, 极限 $\lim_{\lambda(P) \to 0}\sum_{i = 1}^{n}\overline{\gamma(t_{i - 1})\gamma(t_i)} $ 存在且其值不依赖划分的选取. \\
+    改极限定义为曲线的长度.
+\end{dy}
+
+不难发现 
+\[ 
+    \lim_{\lambda(P) \to 0}\sum_{i = 1}^{n}\overline{\gamma(t_{i - 1})\gamma(t_i)} = \sup_{P}\sum_{i = 1}^{n}\overline{\gamma(t_{i - 1})\gamma(t_i)}
+\]
+
+\begin{dy}[光滑曲线]
+    对曲线的参数方程 $\gamma(t) = \left(x(t), y(t)\right)$, 若 $x(t), y(t)$ 均有连续导数，且
+    \[
+        \left(x'(t)\right)^2 + \left(y'(t)\right)^2 \neq 0
+    \]
+    则称该曲线为光滑曲线.
+\end{dy}
+
+\begin{dl}
+    若曲线的参数方程的各个分量均可求导且导数可积，则曲线可求长，且其长度为
+    \[
+        \int_{a}^{b}\sqrt{\left(x'(t)\right)^2 + \left(y'(t)\right)^2}\dd t
+    \]
+    光滑曲线是其一特殊情况. \\
+    (相当于速率乘以时间)
+\end{dl}
+
+\begin{zm} \quad \\
+    由 Lagrange 中值定理， 
+    \begin{align*}
+        \overline{\gamma(t_{i - 1})\gamma(t_i)} &= \sqrt{\left(x(t_{i - 1}) - x(t_i)\right)^2 + \left(y(t_{i - 1}) - y(t_i)\right)^2} \\
+        &= \sqrt{\left(x'(\xi_i)\right)^2 + \left(y(\eta_i)\right)^2} \Delta t_i
+    \end{align*}
+    又
+    \begin{align*}
+        &\left\lvert \overline{\gamma(t_{i - 1})\gamma(t_i)} - \int_{t_{i - 1}}^{t_i}\sqrt{\left(x'(t)\right)^2 + \left(y'(t)\right)^2}\dd t \right\rvert \\
+        = &\left\lvert \int_{t_{i - 1}}^{i_i}\left(\sqrt{\left(x'(\xi_i)\right)^2 + \left(y(\eta_i)\right)^2} - \sqrt{\left(x'(t)\right)^2 + \left(y'(t)\right)^2} \dd t\right)\right\rvert \\
+        \leqslant &\int_{t_{i - 1}}^{i_i}\left|\sqrt{\left(x'(\xi_i)\right)^2 + \left(y(\eta_i)\right)^2} - \sqrt{\left(x'(t)\right)^2 + \left(y'(t)\right)^2}\right| \dd t \\
+        \leqslant & \int_{t_{i - 1}}^{t_i}\left(\left\lvert x'(\xi_i) - x'(t)\right\rvert + \left\lvert y'(\eta_i) - y'(t)\right\rvert \right) \dd t \\
+        \leqslant & \int_{t_{i - 1}}^{t_i}\left(\omega_i(x') + \omega_i(y')\right)\dd t
+    \end{align*}
+    注意到 $\int_{a}^{b}\sqrt{\left(x'(t)\right)^2 + \left(y'(t)\right)^2}\dd t = \sum_{i = 1}^{n}\int_{t_{i - 1}}^{t_i}\sqrt{\left(x'(t)\right)^2 + \left(y'(t)\right)^2}\dd t$, 得
+    \begin{align*}
+        & \left\lvert \sum_{i = 1}^{n}\overline{\gamma(t_{i - 1})\gamma(t_i)} - \int_{a}^{b}\sqrt{\left(x'(t)\right)^2 + \left(y'(t)\right)^2}\dd t\right\rvert \\
+        \leqslant & \sum_{i = 1}^{n}\omega_i(x')\Delta t + \sum_{i = 1}^{n}\omega_i(y')\Delta t \to 0\quad (\lambda(P) \to 0)
+    \end{align*}
+    故二者相等.
+\end{zm}
 
 \end{document}
