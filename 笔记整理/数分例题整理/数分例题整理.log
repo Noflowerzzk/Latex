@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999996 (TeX Live 2024) (preloaded format=xelatex 2024.9.25)  9 DEC 2024 18:52
+This is XeTeX, Version 3.141592653-2.6-0.999996 (TeX Live 2024) (preloaded format=xelatex 2024.9.25)  16 DEC 2024 15:11
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -970,86 +970,86 @@ Package fontspec Info: Font family 'TeXGyreTermesX(0)' created for font
 (fontspec)             <->s*[1]"[TeXGyreTermesX-BoldSlanted.otf]/OT:script=latn;language=dflt;-ss05;+tnum;+lnum;+smcp;+pcap;mapping=tex-text;"
 
 LaTeX Font Info:    Font shape `TU/TeXGyreTermesX(0)/m/n' will be
-(Font)              scaled to size 14.0pt on input line 204.
+(Font)              scaled to size 14.0pt on input line 205.
  (./数分例题整理.aux)
 \openout1 = `数分例题整理.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 204.
-LaTeX Font Info:    ... okay on input line 204.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 204.
-LaTeX Font Info:    ... okay on input line 204.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 204.
-LaTeX Font Info:    ... okay on input line 204.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 204.
-LaTeX Font Info:    ... okay on input line 204.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 204.
-LaTeX Font Info:    ... okay on input line 204.
-LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 204.
-LaTeX Font Info:    ... okay on input line 204.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 204.
-LaTeX Font Info:    ... okay on input line 204.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 204.
-LaTeX Font Info:    ... okay on input line 204.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 204.
-LaTeX Font Info:    ... okay on input line 204.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 204.
-LaTeX Font Info:    ... okay on input line 204.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 205.
+LaTeX Font Info:    ... okay on input line 205.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 205.
+LaTeX Font Info:    ... okay on input line 205.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 205.
+LaTeX Font Info:    ... okay on input line 205.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 205.
+LaTeX Font Info:    ... okay on input line 205.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 205.
+LaTeX Font Info:    ... okay on input line 205.
+LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 205.
+LaTeX Font Info:    ... okay on input line 205.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 205.
+LaTeX Font Info:    ... okay on input line 205.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 205.
+LaTeX Font Info:    ... okay on input line 205.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 205.
+LaTeX Font Info:    ... okay on input line 205.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 205.
+LaTeX Font Info:    ... okay on input line 205.
 
 Package fontspec Info: Adjusting the maths setup (use [no-math] to avoid
 (fontspec)             this).
 
 \symlegacymaths=\mathgroup7
 LaTeX Font Info:    Overwriting symbol font `legacymaths' in version `bold'
-(Font)                  OT1/cmr/m/n --> OT1/cmr/bx/n on input line 204.
-LaTeX Font Info:    Redeclaring math accent \acute on input line 204.
-LaTeX Font Info:    Redeclaring math accent \grave on input line 204.
-LaTeX Font Info:    Redeclaring math accent \ddot on input line 204.
-LaTeX Font Info:    Redeclaring math accent \tilde on input line 204.
-LaTeX Font Info:    Redeclaring math accent \bar on input line 204.
-LaTeX Font Info:    Redeclaring math accent \breve on input line 204.
-LaTeX Font Info:    Redeclaring math accent \check on input line 204.
-LaTeX Font Info:    Redeclaring math accent \hat on input line 204.
-LaTeX Font Info:    Redeclaring math accent \dot on input line 204.
-LaTeX Font Info:    Redeclaring math accent \mathring on input line 204.
-LaTeX Font Info:    Redeclaring math symbol \Gamma on input line 204.
-LaTeX Font Info:    Redeclaring math symbol \Delta on input line 204.
-LaTeX Font Info:    Redeclaring math symbol \Theta on input line 204.
-LaTeX Font Info:    Redeclaring math symbol \Lambda on input line 204.
-LaTeX Font Info:    Redeclaring math symbol \Xi on input line 204.
-LaTeX Font Info:    Redeclaring math symbol \Pi on input line 204.
-LaTeX Font Info:    Redeclaring math symbol \Sigma on input line 204.
-LaTeX Font Info:    Redeclaring math symbol \Upsilon on input line 204.
-LaTeX Font Info:    Redeclaring math symbol \Phi on input line 204.
-LaTeX Font Info:    Redeclaring math symbol \Psi on input line 204.
-LaTeX Font Info:    Redeclaring math symbol \Omega on input line 204.
-LaTeX Font Info:    Redeclaring math symbol \mathdollar on input line 204.
-LaTeX Font Info:    Redeclaring symbol font `operators' on input line 204.
+(Font)                  OT1/cmr/m/n --> OT1/cmr/bx/n on input line 205.
+LaTeX Font Info:    Redeclaring math accent \acute on input line 205.
+LaTeX Font Info:    Redeclaring math accent \grave on input line 205.
+LaTeX Font Info:    Redeclaring math accent \ddot on input line 205.
+LaTeX Font Info:    Redeclaring math accent \tilde on input line 205.
+LaTeX Font Info:    Redeclaring math accent \bar on input line 205.
+LaTeX Font Info:    Redeclaring math accent \breve on input line 205.
+LaTeX Font Info:    Redeclaring math accent \check on input line 205.
+LaTeX Font Info:    Redeclaring math accent \hat on input line 205.
+LaTeX Font Info:    Redeclaring math accent \dot on input line 205.
+LaTeX Font Info:    Redeclaring math accent \mathring on input line 205.
+LaTeX Font Info:    Redeclaring math symbol \Gamma on input line 205.
+LaTeX Font Info:    Redeclaring math symbol \Delta on input line 205.
+LaTeX Font Info:    Redeclaring math symbol \Theta on input line 205.
+LaTeX Font Info:    Redeclaring math symbol \Lambda on input line 205.
+LaTeX Font Info:    Redeclaring math symbol \Xi on input line 205.
+LaTeX Font Info:    Redeclaring math symbol \Pi on input line 205.
+LaTeX Font Info:    Redeclaring math symbol \Sigma on input line 205.
+LaTeX Font Info:    Redeclaring math symbol \Upsilon on input line 205.
+LaTeX Font Info:    Redeclaring math symbol \Phi on input line 205.
+LaTeX Font Info:    Redeclaring math symbol \Psi on input line 205.
+LaTeX Font Info:    Redeclaring math symbol \Omega on input line 205.
+LaTeX Font Info:    Redeclaring math symbol \mathdollar on input line 205.
+LaTeX Font Info:    Redeclaring symbol font `operators' on input line 205.
 LaTeX Font Info:    Encoding `OT1' has changed to `TU' for symbol font
-(Font)              `operators' in the math version `normal' on input line 204.
+(Font)              `operators' in the math version `normal' on input line 205.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
-(Font)                  OT1/cmr/m/n --> TU/TeXGyreTermesX(0)/m/n on input line 204.
+(Font)                  OT1/cmr/m/n --> TU/TeXGyreTermesX(0)/m/n on input line 205.
 LaTeX Font Info:    Encoding `OT1' has changed to `TU' for symbol font
-(Font)              `operators' in the math version `bold' on input line 204.
+(Font)              `operators' in the math version `bold' on input line 205.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
-(Font)                  OT1/cmr/bx/n --> TU/TeXGyreTermesX(0)/m/n on input line 204.
+(Font)                  OT1/cmr/bx/n --> TU/TeXGyreTermesX(0)/m/n on input line 205.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
-(Font)                  TU/TeXGyreTermesX(0)/m/n --> TU/TeXGyreTermesX(0)/m/n on input line 204.
+(Font)                  TU/TeXGyreTermesX(0)/m/n --> TU/TeXGyreTermesX(0)/m/n on input line 205.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
-(Font)                  OT1/cmr/m/it --> TU/TeXGyreTermesX(0)/m/it on input line 204.
+(Font)                  OT1/cmr/m/it --> TU/TeXGyreTermesX(0)/m/it on input line 205.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
-(Font)                  OT1/cmr/bx/n --> TU/TeXGyreTermesX(0)/b/n on input line 204.
+(Font)                  OT1/cmr/bx/n --> TU/TeXGyreTermesX(0)/b/n on input line 205.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `normal'
-(Font)                  OT1/cmss/m/n --> TU/lmss/m/n on input line 204.
+(Font)                  OT1/cmss/m/n --> TU/lmss/m/n on input line 205.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `normal'
-(Font)                  OT1/cmtt/m/n --> TU/lmtt/m/n on input line 204.
+(Font)                  OT1/cmtt/m/n --> TU/lmtt/m/n on input line 205.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
-(Font)                  TU/TeXGyreTermesX(0)/m/n --> TU/TeXGyreTermesX(0)/b/n on input line 204.
+(Font)                  TU/TeXGyreTermesX(0)/m/n --> TU/TeXGyreTermesX(0)/b/n on input line 205.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
-(Font)                  OT1/cmr/bx/it --> TU/TeXGyreTermesX(0)/b/it on input line 204.
+(Font)                  OT1/cmr/bx/it --> TU/TeXGyreTermesX(0)/b/it on input line 205.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
-(Font)                  OT1/cmss/bx/n --> TU/lmss/b/n on input line 204.
+(Font)                  OT1/cmss/bx/n --> TU/lmss/b/n on input line 205.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
-(Font)                  OT1/cmtt/m/n --> TU/lmtt/b/n on input line 204.
+(Font)                  OT1/cmtt/m/n --> TU/lmtt/b/n on input line 205.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: xetex
@@ -1087,25 +1087,25 @@ LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-Package hyperref Info: Link coloring ON on input line 204.
+Package hyperref Info: Link coloring ON on input line 205.
 (./数分例题整理.out) (./数分例题整理.out)
 \@outlinefile=\write4
 \openout4 = `数分例题整理.out'.
 
 \c@lstlisting=\count382
 LaTeX Font Info:    Font shape `TU/TeXGyreTermesX(0)/m/n' will be
-(Font)              scaled to size 34.83209pt on input line 208.
+(Font)              scaled to size 34.83209pt on input line 209.
 LaTeX Font Info:    Font shape `TU/TeXGyreTermesX(0)/b/n' will be
-(Font)              scaled to size 34.83209pt on input line 208.
+(Font)              scaled to size 34.83209pt on input line 209.
 
-Underfull \hbox (badness 10000) in paragraph at lines 206--213
+Underfull \hbox (badness 10000) in paragraph at lines 207--214
 
  []
 
 LaTeX Font Info:    Font shape `TU/TeXGyreTermesX(0)/b/n' will be
-(Font)              scaled to size 14.0pt on input line 218.
+(Font)              scaled to size 14.0pt on input line 219.
 
-Underfull \hbox (badness 10000) in paragraph at lines 216--223
+Underfull \hbox (badness 10000) in paragraph at lines 217--224
 
  []
 
@@ -1113,9 +1113,9 @@ Underfull \hbox (badness 10000) in paragraph at lines 216--223
 
 ]
 LaTeX Font Info:    Font shape `TU/TeXGyreTermesX(0)/m/n' will be
-(Font)              scaled to size 22.08249pt on input line 235.
+(Font)              scaled to size 22.08249pt on input line 236.
 LaTeX Font Info:    Font shape `TU/TeXGyreTermesX(0)/b/n' will be
-(Font)              scaled to size 22.08249pt on input line 235.
+(Font)              scaled to size 22.08249pt on input line 236.
  (./数分例题整理.toc
 LaTeX Font Info:    Font shape `TU/TeXGyreTermesX(0)/m/n' will be
 (Font)              scaled to size 16.79996pt on input line 1.
@@ -1147,9 +1147,9 @@ Underfull \hbox (badness 10000) in paragraph at lines 29--29
 \openout5 = `数分例题整理.toc'.
 
 LaTeX Font Info:    Font shape `TU/TeXGyreTermesX(0)/m/n' will be
-(Font)              scaled to size 10.53937pt on input line 239.
+(Font)              scaled to size 10.53937pt on input line 240.
 LaTeX Font Info:    Font shape `TU/TeXGyreTermesX(0)/b/n' will be
-(Font)              scaled to size 10.53937pt on input line 239.
+(Font)              scaled to size 10.53937pt on input line 240.
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1160,11 +1160,11 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 [1]
 LaTeX Font Info:    Font shape `TU/TeXGyreTermesX(0)/b/n' will be
-(Font)              scaled to size 24.09pt on input line 247.
+(Font)              scaled to size 24.09pt on input line 248.
 LaTeX Font Info:    Font shape `TU/TeXGyreTermesX(0)/m/n' will be
-(Font)              scaled to size 18.06749pt on input line 255.
+(Font)              scaled to size 18.06749pt on input line 256.
 LaTeX Font Info:    Font shape `TU/TeXGyreTermesX(0)/m/n' will be
-(Font)              scaled to size 16.06pt on input line 258.
+(Font)              scaled to size 16.06pt on input line 259.
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1198,7 +1198,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-0.64723pt}.
 
 [4]
-Underfull \hbox (badness 10000) in paragraph at lines 451--452
+Underfull \hbox (badness 10000) in paragraph at lines 452--453
 
  []
 
@@ -1218,7 +1218,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-0.64723pt}.
 
 [6]
-Overfull \hbox (15.0942pt too wide) detected at line 533
+Overfull \hbox (15.0942pt too wide) detected at line 534
 []
  []
 
@@ -1254,7 +1254,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-0.64723pt}.
 
 [10]
-Overfull \hbox (4.53049pt too wide) detected at line 681
+Overfull \hbox (4.53049pt too wide) detected at line 682
 []
  []
 
@@ -1266,7 +1266,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-0.64723pt}.
 
 [11]
-Underfull \hbox (badness 2012) in paragraph at lines 726--728
+Underfull \hbox (badness 2012) in paragraph at lines 727--729
 \TU/SimSun(0)/m/n/14 有 $\OML/cmm/m/it/14 f[]\OT1/cmr/m/n/14 (\OML/cmm/m/it/14 x[]\OT1/cmr/m/n/14 ) = [] [] \U/msa/m/n/14 6 [] 6 [] 6
  []
 
@@ -1318,12 +1318,12 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-0.64723pt}.
 
 [17]
-Underfull \hbox (badness 10000) in paragraph at lines 943--944
+Underfull \hbox (badness 10000) in paragraph at lines 944--945
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 953--954
+Underfull \hbox (badness 10000) in paragraph at lines 954--955
 
  []
 
@@ -1406,21 +1406,45 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-0.64723pt}.
 
-[27] (./数分例题整理.aux)
+[27]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 12.64723pt, for example:
+(fancyhdr)                \setlength{\headheight}{12.64723pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+(fancyhdr)                \addtolength{\topmargin}{-0.64723pt}.
+
+[28]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 12.64723pt, for example:
+(fancyhdr)                \setlength{\headheight}{12.64723pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+(fancyhdr)                \addtolength{\topmargin}{-0.64723pt}.
+
+[29]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 12.64723pt, for example:
+(fancyhdr)                \setlength{\headheight}{12.64723pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+(fancyhdr)                \addtolength{\topmargin}{-0.64723pt}.
+
+[30] (./数分例题整理.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2022/08/05>
  ***********
 Package rerunfilecheck Info: File `数分例题整理.out' has not changed.
-(rerunfilecheck)             Checksum: 2D79DAD6D7F61710057C594F2E910266;4409.
+(rerunfilecheck)             Checksum: 5DB51FC3842A5A0D2D79B0DDA5EF6D38;4811.
  ) 
 Here is how much of TeX's memory you used:
- 35217 strings out of 474773
- 784608 string characters out of 5761289
- 1948842 words of memory out of 5000000
- 56740 multiletter control sequences out of 15000+600000
+ 35229 strings out of 474773
+ 784796 string characters out of 5761289
+ 1951842 words of memory out of 5000000
+ 56752 multiletter control sequences out of 15000+600000
  564453 words of font info for 106 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  101i,15n,107p,1193b,1464s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on 数分例题整理.pdf (29 pages).
+Output written on 数分例题整理.pdf (32 pages).

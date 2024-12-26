@@ -1,0 +1,72 @@
+\documentclass{article}
+\usepackage{amsmath}  % 数学符号包
+\usepackage{amssymb}  % 更多数学符号
+\usepackage{enumitem} % 列表样式
+\usepackage{fancyhdr} % 页眉设置
+\usepackage{geometry} % 页面设置
+\usepackage[UTF8]{ctex}
+\usepackage{bm}
+\usepackage{amsthm}
+\everymath{\displaystyle}  % 让所有数学模式都使用 \displaystyle
+\newcommand{\lb}{\left\llbracket}
+\newcommand{\rb}{\right\rrbracket}
+
+
+\geometry{a4paper, margin=1in}
+
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[C]{Discrete Math Homework 18}
+\fancyhead[R]{2024.12.26}
+
+
+\title{Discrete Math Homework 18}
+\author{noflowerzzk}
+\date{2024.12.26}
+
+
+\begin{document}
+\maketitle
+
+\section{}
+
+Let $A_k = \left\{f\ \bigg|\ k \notin \bigcup\{f(x)\ |\ x \in \mathbb{N} \text{ and }1 \leqslant x \leqslant n\}\right\}$, we have
+\begin{align*}
+    \left\lvert A_k\right\rvert = \left(2^{m - 1}\right)^n = 2^{(m - 1)n} \\
+    \left\lvert \bigcap_{j = 1}^{l}A_{k_j}\right\rvert = 2^{(m - l)n}  
+\end{align*}
+So
+\begin{align*}
+    \left\lvert \bigcup_{i = 1}^{m}A_i\right\rvert &= \sum_{l = 1}^{m}(-1)^{l + 1}\sum_{1 \leqslant k_1 < k_2 < \cdots < k_l \leqslant m}\left\lvert \bigcap_{j = 1}^{l}A_{k_j}\right\rvert \\
+    &= \sum_{l = 1}^{m}(-1)^{l + 1}\binom{m}{l} 2^{(m - l)n} \\
+    &= -2^{mn}\sum_{l = 1}^{m}\binom{m}{l}\left(-\frac{1}{2^n}\right)^l
+\end{align*}
+So the number of such function that is
+\begin{align*}
+    & 2^{mn} - \left\lvert \bigcup_{i = 1}^{m}A_i\right\rvert \\
+    =& 2^{mn}\sum_{l = 0}^{m}\binom{m}{l}\left(-\frac{1}{2^n}\right)^l \\
+    =& 2^{mn}\left(1 - \frac{1}{2^n}\right)^m = \left(2^n - 1\right)^m
+\end{align*}
+
+\section{}
+
+Let $A_k = \left\{f\ |\ f(k) = 2k - 1\right\}$. We have
+\begin{align*}
+    \left\lvert A_k\right\rvert &= \begin{cases}
+        0, &\quad k = 0 \text{ or }k \geqslant \left\lceil \frac{n}{2}\right\rceil + 1 \\
+        (n)!, &\quad 1 \leqslant k \leqslant \left\lceil \frac{n}{2}\right\rceil 
+    \end{cases} \\
+    \left\lvert \bigcap_{j = 1}^{l}A_{k_j}\right\rvert &= \begin{cases}
+        0, &\quad \exists j, k_j = 0 \text{ or } k_j \geqslant \left\lceil \frac{n}{2}\right\rceil + 1 \\
+        (n + 1 - l)!, &\quad \text{other}
+    \end{cases}
+\end{align*}
+So the number of such functions is
+\begin{align*}
+    &(n + 1)! - \sum_{l = 1}^{n}(-1)^{l + 1}\sum_{1 \leqslant k_1 < k_2 < \cdots < k_l \leqslant n}\left\lvert \bigcap_{j = 1}^{l}A_{k_j}\right\rvert \\
+    =& (n + 1)! - \sum_{l = 1}^{n}(-1)^{l + 1}\binom{\left\lceil \frac{n}{2}\right\rceil}{l}(n + 1 - l)! \\
+    =& \sum_{l = 0}^{n}(-1)^l\binom{\left\lceil \frac{n}{2}\right\rceil}{l}(n + 1 - l)!  
+\end{align*}
+
+\end{document}

@@ -34,3 +34,12 @@
 \contentsline {subsubsection}{\numberline {2\hspace {3pt}}The Axioms of ZFC Set Theory}{15}{subsubsection.5.3.2}%
 \contentsline {subsubsection}{\numberline {3\hspace {3pt}}The Re-definition of Certain Concepts with ZFC}{16}{subsubsection.5.3.3}%
 \contentsline {subsection}{\numberline {\S \hspace {6pt}\hspace {8pt}5.4\hspace {5pt}}Inference Rules and Proof Theory}{17}{subsection.5.4}%
+\contentsline {part}{Part\hspace {2pt}III\hspace {1em}Graph Theory}{17}{part.3}%
+\contentsline {section}{\numberline {\textbf {Chapter}\hspace {6pt}\textbf {VI}\hspace {6pt}}Graph in General}{18}{section.6}%
+\contentsline {subsection}{\numberline {\S \hspace {6pt}\hspace {8pt}6.1\hspace {5pt}}Basic definitions}{18}{subsection.6.1}%
+\contentsline {subsubsection}{\numberline {1\hspace {3pt}}Edges and Degrees}{18}{subsubsection.6.1.1}%
+\contentsline {subsubsection}{\numberline {2\hspace {3pt}}Loops and Circuits}{19}{subsubsection.6.1.2}%
+\contentsline {subsection}{\numberline {\S \hspace {6pt}\hspace {8pt}6.2\hspace {5pt}}Subgraph and Connected Components}{19}{subsection.6.2}%
+\contentsline {subsubsection}{\numberline {1\hspace {3pt}}Connectivity of Undirected Graph}{19}{subsubsection.6.2.1}%
+\contentsline {subsubsection}{\numberline {2\hspace {3pt}}Reachability of Directed Graph}{19}{subsubsection.6.2.2}%
+\contentsline {subsubsection}{\numberline {3\hspace {3pt}}Connectivity against Vertices and Edges Removal}{20}{subsubsection.6.2.3}%

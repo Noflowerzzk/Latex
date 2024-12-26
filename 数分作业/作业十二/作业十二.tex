@@ -1,0 +1,160 @@
+\documentclass{article}
+\usepackage{amsmath}  % 数学符号包
+\usepackage{amssymb}  % 更多数学符号
+\usepackage{enumitem} % 列表样式
+\usepackage{fancyhdr} % 页眉设置
+\usepackage{geometry} % 页面设置
+\usepackage[UTF8]{ctex}
+\usepackage{bm}
+\usepackage{amsthm}
+\usepackage{extarrows}
+\everymath{\displaystyle}  % 让所有数学模式都使用 \displaystyle
+\newcommand{\lb}{\left\llbracket}
+\newcommand{\rb}{\right\rrbracket}
+\newcommand{\dd}{\mathrm{d}}
+\newcommand{\dx}{\dd x}
+\newcommand{\dt}{\dd t}
+\newcommand{\ee}{\mathrm{e}}
+
+
+\geometry{a4paper, margin=1in}
+
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[C]{作业十二}
+\fancyhead[R]{2024.12.11}
+
+
+\title{作业十二}
+\author{Noflowerzzk}
+\date{2024.12.11}
+
+
+\begin{document}
+\maketitle
+
+\section*{P314 T3}
+
+\begin{itemize}
+    \item [(7)] 
+    \begin{align*}
+        \int_{-\infty}^{+\infty} \frac{\dx}{\left(x^2 + 1\right)^{3/2}} \xlongequal{x = \tan t} 2\int_{0}^{\pi/2}\cos t \dt = 2\sin x \bigg|_0^{\pi/2} = 2
+    \end{align*}
+    \item [(8)]
+    \begin{align*}
+        \int_{0}^{+\infty}\frac{\dx}{\left(\ee^x + \ee^{-x}\right)^2} \xlongequal{x = \frac{\ln t}{2}} \frac{1}{2}\int_{1}^{+\infty}\frac{\dt}{\left(t + 1\right)^2} = \frac{1}{2}\left(-\frac{1}{t + 1}\bigg|_1^{+\infty}\right) = \frac{1}{4}
+    \end{align*}
+    \item [(9)]
+    \begin{align*}
+        \int_{0}^{+\infty}\frac{\dx}{x^4 + 1} &= \int_{0}^{1}\frac{\dx}{x^4 + 1} + \int_{1}^{+\infty}\frac{\dx}{x^4 + 1} \\
+        &= \int_{0}^{1}\frac{\dx}{x^4 + 1} + \int_{0}^{1}\frac{t^2\dt}{t^4 + 1} = \int_{0}^{1}\frac{1 + x^2}{1 + x^4}\dx \\
+        &= \int_{0}^{1}\frac{\dd\left(x - \frac{1}{x}\right)}{\left(x - \frac{1}{x}\right)^2 + 2} = \frac{1}{\sqrt{2}}\arctan \frac{x - x^{-1}}{\sqrt{2}}\bigg|_0^1 \\
+        &= \frac{\sqrt{2}\pi}{4}
+    \end{align*}
+    \item [(10)] 
+    \begin{align*}
+        \int_{0}^{+\infty}\frac{\ln x \dx}{x^2 + 1} = \int_{0}^{1}\frac{\ln x \dx}{x^2 + 1} + \int_{1}^{0}\frac{-\ln t \dd\left(\frac{1}{t}\right)}{1 + \frac{1}{t^2}} = \int_{0}^{1}\frac{\ln x \dx}{x^2 + 1} + \int_{1}^{0}\frac{\ln t \dt}{1 + t^2} = 0
+    \end{align*}
+\end{itemize}
+
+\section*{P314 T4}
+
+\begin{itemize}
+    \item [(4)]
+    \begin{align*}
+        \int_{0}^{1}\frac{\dx}{(2 - x)\sqrt{1 - x}} \xlongequal{x = 1 - t^2} -2\int_{1}^{0}\frac{\dt}{1 + t^2} = 2\arctan x \bigg|_0^1 = \frac{\pi}{2}
+    \end{align*}
+    \item [(5)]
+    由于令 $\frac{1}{x^2} = t$, 有
+    \begin{align*}
+        \int_{-1}^{1}\frac{1}{x^3}\sin \frac{1}{x^2}\dx = 2\int_{1}^{+\infty}t^{3/2}\sin t \dd \left(t^{-1/2}\right) = -\int_{1}^{+\infty} \sin t \dt = \cos x \bigg|_1^{+\infty}
+    \end{align*}
+    不收敛！因此积分不收敛.
+    \item [(6)]
+    \begin{align*}
+        \int_{0}^{\pi/2}\frac{\dx}{\sqrt{\tan x}} \xlongequal{\sqrt{\tan x} = t} 2\int_{0}^{+\infty}\frac{\dt}{t^4 + 1} = \frac{\sqrt{2}\pi}{2} \quad \text{(由前面的作业)}
+    \end{align*}
+\end{itemize}
+
+\section*{P314 T5}
+
+由于
+\begin{align*}
+    \ln \frac{\sqrt[n]{n!}}{n} = \sum_{i = 1}^{n}\frac{1}{n}\ln\frac{i}{n}
+\end{align*}
+因此
+\begin{align*}
+    \ln \left(\lim_{n \to +\infty} \frac{\sqrt[n]{n!}}{n}\right) = \lim_{n \to +\infty}\ln \frac{\sqrt[n]{n!}}{n} = \int_{0}^{1}\ln x \dx = \left(x\ln x - x\right)\bigg|_0^1 = -1
+\end{align*}
+故 
+\[
+    \lim_{n \to +\infty} \frac{\sqrt[n]{n!}}{n} = \frac{1}{\ee}
+\]
+
+\section*{P314 T6}
+
+\begin{itemize}
+    \item [(1)] 
+    \begin{align*}
+        \int_{0}^{\pi/2}\ln \cos x \dx \xlongequal{t = x - \pi/2} \int_{\pi/2}^{0}\ln \sin t \dt = -\int_{0}^{\pi/2}\sin t \dt = \frac{\pi}{2}\ln 2
+    \end{align*}
+    \item [(2)]
+    \begin{align*}
+        \int_{0}^{\pi}x\ln \sin x \dx \xlongequal{x = 2t} = 4\int_{0}^{\pi/2}\left(t \ln 2 + \ln \cos t + \ln \sin t\right) \dt = 2t^2\bigg|_0^{\pi/2} = \frac{\pi^2}{2}
+    \end{align*}
+    \item [(3)]
+    \begin{align*}
+        \int_{0}^{\pi/2}x \cot x\dx = \int_{0}^{\pi/2}x \dd \left(\ln \sin x\right) = x \ln \sin x \bigg|_0^{\pi/2} - \int_{0}^{\pi/2}\ln \sin x \dx = \frac{\pi}{2}\ln 2
+    \end{align*}
+    \item [(4)]
+    \begin{align*}
+        \int_{0}^{1}\frac{\arcsin x}{x}\dx &\xlongequal{\sin t = x} \int_{0}^{\pi/2}\frac{x}{\sin x}\dd \left(\sin x\right) = \int_{0}^{\pi/2}x \dd (\ln \sin x) \\
+        &= x \ln \sin x \bigg|_0^{\pi/2} - \int_{0}^{\pi/2}\ln \sin x \dx = \frac{\pi}{2}\ln 2 
+    \end{align*}
+    \item [(5)]
+    \begin{align*}
+        \int_{0}^{1}\frac{\ln x}{\sqrt{1 - x^2}} \xlongequal{x = \sin t} \int_{0}^{\pi/2}\ln \sin t \dt = -\frac{\pi}{2}\ln 2
+    \end{align*}
+\end{itemize}
+
+\section*{P315 T10}
+
+\begin{proof}
+    \begin{align*}
+        \int_{0}^{+\infty}f\left(\frac{a}{x} + \frac{x}{a}\right)\frac{\ln x}{x}\dx &= \int_{0}^{a}f\left(\frac{a}{x} + \frac{x}{a}\right)\frac{\ln x}{x}\dx + \int_{a}^{+\infty}f\left(\frac{a}{x} + \frac{x}{a}\right)\frac{\ln x}{x}\dx \\
+        &\xlongequal{t = \frac{a^2}{x}} \int_{0}^{a}f\left(\frac{a}{x} + \frac{x}{a}\right)\frac{\ln x}{x}\dx + \frac{a}{0}f\left(\frac{a}{t} + \frac{t}{a}\right)\frac{2\ln a - \ln t}{-t}\dt \\
+        &= 2\ln a \int_{0}^{+\infty}f\left(\frac{a}{x} + \frac{x}{a}\right)\frac{1}{x}\dx \\
+        &= \ln a \int_{0}^{+\infty}f\left(\frac{a}{x} + \frac{x}{a}\right)\frac{1}{x}\dx + \ln a\int_{0}^{a}f\left(\frac{a}{x} + \frac{x}{a}\right)\dd \ln x \\
+        &\xlongequal{t = \frac{a^2}{x}} \ln a \int_{0}^{+\infty}f\left(\frac{a}{x} + \frac{x}{a}\right)\frac{1}{x}\dx + \ln a\int_{a}^{+\infty}f\left(\frac{a}{t} + \frac{t}{a}\right)\dd \ln t \\
+        &= \ln a \int_{0}^{+\infty}f\left(\frac{a}{x} + \frac{x}{a}\right)\frac{1}{x}\dx
+    \end{align*}
+\end{proof}
+
+\section*{P315 T11}
+
+\begin{proof}
+    假设 $A \neq 0$, 不妨 $A > 0$, 则存在 $M_1 > 0, \forall x > M_1, f(x) > \frac{A}{2} \quad (1)$. \\
+    则对任意 $M > 0$, 存在 $A_2 > A_1 > \max \{M_1, M, a\}, A_2 - A_1 = \frac{2}{A}$, 使得存在 $\eta > \frac{A}{2}$，
+    \begin{align*}
+        \int_{A_1}^{A_2}f(x)\dx = \eta\int_{A_1}^{A_2}\dx > \frac{A}{2}\cdot \frac{2}{A} = 1
+    \end{align*}
+    由 Cauchy 收敛准则， $\int_{a}^{\infty}f(x)\dx$ 不收敛，矛盾！ \\
+    因此 $A = 0$, $\lim_{n \to +\infty}f(x) = 0$.
+\end{proof}
+
+\section*{P315 T12}
+
+\begin{proof}
+    由微积分第二基本定理， $f(x)$ 在 $[a, +\infty)$ 上连续且可导，则有 $\int_{a}^{x}f'(t)\dt = f(x) - f(a)$. 因此 $\lim_{n \to +\infty}f(x)$ 存在. 由上题结论知， $\lim_{n \to +\infty}f(x) = 0$.
+\end{proof}
+
+\section*{补充题}
+
+\begin{proof}
+    设 $\int_{\alpha}^{\beta}f(\varphi(t))\cdot \varphi(t)\dt = I$. 由无穷积分收敛的定义，任意 $\varepsilon > 0$, 存在 $\delta > 0$, 任意 $\eta > \delta$ 有 $\left\lvert \int_{\alpha}^{\beta - \eta}f(\varphi(t))\cdot \varphi(t)\dt - I\right\rvert < \varepsilon$. \\
+    因此欲证 $\int_{a}^{+\infty}f(x)\dx$ 收敛于 $I$, 只需证存在 $M > 0, M > \varphi(\beta - \eta)$, 任意 $x_0 > M$ 有 $\left\lvert \int_{a}^{x_0}f(x)\dx - I\right\rvert < \varepsilon$. \\
+    由于 $\lim_{x \to \beta}\varphi(x) = +\infty$, 因此存在 $\delta' > 0$，任意 $t_0 \in (\beta - \delta', \beta)$, $\varphi(t_0) > x_0$. 又由于 $\varphi(t)$ 在 $[\beta - \eta, t_0]$ 上连续且 $x_0 \in [\varphi(\beta - \eta), \varphi(t_0)]$, 则存在 $t_1 > \beta - \eta, \varphi(t_1) = x_0$, 且 $\left\lvert \int_{a}^{x_0}f(x)\dx - I\right\rvert = \left\lvert \int_{\alpha}^{t_1}f(\varphi(t))\varphi'(t)\dt - I\right\rvert < \varepsilon$, 故积分 $\int_{a}^{x_0}f(x)\dx$ 存在.
+\end{proof}
+
+\end{document}

@@ -209,7 +209,7 @@
 \begin{kuang3}
     \color{hlan}
     \centering
-    数模的概率统计笔记
+    数模笔记
 \end{kuang3}
 }
 
@@ -300,7 +300,7 @@
     \[
         \lim_{n \to \infty}P\left(\frac{\sum_{i = 1}^{n}X_i - n\mu}{\sqrt{n}\sigma}\right) = \Phi(x)
     \]
-    即当 $n$ 充分大时，可以认为 $\sum_{i = 1}^{n}X_i \overset{\text{近似}}{\sim} N(n\mu, n\sigma^2)$ 或者 $\bar{X} \overset{\text{近似}}{\sim} N\left(\mu, \frac{\sigma^2}{n}\right)$
+    即当 $n$ 充分大时，可以认为 $\sum_{i = 1}^{n}X_i \overset{\text{近似}}{\sim} N(n\mu, n\sigma^2)$ 或者 $\overline{X} \overset{\text{近似}}{\sim} N\left(\mu, \frac{\sigma^2}{n}\right)$
 \end{dl}
 
 \begin{kuang1}
@@ -310,6 +310,24 @@
 \begin{kuang2}
     \section{统计量}
 \end{kuang2}
+
+\begin{kuang3}
+    \subsection{无偏估计}
+\end{kuang3}
+
+\subsubsection{样本方差}
+
+\begin{dy}
+    $(X_1, X_2, \cdots , X_n)$ 是取自总体的一个样本，称
+    \[
+        \overline{X} = \frac{1}{n}\sum_{i = 1}^{n}X_i
+    \]
+    为样本均值，
+    \[
+        S^2 = \frac{1}{n - 1}\sum_{i = 1}^{m}\left(X_i - \overline{X}\right)^2
+    \]
+    为样本方差.
+\end{dy}
 
 \begin{kuang3}
     \subsection{三大分布}
@@ -351,6 +369,103 @@ $N(0, 1)$ 的峰值, $t(n)$ 的密度函数尾部都要比 $N(0, 1)$ 的两侧�
 \[
     \lim_{n \to \infty} f(x) = \Phi(x)
 \]
+
+\subsubsection{$F$ 分布}
+
+\begin{dy}
+    设 $X, Y$ 相互独立， $X \sim \chi^2(m), Y \sim \chi^2(n)$, 则称 $F = \frac{X / m}{Y / n}$ 服从 $F$ 分布，记为 $F \sim F(m, n)$ 其中 $m$ 称为第一自由度， $n$ 称为第二自由度. \\
+    $F(m, n)$ 分布的概率密度函数为
+    \begin{align*}
+        f(y) = \begin{cases}
+            \frac{\Gamma\left(\frac{m + n}{2}\right)}{\Gamma\left(\frac{m}{2}\right)\Gamma\left(\frac{n}{2}\right)}\left(\frac{m}{n}\right)^{\frac{m}{2}}y^{\frac{m}{2} - 1}\left(1 + \frac{m}{n}y\right)^{-\frac{m + n}{2}},& \quad y > 0 \\
+            0,& \quad \text{其它} 
+        \end{cases}
+    \end{align*}
+\end{dy}
+
+\begin{dl}
+    记 $F_\alpha(m, n)$ 为 $F$ 分布的第 $\alpha$ 分位数 (即 $P(F \leqslant F_\alpha(m, n)) = \alpha$) \\
+    有性质：
+    \[
+        F_\alpha(m, n) = \frac{1}{F_{1 - \alpha}}(n, m)
+    \]
+\end{dl}
+
+\begin{kuang3}
+    \subsection{正态总体的抽样分布}
+\end{kuang3}
+
+暂时略.
+
+\begin{kuang2}
+    \section{参数估计}
+\end{kuang2}
+
+\begin{kuang3}
+    \subsection{点估计}
+\end{kuang3}
+
+\subsubsection{矩估计}
+
+用样本原点矩估计总体原点矩. \\
+设总体的 $k$ 阶原点矩为 $\mu_k = E(X^k)$, 样本的 $k$ 阶原点矩为 $A_k = \frac{1}{n}\sum_{i = 1}^{n}X_i^k$, 用 $A_k$ 估计 $\mu_k$, 对某个依赖 $\mu_1, \mu_2, \cdots, \mu_n$ 的分布参数 $\theta = \theta(\mu_1, \mu_2, \cdots, \mu_n)$, 有 $\theta$ 的估计
+\[
+    \hat{\theta} = \theta(A_1, A_2, \cdots, A_n)
+\]
+
+\subsubsection{极大似然估计}
+
+定义设总体 $X$ 有分布律 $P(X=x;\theta)$ 或密度函数 $f(x;\theta)$ （其中 $\theta$ 为一个未知参数或几个未知参数组成的向量 $\theta=(\theta_1,\theta_2,\cdots,\theta_k)$），已知 $\theta\in\Theta$，$\Theta$ 是参数空间. $(x_1, x_2, \cdots, x_n)$ 为取自总体 $X$ 的一个样本 $(X_1, X_2, \cdots, X_n)$ 的观测值，将样本的联合分布律或联合密度函数看成 $\theta$ 的函数，用 $L(\theta)$ 表示，又称为 $\theta$ 的似然函数，则似然函数
+
+ $$ L(\theta)=\prod_{i=1}^n P\left(X_i=x_i;\theta\right), \text{ 或 } L(\theta)=\prod_{i=1}^n f\left(x_i;\theta\right), $$ 
+称满足关系式 $L(\hat{\theta})=\max_{\theta\in\Theta} L(\theta)$ 的解 $\hat{\theta}$ 为 $\theta$ 的极大似然估计量.
+
+\begin{kuang3}
+    \subsection{点估计的优良性判断标准}
+\end{kuang3}
+
+\subsubsection{无偏性}
+
+\begin{dy}
+    设 $\hat{\theta}=\hat{\theta}(X_1, X_2, \cdots, X_n)$ 是 $\theta$ 的一个估计量，$\theta$ 取值的参数空间为 $\Theta$，若对任意的 $\theta \in \Theta$，有
+    $$ E_\theta\left(\hat{\theta}(X_1, X_2, \cdots, X_n)\right) = \theta, $$ 
+    则称 $\hat{\theta}=\hat{\theta}(X_1, X_2, \cdots, X_n)$ 是 $\theta$ 的一个无偏估计（量），否则称为有偏估计（量）. 如果有
+    $$ \lim_{n \rightarrow \infty} E_\theta\left(\hat{\theta}(X_1, X_2, \cdots, X_n)\right) = \theta, $$ 
+    则称 $\hat{\theta}=\hat{\theta}(X_1, X_2, \cdots, X_n)$ 是 $\theta$ 的一个渐近无偏估计（量）.
+\end{dy}
+估计量的无偏性是指，由估计量得到的估计值相对于未知参数真值来说，取某些样本观测值时偏大，取另一些样本观测值时偏小。反复将这个估计量使用多次，就平均来说其偏差为 0。如果估计量不具有无偏性，则无论使用多少次，其平均值也与真值有一定的距离，这个距离就是系统误差了。
+
+\subsubsection{有效性}
+
+\begin{dy}
+    设 $\hat{\theta}_1$ 和 $\hat{\theta}_2$ 是 $\theta$ 的两个无偏估计，若对任意的 $\theta \in \Theta$，有 $D(\hat{\theta}_1) \leqslant D(\hat{\theta}_2)$，且至少有一个 $\theta \in \Theta$ 使得上述不等式严格成立，则称 $\hat{\theta}_1$ 比 $\hat{\theta}_2$ 有效.
+\end{dy}
+
+\subsubsection{相合性(一致性)}
+
+\begin{dy}
+    设 $\hat{\theta} = \hat{\theta}(X_1, X_2, \cdots, X_n)$ 是 $\theta$ 的一个估计量，若对 $\forall \varepsilon > 0$，
+    $$
+        \lim_{n \rightarrow \infty} P(|\hat{\theta} - \theta| \geqslant \varepsilon) = 0,
+    $$ 
+    则称估计量 $\hat{\theta}$ 具有相合性（一致性），即 $\hat{\theta} \xrightarrow{P} \theta$，或称 $\hat{\theta}$ 是 $\theta$ 的相合（一致）估计量.
+\end{dy}
+
+相合性被视为对估计的一个很基本的要求，如果一个估计量，在样本量不断增大时，它不能把被估参数估计到任意指定的精度内，那么这个估计是不好的. 通常，不满足相合性的估计一般不予考虑.
+
+\begin{kuang3}
+    \subsection{区间估计}
+\end{kuang3}
+
+\begin{dy}
+    设 $(X_1, X_2, \cdots, X_n)$ 是取自总体 $X$ 的一个样本，总体 $X \sim f(x; \theta), \theta \in \Theta$ 未知，对于 $\forall 0 < \alpha < 1$，若统计量 $\underline{\theta} = \underline{\theta}(X_1, X_2, \cdots, X_n) < \overline{\theta}(X_1, X_2, \cdots, X_n) = \overline{\theta}$，使得
+    $$ P(\underline{\theta} \leqslant \theta \leqslant \overline{\theta}) = 1 - \alpha, \theta \in \Theta, $$ 
+    则称 $[\underline{\theta}, \overline{\theta}]$ 为 $\theta$ 的双侧 $1 - \alpha$ 置信区间，$\underline{\theta}, \overline{\theta}$ 分别称为 $\theta$ 的双侧 $1 - \alpha$ 置信区间的置信下限和置信上限，$1 - \alpha$ 为置信水平，一旦样本有观测值 $(x_1, x_2, \cdots, x_n)$，则称相应的 $[\underline{\theta}(x_1, x_2, \cdots, x_n), \overline{\theta}(x_1, x_2, \cdots, x_n)]$ 为置信区间的观测值。
+\end{dy}
+
+\begin{kuang1}
+    \part{数学建模}
+\end{kuang1}
 
 
 

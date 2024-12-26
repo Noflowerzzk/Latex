@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999996 (TeX Live 2024) (preloaded format=xelatex 2024.9.25)  29 NOV 2024 20:36
+This is XeTeX, Version 3.141592653-2.6-0.999996 (TeX Live 2024) (preloaded format=xelatex 2024.9.25)  25 DEC 2024 16:53
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1182,6 +1182,31 @@ Underfull \hbox (badness 10000) in paragraph at lines 36--36
  [][] [][][]\TU/TeXGyreTermesX(0)/m/n/14 Inference Rules and 
  []
 
+
+Underfull \hbox (badness 10000) in paragraph at lines 42--42
+ [][] [][][]\TU/TeXGyreTermesX(0)/m/n/14 Subgraph and Con- 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 43--43
+ [][] [][][]\TU/TeXGyreTermesX(0)/m/n/14 Connectivity of 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 44--44
+ [][] [][][]\TU/TeXGyreTermesX(0)/m/n/14 Reachability of 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 45--45
+ [][] [][][]\TU/TeXGyreTermesX(0)/m/n/14 Connectivity 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 45--45
+ \TU/TeXGyreTermesX(0)/m/n/14 against Vertices 
+ []
+
 )
 \tf@toc=\write5
 \openout5 = `Discrete_Math.toc'.
@@ -1204,21 +1229,31 @@ Underfull \hbox (badness 10000) in paragraph at lines 637--639
 
  []
 
-[11] [12] [13] [14] [15] [16] [17] (./Discrete_Math.aux)
+[11] [12] [13] [14] [15] [16] [17]
+Overfull \hbox (5.58923pt too wide) detected at line 877
+[][]\OT1/cmr/m/n/14 (\OML/cmm/m/it/14 v\OT1/cmr/m/n/14 ) := []  [];
+ []
+
+
+Overfull \hbox (13.76399pt too wide) detected at line 878
+[][]\OT1/cmr/m/n/14 (\OML/cmm/m/it/14 v\OT1/cmr/m/n/14 ) := []  []\OML/cmm/m/it/14 :
+ []
+
+[18] [19] [20] (./Discrete_Math.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2022/08/05>
  ***********
 Package rerunfilecheck Info: File `Discrete_Math.out' has not changed.
-(rerunfilecheck)             Checksum: 582282E24343792060DF517CE229573C;7375.
+(rerunfilecheck)             Checksum: 62B6BC04EC2574BEF8AF5E83FE012B6D;9149.
  ) 
 Here is how much of TeX's memory you used:
- 35048 strings out of 474773
- 775501 string characters out of 5761289
+ 35067 strings out of 474773
+ 775796 string characters out of 5761289
  1941842 words of memory out of 5000000
- 56579 multiletter control sequences out of 15000+600000
+ 56598 multiletter control sequences out of 15000+600000
  564985 words of font info for 99 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  101i,14n,107p,701b,999s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on Discrete_Math.pdf (20 pages).
+Output written on Discrete_Math.pdf (23 pages).

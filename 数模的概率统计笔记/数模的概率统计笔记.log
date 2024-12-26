@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999996 (TeX Live 2024) (preloaded format=xelatex 2024.9.25)  9 DEC 2024 21:59
+This is XeTeX, Version 3.141592653-2.6-0.999996 (TeX Live 2024) (preloaded format=xelatex 2024.9.25)  15 DEC 2024 16:18
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1169,32 +1169,6 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 [1]
 LaTeX Font Info:    Font shape `TU/TeXGyreTermesX(0)/m/n' will be
 (Font)              scaled to size 16.06pt on input line 318.
-LaTeX Font Info:    Font shape `TU/TeXGyreTermesX(0)/m/n' will be
-(Font)              scaled to size 14.05249pt on input line 318.
-
-
-LaTeX Font Warning: Font shape `U/esvect/m/n' in size <16.06> not available
-(Font)              size <17.28> substituted on input line 318.
-
-
-LaTeX Font Warning: Font shape `U/esvect/m/n' in size <10.53937> not available
-(Font)              size <10.95> substituted on input line 318.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 318.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\chi' on input line 318.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `superscript' on input line 318.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 318.
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1204,13 +1178,48 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-0.64723pt}.
 
 [2]
+LaTeX Font Info:    Font shape `TU/TeXGyreTermesX(0)/m/n' will be
+(Font)              scaled to size 14.05249pt on input line 336.
+
+
+LaTeX Font Warning: Font shape `U/esvect/m/n' in size <16.06> not available
+(Font)              size <17.28> substituted on input line 336.
+
+
+LaTeX Font Warning: Font shape `U/esvect/m/n' in size <10.53937> not available
+(Font)              size <10.95> substituted on input line 336.
+
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 339.
+(hyperref)                removing `math shift' on input line 336.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 339.
+(hyperref)                removing `\chi' on input line 336.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `superscript' on input line 336.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 336.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 357.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 357.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 373.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 373.
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1219,7 +1228,31 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-0.64723pt}.
 
-[3] (./数模的概率统计笔记.aux)
+[3]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 12.64723pt, for example:
+(fancyhdr)                \setlength{\headheight}{12.64723pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+(fancyhdr)                \addtolength{\topmargin}{-0.64723pt}.
+
+[4]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 12.64723pt, for example:
+(fancyhdr)                \setlength{\headheight}{12.64723pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+(fancyhdr)                \addtolength{\topmargin}{-0.64723pt}.
+
+[5]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 12.64723pt, for example:
+(fancyhdr)                \setlength{\headheight}{12.64723pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+(fancyhdr)                \addtolength{\topmargin}{-0.64723pt}.
+
+[6] (./数模的概率统计笔记.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2022/08/05>
@@ -1229,16 +1262,22 @@ L3 programming layer <2022/08/05>
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 1.22pt have occurred.
 
-Package rerunfilecheck Info: File `数模的概率统计笔记.out' has not changed.
-(rerunfilecheck)             Checksum: CD1D8AE835AB145B637FD7F86B4A4C3B;1031.
+
+Package rerunfilecheck Warning: File `数模的概率统计笔记.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `数模的概率统计笔记.out':
+(rerunfilecheck)             Before: EAA2270CDB8A45189C5C17EEC2271294;2372
+(rerunfilecheck)             After:  2253A1C90D381393B6BFC7B37ACC4896;2485.
  ) 
 Here is how much of TeX's memory you used:
- 34988 strings out of 474773
- 775978 string characters out of 5761289
- 1939842 words of memory out of 5000000
- 56510 multiletter control sequences out of 15000+600000
+ 35066 strings out of 474773
+ 779801 string characters out of 5761289
+ 1940842 words of memory out of 5000000
+ 56588 multiletter control sequences out of 15000+600000
  569269 words of font info for 127 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  101i,17n,107p,1196b,940s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on 数模的概率统计笔记.pdf (5 pages).
+Output written on 数模的概率统计笔记.pdf (8 pages).

@@ -837,4 +837,93 @@ With a structure, we can determine the truth of an closed proposition.
     A first order logic (“$\vdash$”) is complete if $\Phi \models \psi$ implies $\Phi \vdash \psi$.
 \end{dy}
 
+\begin{kuang1}
+    \part{Graph Theory}
+\end{kuang1}
+
+\begin{kuang2}
+    \section{Graph in General}
+\end{kuang2}
+
+(Mostly omitted)
+
+\begin{kuang3}
+    \subsection{Basic definitions}
+\end{kuang3}
+
+\subsubsection{Edges and Degrees}
+
+\begin{dy}[Adjacency and Incidence]
+    \begin{itemize}
+        \item     If  $ G = (V, E) $  is an undirected graph, two vertices  $ u, v \in V $  are adjacent (or neighbours) in  $ G $  if there is an edge  $ e \in E $  such that the endpoints of  $ e $  are  $ u, v $ . \\
+        If the endpoints of an edge  $ e $  are  $ u, v $ , then  $ e $  is incident with  $ u, v $ .
+        \item If  $ G = (V, E) $  is a directed graph and  $ e \in E $  is from  $ u $  to  $ v $ , then:  $ u $  is adjacent to  $ v $ , and  $ v $  is adjacent from  $ u $ ;  $ u $  is the initial vertex of the edge, while  $ v $  is the terminal (or end) vertex of the edge.
+    \end{itemize}
+\end{dy}
+
+\begin{dy}[Neighbourhoods] \quad \\
+    The neighbourhood  $ \mathcal{N}(v) $  is the set of all neighbours of  $ v $ . \\
+    $ \mathcal{N}(A) := \bigcup_{v \in A} \mathcal{N}(v) $  for  $ A \subseteq V $ .
+\end{dy}
+
+\begin{dy}[Degrees]
+    \begin{itemize}
+        \item If  $ G = (V, E) $  is an undirected graph, the degree of a vertex  $ v \in V $  is the number of edges incident with it, for which a loop associated with  $ v $  contributes twice to the degree of  $ v $ . Notation: 
+        \begin{align*}
+            \deg(v) &= \left|\{e \mid v \text{ is } e\text{'s first endpoint}\}| + |\{e \mid v \text{ is } e\text{'s second endpoint}\}\right| \\
+            &= \sum_{v \text{ is } e\text{'s first endpoint}} 1 + \sum_{v \text{ is } e\text{'s second endpoint}} 1 
+        \end{align*} 
+        \item If  $ G = (V, E) $  is a directed graph and  $ v \in V $ , we define:
+        $$ \deg^{-}(v) := \left|\{e \in E \mid e \text{ is associated with } (u_1, v_1) \text{ and } v = v_1\}\right|\ \text{ (in-degree)}; $$ 
+        $$ \deg^{+}(v) := \left|\{e \in E \mid e \text{ is associated with } (u_1, v_1) \text{ and } v = u_1\}\right|\ \text{ (out-degree)}. $$ 
+    \end{itemize}
+\end{dy}
+
+\subsubsection{Loops and Circuits}
+
+(Omitted)
+
+\begin{kuang3}
+    \subsection{Subgraph and Connected Components}
+\end{kuang3}
+
+\subsubsection{Connectivity of Undirected Graph}
+
+\begin{dy}[Subgraph]
+    (Omitted)
+\end{dy}
+
+\begin{dy}[Induced Subgraph]
+    Suppose  $ G = (V, E) $  is a graph and  $ W \subseteq V $  is a subset of vertices. The subgraph induced by  $ W $  consists of all the vertices from  $ W $  and all the edges from  $ E $  whose endpoints both lie in  $ W $ .
+\end{dy}
+
+\begin{dy}[Connected Components]
+    Suppose  $ G = (V, E) $  is an undirected graph. A connected component of  $ G $  is a connected subgraph that is not a proper subgraph of another connected subgraph of  $ G $ .
+\end{dy}
+
+\begin{dl}
+    If  $ G $  is a nonempty undirected graph, then  $ G $ 's connected components are induced subgraphs of equivalence classes of the connectivity relation.
+\end{dl}
+
+\subsubsection{Reachability of Directed Graph}
+
+\begin{dy}[Reachability]
+    A vertex  $ v \in V $  is reachable from  $ u \in V $  if there is at least a path from  $ u $  to  $ v $  in  $ G $ . \\
+    Two vertices  $ u, v \in V $  are mutually reachable if there are paths both from  $ u $  to  $ v $  and from  $ v $  to  $ u $  in  $ G $ . \\
+    If $u, v \in V$ are mutually reachable, then we call $u$ and $v$ are strongly connected.
+\end{dy}
+
+\begin{dy}[Strongly-Connected Components]
+    Suppose  $ G = (V, E) $  is a directed graph. A strongly-connected component of  $ G $  is a strongly-connected subgraph of  $ G $  that is not a proper subgraph of another strongly-connected subgraph of  $ G $ .
+\end{dy}
+
+\begin{dl}
+    Given a directed graph  $ G $ , mutual reachability in  $ G $  is an equivalence relation. \\
+    Given a nonempty directed graph  $ G $ , its strongly-connected components are induced subgraphs of equivalence classes of mutual reachability.
+\end{dl}
+
+\subsubsection{Connectivity against Vertices and Edges Removal}
+
+(Omitted)
+
 \end{document}

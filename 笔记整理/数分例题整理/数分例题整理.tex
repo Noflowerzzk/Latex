@@ -54,6 +54,7 @@
 \newcommand{\dds}{^{\prime\prime}}
 \newcommand{\dx}{\mathrm{d}x}
 \newcommand{\dd}{\mathrm{d}}
+\newcommand{\dt}{\dd t}
 % ————————————————————————————————————自定义符号————————————————————————————————————
 
 % ————————————————————————————————————自定义颜色————————————————————————————————————
@@ -1260,6 +1261,111 @@
         \leqslant & \sum_{i = 1}^{n}\omega_i(x')\Delta t + \sum_{i = 1}^{n}\omega_i(y')\Delta t \to 0\quad (\lambda(P) \to 0)
     \end{align*}
     故二者相等.
+\end{zm}
+
+\begin{lt}
+    $f(x)$ 在 $[a, b]$ 上连续，且 $f(a) = 0$, 证明： $\sup_{x \in [a, b]}f^2(x) \leqslant (b - a)\int_{a}^{b}\left(f'(x)\right)^2\dx$
+    \begin{zmhj}
+        \begin{align*}
+            (b - a)\int_{a}^{x}\left(f'(t)\right)^2 \dd t \geqslant (x - a)\int_{a}^{x}\left(f'(t)\right)^2 \dd t \geqslant \left(\int_{a}^{x}f'(t)\dd t\right)^2 = f^2(x)
+        \end{align*}
+        由于存在 $x_0 \in [a, b]$, $f^2(x_0) = \sup_{x \in [a, b]}f^2(x) $
+        \begin{align*}
+            (b - a)\int_{a}^{b}\left(f'(x)\right)^2\dx \geqslant (b - a)\int_{a}^{x_0 }\left(f'(x)\right)^2\dx \geqslant \sup_{x \in [a, b]}f^2(x)
+        \end{align*}
+        \qed
+    \end{zmhj}
+\end{lt}
+
+\begin{lt}
+    $f(x), g(x)$ 连续且单调递增，证明： 
+    \[
+        \int_{a}^{b}f(x)\dx \int_{a}^{b}g(x)\dx \leqslant (b - a)\int_{a}^{b}f(x)g(x)\dx
+    \]
+    \begin{zmhj}
+        类似 Chebyshev 不等式. \qed
+    \end{zmhj}
+\end{lt}
+
+\begin{kuang3}
+    \subsection{广义积分}
+\end{kuang3}
+
+\subsubsection{无穷积分和瑕积分的定义}
+
+(略)
+
+\begin{lt}
+    求积分 $I_n = \int_{0}^{+\infty}x^n\zte^{-x}\dx$
+    \begin{jiehj}
+        \begin{align*}
+            I_n = -x^n\zte^{-x}\bigg|_0^{+\infty} + n\int_{0}^{+\infty}x^{n - 1}\zte^{-x}\dx = nI_{n - 1}
+        \end{align*}
+        又
+        \begin{align*}
+            I_0 = \int_{0}^{+\infty}\zte^{-x}\dx = 1
+        \end{align*}
+        因此 $I_n = n!$
+    \end{jiehj}
+\end{lt}
+
+我们令 $\Gamma (x) = \int_{0}^{+\infty}t^x\zte^{-t}\dt$
+
+\begin{lt}
+    求积分 $I = \int_{0}^{\pi/2}\ln \sin x \dx$.
+    \begin{jiehj}
+        \begin{align*}
+            I &\xlongequal{x = 2t} 2\int_{0}^{\pi/4}\ln 2 \sin t \cos t \dt \\
+            &= \frac{\pi}{2}\ln 2 + 2\left(\int_{0}^{\pi/4}\ln \sin x \dx + \int_{0}^{\pi/4}\ln \cos x \dx\right) \\
+            &= \frac{\pi}{2}\ln 2 + 2 \int_{0}^{\pi/2}\ln \sin x 
+            dx = \frac{\pi}{2}\ln 2 + 2I
+        \end{align*}
+        因此 $I = -\frac{\pi}{2}\ln 2$
+    \end{jiehj}
+\end{lt}
+
+记住上述结论
+
+\begin{lt}
+    求积分 $I = \int_{0}^{+\infty}\frac{1}{1 + x^2}\frac{1}{1 + x^\alpha} \dx$.
+    \begin{jiehj}
+        \begin{align*}
+            I &= \int_{0}^{1}\frac{1}{1 + x^\alpha} \dx + \int_{0}^{1}\frac{1}{1 + \frac{1}{t^2}}\frac{1}{1 + \frac{1}{t^\alpha}}\dd \left(\frac{1}{t}\right) \\
+            &= \int_{0}^{1}\frac{1}{1 + x^\alpha} \dx + \int_{0}^{1}\frac{t^\alpha \dt}{\left(1 + t^2\right)\left(1 + t^\alpha\right)}\\
+            &= \int_{0}^{1}\frac{\dx}{1 + x^2} = \frac{\pi}{4}
+        \end{align*}
+    \end{jiehj}
+\end{lt}
+
+\subsubsection{广义积分敛散性的判别法}
+
+\begin{dl}[比较判别法]
+    $f(x), \varphi(x) \geqslant 0$ 在任意有限区间上 Riemann 可积，且
+    \[
+        \lim_{x \to +\infty}\frac{\varphi(x)}{f(x)} = k \geqslant 0 \text{ 或 } +\infty
+    \]
+    则
+    \begin{itemize}
+        \item $k \in [0, +\infty)$, 则 $\int_{a}^{+\infty}\varphi(x)\dx$ 收敛 $\Rightarrow$ $\int_{a}^{+\infty}f(x)\dx$ 收敛.
+        \item $k \in (0, +\infty]$, 则 $\int_{a}^{+\infty}f(x)\dx$ 发散 $\Rightarrow$ $\int_{a}^{+\infty}\varphi(x)\dx$ 发散.
+    \end{itemize}
+    常用 $\varphi(x) = \frac{1}{x^p}$, 是为 Cauchy 判别法.
+\end{dl}
+
+\begin{dl}[Abel-Dirichlet 判别法]
+    $f(x), \varphi(x) \geqslant 0$ 在任意有限区间上 Riemann 可积，一下条件成立之一时， $\int_{a}^{+\infty}f(x)g(x)\dx$ 收敛
+    \begin{itemize}
+        \item (Abel) $\int_{a}^{+\infty}f(x)\dx$ 收敛， $g(x)$ 单调有界
+        \item (Dirichlet) $F(x) = \int_{a}^{x}f(t)\dt$ 有界， $g(x)$ 单调且收敛到 $0$
+    \end{itemize}
+\end{dl}
+
+\begin{zm}
+    由 $g(x)$ 单调，
+    \[
+        \int_{A'}^{A''}f(x)g(x)\dx = g(A')\int_{A'}^{\xi}f(x)\dx + g(A'')\int_{\xi}^{A''}f(x)\dx
+    \]
+    上述两个条件依次对应 $\int_{A'}^{A''}f(x)\dx$ 小 和 $g(A)$ 小，再利用 Cauchy 收敛原理即可.
 \end{zm}
 
 \end{document}

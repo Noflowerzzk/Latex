@@ -1,0 +1,173 @@
+\documentclass{article}
+\usepackage{amsmath}  % 数学符号包
+\usepackage{amssymb}  % 更多数学符号
+\usepackage{enumitem} % 列表样式
+\usepackage{fancyhdr} % 页眉设置
+\usepackage{geometry} % 页面设置
+\usepackage[UTF8]{ctex}
+\usepackage{bm}
+\usepackage{amsthm}
+\everymath{\displaystyle}  % 让所有数学模式都使用 \displaystyle
+\newcommand{\lb}{\left\llbracket}
+\newcommand{\rb}{\right\rrbracket}
+\newcommand{\ee}{\mathrm{e}}
+\newcommand{\dd}{\mathrm{d}}
+\newcommand{\dx}{\dd x}
+\newcommand{\sif}{\sum_{n = 1}^{\infty}}
+\newcommand{\nti}{\lim_{n \to +\infty}}
+\newcommand{\sifz}{\sum_{n = 0}^{\infty}}
+
+
+\geometry{a4paper, margin=1in}
+
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[C]{作业十四}
+\fancyhead[R]{2024.12.25}
+
+
+\title{作业十四}
+\author{noflowerzzk}
+\date{2024.12.25}
+
+
+\begin{document}
+\maketitle
+
+\section*{P38 T1}
+
+\begin{itemize}
+    \item [(1)] 由于 $\sif x_n^+$ 发散， $\sif x_n$ 不绝对收敛. \\
+    又 $\sif x_n^- = \sif \frac{1}{(2n)!}$ 收敛. 故 $\sif x_n$ 不条件收敛.
+    \item [(2)] $\sif \left\lvert x_n\right\rvert = \sif \frac{1}{n + x}$ 不收敛， $\sif x_n$ 不绝对收敛. \\
+    由于 $\lim_{n \to +\infty}\frac{1}{n + x} = 0$, $\sif \frac{-1^{n + 1}}{n + x}$ 为 Lebniz 级数，条件收敛.
+    \item [(3)] 对级数 $\sif \sin \frac{x}{n}$, 设当 $n > N$ 时 $\sin \frac{x}{n} \geqslant \frac{2}{\pi}x$，则 $n_0 > N$ 时部分和 $\sum_{i = 1}^{n}\left\lvert \sin \frac{x}{i}\right\rvert  \geqslant \sum_{i = 1}^{n}\sin \frac{x}{i} \geqslant \sum_{i = 1}^{N}\sin \frac{x}{i} + \frac{2}{\pi}\sum_{i = N + 1}^{n}\frac{x}{i}$ 无上界. 故 $\sif (-1)^{n + 1}\sin \frac{x}{n}$ 不绝对收敛. \\
+    而 $\lim_{n \to \infty}\sin \frac{x}{n} = 0$, $\sif (-1)^{n + 1}\sin \frac{x}{n}$ 为 Lebniz 级数，条件收敛.
+    \item [(4)] 由于 $\lim_{n \to +\infty}\frac{(-1)^{n + 1}}{\sqrt[n]{n}} = 1 \neq 0$, 不绝对收敛，不条件收敛.
+    \item [(5)] 由于 $\sum_{i = 1}^{n}\frac{\ln^2 i}{i} \geqslant \sum_{i = 1}^{n}\frac{1}{i}$, 不绝对收敛. \\
+    又 $\lim_{n \to +\infty}\frac{\ln^2 n}{n} = \nti \ln \frac{n + 1}{n}(\ln n + \ln (n + 1)) = \nti \frac{\ln n + \ln (n + 1)}{n} = 0$, $\sum_{n = 2}^{\infty}(-1)^{n + 1}\frac{\ln^2 n}{n}$ 是 Lebniz 级数，条件收敛.
+    \item [(6)] 由 $\left\lvert \frac{1}{\sqrt{n}}\cos\frac{n \pi}{3}\right\rvert \geqslant \frac{1}{2\sqrt{n}}\ (n = 6k + 2 \text{ 或 } n = 6k + 4)$, 故 $\sif \frac{1}{\sqrt{n}}\cos\frac{n \pi}{3}$ 不绝对收敛. \\
+    而 $S_{6n} = \sum_{i = 1}^{2n}\frac{(-1)^{i - 1}}{2\sqrt{3i - 2}} + \sum_{i = 1}^{2n}\frac{(-1)^{i}}{2\sqrt{3i - 1}} + \sum_{i = 1}^{2n}\frac{(-1)^i}{\sqrt{3i}}$，故 $\sif \frac{1}{\sqrt{n}}\cos\frac{n \pi}{3}$ 条件收敛.
+    \item [(7)] 当 $x \in \left(k\pi - \frac{\pi}{6}, k\pi + \frac{\pi}{6}\right)$ 时， $4 \sin^2 x < 1$, $\sif \frac{4^n \sin^{2n} x}{n}$ 收敛，原级数绝对收敛. \\
+    当 $x = k\pi \pm \frac{\pi}{6}$ 时，原级数即为 $\sif \frac{(-1)^{n + 1}}{n}$, 条件收敛. \\
+    当 $x \in \left(k\pi + \frac{\pi}{6}, k\pi + \frac{5\pi}{6}\right)$ 时， $\nti (-1)^{n + 1} \frac{4^n \sin^{2n} x}{n} = \infty$, 不收敛. 
+    \item [(8)] 
+    \begin{itemize}
+        \item $x = \frac{k\pi}{2}$ 时，原式 $= 0$, 绝对收敛.
+        \item $x \neq \frac{k\pi}{2}, p > 1$ 时， $\left\lvert \frac{\sin (n + 1)x \cos(n - 1)x}{n^p}\right\rvert \leqslant \frac{1}{n^p}$, 绝对收敛.
+        \item $x \neq \frac{k\pi}{2}, p \in (0, 1]$ 时，$\frac{\sin (n + 1)x \cos(n - 1)x}{n^p} = \frac{\sin 2nx}{2n^p} + \frac{\sin 2x}{2n^p}$, $\sif \frac{\sin 2x}{2n^p}$ 发散. 由于 $\frac{\sin 2nx}{2n^p}$ 中， $\nti \frac{1}{2n^p} = 0$, $\sum_{i = 1}^{n}\sin 2ix = \frac{1}{\cos x}\left(\sin (2n + 1)x - \sin x\right)$ 有界，故由 Dirichlet 判别法， $\sif \frac{\sin 2nx}{2n^p}$ 收敛，故原级数发散.
+        \item $x \neq \frac{k\pi}{2}, p \leqslant 0$ 时，显然 $\nti \frac{\sin (n + 1)x \cos(n - 1)x}{n^p} \neq 0$, 不收敛.
+    \end{itemize}
+\end{itemize}
+
+\section*{P38 T2}
+
+\begin{itemize}
+    \item [(1)] 
+    \begin{align*}
+        S_{6n} - S_{3n} &= \sum_{k = n + 1}^{2n}\left( \frac{1}{3k - 2} + \frac{1}{3k - 1} - \frac{1}{3k}\right) \\
+        & \geqslant \sum_{k = n + 1}^{2n}\frac{1}{3k - 2} \\
+        & \geqslant \frac{1}{3}\sum_{k = n + 1}^{2n}\frac{1}{k - 1} \\
+        & \geqslant \frac{1}{6}
+    \end{align*}
+    由 Cauchy 收敛原理，该级数不收敛.
+    \item [(2)] 相似的，
+    \begin{align*}
+        S_{6n} - S_{3n} \leqslant \frac{1}{6}
+    \end{align*}    
+    由 Cauchy 收敛原理，该级数不收敛.
+\end{itemize}
+
+\section*{P39 T4}
+
+不成立. 反例 $x_n = \frac{1}{n}$ \\
+
+\section*{P39 T5}
+
+不一定. \\
+去 $x_n = \frac{(-1)^n}{\sqrt{n}}$, $\sif x_n$ 收敛. 取 $y_n = x_n + \frac{1}{n}$, 有 $\nti \frac{x_n}{y_n} = 1$, 但 $\sif y_n$ 不收敛.
+
+\section*{P39 T6}
+
+不一定. 取 
+\[
+    x_n = \begin{cases}
+        \frac{1}{n},\quad & 2 \mid n \\
+        \frac{1}{n^2}, \quad & 2 \nmid n
+    \end{cases}
+\]
+
+\section*{P39 T7}
+
+是.
+\begin{proof}
+    由 Lebniz 定理， $\nti x_n = A > 0$. 因此当 $n > N$ 时， $x_n > \frac{A}{2}$. 
+    \begin{align*}
+        \sif \left(\frac{1}{1 + x_n}\right)^n & \leqslant \sum_{i = 1}^{N}\left(\frac{1}{1 + x_i}\right)^i + \sum_{i = N + 1}^{\infty}\left(\frac{1}{1 + \frac{A}{2}}\right)^i \\
+        & < \sum_{i = 1}^{N}\left(\frac{1}{1 + x_i}\right)^i + \sum_{i = N + 1}^{\infty}\left(\frac{1}{1 + \frac{A}{2}}\right)^N
+    \end{align*}
+    是收敛的.
+\end{proof}
+
+\section*{P39 T8}
+
+\begin{proof}
+    \begin{align*}
+        \sif \frac{x_n}{n^\alpha} = \sif \frac{x_n}{n^{\alpha_0}}\cdot\frac{1}{n^{\alpha - \alpha_0}}
+    \end{align*}
+    由于 $\sum_{i = 1}^{n} \frac{x_i}{i^{\alpha_0}}$ 有界， $\frac{1}{n^{\alpha - \alpha_0}}$ 单调递减且趋近于 $0$, 由 D-A 判别法， $\sif \frac{x_n}{n^\alpha}$ 收敛.
+\end{proof}
+
+\section*{P39 T9}
+
+\begin{proof}
+    \begin{align*}
+        \sum_{i = 1}^{n}x_i = \sum_{i = 1}^{n - 1}i(x_i - x_{i + 1}) + nx_n
+    \end{align*}
+    由于 $\sum_{i = 1}^{n - 1}i(x_i - x_{i + 1})$, $nx_n$ 均收敛，$\sum_{i = 1}^{n}x_i$ 收敛.
+\end{proof}
+
+\section*{P39 T10}
+
+\begin{proof}
+    \begin{align*}
+        \sum_{i = m}^{n}x_iy_i = \sum_{i = 1}^{n - 1}(x_i - x_{i + 1})\sum_{j = 1}^{i}y_j + x_n\sum_{j = 1}^{n}y_j
+    \end{align*}
+    故对任意 $\varepsilon > 0$, $\exists N > 0, \forall n > m > N$, $\left\lvert \sum_{i = m + 1}^{n}y_i\right\rvert < \varepsilon$, $x_n \leqslant M$. 又 $\sif \left\lvert x_{n + 1} - x_n\right\rvert = M_0$因此
+    \begin{align*}
+        \left\lvert \sum_{i = m + 1}^{n}x_iy_i\right\rvert &= \left\lvert \sum_{i = m + 1}^{n}(x_i - x_{i + 1})\sum_{j = m + 1}^{i}y_j + x_n \sum_{j = m + 1}^{n}y_j \right\rvert \\
+        &\leqslant (M_0 + M)\varepsilon
+    \end{align*}
+    由 Cauchy 收敛准则， $\sif x_ny_n$ 收敛.
+\end{proof}
+
+\section*{P39 T11}
+
+\begin{proof}
+    由 L'Hospital 定理， $f(0) = f'(0) = 0$. 又 $f(x) = f(0) + f'(0)x + \frac{1}{2}f''(0)x^2 + o(x^2) = \frac{1}{2}f''(0)x^2 + o(x^2)$, 因此若 $f''(0) \neq 0$, $\nti \left|f\left(\frac{1}{n}\right)\right| \bigg/ \left(\frac{1}{2}f''(0)\cdot\frac{1}{n^2}\right) = 1$, 而 $\sif \frac{1}{2}f''(0)\frac{1}{n^2}$ 收敛，有比较判别法显然 $\sif f\left(\frac{1}{n}\right)$ 绝对收敛. \\
+    又 $f''(0) = 0$, 显然成立.        
+\end{proof}
+
+\section*{P39 T15}
+
+\begin{itemize}
+    \item [(1)]
+    \begin{proof}
+        令 $c_n = \sum_{i = 0}^{n}\frac{1}{i!}\cdot\frac{(-1)^{n}}{(n - i)!}$ 有
+        \begin{align*}
+            c_n = \frac{1}{n!}\sum_{i = 0}^{n}\binom{n}{i}(-1)^i = 0\quad (n \geqslant 1) \\
+            c_0 = 1
+        \end{align*}
+        因此 $\sifz \frac{1}{n!} \cdot \sifz \frac{(-1)^n}{n!} = 1$
+    \end{proof}
+    \item [(2)]
+    \begin{proof}
+        令 $c_n = \sum_{i = 0}^{n}q^i\cdot q_{n - i} = (n + 1)q^n$, 则原式化为
+        \begin{align*}
+            \left(\sifz q^n\right)^2 = \nti \sum_{k = 0}^{n}(n + 1)q^n = \frac{1}{(q - 1)^2}
+        \end{align*}
+    \end{proof}
+\end{itemize}
+
+\end{document}
