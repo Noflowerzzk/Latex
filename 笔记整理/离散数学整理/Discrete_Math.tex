@@ -160,7 +160,7 @@
 % definition: 环境内容使用罗马正体，环境上下方添加额外间距
 % remark: 环境内容使用罗马正体，环境上下方不添加额外间距
 \theoremstyle{t} % 设置定理风格
-\newtheorem{dyhj}{\color{slv} Define}[subsection] % 定义定义环境，格式为\newtheorem{⟨环境名⟩}{⟨定理头文本⟩}[⟨上级计数器⟩]或\newtheorem{⟨环境名⟩}[⟨共享计数器⟩]{⟨定理头文本⟩}，其变体\newtheorem*不带编号
+\newtheorem{dyhj}{\color{slv} Definition}[subsection] % 定义定义环境，格式为\newtheorem{⟨环境名⟩}{⟨定理头文本⟩}[⟨上级计数器⟩]或\newtheorem{⟨环境名⟩}[⟨共享计数器⟩]{⟨定理头文本⟩}，其变体\newtheorem*不带编号
 \newtheorem{dlhj}{\color{shuang} Theorem}[subsection]
 \newtheorem{lthj}{\color{szi} Example}[subsection]
 \newtheorem*{jiehj}{\color{slan} Solve}
@@ -925,5 +925,160 @@ With a structure, we can determine the truth of an closed proposition.
 \subsubsection{Connectivity against Vertices and Edges Removal}
 
 (Omitted)
+
+\begin{kuang2}
+    \section{Tree}
+\end{kuang2}
+
+\begin{kuang3}
+    \subsection{Unrooted tree}
+\end{kuang3}
+
+\begin{dy}[Trees]
+    A tree is a connected (nonempty) undirected graph without simple circuits.
+\end{dy}
+
+\begin{dy}[Leaves (in an unrooted tree)]
+    A vertex is a leaf in a tree if its degree is 1.
+\end{dy}
+
+\begin{dl}
+    All statements below about an undirected graph $G = (V,E)$ are equivalent:
+    \begin{itemize}
+        \item $G$ is a tree, i.e. $G$ is connected but contains no simple circuits.
+        \item $G$ is connected and $|E| = |V| - 1$
+        \item $G$ contains no simple circuits and $|E| = |V| - 1$
+        \item $G$ is connected, but every edge in $E$ is a cut edge.
+        \item $G$ contains no simple circuits, adding any edge to $G$ generates a simple circuit.
+        \item There is a unique simple path between any two $G$'s vertices.
+    \end{itemize}
+\end{dl}
+
+\begin{kuang3}
+    \subsection{Rooted tree}
+\end{kuang3}
+
+\begin{dy}[Rooted trees]
+    A rooted tree is a tree with a designated vertex (as the root)
+\end{dy}
+
+\begin{dy}[Levels]
+    If  $ G = (V, E) $  is a rooted tree with the root  $ r $ , we define that:
+    \begin{itemize}
+        \item the level of a vertex  $ v $  is the length of the unique simple path from  $ r $  to  $ v $ ;
+        \item the height of the tree is the maximal level of its vertices.
+    \end{itemize}
+\end{dy}
+    
+\begin{dy}[Parents and Children]
+    If  $ G = (V, E) $  is a rooted tree with the root  $ r $ , the parent of a vertex  $ v \neq r $  is the unique vertex  $ u $  such that  $ (u, v) \in E $  and this edge appears on the unique simple path between  $ r $  and  $ v $ . Also,  $ v $  is called a child of  $ u $ .
+\end{dy}
+    
+\begin{dy}[Siblings]
+    If  $ G = (V, E) $  is a rooted tree with the root  $ r $ , vertices  $ u $  and  $ v $  are siblings if they have the same parent.
+\end{dy}
+    
+\begin{dy}[Ancestors and Descendants]
+    If  $ G = (V, E) $  is a rooted tree with the root  $ r $ , the ancestors of a vertex  $ v \neq r $  are the vertices on the simple path from  $ r $  to  $ v $ , excluding  $ v $  but including  $ r $ , and the descendants of a vertex  $ v $  are all vertices that have  $ v $  as one of their ancestors.
+\end{dy}
+
+\begin{dy}[Subtree]
+    If  $ G = (V, E) $  is a rooted tree with the root  $ r $ , the subtree at a vertex  $ v $  is the induced subgraph of the vertex set consisting of the vertex  $ v $  (as its root) and all the descendants of  $ v $ .
+\end{dy}
+
+\begin{kuang2}
+    \section{Spanning tree, Eular path and Hamilton paths}
+\end{kuang2}
+
+\begin{kuang3}
+    \subsection{Spanning tree}
+\end{kuang3}
+
+\subsubsection{Spanning tree}
+
+
+\begin{dy}[Spanning Trees]
+    Suppose  $ G $  is an undirected graph. A spanning tree of  $ G $  is a subgraph of  $ G $  that is a tree containing every vertex of  $ G $ .
+\end{dy}
+    
+\begin{dl}
+    An undirected graph is connected if and only if it has a spanning tree.
+    \begin{zmhj} \quad
+        \begin{itemize}
+            \item If a spanning tree exists, then there is a path in the spanning tree between any two vertices. Thus the graph is also connected.
+            \item Suppose  $ G_0 = G $  is connected. If  $ G_0 $  contains a simple circuit, then removing one edge from the simple circuit, which generates graph  $ G_1 $ .  $ G_1 $  must be connected. Repeat this process and construct  $ G_2, G_3, \cdots $ . In this process, the number of edges keep decreasing. Thus, there must be a natural number  $ k $  such that the number of vertices in  $ G_k $  is one more than its edges. That must be a tree.
+        \end{itemize}
+    \end{zmhj}
+\end{dl}
+
+\subsubsection{Minimum spanning tree}
+
+\begin{dy}[Minimum spanning tree]
+    A minimalspanning tree of $G$ is a spanning tree whose sum of all weights in the tree is the minimum among all spanning trees.
+\end{dy}
+
+\subsubsection{Algorithms to construct minimum spanning tree}
+
+(Omitted)
+
+\begin{kuang3}
+    \subsection{Eular paths and circuits}
+\end{kuang3}
+
+\begin{dy}
+    Given $G = (V, E)$ is a graph.
+    \begin{itemize}
+        \item an Euler circuit in $G$ is a simple circuit containing every edge of $G$.
+        \item an Euler path in $G$ is a simple path containing every edge of $G$.
+    \end{itemize}
+\end{dy}
+
+\begin{dl}
+    A connected undirected graph with at least two vertices has an Euler circuit if and only if all of its vertices have even degree.
+    \begin{zmhj}
+        By induction on the number of edges.
+        \begin{itemize}
+            \item \textbf{Base Step:} two edges
+            \item \textbf{Inductive Step:}
+            \begin{itemize}
+                \item A simple path of maximal length is a circuit, or otherwise the parity of the degrees at the start and end does not match.
+                \item A simple circuit of maximal length is an Euler circuit, or otherwise we get an undirected multigraph whose vertices have even degree when we remove the circuit, from which we can construct an Euler circuit in a connected component that can be merged back to the original one.
+            \end{itemize}
+        \end{itemize}
+    \end{zmhj}
+\end{dl}
+
+\begin{kuang3}
+    \subsection{Hamilton paths and circuits}
+\end{kuang3}
+
+\begin{dy}[Hamilton Paths and Circuits]
+    Given an undirected graph  $ G = (V, E) $ ,
+    \begin{itemize}
+        \item a Hamilton path is a simple path  $ v_0, v_1, \cdots, v_n $  of distinct vertices in  $ G $  such that  $ V = \{v_0, v_1, \cdots, v_n\} $ ;
+        \item a Hamilton circuit is a simple circuit  $ v_0, v_1, \cdots, v_n, v_0 $  ( $ n \geq 0 $ ) such that  $ V = \{v_0, v_1, \cdots, v_n\} $  and  $ v_0, v_1, \cdots, v_n $  is a Hamilton path.
+    \end{itemize}
+\end{dy}
+
+\begin{kuang1}
+    \part{Counting Theory}
+\end{kuang1}
+
+\begin{kuang2}
+    \section{Counting Theory}
+\end{kuang2}
+
+\begin{kuang3}
+    \subsection{Inclusion-Exclusion Principle}
+\end{kuang3}
+
+\begin{dl}[Inclusion-Exclusion Principle]
+    If  $ A_1, \cdots, A_n $  are finite sets, then
+    \begin{align*}
+        \left| \bigcup_{i=1}^n A_i \right| = \sum_{\ell=1}^n (-1)^{\ell+1} \sum_{1 \leqslant k_1 < \cdots < k_\ell \leqslant n} \left| \bigcap_{j=1}^\ell A_{k_j} \right|
+    \end{align*}
+\end{dl}
+
+
 
 \end{document}

@@ -55,6 +55,10 @@
 \newcommand{\dx}{\mathrm{d}x}
 \newcommand{\dd}{\mathrm{d}}
 \newcommand{\dt}{\dd t}
+\newcommand{\sif}{\sum_{n = 1}^{\infty}}
+\newcommand{\nti}{\lim_{n \to \infty}}
+\newcommand{\infnti}{\varliminf_{n \to \infty}}
+\newcommand{\supnti}{\varlimsup_{n \to \infty}}
 % ————————————————————————————————————自定义符号————————————————————————————————————
 
 % ————————————————————————————————————自定义颜色————————————————————————————————————
@@ -1367,5 +1371,176 @@
     \]
     上述两个条件依次对应 $\int_{A'}^{A''}f(x)\dx$ 小 和 $g(A)$ 小，再利用 Cauchy 收敛原理即可.
 \end{zm}
+
+\begin{kuang1}
+    \part{级数}
+\end{kuang1}
+
+\begin{kuang2}
+    \section{数项级数}
+\end{kuang2}
+
+\begin{kuang3}
+    \subsection{定义与基本性质}
+\end{kuang3}
+
+\begin{dy}
+    $S_n = \sum_{i = 1}^{n}a_i$ 为级数 $\sif a_n$ 的部分和序列.
+\end{dy}
+
+\begin{dl}
+    级数 $\sif a_n$ 收敛的必要条件为 $\nti a_n = 0$.
+\end{dl}
+
+\begin{dl}
+    若级数 $\sif a_n$ 收敛，则在其求和表达式中任意添加括号所得级数任然收敛.
+\end{dl}
+
+\begin{kuang3}
+    \subsection{正项级数}
+\end{kuang3}
+
+\subsubsection{上下极限的定义与性质}
+
+\begin{dy}
+    设 $\{x_n\}$ 是一有界个数列，$\xi \in \mathbb{R}$。如果存在 $\{x_n\}$ 的一个子列 $\{x_{n_k}\}$ 满足
+    $$
+        \lim_{k \to \infty} x_{n_k} = \xi,
+    $$ 
+    则称 $\xi$ 是 $\{x_n\}$ 的一个极限点。将 $\{x_n\}$ 一切极限点所组成的集合记作 $E$. $\sup E$ 称为 $\{x_n\}$ 的上极限，记作 $\varlimsup_{n \to \infty} x_n$。$\inf E$ 称为 $\{x_n\}$ 的下极限，记作 $\varliminf_{n \to \infty} x_n$.
+\end{dy}
+
+\begin{dl}
+    设 $x_n$ 有界，则
+    \begin{itemize}
+        \item  存在子列 $\{x_{n_i}\}_{i=1}^{\infty}$，使得 $\lim_{i \to \infty} x_{n_i} = \supnti x_n$;
+        \item  存在子列 $\{x_{n_k}\}_{k=1}^{\infty}$，使得 $\lim_{k \to \infty} x_{n_k} = \infnti x_n$.
+    \end{itemize}
+\end{dl}
+
+\begin{dl}
+    设 $x_n$ 有界，则
+    \begin{itemize}
+        \item $H = \supnti x_n$ 的充要条件是：对任意给定 $\varepsilon > 0$
+        \begin{itemize}
+            \item 存在 $N \in \mathbb{N}$，$\forall n \geq N: x_n < H + \varepsilon$;
+            \item 数列 $\{x_n\}$ 中有无穷多项大于 $H - \varepsilon$.
+        \end{itemize}
+        \item $h = \infnti x_n$ 的充要条件是：对任意给定 $\varepsilon > 0$
+        \begin{itemize}
+            \item 存在 $N \in \mathbb{N}$，$\forall n \geq N: x_n > h - \varepsilon$;
+            \item 数列 $\{x_n\}$ 中有无穷多项小于 $h + \varepsilon$.
+        \end{itemize}
+    \end{itemize}
+\end{dl}
+
+\begin{dl}
+    $\{x_n\}$ 收敛的充要条件是 $\supnti x_n = \infnti x_n$.
+\end{dl}
+
+\begin{dl}
+    设 $\{x_n\}, \{y_n\}$ 是两个数列，则
+    \begin{itemize}
+        \item $\supnti (x_n + y_n) \leq \supnti x_n + \supnti y_n$, \quad $\liminf_{n \to \infty} (x_n + y_n) \geq \infnti x_n + \infnti y_n$;
+        \item 若 $\lim_{n \to \infty} x_n$ 存在，则
+        $$
+            \supnti (x_n + y_n) = \lim_{n \to \infty} x_n + \supnti y_n, \quad \infnti (x_n + y_n) = \lim_{n \to \infty} x_n + \infnti y_n.
+        $$ 
+    \end{itemize}    
+\end{dl} 
+
+\begin{dl}
+    $\supnti x_k = \lim_{n \to \infty} \sup_{k \geqslant n} x_k, \quad \infnti x_k = \lim_{n \to \infty} \inf_{k \geqslant n} x_k.$
+\end{dl}
+
+\subsubsection{正项级数敛散性的判别法}
+
+\begin{dl}
+    正项数列 $\sif a_n$ 收敛的充要条件是其部分和序列是有界序列.
+\end{dl}
+
+\begin{dl}[比较判别法]
+    设  $\sum_{n=1}^{\infty} x_n$, $\sum_{n=1}^{\infty} y_n$  是正项级数，且存在常数  $A > 0$, 使得
+    $$
+        x_n \leq A y_n, \quad n \in \mathbb{N}.
+    $$ 
+    \begin{itemize}
+        \item 如果  $\sum_{n=1}^{\infty} y_n$  收敛，则  $\sum_{n=1}^{\infty} x_n$  收敛；
+        \item 如果  $\sum_{n=1}^{\infty} x_n$  发散，则  $\sum_{n=1}^{\infty} y_n$  发散。
+    \end{itemize}
+\end{dl}
+
+\begin{dl}[比较判别法的极限形式]
+    设  $\sum_{n=1}^{\infty} x_n$ ， $\sum_{n=1}^{\infty} y_n$  是正项级数，且
+    $$
+        \lim_{n \to \infty} \frac{x_n}{y_n} = l \in [0, +\infty).
+    $$ 
+    \begin{itemize}
+        \item 若  $0 \leq l < +\infty$ ，则当  $\sum_{n=1}^{\infty} y_n$  收敛时， $\sum_{n=1}^{\infty} x_n$  也收敛；
+        \item 若  $0 < l \leq +\infty$ ，则当  $\sum_{n=1}^{\infty} y_n$  发散时， $\sum_{n=1}^{\infty} x_n$  也发散。
+    \end{itemize}
+\end{dl}
+
+\begin{dl}[Cauchy 判别法]
+    设  $\sum_{n=1}^{\infty} x_n$  是正项数列，且  $\lim_{n \to \infty} \sqrt[n]{x_n} = r$ ，则：
+    \begin{itemize}
+        \item 如果  $r < 1$ ，则  $\sum_{n=1}^{\infty} x_n$  收敛；
+        \item 如果  $r > 1$ ，则  $\sum_{n=1}^{\infty} x_n$  发散；
+        \item 如果  $r = 1$ ，则无法判断。
+    \end{itemize}
+\end{dl}
+
+\begin{dl}[d'Alembert 判别法]
+    设  $\sum_{n=1}^{\infty} x_n$  是正项数列，且  $x_n \neq 0$ ，则：
+    \begin{itemize}
+        \item 如果  $\supnti \frac{x_{n+1}}{x_n} = \bar{r} < 1$ ，则  $\sum_{n=1}^{\infty} x_n$  收敛；
+        \item 如果  $\infnti \frac{x_{n+1}}{x_n} = \underline{r} > 1$ ，则  $\sum_{n=1}^{\infty} x_n$  发散；
+        \item 如果  $\bar{r} \geq 1$  或  $\underbar{r} \leq 1$ ，则无法判断。
+    \end{itemize}
+\end{dl}
+
+\begin{dl}[积分判别法]
+    设  $f(x)$  是  $[a, +\infty)$  上的非负函数，且在任意有限区间  $[a, A] \subset [a, +\infty)$  上 Riemann 可积。取一个严格单增的无穷大量  $\{a_n\}$ ：
+    $$
+        a = a_1 < a_2 < a_3 < \cdots < a_n < \cdots \to +\infty
+    $$ 
+    令
+    $$
+        u_n := \int_{a_n}^{a_{n+1}} f(x) \dx
+    $$ 
+    则无穷积分  $\int_a^{+\infty} f(x) \dx$  与正项级数  $\sum_{n=1}^{\infty} u_n$  同时收敛或同为  $+\infty$ . \\
+    特别地，如果  $f(x)$  单减， $a_n = n$ ，则  $\int_a^{+\infty} f(x) \, dx$  与  $\sum_{n=[a] + 1}^{\infty} f(n)$ 同时收敛或发散.
+\end{dl}
+
+\begin{lt}
+    级数 $\sif \frac{1}{n^p}$ 在 $0 < p \leq 1$ 时发散，在 $p > 1$ 时收敛.
+\end{lt}
+
+\begin{kuang3}
+    \subsection{任意项级数}    
+\end{kuang3}
+
+\subsubsection{基本性质}
+
+\begin{dy}[条件收敛和绝对收敛]
+    设  $\sum_{n=1}^{\infty} a_n$  是任意项级数，如果正项级数  $\sum_{n=1}^{\infty} |a_n|$  收敛，则称级数  $\sum_{n=1}^{\infty} a_n$  绝对收敛。如果  $\sum_{n=1}^{\infty} a_n$  收敛，但  $\sum_{n=1}^{\infty} |a_n|$  发散，则称级数  $\sum_{n=1}^{\infty} a_n$  条件收敛.
+\end{dy}
+
+\begin{dl}
+    如果级数 $\sif a_n$ 绝对收敛，则其收敛.
+\end{dl}
+
+\subsubsection{Leibniz 判别法}
+
+\begin{dy}[Leibniz 级数]
+    设 $\{u_n\}_1^\infty$ 是正项数列，则称 $\sif (-1)^{n + 1}u_n$ 为交错级数. \\
+    若 $u_n$ 单减且收敛到 $0$, 则称 $\sif (-1)^{n + 1}$ 为 Leibniz 级数.
+\end{dy}
+
+\begin{dl}
+    Leibniz 级数收敛.
+\end{dl}
+
+\subsubsection{Abel 判别法与 Dirichlet 判别法}
 
 \end{document}
