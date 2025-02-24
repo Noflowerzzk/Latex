@@ -322,7 +322,7 @@
 
 \begin{dl} \quad 
     \begin{itemize}
-        \item $\phi_1, \phi_2, \cdots \phi_n \models \psi$ iff. $\left(\bigwedge _{k = 1}^n\right) \land \lnot \psi$ is not satisfiable.
+        \item $\phi_1, \phi_2, \cdots \phi_n \models \psi$ iff. $\left(\bigwedge _{k = 1}^n\phi_i\right) \land \lnot \psi$ is not satisfiable.
         \item $\{\ \} \models \phi$ iff. $\phi$ is an tautology.
         \item $\phi \equiv \psi$ iff. $\phi \models \psi$ and $\psi \models \phi$.
     \end{itemize}
@@ -362,7 +362,7 @@
         Suppose that the compound proposition $\phi$ consists of the literals $p_1, p_2, \cdots, p_n$. \\
         For all $\mathcal{J}$ as a interpretation, we only need to prove that 
         \[
-            \phi \equiv \bigvee_{\lb \phi \rb_\mathcal{J} = \mathbf{T}}\left(\bigwedge_{\mathcal{J}(p_i) = \mathbf{T}}p_i \land \bigwedge_{\mathcal{J}(p_i) = \mathbf{F}}\lnot p_i \right) = \mathbf{T}
+            \phi \equiv \bigvee_{\lb \phi \rb_\mathcal{J} = \mathbf{T}}\left(\bigwedge_{\mathcal{J}(p_i) = \mathbf{T}}p_i \land \bigwedge_{\mathcal{J}(p_i) = \mathbf{F}}\lnot p_i \right)
         \]
         Consider a specific interpretation $\mathcal{J}_0$, if $\lb \phi\rb_\mathcal{J} = \mathbf{T}$, then
         \[

@@ -1,0 +1,100 @@
+\documentclass{article}
+\usepackage{amsmath}  % 数学符号包
+\usepackage{amssymb}  % 更多数学符号
+\usepackage{enumitem} % 列表样式
+\usepackage{fancyhdr} % 页眉设置
+\usepackage{geometry} % 页面设置
+\usepackage[UTF8]{ctex}
+\usepackage{bm}
+\usepackage{amsthm}
+\everymath{\displaystyle}  % 让所有数学模式都使用 \displaystyle
+\newcommand{\lb}{\left\llbracket}
+\newcommand{\rb}{\right\rrbracket}
+
+
+\geometry{a4paper, margin=1in}
+
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[C]{作业一}
+\fancyhead[R]{2025.02.19}
+
+
+\title{作业一}
+\author{Noflowerzzk}
+\date{2025.02.19}
+
+
+\begin{document}
+\maketitle
+
+\section{}
+
+\begin{itemize}
+    \item [(1)]
+    \begin{proof}
+        设 $x \in (A^o)^c$, 则 $x \notin A^o$. 故 $x \in A'$ 或 $x \in A^c$. 若 $x \in A'$, 则 $x \in (A^c)' \subseteq \overline{A^c}$; 若 $x \in A^c$, 则显然 $x \in \overline{A^c}$. 因此 $(A^o)^c \subseteq \overline{A^c}$ \\
+        设 $x \in \overline{A^c}$, 则 $x \in A^c$ 或 $x \in (A^c)' = A'$. 若 $x \in A^c$, 则由于 $A^c \subseteq (A^o)^c$, 故 $x \in (A^o)^c$; 若 $x \in (A^c)' = A'$, 则 $x \notin A^o$, 即 $x \in (A^o)^c$. 因此 $\overline{A^c} \subseteq (A^o)^c $
+    \end{proof}
+    \item [(2)]
+    \begin{proof}
+        由于 $\overline{A} = ((A^c)^o)^c$, 故 $(\overline{A})^c = (A^c)^o$.
+    \end{proof}
+\end{itemize}
+
+\section{}
+
+\begin{itemize}
+    \item [(1)]
+    \begin{proof}
+        $\forall a \in B(x, r)$, 取 $\varepsilon = r - d(a, x) > 0$, 构造球 $B(a, \varepsilon/2)$, 有 $\forall a_0 \in B(a, \varepsilon / 2), d(a_0, x) \leqslant d(a, x) + \varepsilon / 2 < r$, 故 $a_0 \in B(x, r)$, 即 $B(a, \varepsilon) \subseteq B(x, r)$，因此 $B(x, r)$ 是开集.
+    \end{proof}
+    \item [(2)]
+    \begin{proof}
+        由于对任意闭球内的点列 $\{x_n\}$, 有 $d(x_n, x) \leqslant r$. 因此对任意收敛点列，设其收敛到 $x_0$, 有 $d(x, x_0) \leqslant r$, 即 $x_0 \in \overline{B}(x, r)$. 因此 $(\bar{B}(x, r))' \in \overline{B}(x, r)$, 即 $\overline{B}(x, r)$ 是闭集.
+    \end{proof}
+\end{itemize}
+
+\section{}
+
+\begin{itemize}
+    \item [(1)]
+    \begin{proof} \quad
+        \begin{itemize}
+            \item 取一族开集 $\{U_i\}_{i \in I}$. \\
+            任取 $x \in \bigcup_{i \in I}U_i$, 不妨 $x \in U_1$. 则存在 $\varepsilon > 0$, $B(x, \varepsilon) \subseteq U_1$. 因此 $B(x, \varepsilon) \subseteq \bigcup_{i \in I}U_i$, 即 $\bigcup_{i \in I}U_i$ 是开集. \\
+            \item 当 $I$ 为有限集时，任取 $x \in \bigcap_{i \in I} U_i$, 对任意 $i \in I$ 有存在 $\varepsilon_i > 0$, $B(x, \varepsilon_i) \subseteq U_i$. 取 $\varepsilon = \min_{i \in I}{\varepsilon_i}$, 有 $B(x, \varepsilon) \subseteq \bigcap_{i \in I} U_i$, 即 $\bigcap_{i \in I} U_i$ 是开集.
+        \end{itemize}
+    \end{proof}
+    \item [(2)]
+    \begin{proof} \quad
+        \begin{itemize}
+            \item 取一族闭集 $\{U_i\}_{i \in I}$. 令 $S_i = U_i^c$, 则 $S_i$ 是开集. \\
+            由于 $\bigcup_{i \in I} S_i$ 是开集，则 $\bigcap_{i \in I} U_i = \left(\bigcup_{i \in I} S_i\right)^c$ 为闭集.
+            \item 当 $I$ 是有限集时，由于 $\bigcap_{i \in I} S_i$ 是开集，则 $\bigcup_{i \in I} U_i = \left(\bigcup_{i \in I} S_i\right)^c $ 为闭集.
+        \end{itemize}
+    \end{proof}
+\end{itemize}
+
+\section{}
+
+\begin{itemize}
+    \item [(1)]
+    \begin{proof}
+        任取 Cauchy 列 $\{x_n\}_{n = 1}^\infty$, 由于 $Y$ 列紧，其存在收敛子列收敛到 $Y$ 内. 即存在 $x \in Y$，任意 $\varepsilon > 0$，存在 $N > 0, \forall n > N$ 有 $d(x_{k_n}, x) < \varepsilon / 2$. 又由于其为 Cauchy 列，存在 $N' > 0, \forall m > n > N'$, $d(x_m, x_n) < \varepsilon / 2$. 因此任意 $n > \max\{k_N, N'\}$, 有 $d(x_n, x) < \varepsilon$, 即 $\{x_n\}$ 收敛到 $x \in Y$. 因此 $Y$ 完备.
+    \end{proof}
+    \item [(2)]
+    \begin{proof}
+        取 $Y$ 中 Cauchy 列 $\{x_n\}$, 由于 $X$ 完备，有 $\{x_n\}$ 收敛到 $x \in X$. 而由于 $Y$ 是闭集， $\{x_n\}$ 若收敛，必收敛到 $Y$ 内，即 $x \in Y$. 故 $Y$ 中 Cauchy 列收敛，即 $Y$ 完备.
+    \end{proof}
+\end{itemize}
+
+\section{}
+
+\begin{proof}
+    任取 Cauchy 列 $\{x_n\}$, 取 $A_n = \{a\ |\ d(a, x_n) \leqslant \frac{1}{n}\} \cap X$. 由于 $A_n$ 是闭球，$A_n$ 是闭集. 且由于 $\{x_n\}$ 是 Cauchy 列，任意 $m > n$, 有 $x_m \in A_n$. 因此 $A_n$ 构成闭集套，且 $\lim_{n \to \infty} \mathrm{diam}(A_n) = 0$. 故由闭集套定理，存在唯一 $\zeta \in A_n (\forall n)$. 此时任意 $\varepsilon > 0$, 存在 $N = 1/\varepsilon + 1$, 任意 $n > N, \zeta \in A_n \Rightarrow d(x_n, \zeta) < \varepsilon$, 即 $\{x_n\}$ 收敛到 $\zeta \in X$. 故 $X$ 完备.
+\end{proof}
+
+
+\end{document}

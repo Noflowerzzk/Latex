@@ -1,0 +1,207 @@
+\documentclass{article}
+\usepackage{amsmath}  % 数学符号包
+\usepackage{amssymb}  % 更多数学符号
+\usepackage{enumitem} % 列表样式
+\usepackage{fancyhdr} % 页眉设置
+\usepackage{geometry} % 页面设置
+\usepackage[UTF8]{ctex}
+\usepackage{bm}
+\usepackage{amsthm}
+\everymath{\displaystyle}  % 让所有数学模式都使用 \displaystyle
+\newcommand{\lb}{\left\llbracket}
+\newcommand{\rb}{\right\rrbracket}
+
+
+\geometry{a4paper, margin=1in}
+
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[C]{作业 1}
+\fancyhead[R]{2025.2.23}
+
+
+\title{作业 1}
+\author{noflowerzzk}
+\date{2025.2.23}
+
+
+\begin{document}
+\maketitle
+
+\section{}
+
+\begin{proof}
+    一方面，任意 $f(x) = a_0 + a_1x + \cdots + a_nx^n$, 有若 $2 | n$, 则 $g(x) = a_0 + a_2x^2 + \cdots + a_nx^n \in U$, $h(x) = a_1x + \cdots + a_{n - 1}x^{n - 1} \in W$. 故 $U + W = V$. \\
+    另一方面，显然 $U \cap W = \{0\}$. \\
+    因此 $U \oplus W = V$.
+\end{proof}
+
+\section{}
+
+\begin{proof}
+    \item [(1) $\Rightarrow$ (2)]
+    对 $n$ 归纳. \\
+    $n = 2$ 时，上课已经证明. \\
+    假设 $n = k \geq 2$ 时，有 $\bigoplus_{i = 1}^k W_i = V$ 有 $\forall \alpha \in V$, 有唯一分解 $\alpha = \alpha_1 + \cdots + \alpha_k$, $\alpha_i \in W_i$. 则 $n = k + 1$ 时，有 $V = \bigoplus_{i = 1}^{k + 1}W_i$, 有 $W_{k + 1} \cap \sum_{i = 1}^{k}W_i = \{0\}$. 故由归纳假设 $n = 2$ 情形， $\forall \alpha \in V$, $\alpha$ 可唯一分解为 $\alpha = \alpha_k' + \alpha_{k + 1}$, 其中 $\alpha_k' \in \sum_{i = 1}^{k}W_i, \alpha_{k + 1} \in W_{k + 1}$. 又由归纳假设， $\alpha_k'$ 有在 $\sum_{i = 1}^{k}W_i$ 的唯一分解 $\alpha_k' = \sum_{i = 1}^{k}\alpha_i$, 且 $\alpha_{k + 1}$ 与 $\alpha_i\ (i \leq k)$ 互不相同. 故是唯一分解.
+    \item [(2) $\Rightarrow$ (3)] 显然
+    \item [(3) $\Rightarrow$ (4)] 对 $n$ 归纳，$n = 2$ 时，上课已经证明. \\
+    假设 $n = k$ 时， $W_i, i = 1, 2, \cdots k$ 的基构成 $\sum_{i = 1}^{k}W_i$ 的一组基，则 $n = k + 1$ 时，由于 $\mathbf{0}$ 在 $W_1, \cdots W_k$ 中有唯一分解，且由于 $\mathbf{0}$ 在 $\sum_{i = 1}^{k}W_i$
+    和 $W_{k + 1}$ 中有唯一分解，由归纳假设， $\sum_{i = 1}^{k}W_i$
+    和 $W_{k + 1}$ 的基构成 $\sum_{i = 1}^{k + 1}W_i$ 的基. 因此 $W_i$ 的基构成 $\sum_{i = 1}^{l + 1}W_i$ 的基. 
+    \item [(4) $\Rightarrow$ (1)]
+    对 $n$ 归纳， $n = 2$ 时，上课已经证明. \\
+    假设 $n = k \geq 2$ 时有 $W_i \cap \sum_{j = 1}^{i - 1}W_i = \{0\}$，则 $n = k + 1$ 时，由 $n = 2$ 的结论，有 $W_{k + 1} \cap \sum_{i = 1}^{k}W_i = \{0\}$, 即有 $\bigoplus_{i = 1}^{k + 1}W_i$
+\end{proof}
+
+\section{}
+
+\begin{proof}
+    由维数公式， $\dim U \leq \sum_{i = 1}^{n}\dim U_i$. 故 "=" 成立有 $\forall i, \dim U_i + \dim (U_1 + \cdots + U_{i - 1}) = \dim (U_1 + \cdots + U_i)$, 即根据 $n = 2$ 的情形， $U_i \cap \sum_{j = 1}^{i - 1}U_j = \{0\}$, 即 $V = \bigoplus_{i = 1}^{n}U_i$.
+\end{proof}
+
+\section{}
+
+\begin{proof}
+    一方面，任意 $\alpha, \alpha' \in W$，有 $\forall u \in U$, $(\alpha, u) = (\alpha', u) = 0$. 故 $(\alpha + \alpha', u) = 0$, 有 $\aleph + \alpha' \in W$. \\
+    另一方面，任意 $k \in F$, 有 $(k\alpha, u) = k(\alpha, u) = 0$, $k\alpha \in W$. 故 $W$ 是 $V$ 的子空间.
+\end{proof}
+
+\section{}
+
+$\mathbf{C}$ 到 $\mathbf{B}$ 的过渡矩阵是 
+\[
+    P = 
+    \begin{pmatrix}
+        1 & 3 & 0 \\
+        -2 & -5 & 2 \\
+        1 & 4 & 3
+    \end{pmatrix}
+\]
+因此 $\mathbf{B}$ 到 $\mathbf{C}$ 的过渡矩阵为
+\[
+    P^{-1} = 
+    \begin{pmatrix}
+        -23 & -9 & 6 \\
+        8 & 3 & -2 \\
+        -3 & -1 & 1
+    \end{pmatrix}
+\]
+
+$1 + 2t$ 在 $\mathbf{C}$ 中为 $\alpha = (1, 2, 0)^T$, 故在 $\mathbf{B}$ 中为
+\[
+    P\alpha = 
+    \begin{pmatrix}
+        7 \\ -12 \\ 9
+    \end{pmatrix}
+\]
+
+\section{}
+
+$\mathbf{C}$ 到 $\mathbf{B}$ 的过渡矩阵是 
+\[
+    P = 
+    \begin{pmatrix}
+        1 & 2 & 1 \\
+        0 & 1 & 2 \\
+        -3 & -5 & 0
+    \end{pmatrix}
+\]
+
+因此 $\mathbf{B}$ 到 $\mathbf{C}$ 的过渡矩阵为
+\[
+    P^{-1} = 
+    \begin{pmatrix}
+        10 & -5 & 3 \\
+        -6 & 3 & -2 \\
+        3 & -1 & 1
+    \end{pmatrix}
+\]
+
+$t^2$ 在 $\mathbf{C}$ 中为 $\alpha = (0, 0, 1)^T$, 故在 $\mathbf{B}$ 中为
+\[
+    P\alpha = 
+    \begin{pmatrix}
+        1 \\ 2 \\ 0
+    \end{pmatrix}
+\]
+
+\section{}
+
+\begin{itemize}
+    \item [(1)]
+    \[
+        P
+        \begin{pmatrix}
+            u_1  u_2 \\ u_3
+        \end{pmatrix} = 
+        \begin{pmatrix}
+            v_1 \\ v_2 \\ v_3
+        \end{pmatrix}
+    \]
+    故由 
+    \[
+        P^{-1} = \begin{pmatrix}
+            5 & 8 & 5 \\
+            -3 & -5 & -3 \\
+            -2 & -2 & -1
+        \end{pmatrix}
+    \]
+    有
+    \[
+        v_1 = \begin{pmatrix}
+            -109 \\ 60 \\ 61
+        \end{pmatrix}\ 
+        v_2 = \begin{pmatrix}
+            67 \\ -37 \\ -37
+        \end{pmatrix}\   
+        v_3 = \begin{pmatrix}
+            27 \\ -16 \\ -16
+        \end{pmatrix}
+    \]
+    \item [(2)]
+    同理有 
+    \[
+        w_1 = \begin{pmatrix}
+            -11 \\ 10 \\ 1
+        \end{pmatrix}\ 
+        w_2 = \begin{pmatrix}
+            46 \\ -31 \\ -19
+        \end{pmatrix}\   
+        w_3 = \begin{pmatrix}
+            -63 \\ 40 \\ 30
+        \end{pmatrix}
+    \]
+\end{itemize}
+
+\section{}
+
+\begin{proof}
+    易验证 $2^{k + 3} - 2\cdot 2^{k + 2} + 9 \cdot 2^{k + 1} - 18 \cdot 2^k = 0$. \\
+    令 $z = 3\left(\cos \frac{\pi}{2} + \mathrm{i} \sin\frac{\pi}{2}\right)$, 有 $z^k = 3^k \cos \frac{k\pi}{2} + \mathrm{i}\sin \frac{k\pi}{2}$.
+    由于
+    \begin{align*}
+        z^{k + 3} - 2z^{k + 2} + 9 z^{k + 1} - 18z^{k} = z^{k}\left(z^3 - 2z^2 + 9z - 18\right).
+    \end{align*}
+    又 $z$ 是方程 $z^3 - 2z^2 + 9z - 18 = 0$ 的根，故 $z^{k + 3} - 2z^{k + 2} + 9 z^{k + 1} - 18z^{k} = 0$, 即其实部虚部均为 0.
+
+    取 $k = 0$, 有 Casorati 矩阵 
+    \[
+        C(0) = \begin{pmatrix}
+            1 & 1 & 1 \\
+            2 & 3 & 0 \\
+            4 & 0 & -9
+        \end{pmatrix}
+    \]
+    易验证 $C(0)$ 可逆，故三个型号线性无关，构成其解集的一组基.
+\end{proof}
+
+\section{}
+
+\begin{itemize}
+    \item [(1)] 由于 $\dim(S + T) = \dim S + \dim T - \dim(S \cap T)$. 由于 $\dim (S + T) \leq 10$, $1 \leq \dim (S \cap T)$. 又 $\dim (S \cap T ) \leq \dim S$, 有 $\dim (S \cap T)$ 取值为 1 或 2.
+    \item [(2)] $1 \leq \dim (S \cap T) \leq 2$ 有 $\dim (S + T)$ 取值为 7 或 8.
+    \item [(3)] $\dim S^\bot + \dim S = 10$, $\dim S^\bot = 8$
+\end{itemize}
+
+\end{document}
