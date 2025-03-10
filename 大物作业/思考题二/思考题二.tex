@@ -1,0 +1,44 @@
+\documentclass{article}
+\usepackage{amsmath}  % 数学符号包
+\usepackage{amssymb}  % 更多数学符号
+\usepackage{enumitem} % 列表样式
+\usepackage{fancyhdr} % 页眉设置
+\usepackage{geometry} % 页面设置
+\usepackage[UTF8]{ctex}
+\usepackage{bm}
+\usepackage{amsthm}
+\everymath{\displaystyle}  % 让所有数学模式都使用 \displaystyle
+\newcommand{\lb}{\left\llbracket}
+\newcommand{\rb}{\right\rrbracket}
+
+\geometry{a4paper, margin=1in}
+
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[C]{思考题二}
+\fancyhead[R]{2025.3.2}
+
+
+\title{思考题二}
+\author{Noflowerzzk}
+\date{2025.3.2}
+
+
+\begin{document}
+\maketitle
+
+对其中的某个点 $P$, 球心是 $O$, $OP = r$，球半径为 $R$，球的质量面密度为 $\sigma$. 取一个顶点为 $P$ 的对角锥体，其底各自在球面上，沿其底取小圆环，宽度为 $\Delta x$，其轴线为直线 $OP$. 设两个锥体的顶角为 $2\theta$，其中一个母线长为 $d$. \\
+则得到上部圆环有几何关系 
+   $ \cos \theta = - \frac{d^2 + r^2 - R^2}{2dr} $
+又由圆的性质，有 $d d' = (R - r) (R + r)$
+
+上方引力的合力为 
+\begin{align*}
+    F_{\text{上}} = G\frac{m \cdot \Delta x \cdot 2\pi d\sin \theta \sigma}{d^2}\cos \theta = 
+\end{align*}
+下方引力的合力为 $F_{\text{下}} = G\frac{m \cdot \Delta x \cdot 2\pi d'\sin \theta \sigma}{d'^2}\cos \theta$
+
+代入计算发现 $F_{\text{上}} = F_{\text{下}}$，即上下两个圆环的引力相等。对球的所有圆环计算，故整个球的引力为 $0$.
+
+\end{document}

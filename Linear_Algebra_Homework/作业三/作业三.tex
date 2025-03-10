@@ -1,0 +1,181 @@
+\documentclass{article}
+\usepackage{amsmath}  % 数学符号包
+\usepackage{amssymb}  % 更多数学符号
+\usepackage{enumitem} % 列表样式
+\usepackage{fancyhdr} % 页眉设置
+\usepackage{geometry} % 页面设置
+\usepackage[UTF8]{ctex}
+\usepackage{bm}
+\usepackage{amsthm}
+\everymath{\displaystyle}  % 让所有数学模式都使用 \displaystyle
+\newcommand{\lb}{\left\llbracket}
+\newcommand{\rb}{\right\rrbracket}
+
+
+\geometry{a4paper, margin=1in}
+
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[C]{线代作业三}
+\fancyhead[R]{2025.3.8}
+
+
+\title{线代作业三}
+\author{noflowerzzk}
+\date{2025.3.8}
+
+
+\begin{document}
+\maketitle
+
+\section{}
+
+\begin{align*}
+    A^TA = \begin{pmatrix}
+        4 & 8 & 10 \\
+        8 & 20 & 26 \\
+        10 & 26 & 38
+    \end{pmatrix}, \quad
+    A^Tb = \begin{pmatrix}
+        18 \\ 30 \\ 38
+    \end{pmatrix} \\
+    \hat{\boldsymbol{x}} = (A^TA)^{-1}A^Tb = \begin{pmatrix}
+        \frac{31}{4} \\ \frac{-9}{4} \\ \frac{1}{2}
+    \end{pmatrix}
+\end{align*}
+
+\section{}
+
+\begin{itemize}
+    \item [(1)] 取 $\lambda = \mu = 0$, $\boldsymbol{0} \in A$. \\
+    $\alpha = (\lambda_1, \lambda_1 + \mu_1^3, \lambda_1 - \mu_1^3 ), \beta = (\lambda_2, \lambda_2 + \mu_2^3, \lambda_2 - \mu_2^3)$. $\alpha + \beta$ 取 $\lambda = \lambda_1 + \lambda_2, \mu = \sqrt[3]{\mu_1^3 + \mu_2^3}$ 即可. $k\alpha = (k\lambda_1, k\lambda_1 + k\mu_1^3, k\lambda_1 - k\mu_1^3 )$, 取 $\lambda = k\lambda_1$, $\mu = \sqrt[3]{k}\mu_1$ 即可. \\ A 是一个子空间.
+    \item [(2)] 取 $\alpha = (1, -1, 0) \in B$, $-\alpha = (-1, 1, 0) \notin B$. $B$ 不是一个子空间.
+    \item [(3)] 当 $\gamma \neq 0$ 时， $\boldsymbol{0} \notin C$, $C$ 不是一个子空间. 当 $\gamma = 0$ 时， $C$ 是一个子空间. 由于 $\alpha \in C$ 是 $\xi_i$ 的线性组合易证.
+    \item [(4)] 取 $\alpha = (0, 1, 0) \in D$, $0.5\alpha = \left(0, \frac{1}{2}, 0\right) \notin D$，$D$ 不是一个子空间.
+\end{itemize}
+
+\section{}
+
+\begin{itemize}
+    \item [(1)] $\dim U_1 = 3 - r(A_1) = 1$, 解方程组 $\boldsymbol{Ax} = 0$ 得基础解系 $\boldsymbol{\eta} = \begin{pmatrix}
+        -1 \\ 1 \\ 1
+    \end{pmatrix}$ 是为其一组基.
+    $\dim U_2 = 3 - r(A_2) = 1$, 同理得基础解系 $\boldsymbol{\xi} = \begin{pmatrix}
+        -1 \\ -1 \\ 1
+    \end{pmatrix}$ 是为其一组基.
+    \item [(2)] $\dim V_1 = r(A_1) = 2$, 初等行变换后得 
+    \begin{align*}
+        \begin{pmatrix}
+            1 & 0 & 1\\
+            0 & 1 & 1\\
+            0 & 0 & 0\\
+            0 & 0 & 0
+        \end{pmatrix}
+    \end{align*}
+    故其一组基为 $\boldsymbol{\eta}_1 = \begin{pmatrix}
+        1 \\ 1 \\ 2 \\ 1
+    \end{pmatrix}, \boldsymbol{\eta}_2 = \begin{pmatrix}
+        0 \\ -2 \\ 1 \\ 0
+    \end{pmatrix}$ \\
+    $\dim V_2 = r(A_2) = 2$. 初等行变换后得
+    \begin{align*}
+        \begin{pmatrix}1 & 0 & 1\\0 & 1 & 1\\0 & 0 & 0\\0 & 0 & 0\end{pmatrix}
+    \end{align*}
+    故其一组基为 $\boldsymbol{\eta}_1 = \begin{pmatrix}
+        3 \\ 1 \\ 7 \\ 3
+    \end{pmatrix}, \boldsymbol{\eta}_2 = \begin{pmatrix}
+        -3 \\ 2 \\ -5 \\ -1
+    \end{pmatrix}$
+    \item [(3)] 由于 $U_1, U_2$ 的基线性无关，故 $U_1 \cap U_2 = \{0\}$, $\dim U_1 \cap U_2 = 0$, 基为 $\emptyset $. \\
+    由于 $V_1, V_2$ 的列向量组的秩为 2, 故其维数为 2. 又其矩阵化简为 $\begin{pmatrix}1 & 0 & 3 & 0\\0 & 1 & 1 & 0\\0 & 0 & 0 & 1\\0 & 0 & 0 & 0\end{pmatrix}$ 因此其一组基为$\boldsymbol{\eta}_1 = \begin{pmatrix}
+        1 \\ 1 \\ 2 \\ 1
+    \end{pmatrix}, \boldsymbol{\eta}_2 = \begin{pmatrix}
+        0 \\ -2 \\ 1 \\ 0
+    \end{pmatrix}$ \\
+    $\dim V_2 = r(A_2) = 2$
+\end{itemize}
+
+\section{}
+
+不一定. 例如 $A = \begin{pmatrix}
+    0 & 1 \\ 0 & 0
+\end{pmatrix}$, 其零空间为 $L((1, 0)^T)$, 但是 $A^2 = \boldsymbol{0}$, 其零空间为 $\mathbb{R}^2$.
+
+\section{}
+
+任意 $\boldsymbol{x} \in N(C)$, 有 $A\boldsymbol{x} = 0$ 且 $B\boldsymbol{x} = 0$. 因此 $\boldsymbol{x} \in N(A) \cap N(B)$, 即 $N(C) \subseteq N(A) \cap N(B)$. \\
+另一方面，任意 $\boldsymbol{x} \in N(A) \cap N(B)$, 有 $A\boldsymbol{x} = 0$ 且 $B\boldsymbol{x} = 0$. 因此 $C\boldsymbol{x} = \begin{pmatrix}
+    A\boldsymbol{x} \\ B\boldsymbol{x}
+\end{pmatrix} = 0$, 即 $\boldsymbol{x} \in N(C)$. 因此 $N(A) \cap N(B) \subseteq N(C)$. \\
+综上，$N(C) = N(A) \cap N(B)$.
+
+\section{}
+
+不一定. 例如 $A = \begin{pmatrix}
+    1 & 1 \\ 1 & 0
+\end{pmatrix}$. $A$ 的行空间和列空间都为 $\mathbb{R}^2$, 且由于 $A$ 满秩，$A, A^T$ 零空间均为 $\{0\}$. 但是 $A$ 不是堆成矩阵.
+
+\section{}
+
+列空间为 $L((1, 0)^T)$, 且零空间为 $L((1, 0)^T)$
+
+\section{}
+
+即 $A$ 的列向量组线性无关，构成其列空间的一组基. 因此 $A$ 的列向量组也构成 $B$ 的列空间的一组基. 因此 $r(B) = r(A)$. 有 $N(B)$ 的维数为 $2r(A)$. \\
+又观察易知 $(\boldsymbol{x_1}, \boldsymbol{x_2}, \boldsymbol{x_3})^T$ 其中 $\boldsymbol{x_i}$ 为 $r(A)$ 维列向量，且 $\boldsymbol{x_1} + \boldsymbol{x_2} + \boldsymbol{x_3} = \boldsymbol{0}$. 在 $B$ 的零空间内（由于 $B\begin{pmatrix}
+    \boldsymbol{x_1} \\ \boldsymbol{x_2} \\ \boldsymbol{x_3}
+\end{pmatrix} = A\boldsymbol{x_1} + A\boldsymbol{x_2} + A\boldsymbol{x_3} = \boldsymbol{0}$）
+又任意 $\boldsymbol{x}, B\boldsymbol{x} = 0$, 把 $\boldsymbol{x}$ 表示为 $\begin{pmatrix}
+    \boldsymbol{x_1} \\ \boldsymbol{x_2} \\ \boldsymbol{x_3}
+\end{pmatrix}$, 有 $A(\boldsymbol{x_1} + \boldsymbol{x_2} + \boldsymbol{x_3}) = \boldsymbol{0}$. 由于 $A$ 可逆，则 $\boldsymbol{x_1} + \boldsymbol{x_2} + \boldsymbol{x_3} = \boldsymbol{0}$. \\
+综上，其零空间为 $\left\{\boldsymbol{x} = \begin{pmatrix}
+    \boldsymbol{x}_1 \\ \boldsymbol{x}_2 \\ -\boldsymbol{x_1} - \boldsymbol{x_2}
+\end{pmatrix}\ \Bigg| \ \boldsymbol{x}_i \in \mathbb{R}^{r(A)}\right\}$
+
+\section{}
+
+\begin{itemize}
+    \item [(1)]
+    \begin{proof}
+        设 $r(A) = r_1, r(B) = r_2$, 且 $P_1AQ_1 = \begin{pmatrix}
+            E_{r_1} & \boldsymbol{0} \\
+            \boldsymbol{0} & \boldsymbol{0}
+        \end{pmatrix}, P_2BQ_2 = \begin{pmatrix}
+            E_{r_2} & \boldsymbol{0} \\
+            \boldsymbol{0} & \boldsymbol{0}
+        \end{pmatrix}$
+        故 \begin{align*}
+            A \otimes B &= P_1^{-1}\begin{pmatrix}
+                E_{r_1} & \boldsymbol{0} \\
+            \boldsymbol{0} & \boldsymbol{0}
+            \end{pmatrix}Q_1^{-1} \otimes P_2^{-1}\begin{pmatrix}
+                E_{r_2} & \boldsymbol{0} \\
+            \boldsymbol{0} & \boldsymbol{0}
+            \end{pmatrix}Q_2^{-1} \\
+            &= (P_1^{-1} \otimes P_2^{-1})\left(\begin{pmatrix}
+                E_{r_1} & \boldsymbol{0} \\
+            \boldsymbol{0} & \boldsymbol{0}
+            \end{pmatrix} \otimes \begin{pmatrix}
+                E_{r_2} & \boldsymbol{0} \\
+            \boldsymbol{0} & \boldsymbol{0}
+            \end{pmatrix}\right)(Q_1^{-1} \otimes Q_2^{-1})
+        \end{align*}
+        故 $r(A \otimes B) = r\left(\begin{pmatrix}
+            E_{r_1} & \boldsymbol{0} \\
+        \boldsymbol{0} & \boldsymbol{0}
+        \end{pmatrix} \otimes \begin{pmatrix}
+            E_{r_2} & \boldsymbol{0} \\
+        \boldsymbol{0} & \boldsymbol{0}
+        \end{pmatrix}\right) = r_1r_2 = r(A)r(B)$
+    \end{proof}
+    \item [(2)] 
+    \begin{proof}
+        设 $\lambda_i$ 为 $A$ 的特征值， $\mu_i$ 为 $B$ 的特征值。则由于 $\lambda_i\mu_j$ 为 $A \otimes B$ 的特征值，故 
+        \begin{align*}
+            \det(A \otimes B) = \prod_{i = 1}^m\prod_{j = 1}^n \lambda_i \mu_j = \left(\prod_{i = 1}^{m}\lambda_i^n\right)\left(\prod_{j = 1}^{n}\mu_j^m\right) = \det(A)^n\det(B)^m 
+        \end{align*}
+    \end{proof}
+\end{itemize}
+
+\end{document}

@@ -1,0 +1,103 @@
+\documentclass{article}
+\usepackage{amsmath}  % 数学符号包
+\usepackage{amssymb}  % 更多数学符号
+\usepackage{enumitem} % 列表样式
+\usepackage{fancyhdr} % 页眉设置
+\usepackage{geometry} % 页面设置
+\usepackage[UTF8]{ctex}
+\usepackage{bm}
+\usepackage{amsthm}
+\everymath{\displaystyle}  % 让所有数学模式都使用 \displaystyle
+\newcommand{\lb}{\left\llbracket}
+\newcommand{\rb}{\right\rrbracket}
+\newcommand{\dd}{\mathrm{d}}
+\newcommand{\mps}{\ \mathrm{m / s}}
+\newcommand{\mpss}{\ \mathrm{m / s^2}}
+
+
+\geometry{a4paper, margin=1in}
+
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[C]{大物作业二}
+\fancyhead[R]{2025.2.25}
+
+
+\title{大物作业二}
+\author{Noflowerzzk}
+\date{2025.2.25}
+
+
+\begin{document}
+\maketitle
+
+\section*{1 - 12}
+
+连接 $OQ$, 有 $\angle QOP' = 2\angle QPP' = 2 \theta$. 故物体在做角速度为 $2\omega$ 的匀速圆周运动. $a = (2\omega)^2r = 4\omega^2r$
+
+\section*{1 - 18}
+
+由图像易得 $a_r = g \cos \frac{\pi}{3} = \frac{1}{2}g$ \\
+
+因此由 $a_n = \frac{v^2}{\rho} = \frac{\sqrt{3}}{2}g$ 有 $\rho = \frac{2\sqrt{3}v_0^2}{3g}$
+
+\section*{1 - 19}
+
+由图，物体速度与 $x$ 轴夹角为 $\frac{\pi}{3}$ 斜向下. $y$ 方向，有 $v_y = \sqrt{3}v_0 = 10\sqrt{3} \mathrm{m / s}$. 故 $\delta y = \frac{v_y^2 - 0}{2g} = 15 \mathrm{m}$ \\
+
+此时 $v = 2v_0 = 20 \mathrm{m / s}$, $\rho = \frac{v^2}{a_n} = 80 \mathrm{m}$
+
+\section*{1 - 22}
+
+\begin{itemize}
+    \item [(1)] $v = \frac{\dd y}{\dd t} = 6t\ \mathrm{m / s}$; $a = \frac{\dd v}{\dd t} = 6 \mathrm{m / s^2}$
+    \item [(2)] $v_P = \frac{1}{2}v = 3t\ \mathrm{m / s}$; $a_n = v_P^2 / 0.5R = 180t^2 \mpss,\ a_t = \frac{1}{2}a = 3 \mpss$
+\end{itemize}
+
+\section*{1 - 23}
+
+\begin{itemize}
+    \item [(1)] 在位置 $x$ 处， $v_y = \frac{\dd y}{\dd t} = -2x\frac{\dd x}{\dd t} = -2xv$. 故速度大小为 $v = \sqrt{v_x^2 + v_y^2} = \sqrt{1 + 4x^2} v$, 与 $x$ 轴正方向夹角为 $\theta = \arccos \frac{1}{\sqrt{1 + 4x^2}}$
+    \item [(2)] $a = a_y = \frac{\dd v_y}{\dd t} = -2v \frac{\dd x}{\dd t} = -2v^2$. 故 $a_n = a \cos \theta = \frac{-2v^2}{\sqrt{1 + 4x^2}}$, $a_t = \sqrt{a_y^2 - a_n^2} = \frac{-4vx}{\sqrt{1 + 4x^2}}$
+\end{itemize}
+
+\section*{1 - 26}
+
+由几何图形和正弦定理，有 
+\[
+    \frac{v_0}{\sin 45^\circ } = \frac{v_{车}}{\sin 105^\circ}
+\]
+故 $v_0 = 35\left(\sqrt{3} - 1\right) \mps$
+
+\section*{1 - 30}
+
+正方形边长为 $a = \frac{vT}{4}$. 后来时，迎风时间 $t_1 = \frac{T}{4(1 - k)}$, 顺风时间 $t_2 = \frac{T}{4(1 + k)}$, 两边时间各为 $t_3 = \frac{T}{4\sqrt{1 - k^2}}$, 因此时间差为 $T\left(\frac{1}{4(1 - k)} + \frac{1}{4(1 + k)} + \frac{1}{2\sqrt{1 - k^2}} - 1\right)$
+
+\section*{1 - 31}
+
+设离出发河岸的距离为 $x$, 有水速 $u(x) = -\frac{4u_0}{l^2}$, 又实际速度 $v_x = v_0 \sin \frac{\pi}{4}, v_y = v_0 \cos \frac{\pi}{4} + u(x)$. 故时间 $t$ 时，
+\begin{align*}
+    x &= \frac{\sqrt{2}}{2}v_0 t \\
+    y &= \frac{\sqrt{2}}{2}v_0 t - \frac{\sqrt{2}v_0u_0t}{l} + \frac{2v_0^2u_0t^3}{3l^2}
+\end{align*}
+
+消去 $t$ 得轨迹 
+\[
+    y = x - \frac{2\sqrt{2}u_0}{v_0l}x^2 + \frac{4\sqrt{2}u_0}{3v_0l^2}x^3
+\]
+
+令 $x = l$, 有 $y = \left(1 - \frac{2\sqrt{2}u_0}{3v_0}\right)l$
+
+\section*{1 - 33}
+
+由速度分解，有 $v_{\text{实际}} = v \tan \theta$. \\
+$P$ 相对圆柱的切向、法向加速度分别为 $a_t, a_n$. 有 $a_n = \frac{\left(v / \cos \theta\right)^2}{R} = \frac{v^2}{R \cos^2 \theta}$. 又由于实际加速度为竖直方向，有
+\begin{align*}
+    a_n \sin \theta + a_t \cos \theta &= a \\
+    a_{\text{实际}} &= a_t \sin \theta - a_n \cos \theta
+\end{align*}
+
+解得 $a_{\text{实际}} = a \tan \theta - \frac{v^2}{R\cos^3 \theta}$
+
+\end{document}

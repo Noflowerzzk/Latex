@@ -1,0 +1,106 @@
+\documentclass{article}
+\usepackage{amsmath}  % 数学符号包
+\usepackage{amssymb}  % 更多数学符号
+\usepackage{enumitem} % 列表样式
+\usepackage{fancyhdr} % 页眉设置
+\usepackage{geometry} % 页面设置
+\usepackage[UTF8]{ctex}
+\usepackage{bm}
+\usepackage{amsthm}
+\everymath{\displaystyle}  % 让所有数学模式都使用 \displaystyle
+\newcommand{\lb}{\left\llbracket}
+\newcommand{\rb}{\right\rrbracket}
+\newcommand{\mpt}{\mathrm{m/s}}
+\newcommand{\mptt}{\mathrm{m/s^2}}
+\newcommand{\N}{\mathrm{N}}
+\newcommand{\dd}{\mathrm{d}}
+
+\geometry{a4paper, margin=1in}
+
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[C]{大物作业三}
+\fancyhead[R]{2025.3.8}
+
+
+\title{大物作业三}
+\author{noflowerzzk}
+\date{2025.3.8}
+
+
+\begin{document}
+\maketitle
+
+\section*{1 - 34}
+
+对整体， $(m_A + m_B + m_0)a = F - (m_A + m_B + m_0)g$ 得 $a = 2 \mptt$ \\
+
+在绳子距离下端 $x$ 处，有 $(m_a + x\lambda)a = T(x) - (m_a + x\lambda)g$ 得 $T(x) = 96 + 24 x \N$
+
+\section*{1 - 35}
+
+设绳子和环之间的摩擦力为 $f$. 有 $m_1 a_1 = m_1g - f$, $m_2a_{2\text{地}} = m_2g - f$. 同时有 $a_{2\text{地}} + a_1 = a_2$ 得 $f = \frac{m_1m_2}{m_1 + m_2}(2g - a_2)$
+
+\section*{1 - 36}
+
+对A， $m_Ag - N\sin \alpha = m_Aa_A$, 对B， $N\cos \alpha = m_Bg$. 接触面 $a_B\cos \alpha = a_A \sin \alpha$ 得 $N = \frac{m_Am_Bg\sin \alpha}{m_A\cos^2 \alpha + m_B \sin^2 \alpha}, a_A = \frac{m_A g}{m_A + m_B \tan^2 \alpha}, a_B = \frac{m_Ag\tan \theta}{m_A + m_B}$
+
+\section*{1 - 38}
+
+\begin{itemize}
+    \item [(1)] 设绳中张力为 $T$, 对A、B分析，有 
+    \[
+        \begin{cases}
+            (T + m_Ag)\sin \alpha = m_Aa_A \\
+            m_Bg - T = m_Ba_B
+        \end{cases}
+    \]
+    又 $a_A\sin \alpha = a_B$ 得 $T = \frac{m_Am_Bg\cos^2 \alpha}{m_A + m_B\sin \alpha}$.
+    \item [(2)] 设夹角为 $\theta$, 对A、B分析，有
+    \[
+        m_Ag\sin \alpha + T\cos (\alpha - \theta) = m_Aa \\
+        T = m_Ba \\
+        m_Bg \sin\alpha = m_Ba
+    \]
+    得 $\alpha = \theta$.
+\end{itemize}
+
+\section*{1 - 42}
+
+\begin{itemize}
+    \item [(1)] 对船分析， $Ma = -kv$. 即 $M\dd v = -k \dd x$. 两边积分得 $M(v_P - v_0) = -kl_0$. 即 $v_P = -\frac{kl_0}{M} + v_0$.
+    \item [(2)] $a_t = \frac{F_0\cos \theta - kv_P}{M} = \frac{F_0\cos \theta - k\left(v_0 - \frac{kl_0}{m}\right)}{M}$. \\
+    $Ma_n = F_0\sin \theta$, $\rho = \frac{v_P^2}{a_n}$ 得 $\rho = \frac{m\left(v_0 - \frac{kl_0}{m}\right)^2}{F_0 \sin\alpha}$
+\end{itemize}
+
+\section*{1 - 44}
+
+对 $r - r + \dd r$ 的质点，有 $T(r + \dd r) - T(r) = \dd m\omega^2 r$.
+即 $\frac{\dd T(r)}{\dd r} = \omega^2 r \frac{\dd m}{\dd r} = \omega^2 r \frac{M}{L}$. 又 $T(L) = m\omega^2 L$. 故 $T(r) = \frac{M\omega^2}{2L}(L^2 - r^2) + m\omega^2 L$
+
+\section*{1 - 48}
+
+在斜面系分析， $N = m(g\cos \theta + a \sin \theta)$, $f = m(g\sin \theta - a\cos \theta)$. \\
+由限制 $-\mu N \leq f \leq \mu N$, 得：\begin{itemize}
+    \item $\mu \tan \theta < 1$ 时， $\frac{g(\tan \theta - \mu)}{\mu \tan \theta + 1} \leq a \leq \frac{g(\tan \theta + \mu)}{1 - \mu\tan \theta}$
+    \item $$\mu \tan \theta > 1$$ 时， $\frac{g(\tan \theta + \mu)}{\mu \tan \theta + 1} \leq a $
+\end{itemize}
+
+\section*{1 - 50}
+
+在距离中心为 $r$ 处，在旋转系中分析有对小液体元 $\dd m$，液体对其作用力垂直于切面，切面倾斜角为 $\alpha$. 故由几何关系， $\tan \alpha = \frac{r \omega^2}{g} = \frac{\dd y}{\dd t}$. 积分得 $y = \frac{\omega^2}{2g}r^2$
+
+\section*{1 - 53}
+
+质心仍旧匀速运动，则 $x_1 = 10 = \frac{3x_A + 3x_B + x_C}{7}, y_1 = 0 = \frac{3y_A + 3y_B + y_C}{7}$. 故 $B(7, 3)$
+
+\section*{1 - 55}
+
+质心仍旧匀速运动，则 10 秒后质心 $h = 40 \mathrm{m}$. 此时 $h_{\text{人}} = 0$，故 $h_{\text{球}} = 50 \mathrm{m}$，即绳长为 50 m.
+
+\section*{1 - 56}
+
+质心最初位置 $x_{C0} = \frac{16}{9} \mathrm{m}$. （设开始时小车左侧为原点）。设最后小车左侧坐标为 $x_0$, 有 $x_C = \frac{\left(\frac{L}{2}\right)M + xm_A + (L + x)m_B}{M + m_A + m_B}$. 得 $x = \frac{4}{9}$
+
+\end{document}
