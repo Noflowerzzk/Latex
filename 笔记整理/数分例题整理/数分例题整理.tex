@@ -1543,4 +1543,282 @@
 
 \subsubsection{Abel 判别法与 Dirichlet 判别法}
 
+\begin{kuang1}
+    \part{度量空间与函数}
+\end{kuang1}
+
+\begin{kuang2}
+    \section{度量空间}
+\end{kuang2}
+
+\begin{kuang3}
+    \subsection{度量空间的定义}
+\end{kuang3}
+
+\subsubsection{度量空间、内积、范数}
+
+\begin{dy}[度量空间]
+    设 $X$ 是一个集合，如果定义在 $X \times X$ 上的映射 $d: X \times X \to \mathbb{R}$ 满足
+    \begin{itemize}
+        \item 正定性：$d(x, y) \geq 0$，且 $d(x, y) = 0$ 当且仅当 $x = y$；
+        \item 对称性：$d(x, y) = d(y, x)$；
+        \item 三角不等式：$d(x, z) \leq d(x, y) + d(y, z)$.
+    \end{itemize}
+    则称 $d$ 为 $X$ 上的一个度量，$(X, d)$ 为一个度量空间.
+\end{dy}
+
+\begin{dy}[内积]
+    设 $X$ 是一个实线性空间，如果定义在 $X \times X$ 上的映射 $\langle \cdot, \cdot \rangle: X \times X \to \mathbb{R}$ 满足
+    \begin{itemize}
+        \item 正定性：$\langle x, x \rangle \geq 0$，且 $\langle x, x \rangle = 0$ 当且仅当 $x = 0$；
+        \item 对称性：$\langle x, y \rangle = \langle y, x \rangle$；
+        \item 线性性：$\langle x + y, z \rangle = \langle x, z \rangle + \langle y, z \rangle$，$\langle \lambda x, y \rangle = \lambda \langle x, y \rangle$.
+    \end{itemize}
+    则称 $\langle \cdot, \cdot \rangle$ 为 $X$ 上的一个内积，$(X, \langle \cdot, \cdot \rangle)$ 为一个内积空间.
+\end{dy}
+
+\begin{dy}[范数]
+    设 $X$ 是一个实线性空间，如果定义在 $X$ 上的映射 $\| \cdot \|: X \to \mathbb{R}$ 满足
+    \begin{itemize}
+        \item 正定性：$\| x \| \geq 0$，且 $\| x \| = 0$ 当且仅当 $x = 0$；
+        \item 齐次性：$\| \lambda x \| = |\lambda| \| x \|$；
+        \item 三角不等式：$\| x + y \| \leq \| x \| + \| y \|$.
+    \end{itemize}
+    则称 $\| \cdot \|$ 为 $X$ 上的一个范数.
+\end{dy}
+
+\subsubsection{Euclid 空间}
+
+\begin{dy}[Euclid 空间]
+    设 $\mathbb{R}^n$ 上定义内积
+    $$
+        \langle x, y \rangle = x_1 y_1 + x_2 y_2 + \cdots + x_n y_n,
+    $$ 
+    则称 $(\mathbb{R}^n, \langle \cdot, \cdot \rangle)$ 为 $n$ 维 Euclid 空间.
+\end{dy}
+
+Euclid 空间是一个内积空间，且其范数有多种定义：
+\begin{itemize}
+    \item 1-范数：$\| x \|_1 = |x_1| + |x_2| + \cdots + |x_n|$；
+    \item 2-范数：$\| x \|_2 = \sqrt{x_1^2 + x_2^2 + \cdots + x_n^2}$；
+    \item $\infty$-范数：$\| x \|_\infty = \max \{ |x_1|, |x_2|, \cdots, |x_n| \}$.
+    \item $p$-范数：$\| x \|_p = \left( |x_1|^p + |x_2|^p + \cdots + |x_n|^p \right)^{\frac{1}{p}}$.
+\end{itemize}
+
+\begin{kuang3}
+    \subsection{度量空间的子集}
+\end{kuang3}
+
+\subsubsection{聚点、内点、外点和边界点}
+
+\begin{dy}[聚点]
+    如果 $\forall \varepsilon > 0$, 有 $A \cap \mathring{B}(x, \varepsilon) \neq \varnothing$, 则称 $x$ 为 $A$ 的一个聚点. \\
+    等价地有若存在 $\{x_n\} \in A$ 且 $x_n \neq x$, 成立 $\lim_{n \to \infty}x_n = x$. \\
+    所有聚点构成的集合为 $A$ 的导集，记作 $A'$
+\end{dy}
+
+\begin{dy}[收敛序列]
+    $\{x_n\}_{n = 1}^\infty$ 是度量空间 $X$ 中的一个序列，如果对任意 $\varepsilon > 0$, 存在 $N > 0$, 任意 $n > N$ 有 $d(x_n, x) < \varepsilon$, 则称 $x_n$ 收敛到 $x$.
+\end{dy}
+
+\begin{dy}[内点、外点和边界点]
+    设 $(X,d)$ 是一个度量空间, $A \subset X$ 是 $X$ 的一个子集，$x \in X$.
+    \begin{enumerate}
+        \item[(1)] (内点) 如果 $\exists \varepsilon > 0$, 使得 $B(x,\varepsilon) \subset A$，则称 $x$ 为 $A$ 的一个内点. 集合 $A$ 的一切内点所组成的集合称为 $A$ 的内部，记作 $A^\circ$.
+        \item[(2)] (外点) 如果 $\exists \varepsilon > 0$, 使得 $B(x,\varepsilon) \cap A = \varnothing$，则称 $x$ 为 $A$ 的一个外点. $A$ 的一切外点组成的集合为 $(A^c)^\circ$.
+        \item[(3)] (边界点) 如果 $\forall \varepsilon > 0$, $B(x,\varepsilon) \cap A \neq \varnothing$ 且 $B(x,\varepsilon) \cap A^c \neq \varnothing$，则称 $x \in X$ 为 $A$ 的一个边界点. $A$ 的所有边界点组成的集合记作 $\partial A$.
+    \end{enumerate}
+    显然，$A$ 的内点集合、外点集合和边界点集合的并集为整个空间 $X$，即
+    $$
+        A^\circ \cup (A^c)^\circ \cup \partial A = X.
+    $$ 
+\end{dy}
+
+在 $\RR^n$ 的子集中，
+\begin{itemize}
+    \item 内点必为聚点
+    \item 外点必为非聚点
+\end{itemize}
+
+
+
+\subsubsection{开集、闭集、邻域}
+
+\begin{dy}[邻域]
+    设 $(X, d)$ 是一个度量空间，$x \in X$，如果存在 $\varepsilon > 0$，使得 $B(x, \varepsilon)$，则称 $B(x, \varepsilon)$ 为 $x$ 的一个（开）邻域.
+\end{dy}
+
+\begin{dy}[开集]
+    设 $(X, d)$ 是一个度量空间，$U \subset X$，如果对任意 $x \in U$，存在 $\varepsilon > 0$，使得 $B(x, \varepsilon) \subset U$，则称 $U$ 为 $X$ 中的一个开集. \\
+    也即 $A = A^o$
+\end{dy}
+
+\begin{dy}[闭集]
+    设 $(X, d)$ 是一个度量空间，$F \subset X$，如果 $X \setminus F$ 是一个开集，则称 $F$ 为 $X$ 中的一个闭集. \\
+    也即 $A' \subseteq A$
+\end{dy}
+
+我们称 $\overline{A} = A \cup A'$ 为 $A$ 的闭包.
+
+\begin{dl}
+    设 $(X,d)$ 是一个度量空间. 以下命题等价：
+    \begin{itemize}
+        \item[(1)] $A \subset X$ 是一个闭集；
+        \item[(2)] $A = \overline{A}$；
+        \item[(3)] 若序列 $\{x_n\}_{n=1}^\infty \subset A$ 收敛，则其极限属于 $A$；
+        \item[(4)] $A^c$ 是开集.
+    \end{itemize}
+\end{dl}
+
+\begin{dl}
+    任意个开集 (未必可数个) 的并是开集. 任意个闭集的交(未必可数个)是闭集. 有限个开集的交是开集. 有限个闭集的并是闭集.
+\end{dl}
+
+\begin{dl}
+    设 $(X,d)$ 是一个度量空间，$A \subset X$。则：
+    \begin{enumerate}
+        \item[(1)] $\overline{A}$ 是包含 $A$ 的最小闭集。即：$\overline{A}$ 是闭集且对任意闭集 $K$，若 $A \subset K$，则必有 $\overline{A} \subset K$；
+        \item[(2)] $A^\circ$ 是包含于 $A$ 的最大开集。即：$A^o$ 是开集且对任意开集 $U$，若 $U \subset A$，则必有 $U \subset A^o$。
+    \end{enumerate}
+\end{dl}
+
+\begin{kuang3}
+    \subsection{度量空间的紧性}
+\end{kuang3}
+
+\subsubsection{紧集}
+
+\begin{dy}[有限覆盖]
+    设 $(X, d)$ 是一个度量空间，$A \subset X$，如果存在一族开集 $\{U_\alpha\}_{\alpha \in I}$，使得 $A \subset \bigcup_{\alpha \in I} U_\alpha$，且 $I$ 是有限集，则称 $\{U_\alpha\}_{\alpha \in I}$ 是 $A$ 的一个有限覆盖.
+\end{dy}
+
+\begin{dy}[紧集]
+    设 $(X, d)$ 是一个度量空间，$A \subset X$，如果对任意 $A$ 的开覆盖 $\{U_\alpha\}_{\alpha \in I}$，都存在有限子覆盖 $\{U_{\alpha_i}\}_{i = 1}^n$，使得 $A \subset \bigcup_{i = 1}^n U_{\alpha_i}$，则称 $A$ 是一个紧集.
+\end{dy}
+
+\begin{dl}
+    紧集是有界集.
+\end{dl}
+
+\begin{zm}
+    任取 $x \in A$, $\{{B}(x, n)\}_{n = 1}^\infty$ 构成 $A$ 的开覆盖. 有有限子覆盖 $\{{B}(x, n_i)\}_{i = 1}^k$. 则 $A \subset \bigcup_{i = 1}^k {B}(x, n_i) = {B}(x, n_k)$, 故 $A$ 有界.
+\end{zm}
+
+\subsubsection{列紧集}
+
+\begin{dy}[列紧集]
+    如果 $A$ 中的任意序列都有子列收敛到 $A$ 中元素，则称 $A$ 是列紧集.
+\end{dy}
+
+\begin{dl}\label{紧集是列紧集}
+    紧集是列紧集.
+\end{dl}
+
+\begin{zm}
+    反证法，设 $A$ 是紧集但非列紧集. 设 $\{x_n\}_{n=1}^\infty$ 是包含于 $A$ 的一个序列，没有任何子列收敛到 $A$ 中的元素. 先证明以下引理：
+    \begin{yl}
+        对任意 $x \in A$，存在 $\delta_x > 0$，使得 $B(x, \delta_x)$ 仅含 $\{x_n\}_{n=1}^\infty$ 中的有限项.
+    \end{yl}
+    \begin{ylzmhj}
+        设引理为假，则存在 $x \in A$，使得对任意 $\delta > 0$，$B(x, \delta)$ 含有 $\{x_n\}_{n=1}^\infty$ 中的无限项. 于是，取 $\delta = 1, 1/2, 1/3, \ldots$，可以取 $x_{k_1} \in B(x, 1) \cap A$，$x_{k_2} \in B(x, 1/2) \cap A$ ($k_2 > k_1$)，$x_{k_3} \in B(x, 1/3) \cap A$ ($k_3 > k_2$)，$\ldots$ 由此得到子列 $\{x_{k_i}\}_{i=1}^\infty$ 收敛到 $x \in A$. 与 $\{x_n\}_{n=1}^\infty$ 没有任何子列收敛到 $A$ 中的条件矛盾. 引理得证.
+    \end{ylzmhj}
+    显然，$\{B(x, \delta_x)\}_{x \in A}$ 构成 $A$ 的开覆盖. 且由 $A$ 的紧致性，必有有限子覆盖 $\{B(x_{k_i}, \delta_{x_{k_i}})\}_{i=1}^N$. 由此，
+    $$
+        \{x_n\}_{n=1}^\infty \subset A \subset \bigcup_{i=1}^N B(x_{k_i}, \delta_{x_{k_i}})
+    $$ 
+    只有有限项，矛盾.
+\end{zm}
+
+\begin{dl}
+    列紧集都是闭集. 故紧集都是有界闭集.
+\end{dl}
+
+\begin{kuang3}
+    \subsection{度量空间的完备性}
+\end{kuang3}
+
+\subsubsection{完备的定义}
+
+\begin{dy}[Cauchy 列]
+    略
+\end{dy}
+
+\begin{dy}[完备集的定义]
+    如果度量空间 $(X,d)$ 中的任意 Cauchy 序列收敛，则称该度量空间为完备空间.    
+\end{dy}
+
+\subsubsection{完备空间的性质}
+
+\begin{dl} \quad
+    \begin{itemize}
+        \item 度量空间中的列紧集完备.
+        \item 完备空间中的闭集完备.
+    \end{itemize}
+\end{dl}
+
+\begin{dl}[闭集套定理]
+    完备空间中的非空闭集列 $\{A_n\}_{n = 1}^\infty$ 构成套，且 $A_n$ 的直径 $\delta_n \to 0$. 其中 $\delta_n = \sup_{x, y \in A} d(x, y)$ \\
+    则存在唯一 $\xi \in A_n, \forall n \in \mathbb{N}$.
+\end{dl}
+
+\begin{dy}[完全有界]
+    $(X, d)$ 度量空间， $A \subseteq X$, 若对 $\forall \varepsilon > 0, \exists x_1, \cdots, x_n\ (\text{依赖于 } \varepsilon)$, 满足 \begin{align*}
+        A \subsetneqq \bigcup_{i = 1}^{n}B(x_i, \varepsilon)
+    \end{align*}
+    则称 $A$ 完全有界，且称 $\{x_k\}_{k = 1}^n$ 为 $A$ 的一个 $\varepsilon$-网.
+\end{dy}
+
+\begin{lt}
+    $A$ 是完全有界集，证明：
+    \begin{itemize}
+        \item $A$ 的任意子集完全有界.
+        \item $\overline{A}$ 完全有界.
+    \end{itemize}
+\end{lt}
+
+离散度量空间中的无限有界集不完全有界.
+
+\begin{dl}[紧性定理]
+    $(X, d)$ 完备度量空间， $A \subseteq X$, 下列命题等价：
+    \begin{itemize}
+        \item [(1)] $A$ 是紧集.
+        \item [(2)] $A$ 是列紧集.
+        \item [(3)] $A$ 是完全有界闭集.
+    \end{itemize}
+\end{dl}
+
+\begin{zm} \quad
+    \begin{itemize}
+        \item [(1)] $\Rightarrow$ (2) 即为 \textbf{定理\ref{紧集是列紧集}}
+        \item [(2)] $\Rightarrow$ (3) 反证. 无限取点 + 无收敛子列.
+        \item [(3)] $\Rightarrow$ (1) 设  $A$  是完全有界的闭集。注意完全有界集合的子集必然完全有界。现使用反证法证明  $A$  是紧集。假设  $\Gamma$  是  $A$  的开覆盖，但不存在  $A$  的有限子覆盖。
+        按完全有界的定义，取  $\varepsilon_1 = 1$ ，则能找到有限个点  $x_{1}^{1}, x_{1}^{2}, \ldots, x_{1}^{n_1}$ ，使得
+        $$
+            A \subset \bigcup_{i=1}^{n_1} B(x_{1}^{i}, 1).
+        $$ 
+        在  $A \cap B(x_{1}^{i}, 1)$  中，必有一个集合不能被  $\Gamma$  有限覆盖，记作  $A_1$ 。因为  $A_1$  完全有界，故取  $\varepsilon_2 = \frac{1}{2}$ ，能找到有限个点  $x_{2}^{1}, x_{2}^{2}, \ldots, x_{2}^{n_2}$ ，使得
+        $$
+            A_1 \subset \bigcup_{i=1}^{n_2} B\left(x_{2}^{i}, \frac{1}{2}\right).
+        $$ 
+        在  $A_1 \cap B\left(x_{2}^{i}, \frac{1}{2}\right)$  中，必有一个集合不能被  $\Gamma$  有限覆盖，记作  $A_2$ 。以此类推，我们构造了一个闭集套  $\{A_n\}_{n=1}^{\infty}$ ，满足：
+        \begin{enumerate}
+            \item[(1)]  $A_{n+1} \subset A_n$ ， $\forall n \in \mathbb{N}$ ；
+            \item[(2)]  $A_n$  的直径不超过  $\frac{2}{n}$ ；
+            \item[(3)] 每一个  $A_n$  不能被  $\Gamma$  有限覆盖。
+        \end{enumerate}
+        由闭集套定理，存在唯一的  $\zeta \in \bigcap_{n=1}^{\infty} A_n$ 。因为  $\zeta \in A$ ，而  $A$  被  $\Gamma$  覆盖，故存在  $\Gamma$  中的开集  $U$ ，使得  $\zeta \in U$ 。又按开集的定义，存在  $\delta > 0$ ，使得  $B(\zeta, \delta) \subset U$ 。取足够大的  $n$ ，使得  $\frac{2}{n} < \delta$ ，则有
+        
+        $$
+            A_n \subset B\left(\zeta, \frac{2}{n}\right) \subset U，
+        $$ 
+        这与  $A_n$  不能被  $\Gamma$  有限覆盖矛盾。因此， $A$  是紧集。
+    \end{itemize}
+\end{zm}
+
+注：上面只有 (3) $\Rightarrow$ (1) 使用了完备性！
+
+\begin{kuang3}
+    \subsection{Euclid 空间的完备性}
+\end{kuang3}
+
 \end{document}

@@ -1,6 +1,6 @@
-This is XeTeX, Version 3.141592653-2.6-0.999996 (TeX Live 2024) (preloaded format=xelatex 2024.9.25)  29 DEC 2024 22:01
+This is XeTeX, Version 3.141592653-2.6-0.999996 (TeX Live 2024) (preloaded format=xelatex 2024.9.25)  13 MAR 2025 19:30
 entering extended mode
- restricted \write18 enabled.
+ \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
 **数分例题整理
@@ -1142,18 +1142,15 @@ Underfull \hbox (badness 10000) in paragraph at lines 29--29
  [][] [][][]\TU/SimSun(0)/m/n/14 定 积 分 的 定 义 与 
  []
 
-)
-\tf@toc=\write5
-\openout5 = `数分例题整理.toc'.
 
-
-Overfull \vbox (19.17143pt too high) has occurred while \output is active []
+Underfull \hbox (badness 10000) in paragraph at lines 47--47
+ [][] [][][]\TU/TeXGyreTermesX(0)/m/n/14 Abel \TU/SimSun(0)/m/n/14 判 别 法 与 
+ []
 
 LaTeX Font Info:    Font shape `TU/TeXGyreTermesX(0)/m/n' will be
-(Font)              scaled to size 10.53937pt on input line 242.
+(Font)              scaled to size 10.53937pt on input line 48.
 LaTeX Font Info:    Font shape `TU/TeXGyreTermesX(0)/b/n' will be
-(Font)              scaled to size 10.53937pt on input line 242.
-
+(Font)              scaled to size 10.53937pt on input line 48.
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 12.64723pt, for example:
@@ -1161,7 +1158,11 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-0.64723pt}.
 
-[1]
+[1])
+\tf@toc=\write5
+\openout5 = `数分例题整理.toc'.
+
+
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 12.64723pt, for example:
@@ -1473,7 +1474,72 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-0.64723pt}.
 
-[34] (./数分例题整理.aux)
+[34]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 12.64723pt, for example:
+(fancyhdr)                \setlength{\headheight}{12.64723pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+(fancyhdr)                \addtolength{\topmargin}{-0.64723pt}.
+
+[35]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 12.64723pt, for example:
+(fancyhdr)                \setlength{\headheight}{12.64723pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+(fancyhdr)                \addtolength{\topmargin}{-0.64723pt}.
+
+[36]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 12.64723pt, for example:
+(fancyhdr)                \setlength{\headheight}{12.64723pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+(fancyhdr)                \addtolength{\topmargin}{-0.64723pt}.
+
+[37]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 12.64723pt, for example:
+(fancyhdr)                \setlength{\headheight}{12.64723pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+(fancyhdr)                \addtolength{\topmargin}{-0.64723pt}.
+
+[38]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 12.64723pt, for example:
+(fancyhdr)                \setlength{\headheight}{12.64723pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+(fancyhdr)                \addtolength{\topmargin}{-0.64723pt}.
+
+[39]
+Missing character: There is no ， (U+FF0C) in font [TeXGyreTermesX-Regular.otf]/OT:script=latn;language=dflt;-ss05;+tnum;+lnum;mapping=tex-text;!
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 12.64723pt, for example:
+(fancyhdr)                \setlength{\headheight}{12.64723pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+(fancyhdr)                \addtolength{\topmargin}{-0.64723pt}.
+
+[40]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 12.64723pt, for example:
+(fancyhdr)                \setlength{\headheight}{12.64723pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+(fancyhdr)                \addtolength{\topmargin}{-0.64723pt}.
+
+[41]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 12.64723pt, for example:
+(fancyhdr)                \setlength{\headheight}{12.64723pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+(fancyhdr)                \addtolength{\topmargin}{-0.64723pt}.
+
+[42] (./数分例题整理.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2022/08/05>
@@ -1485,16 +1551,16 @@ Package rerunfilecheck Warning: File `数分例题整理.out' has changed.
 (rerunfilecheck)                or use package `bookmark'.
 
 Package rerunfilecheck Info: Checksums for `数分例题整理.out':
-(rerunfilecheck)             Before: CBDEF82B2779EAF7285A0AC7C094A64A;5596
-(rerunfilecheck)             After:  B1591DE22914847D028C028874E87AFE;6044.
+(rerunfilecheck)             Before: 669EEBA81365DA85078081BCE40B0A3D;7701
+(rerunfilecheck)             After:  8C7B422BE53B7F49794D5EE1196A9390;7845.
  ) 
 Here is how much of TeX's memory you used:
- 35262 strings out of 474773
- 785291 string characters out of 5761289
- 1964842 words of memory out of 5000000
- 56785 multiletter control sequences out of 15000+600000
+ 35310 strings out of 474773
+ 786100 string characters out of 5761289
+ 1947842 words of memory out of 5000000
+ 56833 multiletter control sequences out of 15000+600000
  564453 words of font info for 106 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  101i,15n,107p,1193b,1464s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on 数分例题整理.pdf (37 pages).
+Output written on 数分例题整理.pdf (45 pages).

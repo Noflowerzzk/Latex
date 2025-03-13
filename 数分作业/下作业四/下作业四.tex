@@ -1,0 +1,124 @@
+\documentclass{article}
+\usepackage{amsmath}  % 数学符号包
+\usepackage{amssymb}  % 更多数学符号
+\usepackage{enumitem} % 列表样式
+\usepackage{fancyhdr} % 页眉设置
+\usepackage{geometry} % 页面设置
+\usepackage[UTF8]{ctex}
+\usepackage{bm}
+\usepackage{amsthm}
+\everymath{\displaystyle}  % 让所有数学模式都使用 \displaystyle
+\newcommand{\lb}{\left\llbracket}
+\newcommand{\rb}{\right\rrbracket}
+
+
+\geometry{a4paper, margin=1in}
+
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[C]{作业四}
+\fancyhead[R]{2025.3.13}
+
+
+\title{作业四}
+\author{Noflowerzzk}
+\date{2025.3.13}
+
+
+\begin{document}
+\maketitle
+
+\section*{P72 T1}
+
+\begin{itemize}
+    \item [(9)] 取 $x_n = \frac{2}{3^n\pi}$, 有 $u_n(x_n) \to 2^n$, $u_n(x)$ 在 $(0, +\infty)$ 不一致收敛到0，故函数项级数不一致收敛. \\
+    当 $x \geq \delta$ 时，$\left\lvert u_n(x)\right\rvert \leq \frac{1}{\delta}\frac{2^n}{3^n}$. 由于 $\sum_{n = 1}^{\infty} \frac{1}{\delta}\frac{2^n}{3^n}$ 收敛，故原函数项级数收敛.
+    \item [(10)] 令 $a_n = \frac{1}{\sqrt{n}}, b_n = \sin x \sin nx$. $a_n$ 对任意固定的 $x$ 单减趋于0， $\sum_{k = 1}^{n}b_k = \cos \frac{x}{2} \left(\cos \left(n + \frac{1}{2}\right)x - \cos \frac{x}{2}\right)$ 有界，故原级数收敛.
+    \item [(11)] 由于取 $n, m = 2n$, $x = \frac{1}{\sqrt{n}}$
+    \begin{align*}
+        \sum_{k = n}^{m}u_k > \frac{nx^2}{(1 + x^2)^{2n}} = \frac{1}{\left(1 + \frac{1}{n}\right)^{2n}} > \frac{1}{\mathrm{e}^2}
+    \end{align*}
+    由 Cauchy 收敛准则知级数不收敛.
+    \item [(12)] 令 $a_n = \frac{x^2}{(1 + x^2)^n}$ 单减收敛到0， $b_n = (-1)^n$ 构成的部分和序列有界，故原级数一致收敛.
+\end{itemize}
+
+\section*{P73 T2}
+
+\begin{proof}
+    由于 $\frac{\cos nx}{n^2 + 1} \leq \frac{1}{n^2 + 1}$ 而 $\sum_{n = 1}^{\infty}\frac{1}{n^2 + 1}$ 收敛，故 $f(x)$ 连续. \\
+    又设 $\sigma(x) = \sum_{n = 1}^{\infty}\left(\frac{\cos nx}{n^2 + 1}\right)' = -\sum_{n = 1}^{\infty}\frac{n\sin nx}{n^2 + 1}$. \\
+    由于 $x \in [2a, 2\pi - 2a]$ 有 
+    \begin{align*}
+        \left\lvert -\sum_{n = 1}^{\infty}\frac{n\sin nx}{n^2 + 1}\right\rvert &= \frac{\left\lvert \cos \left(n + \frac{1}{2}\right)x - \cos \frac{1}{2}x\right\rvert }{\left\lvert 2\sin a\right\rvert } \leq \frac{1}{\sin a}
+    \end{align*}
+    故 $-\sum_{n = 1}^{\infty}\frac{n\sin nx}{n^2 + 1}$ 在 $(0, 2\pi)$ 上内闭一致收敛. 因此 $\sigma(x)$ 在 $(0, 2\pi)$ 上连续. 又 $f'(x) = \sigma(x)$, $f(x)$ 在 $(0, 2\pi)$ 上有连续导数.
+\end{proof}
+
+\section*{P73 T3}
+
+\begin{proof}
+    对任意闭区间 $[m, M]$ 上的 $x$, 有 $\sum_{n = 1}^{\infty}n\mathrm{e}^{-nx}$ 收敛，故 $\sum_{n = 1}^{\infty}n\mathrm{e}^{-nx}$ 一致收敛， $f(x)$ 连续. \\
+    令 $\sigma_n(x) = \sum_{n = 1}^{\infty}(n\mathrm{e}^{-nx})^{(n)}$, 同理其也一致收敛，即 $\sigma_n(x)$ 一致收敛. 有显然 $\sigma(x) = f^{(n)}(x)$ 有 $f(x)$ 有各阶连续导函数.
+\end{proof}
+
+\section*{P73 T4}
+
+\begin{proof}
+    令 $f(x) = \sum_{n = 1}^{\infty}\frac{1}{n^x}$. 任意 $[m, M] \subseteq (1, +\infty)$, 有 $\sum_{n = 1}^{\infty}\frac{1}{n^x} \leq \sum_{n = 1}^{\infty}\frac{1}{n^m}$ 收敛. $f(x)$ 在 $(1, +\infty)$ 上内闭一致收敛。 $f(x)$ 连续. \\
+    由于 $\left(\frac{1}{n^x}\right)^{(n)} = (-1)^k\frac{\ln^k n}{n^x}$, 同理 $\sum_{n = 1}^{\infty}(-1)^k\frac{\ln^k n}{n^x}$ 在 $(0, +\infty)$ 上内闭一致收敛. 故 $f(x)$ 在 $(1, +\infty)$ 上有各阶连续导函数. \\
+    令 $g(x) = \sum_{n = 1}^{\infty}\frac{(-1)^n}{n^x}$, 同理 $g(x)$ 在 $(1, +\infty)$ 上内闭一致收敛，故 $g(x)$ 连续. \\
+    由于 $\left(\frac{(-1)^n}{n^x}\right)^{(k)} = (-1)^{n + 1}\frac{\ln^k n}{n^x}$. 同理也有其内闭一致收敛，故 $g(x)$ 在 $(1, +\infty)$ 的各阶连续导函数.
+\end{proof}
+
+\section*{P73 T6}
+
+\begin{proof}
+    \begin{itemize}
+        \item [(1)] 对固定的 $x < 1$ 有 $\frac{1}{n^x}$ 关于 $n$ 单减且小于 1. 由 Abel 判别法， $\sum_{n = 1}^{\infty}$ 在 $[0, \delta)$ 上一致收敛. 故和函数连续，即原表达式成立.
+        \item [(2)] 同理有 $\sum_{n = 1}^{\infty}a_nx^n$ 一致收敛. 因此
+        \begin{align*}
+            \int_{0}^{1}\sum_{n = 1}^{\infty}a_nx^n = \sum_{n = 1}^{\infty}\frac{a_n}{n + 1}
+        \end{align*}
+    \end{itemize}
+\end{proof}
+
+\section*{P73 T7}
+
+\begin{proof}
+    由于 $v_n(x)$ 连续. $\sum_{n = 1}^{\infty}v_n(x)$, 由 Cauchy 收敛准则，对任意 $\varepsilon > 0$, 存在 $N$, 任意 $m > n > N$, $\left\lvert \sum_{k = n}^{m}u_k(x)\right\rvert \leq \sum_{k = n}^{m}v_k(x) \leq \varepsilon$, 故 $\sum_{k = n}^{m}u_n(x)$ 一致收敛.
+\end{proof}
+
+\section*{P73 T9}
+
+\begin{proof}
+    假设 $\sum_{n = 1}^{\infty}$ 在 $(a, a + \delta)$ 上一致收敛. 则由 Cauchy 收敛准则，任意 $\varepsilon > 0$, 存在 $N, \forall m > n > N$, $\left\lvert \sum_{k = n}^{m}u_k(x)\right\rvert \leq \varepsilon$. 则当 $x \to a$ 时， $\left\lvert \sum_{k = n}^{m}u_k(a)\right\rvert \leq \varepsilon$ 与 $\sum_{n = 1}^{\infty}$ 发散矛盾！因此 $\sum_{n = 1}^{\infty}$ 在 $(a, a + \delta)$ 上不一致收敛.
+\end{proof}
+
+\section*{P73 T10}
+
+\begin{proof}
+    已知 $\ln \left(1 + \frac{x}{n \ln^2 n}\right)$ 在 $[-a, a]$ 上单增. 故
+    \begin{align*}
+        \ln \left(1 + \frac{-a}{n \ln^2 n}\right) \leq \ln \left(1 + \frac{x}{n \ln^2 n}\right) \leq \ln \left(1 + \frac{a}{n \ln^2 n}\right)
+    \end{align*}
+    $n$ 充分大时， $\ln \left(1 + \frac{x}{n \ln^2 n}\right) \thicksim \frac{x}{n \ln^2 n}$
+    而 $\lim_{n \to \infty}\sum_{n = 2}^{\infty}\frac{\pm a}{n \ln^2 n} $ 收敛. 因此原和函数一致收敛.
+\end{proof}
+
+\section*{P73 T12}
+
+\begin{itemize}
+    \item [(1)] 由于 $\sum_{n = 1}^{\infty}\frac{1}{\sqrt{n^3 + n}}$ 收敛且 $\cos nx$ 有界，则 $\sum_{n = 1}^{\infty}\frac{\cos nx}{\sqrt{n^3 + n}}$ 一致收敛，记为 $f(x)$, 故 $f(x)$ 连续.
+    \item [(2)] \begin{align*}
+        F(x) &= \int_{0}^{x}f(t)\mathrm{d}t \\
+        &= \sum_{n = 1}^{\infty}\int_{0}^{x}\frac{\cos nx}{\sqrt{n^3 + n}}\mathrm{d}t = \sum_{n = 1}^{\infty}\frac{\sin nx}{n \sqrt{n^3 + n}}
+    \end{align*}
+    故 
+    \begin{align*}
+        F\left(\frac{\pi}{2}\right) &= \frac{\sqrt{2}}{2} - \frac{1}{3\sqrt{30}} \sum_{n = 3}^{\infty}\frac{(-1)^{n - 1}}{(2n - 1)\sqrt{(2n - 1)^3 + 2n - 1}} \\
+    \end{align*}
+    因此 $\frac{\sqrt{2}}{2} - \frac{1}{15} < \frac{\sqrt{2}}{2} - \frac{1}{3\sqrt{30}} < F\left(\frac{\pi}{2}\right) < \frac{\sqrt{2}}{2}$
+\end{itemize}
+
+\end{document}

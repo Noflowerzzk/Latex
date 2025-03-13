@@ -45,3 +45,18 @@
 \contentsline {subsubsection}{\numberline {一、}基本性质}{34}{subsubsection.6.3.1}%
 \contentsline {subsubsection}{\numberline {二、}Leibniz 判别法}{34}{subsubsection.6.3.2}%
 \contentsline {subsubsection}{\numberline {三、}Abel 判别法与 Dirichlet 判别法}{34}{subsubsection.6.3.3}%
+\contentsline {part}{第四部分\hspace {1em}度量空间与函数}{34}{part.4}%
+\contentsline {section}{\numberline {\textbf {第}\textbf {七}\textbf {章}\hspace {18pt}}度量空间}{34}{section.7}%
+\contentsline {subsection}{\numberline {\S \hspace {6pt}7.1\hspace {8pt}}度量空间的定义}{35}{subsection.7.1}%
+\contentsline {subsubsection}{\numberline {一、}度量空间、内积、范数}{35}{subsubsection.7.1.1}%
+\contentsline {subsubsection}{\numberline {二、}Euclid 空间}{36}{subsubsection.7.1.2}%
+\contentsline {subsection}{\numberline {\S \hspace {6pt}7.2\hspace {8pt}}度量空间的子集}{36}{subsection.7.2}%
+\contentsline {subsubsection}{\numberline {一、}聚点、内点、外点和边界点}{36}{subsubsection.7.2.1}%
+\contentsline {subsubsection}{\numberline {二、}开集、闭集、邻域}{37}{subsubsection.7.2.2}%
+\contentsline {subsection}{\numberline {\S \hspace {6pt}7.3\hspace {8pt}}度量空间的紧性}{38}{subsection.7.3}%
+\contentsline {subsubsection}{\numberline {一、}紧集}{38}{subsubsection.7.3.1}%
+\contentsline {subsubsection}{\numberline {二、}列紧集}{39}{subsubsection.7.3.2}%
+\contentsline {subsection}{\numberline {\S \hspace {6pt}7.4\hspace {8pt}}度量空间的完备性}{39}{subsection.7.4}%
+\contentsline {subsubsection}{\numberline {一、}完备的定义}{39}{subsubsection.7.4.1}%
+\contentsline {subsubsection}{\numberline {二、}完备空间的性质}{40}{subsubsection.7.4.2}%
+\contentsline {subsection}{\numberline {\S \hspace {6pt}7.5\hspace {8pt}}Euclid 空间的完备性}{42}{subsection.7.5}%
