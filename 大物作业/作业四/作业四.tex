@@ -1,0 +1,80 @@
+\documentclass{article}
+\usepackage{amsmath}  % 数学符号包
+\usepackage{amssymb}  % 更多数学符号
+\usepackage{enumitem} % 列表样式
+\usepackage{fancyhdr} % 页眉设置
+\usepackage{geometry} % 页面设置
+\usepackage[UTF8]{ctex}
+\usepackage{bm}
+\usepackage{amsthm}
+\everymath{\displaystyle}  % 让所有数学模式都使用 \displaystyle
+\newcommand{\lb}{\left\llbracket}
+\newcommand{\rb}{\right\rrbracket}
+
+\newcommand{\mpt}{\mathrm{m/s}}
+\newcommand{\mptt}{\mathrm{m/s^2}}
+\newcommand{\N}{\mathrm{N}}
+\newcommand{\dd}{\mathrm{d}}
+
+
+\geometry{a4paper, margin=1in}
+
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[C]{作业四}
+\fancyhead[R]{2025.3.15}
+
+
+\title{作业四}
+\author{Noflowerzzk}
+\date{2025.3.15}
+
+
+\begin{document}
+\maketitle
+
+\section*{2 - 2}
+
+速度 $v = 10t$. 由动能定理， $W = \frac{1}{2}m(v_1^2 - v_2^2) = 300J$
+
+\section*{2 - 4}
+
+$B$ 点有 $m\frac{v^2}{R} = N = mg$. 由动能定理， $+mgR - W_f = \frac{1}{2}mv^2 - 0$ 有 $W_f = -\frac{3}{2}mgR + \frac{1}{2}NR$
+
+\section*{2 - 5}
+
+由动能定理， $-\mu mg \left(\sqrt{h^2 + x_1^2} - \sqrt{h^2 + x_0^2}\right) + W = \frac{1}{2}m\left(\frac{x_1}{\sqrt{h^2 + x_1^2}}v\right)^2$ 解得 $W = \frac{1}{2}\frac{x_1^2}{h^2 + x_1^2}mv^2 + \mu mg \left(\sqrt{h^2 + x_1^2} - \sqrt{h^2 + x_0^2}\right)$
+
+\section*{2 - 8}
+
+$W = \Delta E_p = \frac{1}{32}mgL$
+
+\section*{2 - 10}
+
+\begin{itemize}
+    \item [(1)] 显然弹簧恢复原长时分离. 对 $A, B$ 动能定理， $\frac{1}{2}kx_0^2 = \frac{1}{2}(m_A + m_B)v^2$ 有 $v = \sqrt{\frac{k}{m_A + m_B}}x_0$
+    \item [(2)] 对分离后 $A$ 动能定理， $-\frac{1}{2}kx_1^2 = 0 - \frac{1}{2}mv^2$ 得 $x_1 = \sqrt{\frac{m_A}{m_A + m_B}}x_0$
+\end{itemize}
+
+\section*{2 - 11}
+
+\begin{itemize}
+    \item [(1)] 易得 $E_p(r) = \int_{r}^{+\infty}\boldsymbol{F}\dd r = -\frac{Gm_em}{r}$, 带入 $R_e$ 得 $E_p(R_e) = -\frac{Gm_em}{R_e}$
+    \item [(2)] 同理 $E_p(+\infty) = \int_{+\infty}^{R_e} = + \frac{Gm_em}{R_e}$, 势能差相同.
+\end{itemize}
+
+\section*{2 - 13}
+
+$W = 2mgx_0 \sin \alpha$
+
+\section*{2 - 14}
+
+由 $kR = mg$ 得 $k = \frac{mg}{R}$ \\
+$B$ 到 $C$ 有 :
+\begin{align*}
+    mg(0.72R) + \frac{1}{2}k\left((1.6R - l_0)^2 - (2R - l_0)^2\right) = \frac{1}{2}mv^2 - 0
+\end{align*}
+得 $v = \sqrt{\frac{4}{5}gR}$. 故 $a = a_n = \frac{4}{5}g$, 又 $m\frac{v^2}{R} = N + k(2R - l_0)$ 有 $N = \frac{4}{5}mg$
+
+\end{document}

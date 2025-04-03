@@ -1,0 +1,67 @@
+\documentclass{article}
+\usepackage{amsmath}  % 数学符号包
+\usepackage{amssymb}  % 更多数学符号
+\usepackage{enumitem} % 列表样式
+\usepackage{fancyhdr} % 页眉设置
+\usepackage{geometry} % 页面设置
+\usepackage[UTF8]{ctex}
+\usepackage{bm}
+\usepackage{amsthm}
+\everymath{\displaystyle}  % 让所有数学模式都使用 \displaystyle
+\newcommand{\lb}{\left\llbracket}
+\newcommand{\rb}{\right\rrbracket}
+
+
+\geometry{a4paper, margin=1in}
+
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[C]{作业四}
+\fancyhead[R]{2025年3月16日}
+
+
+\title{作业四}
+\author{Noflowerzzk}
+\date{2025年3月16日}
+
+
+\begin{document}
+\maketitle
+
+\section{}
+
+\begin{itemize}
+    \item [(1)] 特征多项式为 $(\lambda - 1)^2(\lambda + 3)$ 因此 Jordan 标准型为 $\begin{pmatrix} 1 & 1 & 0 \\ 0 & 1 & 0 \\ 0 & 0 & -3 \end{pmatrix}$.
+    \item [(2)] 特征多项式为 $(\lambda + 1)^2(\lambda - 1)^2$ 因此 Jordan 标准型为 $\begin{pmatrix} 1 & 1 & 0 & 0 \\ 0 & 1 & 0 & 0 \\ 0 & 0 & -1 & 1 \\ 0 & 0 & 0 & -1 \end{pmatrix}$.
+    \item [(3)] 由于 $A$ 的特征值均为 1, 且 $\eta_k = n - r((\lambda E - A)^k) = k$ 因此只有一个 Jordan 块，为 $J_n(1)$
+\end{itemize} 
+
+\section{}
+
+\begin{itemize}
+    \item [(1)] 观察即得为 $f(x) = (x - 1)^2$
+    \item [(2)] 由于 $A^2 = E$, $f(x) = x^2 - 1$
+    \item [(3)] 观察即得为 $f(x) = (x - 1)^2(x - 2)$
+    \item [(4)] 同理仍然是 $f(x) = (x - 1)^2(x - 2)$
+    \item [(5)] 由于 $A^2 = 0$, $f(x) = x^2$
+\end{itemize}
+
+\section{}
+
+\begin{proof}
+    假设其最小多项式常数项为 0, 则其因式分解后必有 $x$ 项，表明其特征多项式中也有 $x$ 项. 因此其有特征值 0, 与其可逆矛盾. 因此其最小多项式常数项不为 0.
+\end{proof}
+
+\section{}
+
+由于 $A$ 与 $A^T$ 相似形成的 Jordan 标准型相同，故最小多项式仍旧为 $\lambda^5 + 2\lambda^4 - 7\lambda^3 - 6\lambda^2 + 5\lambda + 4$. \\
+由于 $1 + 2A^{-1} - 7A^{-2} - 6A^{-3} + 5A^{-4} + 4A^{-5} = A^{-5}f(A) = 0$ $1 + 2\lambda - 7\lambda^2 - 6\lambda^3 + 5\lambda^4 + 4\lambda^5$ 为 $A^{-1}$ 的一个化零多项式. 故 $A^{-1}$ 的最小多项式为 $\lambda^5 + \frac{5}{4}\lambda^4 - \frac{3}{2}\lambda^3 - \frac{7}{4}\lambda^2 + \frac{1}{2}\lambda + \frac{1}{4}$.
+
+\section{}
+
+\begin{proof}
+    由于 $x^m - 1$ 没有重根，故 $A$ 的最小多项式也没有重根. 因此 $A$ 的 Jordan 标准型为对角阵，即 $A$ 可相似对角化.
+\end{proof}
+
+\end{document}

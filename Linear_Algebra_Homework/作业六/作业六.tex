@@ -1,0 +1,89 @@
+\documentclass{article}
+\usepackage{amsmath}  % 数学符号包
+\usepackage{amssymb}  % 更多数学符号
+\usepackage{enumitem} % 列表样式
+\usepackage{fancyhdr} % 页眉设置
+\usepackage{geometry} % 页面设置
+\usepackage[UTF8]{ctex}
+\usepackage{bm}
+\usepackage{amsthm}
+\everymath{\displaystyle}  % 让所有数学模式都使用 \displaystyle
+\newcommand{\lb}{\left\llbracket}
+\newcommand{\rb}{\right\rrbracket}
+
+
+\geometry{a4paper, margin=1in}
+
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[C]{作业六}
+\fancyhead[R]{2025.3.31}
+
+
+\title{作业六}
+\author{NoflowerzzkNoflowerzzk}
+\date{2025.3.31}
+
+
+\begin{document}
+\maketitle
+
+\section{}
+
+取 $M = \begin{pmatrix}
+    \lambda E_m & A \\
+    B & E_n
+\end{pmatrix}$. 则 $\det M = \det \lambda E_m \cdot \det (E_n - B (\lambda E)) = \lambda^{m - n} \det (\lambda E_n - BA)$. \\
+而 $\det M = \det(\lambda E_m - AB)$. 故 $\det (\lambda E_m - AB) = \lambda^{m - n}\det (\lambda E_n - BA)$.
+
+\section{}
+
+\begin{itemize}
+    \item [(1)] 由于 $\det AA^T = \prod_{k = 1}^{n}\sigma_k^2$, 而 $\det A = \det A^T$, 有 $\left\lvert \det A\right\rvert = \prod_{k = 1}^{n}\sigma_k$. 
+    \item [(2)] 显然 $P, P^T$ 都是正交阵，且 $D$ 为对角阵. 又显然 $D$ 由 $A$ 的特征值构成，不妨为从大到小排列，则 $D = \mathrm{diag} (\sigma_1^2, \cdots, \sigma_n^2)$. 因此其为 QR 分解.
+\end{itemize}
+
+\section{}
+
+存在一组单位正交向量 $v_1, \cdots, v_n$, 其为特征值 $\lambda_i = s_i^2$ 的特征向量. 任取其中一个 $v$, 有 $T^TTv = s^2 v$. 因此 $v^TT^TTv = \left\lvert Tv\right\rvert^2 = s^2v^Tv = s^2$, 故 $\left\lvert Tv\right\rvert = s$.
+
+\section{}
+
+\begin{itemize}
+    \item [(1)] 特征多项式为 $(\lambda - 1)^2(\lambda - 4)$. 对 $\lambda_1 = 4$, 有 $v_1 = \frac{1}{\sqrt{3}}(1, 1, 1)^T$, 对 $\lambda_2 = 1$, 有 $u_1 = \frac{1}{\sqrt{2}}(1, -1, 0)^T, u_2 = \frac{1}{\sqrt{6}}(-1, 1, 2)^T$. 故 $A$ 的谱分解为 $4v_1v_1^T + (u_1u_1^T + u_2u_2^t) = 4P_1 + P_2$。 $\mathrm{e}^A = 4\\mathrm{e}^{P_1} + \mathrm{e}^{P_2} = \begin{pmatrix}
+        \frac{e^4 + 2e}{3} & \frac{e^4 - e}{3} & \frac{e^4 - e}{3} \\
+        \frac{e^4 - e}{3} & \frac{e^4 + 2e}{3} & \frac{e^4 - e}{3} \\
+        \frac{e^4 - e}{3} & \frac{e^4 - e}{3} & \frac{e^4 + 2e}{3}
+    \end{pmatrix}$。
+    \item [(2)] 特征多项式为 $(\lambda - 1)(\lambda - 2)(\lambda - 4)$，重数均为 1. $\lambda = 1$ 时， $v_1 = \frac{1}{\sqrt{3}}(-1, 1, -1)^T$， $\lambda = 2$， $v_2 = \frac{1}{\sqrt{2}}(1, 0, -1)^T$,  $\lambda = 4$, $v_3 = \frac{1}{\sqrt{6}}(1, 2, 1)^T$. 故 $A$ 的谱分解为 $v_1v_1^T + 2v_2v_2^T + 4v_3v_3^T = P_1 + 2P_2 + 4P_3$. $\mathrm{e}^A = \begin{pmatrix}
+        \frac{e^2}{2} + \frac{e}{3} + \frac{e^4}{6} & -\frac{e}{3} + \frac{e^4}{3} & -\frac{e^2}{2} + \frac{e}{3} + \frac{e^4}{6} \\
+        -\frac{e}{3} + \frac{e^4}{3} & \frac{e}{3} + \frac{2e^4}{3} & -\frac{e}{3} + \frac{e^4}{3} \\
+        -\frac{e^2}{2} + \frac{e}{3} + \frac{e^4}{6} & -\frac{e}{3} + \frac{e^4}{3} & \frac{e^2}{2} + \frac{e}{3} + \frac{e^4}{6}
+    \end{pmatrix}$
+\end{itemize}
+
+\section{}
+
+\begin{itemize}
+    \item [(1)] 计算得其奇异值为 $\sigma_1 = 3, \sigma_2 = 2$. 对应单位特征向量 $v_1 = \frac{1}{\sqrt{10}}(1, 3)^T, v_2 = \frac{1}{\sqrt{5}}(-3, 1)^T$. 计算得 $U = \frac{1}{\sqrt{10}}\begin{pmatrix}
+        1 & -3 \\
+        3 & 1
+    \end{pmatrix}$ \\
+    $A = \frac{1}{\sqrt{10}} \begin{bmatrix} 3 & -1 \\ 3 & 1 \end{bmatrix}
+    \begin{bmatrix} 3 & 0 \\ 0 & 2 \end{bmatrix}
+    \frac{1}{\sqrt{10}} \begin{bmatrix} 1 & -3 \\ 3 & 1 \end{bmatrix}$
+    \item [(2)] 计算得其奇异值为 $\sigma_1 = 3, \sigma_2 = 2$. 对应单位特征向量 $v_1 = \frac{1}{\sqrt{5}}(1, 2)^T, v_2 = \frac{1}{\sqrt{5}}(-2, 1)^T$. 计算得 $U = \begin{pmatrix}
+        0 & -1 \\ 1 & 0
+    \end{pmatrix}$ \\
+    $B = U = \begin{bmatrix} 0 & -1 \\ 1 & 0 \end{bmatrix}\begin{bmatrix} 3 & 0 \\ 0 & 2 \end{bmatrix}
+    \frac{1}{\sqrt{5}} \begin{bmatrix} 1 & -2 \\ 2 & 1 \end{bmatrix}$
+    \item [(3)] 计算得其奇异值为 $\sigma_1 = 3\sqrt{10}, \sigma_2 = \sqrt{10}$. 计算得 $U = \frac{1}{\sqrt{10}} \begin{bmatrix} 3 & 1 & 0 \\ 0 & 0 & \sqrt{10} \\ 1 & -3 & 0 \end{bmatrix}$. \\
+    故 $C = \frac{1}{\sqrt{10}} \begin{bmatrix} 3 & 1 & 0 \\ 0 & 0 & \sqrt{10} \\ 1 & -3 & 0 \end{bmatrix}, \quad
+    \begin{bmatrix} 3\sqrt{10} & 0 \\ 0 & \sqrt{10} \\ 0 & 0 \end{bmatrix}, \quad
+    \frac{1}{\sqrt{5}} \begin{bmatrix} 2 & -1 \\ 1 & 2 \end{bmatrix}$
+    \item [(4)] 计算得其奇异值为 $\sigma_1 = 5, \sigma_2 = 3, \sigma_3 = 2$. 对应单位特征向量 $v_1 = \frac{1}{\sqrt{6}}(1, 2, 1)^T, v_2 = \frac{1}{\sqrt{2}}(1, 0, -1)^T, v_3 = \frac{1}{\sqrt{3}}(-1, 1, 1)^T$. 计算得 $U = \frac{1}{\sqrt{2}} \begin{pmatrix} 1 & 1 \\ 1 & -1 \end{pmatrix}$. \\
+    $D = \frac{1}{\sqrt{2}} \begin{bmatrix} 1 & 1 \\ 1 & -1 \end{bmatrix} \begin{bmatrix} 5 & 0 & 0 \\ 0 & 3 & 0 \end{bmatrix} \begin{bmatrix} \frac{1}{\sqrt{6}} & \frac{1}{\sqrt{2}} & -\frac{1}{\sqrt{3}} \\ \frac{2}{\sqrt{6}} & 0 & \frac{1}{\sqrt{3}} \\ \frac{1}{\sqrt{6}} & -\frac{1}{\sqrt{2}} & \frac{1}{\sqrt{3}} \end{bmatrix}$
+\end{itemize}
+
+\end{document}

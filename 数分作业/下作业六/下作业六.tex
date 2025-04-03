@@ -1,0 +1,88 @@
+\documentclass{article}
+\usepackage{amsmath}  % 数学符号包
+\usepackage{amssymb}  % 更多数学符号
+\usepackage{enumitem} % 列表样式
+\usepackage{fancyhdr} % 页眉设置
+\usepackage{geometry} % 页面设置
+\usepackage[UTF8]{ctex}
+\usepackage{bm}
+\usepackage{amsthm}
+\everymath{\displaystyle}  % 让所有数学模式都使用 \displaystyle
+\newcommand{\lb}{\left\llbracket}
+\newcommand{\rb}{\right\rrbracket}
+\newcommand{\nti}{\sum_{n = 1}^{\infty}}
+
+
+\geometry{a4paper, margin=1in}
+
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[C]{下作业六}
+\fancyhead[R]{2025.3.27}
+
+
+\title{下作业六}
+\author{Noflowerzzk}
+\date{2025.3.27}
+
+
+\begin{document}
+\maketitle
+
+\section*{P93 T1}
+
+\begin{itemize}
+    \item [(7)] 为 $\nti \frac{(-1)^{n - 1}}{2^n}(x - 1)^n$, 收敛半径为 $R = 2$. 又当 $x = -1$ 和 $x = 3$ 时级数发散。故收敛域为 $(-1, 3)$.
+    \item [(8)] $(1 + x)\ln (1 - x) = (1 + x)\nti -\frac{1}{n}x^n = -x - \sum_{n = 2}^{\infty}\left(\frac{1}{n - 1} + \frac{1}{n}\right)x^n$. 收敛半径 $x = 1$. 又检验 $x \pm 1$ 有收敛域为 $[-1, 1)$
+    \item [(9)] $\ln \sqrt{\frac{1 + x}{1 - x}} = \frac{1}{2}\left(\ln (1 + x) - \ln(1 - x)\right) = \sum_{n = 0}^{\infty}\frac{1}{2n + 1}x^{2n + 1}$. 收敛域为 $(-1, 1)$.
+    \item [(10)] $\frac{\mathrm{e}^{-x}}{1 - x} = \sum_{n = 0}^{\infty}\frac{(-x)^n}{n!}\sum_{n = 0}^{\infty}x^n = 1 + \sum_{n = 2}^{\infty}\left(\frac{1}{2!} - \frac{1}{3!} + \cdots + \frac{(-1)^n}{n!}\right)x^n$. 显然 $x^n$ 的系数有界，故收敛半径为 1. 检验得收敛域为 $(-1, 1)$.
+\end{itemize}
+
+\section*{P94 T2}
+
+\begin{itemize}
+    \item [(1)] \begin{align*}
+        \frac{x}{\sin x} &= \frac{x}{x - \frac{1}{6}x^3 + \cdots} = \frac{1}{1 - \frac{1}{6}x^2 + \cdots} \\
+        &= 1 + \left(1 - \frac{1}{6}x^2 + \cdots\right) + \left(1 - \frac{1}{6}x^2 + \cdots\right)^2 + \cdots \\
+        &= 1 + \frac{1}{6}x^2 + \frac{7}{360}x^4
+    \end{align*}
+    \item [(2)] \begin{align*}
+        \mathrm{e}^{\sin x} &= 1 + \sin x + \frac{1}{2}\sin x + \cdots \\
+        &= 1 + \left(x + \frac{1}{6}x^3 + \cdots\right) + \frac{1}{2}\left(x + \frac{1}{6}x^3 + \cdots\right)^2 + \cdots \\
+        &= 1 + x + \frac{1}{2}x^2 - \frac{1}{8}x^4 + \cdots
+    \end{align*}
+    \item [(3)] \begin{align}
+        \ln \cos x &= -(1 - \cos x) - \frac{1}{2}(1 - \cos x)^2 + \cdots \\
+        &= \left(\frac{1}{2}x^2 - \frac{1}{24}x^4 + \cdots\right) - \frac{1}{2}\left(\frac{1}{2}x^2 - \frac{1}{24}x^4 + \cdots\right)^2 + \cdots \\
+        &= -\frac{1}{2}x^2 - \frac{1}{12}x^4 - \frac{1}{45}x^6 + \cdots
+    \end{align}
+    \item [(4)] \begin{align}
+        \sqrt{\frac{1 + x}{1 - x}} &= \sqrt{1 + 2(x + x^2 + \cdots)} \\
+        &= 1 + (x + x^2 + x^3 + \cdots) + \frac{1}{2}(x + x^2 + x^3 + \cdots)^2 + \cdots \\
+        &= 1 + x + \frac{1}{2}x^2 + \frac{1}{2}x^3 + \frac{3}{8}x^4 + \cdots
+    \end{align}
+\end{itemize}
+
+\section*{P94 T4}
+
+\begin{proof}
+    由于 $\frac{\mathrm{e}^x - 1}{x} = \frac{1}{x}\left(\sum_{n = 0}^{\infty}\frac{x^n}{n!} - 1\right) = \nti \left(\frac{x^{n - 1}}{n!}\right)$. 两边求导有 $\frac{(x - 1)\mathrm{e}^x + 1}{x^2} = \nti \frac{nx^{n - 1}}{(n + 1)!}$ 代入 $x = 1$ 即证.
+\end{proof}
+
+\section*{P94 T5}
+
+\begin{itemize}
+    \item [(1)] 显然由于 $\nti \frac{(-1)^{n - 1}}{1}t^{n - 1} = \frac{1}{1 + t}$. 逐项积分两次有 $f(x) = \nti \frac{(-1)^{n - 1}}{n(n + 1)}x^{n + 1} = (1 + x)\ln (1 + x) - x$ 即 $\nti {(-1)^{n - 1}}{n(n + 1)}x^{n} = \left(1 + \frac{1}{x}\right)\ln(x + 1) - 1$. 带入 $x = \left(\frac{2 + x}{2 - x}\right)^2$ 即有原式为 $2\frac{x^2 + 4}{(x + 2)^2}\ln \frac{2(x^2 + 4)}{(x - 2)^2} - 1, x \leq 0$.
+    \item [(2)] $\nti\left(1 + \frac{1}{2} + \cdots + \frac{1}{n}\right)x^n = \left(\sum_{n = 0}^{\infty}x^n\right)\left(\nti \frac{x^n}{x}\right) = \frac{1}{1 - x}\ln \frac{1}{1 - x}$, $x \in (-1, 1)$.
+\end{itemize}
+
+\section*{P94 T6}
+
+设 $a_n = c + (n - 1)d$ 则 $\nti \frac{a_n}{b^n} = \nti \frac{c}{b^n} + d\nti \frac{n - 1}{b^n} = \frac{c}{b - 1} + d\nti \frac{n - 1}{b^n}$. 又根据逐项积分定理有 $\nti \frac{n - 1}{b^n} = \frac{1}{(b - 1)^2}$，故原式为 $\frac{c}{b - 1} + \frac{d}{(b - 1)^2}$
+
+\section*{P94 T7}
+
+由于 $\frac{\ln x}{1 - x^2} = \sum_{n = 0}^{\infty}x^{2n} \ln x$. 故 $\int_{0}^{1}\frac{\ln x}{1 - x^2} = \sum_{n = 0}^{\infty}\int_{0}^{1}x^{2n} \ln x \mathrm{d}x = - \sum_{n = 0}^{\infty}\frac{1}{(2n + 1)^2}$. 由于 $\nti \frac{1}{n^2} = \frac{\pi^2}{6}$, 得原式为 $-\frac{\pi^2}{8}$
+
+\end{document}

@@ -1,0 +1,101 @@
+\documentclass{article}
+\usepackage{amsmath}  % 数学符号包
+\usepackage{amssymb}  % 更多数学符号
+\usepackage{enumitem} % 列表样式
+\usepackage{fancyhdr} % 页眉设置
+\usepackage{geometry} % 页面设置
+\usepackage[UTF8]{ctex}
+\usepackage{bm}
+\usepackage{amsthm}
+\everymath{\displaystyle}  % 让所有数学模式都使用 \displaystyle
+\newcommand{\lb}{\left\llbracket}
+\newcommand{\rb}{\right\rrbracket}
+
+
+\geometry{a4paper, margin=1in}
+
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[C]{2025.3.19}
+\fancyhead[R]{作业五}
+
+
+\title{作业五}
+\author{Noflowerzzk}
+\date{2025.3.19}
+
+
+\begin{document}
+\maketitle
+
+\section*{P82 T2}
+
+\begin{itemize}
+    \item [(1)] $\overline{\lim_{n \to \infty}}\left(\frac{a^n}{n} + \frac{b^n}{n^2}\right)^{\frac{1}{n}} = a$, 收敛半径为 $R = \frac{1}{a}$. 又 $x = \frac{1}{a}$ 时，原式为 $\sum_{n = 1}^{\infty}\left(\frac{1}{n} + \frac{b^n}{n^2a^n}\right)$ 发散；$x = -\frac{1}{a}$ 时，原式为 $\sum_{n = 1}^{\infty}\left(\frac{(-1)^n}{n} - \frac{(-1)^nb^n}{n^2a^n}\right)$ 收敛。所以收敛区间为 $\left[-\frac{1}{a}, \frac{1}{a}\right)$.
+    \item [(2)] $\overline{\lim_{n \to \infty}}\sqrt[n]{\frac{1}{a^n + b^n}} = \frac{1}{a}$. 收敛半径为 $a$. $x = \pm a$ 时均不收敛，故收敛域为 $(-a, a)$
+    \item [(3)] 令 $c_n = \begin{cases}
+        a^n, & n \text{ 为奇数} \\
+        b^n, & n \text{ 为偶数}
+    \end{cases}$
+    有 $\overline{\lim_{n \to \infty}}\sqrt[n]{c_n} = \sqrt{a}$. 收敛半径为 $\frac{1}{\sqrt{a}}$. $x = \pm \frac{1}{\sqrt{a}}$ 时均不收敛，故收敛域为 $\left(-\frac{1}{\sqrt{a}}, \frac{1}{\sqrt{a}}\right)$
+\end{itemize}
+
+\section*{P82 T3}
+
+\begin{itemize}
+    \item [(1)] 显然为 $\sqrt{R_1}$.
+    \item [(2)] $R_1 \neq R_2$ 时，为 $\min \{R_1, R_2\}$. $R_1 = R_2$ 时，收敛半径大于等于 $\min \{R_1, R_2\}$.
+    \item [(3)] 由于 $\overline{\lim_{n \to \infty}}\sqrt[n]{\left\lvert a_nb_n\right\rvert} \leq \overline{\lim_{n \to \infty}}\sqrt[n]{\left\lvert a_n\right\rvert}\overline{\lim_{n \to \infty}}\sqrt[n]{\left\lvert b_n\right\rvert}$ 有收敛半径 $\geq R_1R_2$.
+\end{itemize}
+
+\section*{P82 T4}
+
+\begin{itemize}
+    \item [(4)] 由于 $\sum_{n = 1}^{\infty}\frac{1}{n(n + 1)} = 1$, 故收敛半径为 $1$. 又 $x = \pm 1$ 时级数收敛. 故和函数定义域为 $[-1, 1]$. 令 $S(x) = \sum_{n = 1}^{\infty}\frac{x^n}{n(n + 1)}$, 则 $f(x) = xS(x)$, 又 $f''(x) = \sum_{n = 1}^{\infty}x^{n - 1} = \frac{1}{1 - x}$，因此 $S(x) = 1 - \left(1 - \frac{1}{x}\right)\ln (1 - x), x \in [-1, 1)$, 又 $x = 1$ 时， $S(1) = 1$, 故 $S(x) = \begin{cases}
+        1 - \left(1 - \frac{1}{x}\right)\ln (1 - x), & x \in [-1, 1) \\
+        1, & x = 1
+    \end{cases}$
+    \item [(5)] 由定义，收敛半径为 1, 又 $x = \pm 1$ 时发散，定义域为 $(-1, 1)$. 令 $f(x) = S(x)/x$, 有 $\int_{0}^{x}f(x)\mathrm{d}x = \sum_{n = 1}^{\infty}(n + 1)x^2 = \frac{1}{(1 - x)^2} - 1$ 故 $S(x) = xf'(x) = \frac{2x}{(1 - x)^2}$
+    \item [(6)] 定义域为 $\mathbb{R}$. $S'(x) = \sum_{n = 1}^{\infty}\frac{x^{2n - 1}}{(2n - 1)!}$. 注意到 $S(x) + S'(x) = \mathrm{e}^x, S(x) - S'(x) = \mathrm{e}^{-x}$, 得 $S(x) = \frac{1}{2}(\mathrm{e}^x + \mathrm{e}^{-x})$.
+    \item [(7)] 定义域为 $\mathbb{R}$. $\int_{0}^{x}S(x) = \sum_{n = 1}^{\infty}x(\mathrm{e}^x - 1)$. 故 $S(x) = (x + 1)\mathrm{e}^x - 1$。
+\end{itemize}
+
+\section*{P82 T5}
+
+\begin{proof}
+    当 $x \in (0, r)$ 时，有 $\int_{0}^{x}f(x) \mathrm{d}x = \sum_{n = 0}^{\infty}\frac{a_n}{n + 1}x^{n + 1}$. 又 $\sum_{n = 0}^{\infty}\frac{a_n}{n + 1}r^{n + 1}$ 收敛，故 $\sum_{n = 0}^{\infty}\frac{a_n}{n + 1}x^{n + 1}$ 收敛，即其在 $[0, r]$ 上连续. 令 $x \to r$ 有 $\int_{0}^{r}f(x) \mathrm{d}x = \sum_{n = 0}^{\infty}\frac{a_n}{n + 1}r^{n + 1}$. \\
+    $f(x) = \frac{1}{x}\ln\frac{1}{1 - x}$ 时，有 $\int_{0}^{1}\frac{1}{x}\ln \frac{1}{1 - x}\mathrm{d}x = \sum_{n = 1}^{\infty}\frac{1}{n^2}$
+\end{proof}
+
+\section*{P82 T6}
+
+\begin{itemize}
+    \item [(1)] 显然 $y^{(4)} = \sum_{n = 1}^{\infty}\frac{x^{4n - 4}}{(4n - 4)!} = y$。
+    \item [(2)] $y' = \sum_{n = 1}^{\infty}\frac{x^{n - 1}}{(n - 1)!n!}, y'' =  \sum_{n = 2}^{\infty}\frac{x^{n - 2}}{(n - 2)!n!}$, 则 $xy'' + y' = 1 + \sum_{n = 2}^{\infty}\frac{nx^{n - 1}}{(n - 1)!n!} = \sum_{n = 0}^{\infty}\frac{x^n}{(n!)^2} = y$.
+\end{itemize}
+
+\section*{P82 T7}
+
+\begin{itemize}
+    \item [(4)] 令 $f(x) = \sum_{n = 0}^{\infty}(n + 1)^2 x^n$. $\int_{0}^{x}f(x)\mathrm{d}x = \frac{x}{(1 - x)^2}$. 故 $f(x) = \frac{1 + x}{(1 - x)^3}$. 原式为 $f(\frac{1}{2}) = 12$
+    \item [(5)] 令 $f(x) = x\sum_{n = 0}^{\infty}\frac{(-1)^n}{2n + 1}x^{2n + 1}$, 对照 $\arctan x$ 的 Taylor 级数有 $f(x) = \arctan x$. 有原式为 $\frac{\sqrt{3}}{6}\pi$.
+    \item [(6)] 易得 $\sum_{n = 1}^{\infty}\frac{(-1)^{n + 1}}{n}x^n = \ln (x + 1)$. 令 $f(x) = x\sum_{n = 2}^{\infty}\frac{(-1)^n}{n^2 - 1}x^n$, 有 $g'(x) = x\ln(x + 1)$ 故原式为 $\frac{1}{2}\left(x - \frac{1}{x}\right)\ln (x + 1) - \frac{1}{4}x + \frac{1}{2}$, 带入 $x = \frac{1}{2}$ 有原式为 $\frac{3}{8} - \frac{3}{4}\ln\frac{3}{2}$.
+    \item [(7)] 令 $f(x) = \frac{1}{x}\sum_{n = 0}^{\infty}\frac{(-1)^n}{n!}x^{n + 1} = \mathrm{e}^{-x}$, 代入 $x = 2$, 有原式为 $\frac{2}{\mathrm{e}^2}$
+\end{itemize}
+
+\section*{P82 T8}
+
+由于 $\sum_{n = 1}^{\infty}a_nx^n$ 收敛半径小于等于 1. 另一方面，由于 $\lim_{n \to \infty}\frac{A_n}{A_{n + 1}} = \lim_{n \to \infty}\frac{A_{n + 1} - a_{n + 1}}{A_{n + 1}} = 1$, 得级数 $\sum_{n = 1}^{\infty}A_nx^x$ 的收敛半径为 $1$, 又显然 $\sum_{n = 1}^{\infty}A_nx^x$ 的收敛半径大于 $\sum_{n = 1}^{\infty}a_nx^n$, 故其收敛半径为 $1$.
+
+\section*{P82 T9}
+
+\begin{itemize}
+    \item [(1)] \begin{proof}
+        判断易得其收敛半径为 $\frac{1}{2}$, 且 $x = \pm \frac{1}{2}$ 有原级数为 $\sum_{n = 1}^{\infty}\frac{1}{n^2}$ 显然收敛. 因此 $f(x)$ 在 $\left[-\frac{1}{2}, \frac{1}{2}\right]$ 上连续. \\
+        又 $f'(x) = \sum_{n = 1}^{\infty}\frac{2^n}{n}x^{n - 1}$ 在 $\left[-\frac{1}{2}, \frac{1}{2}\right)$ 上内闭一致收敛. 因此 $f(x)$ 在 $\left[-\frac{1}{2}, \frac{1}{2}\right)$ 上可导.
+    \end{proof}
+    \item [(2)] 不存在. $f(x) = \sum_{n = 1}^{\infty}\frac{(2x)^n}{n^2} = g(t), t = 2x$. 有 $g(t) = \int_{0}^{t}-\frac{\ln (1 - u)}{u}\mathrm{d}u$. 当 $t \to 1-$ 时， $\frac{g(x) - g(1)}{x - 1} \to \infty$, 故其积分不存在.
+\end{itemize}
+
+\end{document}

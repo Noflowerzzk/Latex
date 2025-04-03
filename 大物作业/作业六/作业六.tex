@@ -1,0 +1,91 @@
+\documentclass{article}
+\usepackage{amsmath}  % 数学符号包
+\usepackage{amssymb}  % 更多数学符号
+\usepackage{enumitem} % 列表样式
+\usepackage{fancyhdr} % 页眉设置
+\usepackage{geometry} % 页面设置
+\usepackage[UTF8]{ctex}
+\usepackage{bm}
+\usepackage{amsthm}
+\everymath{\displaystyle}  % 让所有数学模式都使用 \displaystyle
+\newcommand{\lb}{\left\llbracket}
+\newcommand{\rb}{\right\rrbracket}
+\newcommand{\dd}{\mathrm{d}}
+
+
+\geometry{a4paper, margin=1in}
+
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[C]{作业六}
+\fancyhead[R]{2025.3.27}
+
+
+\title{作业六}
+\author{Noflowerzzk}
+\date{2025.3.27}
+
+
+\begin{document}
+\maketitle
+
+\section*{3 - 11}
+
+由于 $F \dd t = \dd p = \approx m \dd v$, $F = m \frac{\dd v}{\dd t} = (m_0 - qt)\frac{\dd v}{\dd t}$, 即 $\frac{\dd t}{m_0 - qt} = \frac{\dd v}{F}$, 积分即有 $v = \frac{F}{q}\ln \left(\frac{m_0}{m_0 - qt}\right)$.
+
+\section*{3 - 12}
+
+\begin{itemize}
+    \item [(1)] $F = v \frac{\dd m}{\dd t} = Mg$, 故 $\frac{\dd m}{\dd t} = 58.8 \mathrm{kg/s}$
+    \item [(2)] 同理 $F = M(g + a)$, $\frac{\dd m}{\dd t} = 176.4 \mathrm{kg/s}$
+\end{itemize}
+
+\section*{3 - 13}
+
+时间 $\dd t$ 内，物体与尘埃动量守恒，即 $\dd p = 0$, 此时物体速度为 $v$，有 $\frac{m_0v_0}{v}\frac{\dd v}{\dd t} + \rho S v^2 = 0$. 得 $v = \frac{m_0v_0}{\sqrt{m_0^2 + 2m_0v_0\rho S t}}$
+
+\section*{3 - 17}
+
+木块下滑 30 cm 时能量守恒，有 $Mgx\sin \alpha - \frac{1}{2}kx^2 = \frac{1}{2}mv_2$ 有 $v_0 = \frac{\sqrt{3}}{2} \mathrm{m/s}$. \\
+子弹打入瞬间，沿斜面方向动量守恒， $Mv_0 - mv\cos \alpha = (M + m)v_1$ 得 $v_1 = -0.857 \mathrm{m/s}$.
+
+\section*{3 - 19}
+
+C 和板碰撞动量守恒，有 $mv_0 = (M + m)v$. 故 $v = \frac{m}{m + M}v_0$. \\
+此后 $a_A = -\frac{\mu mg}{M + m}$, $a_B = \mu g$, 相对加速度为 $a' = a_B - a_A$, 相对速度为 $v$, 则 $v^2 = 2a'l$ 有 $v_0 = \sqrt{\frac{2\mu g l(M + 2m)(M + m)}{m^2}}$
+
+\section*{3 - 20}
+
+显然 $W = \pi c vR$, 冲量为 $I = \int F\dd t = c \int v \dd t = 2cR\hat{\boldsymbol{x}}$
+
+\section*{3 - 21}
+
+设高度为 $h$, 有 $v = \sqrt{2g(H - h)}$, 故 $s = 2\sqrt{h(H - h)}$, 当 $h = \frac{1}{2}H$ 时最大.
+
+\section*{3 - 23}
+
+\begin{itemize}
+    \item [(1)] 设木块撞后速度为 $u$, 竖直方向动量守恒，有 $mv_0\cos \theta = -mv_y + Mu$, 又由恢复系数， $ev_y = u + v_y$, 得 $v_x = \frac{\sqrt{3}}{2}v_0$, $v_y = \frac{1}{6}v_0$.
+    \item [(2)] 平衡时， $Mg = \rho g \frac{2}{3}a^3$ 恰沉入时，合外力做功为 $W = \int_{0}^{a/3} -\rho g y a^2 \dd a = -\frac{1}{18}\rho g a^4$. 故此时 $0 - \frac{1}{2}Mu^2 = W$, 得 $v_0 = \sqrt{6ga}$.
+\end{itemize}
+
+\section*{3 - 25}
+
+$\boldsymbol{v} = \frac{\dd \boldsymbol{r}}{\dd t} = -a\omega \sin \omega t \boldsymbol{i} + b\omega\cos \omega t \boldsymbol{j}$. $\boldsymbol{L} = m\boldsymbol{r}\times \boldsymbol{v} = mab\omega \boldsymbol{k}$. $\boldsymbol{M} = \frac{\dd L}{\dd t} = 0$.
+
+\section*{3 - 26}
+
+首先 $gR^2 = GM$. 飞船受有心力，角动量守恒，有 $mRv_2 = m(4R)v_\theta$. $v_\theta = \sqrt{\frac{gR}{8}}$. 动能定理有 $\frac{GmM}{4R} - \frac{GMm}{R} = \frac{1}{2}m(v^2 - v_2^2)$, $v = \sqrt{\frac{gR}{2}}$. 因此夹角 $\theta = \frac{\pi}{6}$.
+
+\section*{3 - 27}
+
+角动量守恒， $mhv_0 = mlv_1$, 因此 $\frac{E_k}{E_{k_0}} = \frac{h^2}{l^2}$.
+
+\section*{3 - 28}
+
+子弹射入过程动量守恒，有 $mv_0 = (M + m)v_1$. \\
+圆周过程由动能定理， $-\frac{1}{2}k(L - L_0)^2 = \frac{1}{2}(M + m)(v^2 - v_1^2)$. 得 $v = \sqrt{\left(\frac{m}{m + M}v_0\right)^2 - k\frac{(L - L_0)^2}{M + m}}$. \\
+角动量守恒有 $mL_0v_0 = (M + m)Lv_\theta$, $v_\theta = \frac{mL_0}{(M + m)L}v_0$, 因此 $\theta = \arcsin \frac{v_\theta}{v} = \arcsin \frac{\frac{mL_0}{(M + m)L}v_0}{\sqrt{\left(\frac{m}{m + M}v_0\right)^2 - k\frac{(L - L_0)^2}{M + m}}}$
+
+\end{document}
