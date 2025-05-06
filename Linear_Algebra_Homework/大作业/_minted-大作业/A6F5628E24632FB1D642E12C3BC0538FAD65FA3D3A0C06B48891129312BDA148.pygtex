@@ -1,0 +1,35 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k}{def} \PYG{n+nf}{g}\PYG{p}{(}\PYG{n}{x}\PYG{p}{):} \PYG{k}{return} \PYG{n}{np}\PYG{o}{.}\PYG{n}{tanh}\PYG{p}{(}\PYG{n}{x}\PYG{p}{)}
+\PYG{k}{def} \PYG{n+nf}{g\PYGZus{}prime}\PYG{p}{(}\PYG{n}{x}\PYG{p}{):} \PYG{k}{return} \PYG{l+m+mi}{1} \PYG{o}{\PYGZhy{}} \PYG{n}{np}\PYG{o}{.}\PYG{n}{tanh}\PYG{p}{(}\PYG{n}{x}\PYG{p}{)} \PYG{o}{**} \PYG{l+m+mi}{2}
+
+\PYG{k}{def} \PYG{n+nf}{whiten}\PYG{p}{(}\PYG{n}{X}\PYG{p}{):}
+    \PYG{n}{X} \PYG{o}{\PYGZhy{}=} \PYG{n}{X}\PYG{o}{.}\PYG{n}{mean}\PYG{p}{(}\PYG{n}{axis}\PYG{o}{=}\PYG{l+m+mi}{0}\PYG{p}{)}
+    \PYG{n}{cov} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{cov}\PYG{p}{(}\PYG{n}{X}\PYG{p}{,} \PYG{n}{rowvar}\PYG{o}{=}\PYG{k+kc}{False}\PYG{p}{)}
+    \PYG{n}{d}\PYG{p}{,} \PYG{n}{E} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{linalg}\PYG{o}{.}\PYG{n}{eigh}\PYG{p}{(}\PYG{n}{cov}\PYG{p}{)}
+    \PYG{n}{D\PYGZus{}inv} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{diag}\PYG{p}{(}\PYG{l+m+mf}{1.} \PYG{o}{/} \PYG{n}{np}\PYG{o}{.}\PYG{n}{sqrt}\PYG{p}{(}\PYG{n}{d}\PYG{p}{))}
+    \PYG{k}{return} \PYG{n}{X} \PYG{o}{@} \PYG{n}{E} \PYG{o}{@} \PYG{n}{D\PYGZus{}inv} \PYG{o}{@} \PYG{n}{E}\PYG{o}{.}\PYG{n}{T}
+
+\PYG{k}{def} \PYG{n+nf}{fastica}\PYG{p}{(}\PYG{n}{X}\PYG{p}{,} \PYG{n}{n\PYGZus{}components}\PYG{p}{,} \PYG{n}{max\PYGZus{}iter}\PYG{o}{=}\PYG{l+m+mi}{200}\PYG{p}{,} \PYG{n}{tol}\PYG{o}{=}\PYG{l+m+mf}{1e\PYGZhy{}4}\PYG{p}{):}
+    \PYG{n}{X} \PYG{o}{=} \PYG{n}{whiten}\PYG{p}{(}\PYG{n}{X}\PYG{p}{)}
+    \PYG{n}{n\PYGZus{}samples}\PYG{p}{,} \PYG{n}{n\PYGZus{}features} \PYG{o}{=} \PYG{n}{X}\PYG{o}{.}\PYG{n}{shape}
+    \PYG{n}{W} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{zeros}\PYG{p}{((}\PYG{n}{n\PYGZus{}components}\PYG{p}{,} \PYG{n}{n\PYGZus{}features}\PYG{p}{))}
+
+    \PYG{k}{for} \PYG{n}{i} \PYG{o+ow}{in} \PYG{n+nb}{range}\PYG{p}{(}\PYG{n}{n\PYGZus{}components}\PYG{p}{):}
+        \PYG{n}{w} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{random}\PYG{o}{.}\PYG{n}{rand}\PYG{p}{(}\PYG{n}{n\PYGZus{}features}\PYG{p}{)}
+        \PYG{n}{w} \PYG{o}{/=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{linalg}\PYG{o}{.}\PYG{n}{norm}\PYG{p}{(}\PYG{n}{w}\PYG{p}{)}
+        \PYG{k}{for} \PYG{n}{\PYGZus{}} \PYG{o+ow}{in} \PYG{n+nb}{range}\PYG{p}{(}\PYG{n}{max\PYGZus{}iter}\PYG{p}{):}
+            \PYG{n}{wx} \PYG{o}{=} \PYG{n}{X} \PYG{o}{@} \PYG{n}{w}
+            \PYG{n}{gwx} \PYG{o}{=} \PYG{n}{g}\PYG{p}{(}\PYG{n}{wx}\PYG{p}{)}
+            \PYG{n}{g\PYGZus{}wx} \PYG{o}{=} \PYG{n}{g\PYGZus{}prime}\PYG{p}{(}\PYG{n}{wx}\PYG{p}{)}
+            \PYG{n}{w\PYGZus{}new} \PYG{o}{=} \PYG{p}{(}\PYG{n}{X}\PYG{o}{.}\PYG{n}{T} \PYG{o}{@} \PYG{n}{gwx} \PYG{o}{\PYGZhy{}} \PYG{n}{g\PYGZus{}wx}\PYG{o}{.}\PYG{n}{mean}\PYG{p}{()} \PYG{o}{*} \PYG{n}{w}\PYG{p}{)} \PYG{o}{/} \PYG{n}{n\PYGZus{}samples}
+            \PYG{k}{for} \PYG{n}{j} \PYG{o+ow}{in} \PYG{n+nb}{range}\PYG{p}{(}\PYG{n}{i}\PYG{p}{):}
+                \PYG{n}{w\PYGZus{}new} \PYG{o}{\PYGZhy{}=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{dot}\PYG{p}{(}\PYG{n}{w\PYGZus{}new}\PYG{p}{,} \PYG{n}{W}\PYG{p}{[}\PYG{n}{j}\PYG{p}{])} \PYG{o}{*} \PYG{n}{W}\PYG{p}{[}\PYG{n}{j}\PYG{p}{]}
+            \PYG{n}{w\PYGZus{}new} \PYG{o}{/=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{linalg}\PYG{o}{.}\PYG{n}{norm}\PYG{p}{(}\PYG{n}{w\PYGZus{}new}\PYG{p}{)}
+            \PYG{k}{if} \PYG{n}{np}\PYG{o}{.}\PYG{n}{abs}\PYG{p}{(}\PYG{n}{np}\PYG{o}{.}\PYG{n}{abs}\PYG{p}{(}\PYG{n}{np}\PYG{o}{.}\PYG{n}{dot}\PYG{p}{(}\PYG{n}{w\PYGZus{}new}\PYG{p}{,} \PYG{n}{w}\PYG{p}{))} \PYG{o}{\PYGZhy{}} \PYG{l+m+mi}{1}\PYG{p}{)} \PYG{o}{\PYGZlt{}} \PYG{n}{tol}\PYG{p}{:}
+                \PYG{k}{break}
+            \PYG{n}{w} \PYG{o}{=} \PYG{n}{w\PYGZus{}new}
+        \PYG{n}{W}\PYG{p}{[}\PYG{n}{i}\PYG{p}{,} \PYG{p}{:]} \PYG{o}{=} \PYG{n}{w}
+    \PYG{k}{return} \PYG{n}{X} \PYG{o}{@} \PYG{n}{W}\PYG{o}{.}\PYG{n}{T}
+
+\PYG{n}{S\PYGZus{}est} \PYG{o}{=} \PYG{n}{fastica}\PYG{p}{(}\PYG{n}{X}\PYG{p}{,} \PYG{n}{n\PYGZus{}components}\PYG{o}{=}\PYG{l+m+mi}{3}\PYG{p}{)}
+\end{Verbatim}

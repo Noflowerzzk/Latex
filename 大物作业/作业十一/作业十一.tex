@@ -1,0 +1,99 @@
+\documentclass{article}
+\usepackage{amsmath}  % 数学符号包
+\usepackage{amssymb}  % 更多数学符号
+\usepackage{enumitem} % 列表样式
+\usepackage{fancyhdr} % 页眉设置
+\usepackage{geometry} % 页面设置
+\usepackage[UTF8]{ctex}
+\usepackage{bm}
+\usepackage{amsthm}
+\everymath{\displaystyle}  % 让所有数学模式都使用 \displaystyle
+\newcommand{\lb}{\left\llbracket}
+\newcommand{\rb}{\right\rrbracket}
+
+
+\geometry{a4paper, margin=1in}
+
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[C]{作业十一}
+\fancyhead[R]{2025.5.6}
+
+
+\title{作业十一}
+\author{Noflowerzzk}
+\date{2025.5.6}
+
+
+\begin{document}
+\maketitle
+
+\section*{6 - 1}
+
+震动方程为 $x = 0.12 \cos \left(\frac{4\pi}{3}t + \frac{\pi}{3}\right)$m. \\
+$\Delta t = 0.5$s
+
+\section*{6 - 2}
+
+由图显然 $T = 3$s
+
+\section*{6 - 4}
+
+\begin{itemize}
+    \item [(1)] $\frac{\mathrm{d}^2\theta}{\mathrm{d}t^2} + \frac{g}{l}\theta = 0$, 角频率为 $\sqrt{\frac{g}{l}} = 3.13$rad/s， $f = 0.498$Hz， $T = 2.01$s
+    \item [(2)] $\theta = 0.0876\cos \left(3.13t + 226.8°\right)$rad
+\end{itemize}
+
+\section*{6 - 6}
+
+位置 $x = 6\sqrt{3}$m， 速度 $-6\pi$m/s，加速度 $-6\sqrt{3}\pi^2 \mathrm{m/s^2}$
+
+\section*{6 - 7}
+
+$\Delta \phi = (2k + 1)\pi$
+
+\section*{6 - 10}
+
+$\frac{\mathrm{d}^2x}{\mathrm{d}t^2} + \frac{2g}{L}x = 0$, 因此做简谐运动.
+
+\section*{6 - 11}
+
+由于 $\frac{\mathrm{t}^2\theta}{\mathrm{d}t^2} + \frac{3g}{2L}\theta = 0$, 故其周期为 $2\pi\sqrt{\frac{2L}{3g}}$ \\
+计算同样有 $\frac{\mathrm{t}^2\theta}{\mathrm{d}t^2} + \frac{3g}{2L}\theta = 0$, 故其周期不变.
+
+\section*{6 - 13}
+
+动能占 $\frac{3}{4}$, 势能占 $\frac{1}{4}$. \\
+各占一半时， $x = \pm \frac{\sqrt{2}}{2}A$.
+
+\section*{6 - 16}
+
+平衡位置有 $x_0 = \frac{mg}{k}$. 又 $\frac{1}{2}kA^2 = \frac{1}{2}mv^2$ 得 $A = \sqrt{\frac{mv^2}{k}}$. 计算得外力左总为 $W = \frac{\pi}{2}mvg\sqrt{\frac{m}{k}} + \frac{m^2g^2}{2k} + mv^2$.
+
+\section*{6 - 18}
+
+最大速度为 $v_{\mathrm{m}} = \mu g\sqrt{\frac{m_1 + m_2}{k}}$
+
+\section*{6 - 19}
+
+\begin{itemize}
+    \item [(1)] 圆频率为 $\sqrt{\frac{M + m}{k}}$, 由于总能量不变，振幅不变。
+    \item [(2)] 圆频率为 $\sqrt{\frac{M + m}{k}}$, 计算后得振幅变为 $A' = \sqrt{\frac{M}{M + m}}A$
+\end{itemize}
+
+\section*{6 - 21}
+
+在弹簧原长时，在 $x$ 处取微元，有 $\mathrm{d}m = \frac{m_s}{l_0}\mathrm{d}x$. 弹簧伸长 $x_0$ 时，该位置位移为 $u \frac{xx_0}{l_0}$，此时 $\mathrm{d}m$ 的动能为 $\mathrm{d}E_k = \frac{m_s}{2l_0^3}\left(\frac{\mathrm{d}x}{\mathrm{d}t}\right)^2x^2\mathrm{d}x$，计算得总机械能为 $E = \frac{1}{2}\left(\frac{m_s}{2} + m\right)\dot{x}^2 + \frac{1}{2}kx^2$. 机械能守恒，有 $\ddot{x} + \frac{k}{\frac{m_s}{3} + m}x = 0$, 故周期为 $2\pi\sqrt{\frac{\frac{m_s}{3} + m}{k}}$
+
+\section*{6 - 22}
+
+由于 $A_1 = A_0 \mathrm{e}^{-\beta t}$, 得 $\beta = 0.11$, 计算得时间为 $t = 20.96$s
+
+\section*{6 - 23}
+
+有阻尼，则周期为 $T = \frac{2\pi}{\sqrt{\omega^2 - \beta^2}}$, 又 $0.9 A = A\mathrm{e}^{-\beta T} $, 解得 $T = 1.00014T_0$
+
+$S = 4\sum_{n = 1}^{\infty}A_i = 400$cm
+
+\end{document}

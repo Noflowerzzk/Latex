@@ -1,0 +1,99 @@
+\documentclass{article}
+\usepackage{amsmath}  % 数学符号包
+\usepackage{amssymb}  % 更多数学符号
+\usepackage{enumitem} % 列表样式
+\usepackage{fancyhdr} % 页眉设置
+\usepackage{geometry} % 页面设置
+\usepackage[UTF8]{ctex}
+\usepackage{bm}
+\usepackage{amsthm}
+\everymath{\displaystyle}  % 让所有数学模式都使用 \displaystyle
+\newcommand{\lb}{\left\llbracket}
+\newcommand{\rb}{\right\rrbracket}
+
+
+\geometry{a4paper, margin=1in}
+
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[C]{作业十}
+\fancyhead[R]{2025.4.27}
+
+
+\title{作业十}
+\author{Noflowerzzk}
+\date{2025.4.27}
+
+
+\begin{document}
+\maketitle
+
+\section*{5.4}
+
+$l' = l_0\sqrt{\left(1 - \frac{u^2}{c^2}\cos^2 \theta + \sin^2 \theta\right)}$, $\theta = \arctan \frac{\sin \theta}{\sqrt{1 - \left(\frac{u^2}{c^2}\right)}\cos \theta}$
+
+\section*{5.5}
+
+$u$ 至少为 $c\sqrt{1 - \frac{a^2}{l_0^2}}$
+
+\section*{5.6}
+
+\begin{itemize}
+    \item [(1)] 时间为 $4.33 \times 10^{-8}$ s.
+    \item [(2)] $l = 10.4$m.
+\end{itemize}
+
+\section*{5.8}
+
+显然为 $0.8c$
+
+\section*{5.10}
+
+\[t_1' = \frac{t_1 - \frac{u}{c^2} x_1}{\sqrt{1 - u^2 / c^2}} = \frac{0 - \frac{0.96c}{c^2} \times 100}{\sqrt{1 - 0.96^2}} = -1.14 \times 10^{-6} \, \text{s}\]
+
+\[x_1' = \frac{x_1 - ut_1}{\sqrt{1 - u^2 / c^2}} = \frac{100 - 0.96c \times 0}{\sqrt{1 - 0.96^2}} = 357 \, \text{m}\]
+
+\[t_2' = \frac{t_2 - \frac{u}{c^2} x_2}{\sqrt{1 - u^2 / c^2}} = \frac{10 - \frac{0.96c}{c^2} \times 9.8c}{\sqrt{1 - 0.96^2}} = 2.11 \, \text{s}\]
+
+\[x_2' = \frac{x_2 - ut_2}{\sqrt{1 - u^2 / c^2}} = \frac{9.8c - 0.96c \times 10}{\sqrt{1 - 0.96^2}} = 2.14 \times 10^8 \, \text{m}\]
+
+\[v_x' = \frac{v_x - u}{1 - \frac{u}{c^2} v_x} = \frac{0.98c - 0.96c}{1 - \frac{0.96c}{c^2} \times 0.98c} = 1.01 \times 10^8 \, \text{m/s}\]
+
+\section*{5.11}
+
+$v_m = 0.213c$, $v_M = 0.992c$
+
+\section*{5.12}
+
+\begin{itemize}
+    \item [(1)] $v_1 = 0.89c$
+    \item [(2)] $\Delta t = 2 \times 10^{-6}$s.
+\end{itemize}
+
+\section*{5.13}
+
+$W = 3.92 \times 10^{-13}$J.
+
+\section*{5.14}
+
+$E_k = m_0c^2\left(\frac{1}{\sqrt{1 - \beta^2}} - 1\right) = nmc^2$, $v = c\sqrt{1 - \frac{1}{(n + 1)^2}}$, $p = \sqrt{n(n + 2)}m_0c$
+
+\section*{5.15}
+
+$m = 725m_e, E_k = 518m_ec^2$
+
+\section*{5.16}
+
+以 A 为参考系， $v_B = \frac{2\beta c}{1 + \beta^2}$, 故总能量为 $\frac{1 + \beta^2}{1 - \beta^2}m_0c^2$
+
+\section*{5.18}
+
+$\Delta E = \Delta m c^2 = 5.5$MeV
+
+\section*{5.19}
+
+显然两个光子动量相同，又 $E = pc$ 光子能量相同. \\
+由 $\frac{m_0c^2}{\sqrt{1 - k^2}} = 2pc$, $\frac{m_0v}{\sqrt{1 - k^2}} = 2p \cos \theta$, 得 $\cos \theta = k$
+
+\end{document}

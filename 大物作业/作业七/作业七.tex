@@ -1,0 +1,59 @@
+\documentclass{article}
+\usepackage{amsmath}  % 数学符号包
+\usepackage{amssymb}  % 更多数学符号
+\usepackage{enumitem} % 列表样式
+\usepackage{fancyhdr} % 页眉设置
+\usepackage{geometry} % 页面设置
+\usepackage[UTF8]{ctex}
+\usepackage{bm}
+\usepackage{amsthm}
+\everymath{\displaystyle}  % 让所有数学模式都使用 \displaystyle
+\newcommand{\lb}{\left\llbracket}
+\newcommand{\rb}{\right\rrbracket}
+\newcommand{\dd}{\mathrm{d}}
+
+
+\geometry{a4paper, margin=1in}
+
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[C]{作业七}
+\fancyhead[R]{2025.4.4}
+
+
+\title{作业七}
+\author{Noflowerzzk}
+\date{2025.4.4}
+
+
+\begin{document}
+\maketitle
+
+\section*{4 - 1}
+
+由牛二， $T_1 - mg = ma, 2mg - T_2 = 2ma, T_2r - Tr = J\beta, Tr - T_1r = J\beta, \beta r = a$, 解得 $a = \frac{1}{4}g, T = \frac{11}{8}mg$.
+
+\section*{4 - 2}
+
+\begin{itemize}
+    \item [(1)] $M_f = \int r \dd f = 2 \int_{0}^{l/2}r \mu \frac{m}{l}g \dd r = \frac{1}{4}\mu mgl$. 垂直桌面向下.
+    \item [(2)] $J = \frac{1}{12}ml^2$, $t = \frac{\omega_0}{\beta} = \frac{\omega_0l}{3\mu g}$
+\end{itemize}
+
+\section*{4 - 3}
+
+由牛二， $mg - T = ma, TR = J\beta$, 有 $a = \beta R = \frac{2m}{M + m}g$, 故 $v = at = \frac{2m}{M + 2m}gt$
+
+\section*{4 - 4}
+
+对重物 $T_2 - \frac{1}{4}Mg = \frac{1}{4}Ma$, 对人 $T_1 - Mg = Ma$, 对滑轮 $T_1R - T_2R = J\beta = J\frac{a}{R}$ 得 $a = \frac{1}{2}g$
+
+\section*{补充题}
+
+\begin{itemize}
+    \item [(1)] $T = \frac{mv_0^2}{R_0}$
+    \item [(2)] $2T = \frac{mv^2}{R_0}$, $v = \sqrt{2}v_0$
+\end{itemize}
+
+\end{document}

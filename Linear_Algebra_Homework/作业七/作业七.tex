@@ -1,0 +1,80 @@
+\documentclass{article}
+\usepackage{amsmath}  % 数学符号包
+\usepackage{amssymb}  % 更多数学符号
+\usepackage{enumitem} % 列表样式
+\usepackage{fancyhdr} % 页眉设置
+\usepackage{geometry} % 页面设置
+\usepackage[UTF8]{ctex}
+\usepackage{bm}
+\usepackage{amsthm}
+\everymath{\displaystyle}  % 让所有数学模式都使用 \displaystyle
+\newcommand{\lb}{\left\llbracket}
+\newcommand{\rb}{\right\rrbracket}
+\newcommand{\itn}{\sum_{i = 1}^{n}}
+
+
+\geometry{a4paper, margin=1in}
+
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[C]{作业七}
+\fancyhead[R]{2025.4.6}
+
+
+\title{作业七}
+\author{Noflowerzzk}
+\date{2025.4.6}
+
+
+\begin{document}
+\maketitle
+
+\section{}
+
+\begin{itemize}
+    \item [(1)] 由于
+    \begin{align*}
+        \sum_{i = 1}^{n}a_i(a_i + b_i)^{p - 1}& \leq \left(\sum_{min}^{max}a_i^p\right)^{1/p}\left(\itn (a_i + b_i)^p\right)^{1/q} \\
+        \sum_{i = 1}^{n}b_i(a_i + b_i)^{p - 1}& \leq \left(\sum_{min}^{max}b_i^p\right)^{1/p}\left(\itn (a_i + b_i)^p\right)^{1/q} 
+    \end{align*} 相加有
+    \begin{align*}
+        \itn (a_i + b_i)^p \leq \left(\itn (a_i + b_i)^p\right)^{1/q}\left(\left(\sum_{min}^{max}a_i^p\right)^{1/p} + \left(\sum_{min}^{max}b_i^p\right)^{1/p}\right)
+    \end{align*}
+    化简即得 Minkowski 不等式.
+    \item [(2)] 令 $r = \frac{1}{p}, s = \frac{1}{1 - p}$, 注意到 $a_ib_i = (a_ib_i^{1 - p})b_i^p$. 由于
+    \begin{align*}
+        \itn a_ib_i \leq \left(\itn (a_ib_i^{1 - p})^r\right)^{1/r}\left(\itn b_i^ps\right)^{1/s}
+    \end{align*} 代入 $p, q$ 即得反向 Holder 不等式.
+    \item [(3)] 由 Holder 不等式，
+    \begin{align*}
+        \itn \left\lvert x_i\right\rvert^p \leq \left(\itn \left\lvert x_i\right\rvert^{pr} \right)^{1/r} \left(\itn 1^s\right)^{1/s} = \left(\itn \left\lvert x_i\right\rvert ^{1/p}\right)n^{(q - p)/pq} 
+    \end{align*} 故
+    \begin{align*}
+        \left(\itn \left\lvert x_i\right\rvert^p \right)^{1/p} \leq n^{1/p - 1/q}\left(\itn \left\lvert x_i\right\rvert^q\right)^{1/q}
+    \end{align*}
+\end{itemize}
+
+\section{}
+
+\begin{itemize}
+    \item [(1)] $l_1$: 即 $\left\lvert x_1\right\rvert + \left\lvert x_2\right\rvert $ 的最小值. 原式为 $\left\lvert x_1\right\rvert + \left\lvert (1 - 3x_1)/4\right\rvert$ 最小值为 $\frac{1}{3}$.
+    \item [(2)] $l_2$ 显然为 $\frac{1}{\sqrt{3^2 + 4^2}} = \frac{1}{5}$.
+    \item [(3)] $l_\infty$ 即 $\max \{\left\lvert x_1\right\rvert , \left\lvert x_2\right\rvert\}$ 最小值. 计算得为 $\frac{1}{7}$.
+\end{itemize}
+
+\section{}
+
+$\left\lVert \boldsymbol{e}\right\rVert_1 = \left\lVert \boldsymbol{e}\right\rVert_2 = n, \left\lVert \boldsymbol{e}\right\rVert_\infty = 1$. \\
+$\left\lVert \boldsymbol{a}\right\rVert_1 = a^2 + 2, \left\lVert \boldsymbol{a}\right\rVert_2 = a^4 -2a^3 + 4a^2 - 2a + 2, \left\lVert \boldsymbol{a}\right\rVert_\infty = \begin{cases}
+    1 & 0 < a < 1 \\
+    a^2 - a + 1 & \text{other}
+\end{cases}$.
+
+\section{}
+
+\begin{proof}
+    由于 $\left\lVert u + v\right\rVert^2 = (u + v, u + v) = (u, u) + (v, v) = \left\lVert u\right\rVert^2 + \left\lVert v\right\rVert^2 $.
+\end{proof}
+
+\end{document}

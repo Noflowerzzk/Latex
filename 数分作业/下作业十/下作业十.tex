@@ -1,0 +1,129 @@
+\documentclass{article}
+\usepackage{amsmath}  % 数学符号包
+\usepackage{amssymb}  % 更多数学符号
+\usepackage{enumitem} % 列表样式
+\usepackage{fancyhdr} % 页眉设置
+\usepackage{geometry} % 页面设置
+\usepackage[UTF8]{ctex}
+\usepackage{bm}
+\usepackage{amsthm}
+\everymath{\displaystyle}  % 让所有数学模式都使用 \displaystyle
+\newcommand{\lb}{\left\llbracket}
+\newcommand{\rb}{\right\rrbracket}
+\newcommand{\dd}{\mathrm{d}}
+
+
+\geometry{a4paper, margin=1in}
+
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[C]{作业十}
+\fancyhead[R]{2025.4.26}
+
+
+\title{作业十}
+\author{noflowerzzk}
+\date{2025.4.26}
+
+
+\begin{document}
+\maketitle
+
+\section*{T2}
+
+所求点为 $(-1, 1, -1), \left(-\frac{1}{3}, \frac{1}{9}, -\frac{1}{27}\right)$
+
+\section*{T3}
+
+方向向量为 $(0, -1, 0)$, 即方向余弦为 $(0, -1, 0)$
+
+\section*{T5}
+
+取 $(0, 1, 0)$, 法线为 $x = -z, y = 1$
+
+\section*{T9}
+
+方向导数为 $\frac{29}{14}$
+
+\section*{T11}
+
+\begin{align*}
+    \boldsymbol{r}'(t) = a\mathrm{e}^t(\cos t - \sin t, \sin t + \cos t, 1)
+\end{align*}
+母线方向为 $\boldsymbol{v} = a\mathrm{e}^t(\cos t, \sin t, 1)$.
+计算得夹角余弦 $\cos \theta = \frac{\sqrt{6}}{3}$, 夹角不变.
+
+\section*{T1}
+
+\begin{align*}
+    \iint_D \mu (x, y) \dd \sigma
+\end{align*}
+
+\section*{T2}
+
+\begin{proof}
+    设 $|f(x,y)| \leq M, (x,y) \in D$, 将 $D$ 分成 $n$ 个小区域 $\Delta D_i (i=1,2,\cdots,n)$, 记 $\lambda = \max_{1 \leq i \leq n} \{ \text{diam } \Delta D_i \}$, 不妨设 $\Delta D_i (i=1,2,\cdots,k)$ 将曲线段 $y=\sin x, 0 \leq x \leq \pi$ 包含在内, 于是 $f(x,y)$ 在有界闭区域 $\bigcup_{i=k+1}^n \Delta D_i$ 上连续, 因此 $f(x,y)$ 在 $\bigcup_{i=k+1}^n \Delta D_i$ 上可积, 即 $\forall \varepsilon > 0, \exists \delta_1 > 0$, 当 $\lambda < \delta_1$ 时,
+
+\[
+\sum_{i=k+1}^n \omega_i \Delta \sigma_i < \frac{\varepsilon}{2}.
+\]
+
+而当 $\lambda < \sqrt{\frac{\varepsilon}{4kM}}$ 时,
+
+\[
+\sum_{i=1}^k \omega_i \Delta \sigma_i < 2M \sum_{i=1}^k \Delta \sigma_i < 2kM \lambda^2 < \frac{\varepsilon}{2}.
+\]
+
+取 $\delta = \min\left(\delta_1, \sqrt{\frac{\varepsilon}{4kM}}\right)$, 当 $\lambda < \delta$ 时, 有
+
+\[
+\sum_{i=1}^n \omega_i \Delta \sigma_i < \frac{\varepsilon}{2} + \frac{\varepsilon}{2} = \varepsilon,
+\]
+
+故 $f$ 在 $D$ 上可积.
+\end{proof}
+
+\section*{T4}
+
+\begin{proof}
+    将 $[a,b],[c,d]$ 作划分：
+\[ 
+a = x_0 < x_1 < x_2 < \cdots < x_{n-1} < x_n = b 
+\]
+和
+\[ 
+c = y_0 < y_1 < y_2 < \cdots < y_{m-1} < y_m = d, 
+\]
+则 $D$ 分成了 $nm$ 个小矩形 $\Delta D_{ij}$ ($i=1,2,\cdots,n$; $j=1,2,\cdots,m$)。
+
+记 $\omega_i$ 是 $f(x)$ 在小区间 $[x_{i-1},x_i]$ 上的振幅，$\omega_{ij}(F)$ 是 $F$ 在 $\Delta D_{ij}$ 上的振幅，则
+\[ 
+\omega_{ij}(F) = \omega_i, 
+\]
+于是
+\[ 
+\sum_{i,j=1}^{n,m} \omega_{ij}(F) \Delta \sigma_{ij} = \sum_{i,j=1}^{n,m} \omega_i \Delta x_i \Delta y_j = (d-c) \sum_{i=1}^n \omega_i \Delta x_i, 
+\]
+由 $f(x)$ 在 $[a,b]$ 上可积，有
+\[ 
+\sum_{i=1}^n \omega_i \Delta x_i \to 0 \quad (\lambda \to 0), 
+\]
+故
+\[ 
+\lim_{\lambda \to 0} \sum_{i,j=1}^{n,m} \omega_{ij}(F) \Delta \sigma_{ij} = \lim_{\lambda \to 0} \left\{ (d-c) \sum_{i=1}^n \omega_i \Delta x_i \right\} = 0, 
+\]
+即 $F(x,y)$ 在 $D$ 上可积。
+\end{proof}
+
+\section*{T5}
+
+\[
+   H(x,y) = \frac{f(x,y) + g(x,y) + |f(x,y) - g(x,y)|}{2},
+   \]
+   \[
+   h(x,y) = \frac{f(x,y) + g(x,y) - |f(x,y) - g(x,y)|}{2}.
+   \]
+   由于 \( f + g \) 和 \( |f - g| \) 均可积，其线性组合 \( H \) 和 \( h \) 亦在 \( D \) 上可积。
+
+\end{document}

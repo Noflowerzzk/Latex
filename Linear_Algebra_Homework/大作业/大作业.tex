@@ -1,0 +1,259 @@
+\documentclass{article}
+\usepackage{amsmath}  % 数学符号包
+\usepackage{amssymb}  % 更多数学符号
+\usepackage{enumitem} % 列表样式
+\usepackage{fancyhdr} % 页眉设置
+\usepackage{geometry} % 页面设置
+\usepackage[UTF8]{ctex}
+\usepackage{graphicx}
+\usepackage{pgf}
+\usepackage{caption}
+% \usepackage{bm}
+\usepackage{amsthm}
+\usepackage{minted}  % 用于显示代码
+% \usepackage{pythontex}  % 用于运行 Python 代码
+\usepackage[backend=biber,style=gb7714-2015]{biblatex}
+
+\definecolor{mybgcolor}{rgb}{0.95, 0.95, 0.95}  % RGB 范围在 [0, 1] 之间
+
+\everymath{\displaystyle}  % 让所有数学模式都使用 \displaystyle
+\newcommand{\lb}{\left\llbracket}
+\newcommand{\rb}{\right\rrbracket}
+\newcommand{\bs}[1]{\boldsymbol{#1}}
+\newcommand{\RR}{\mathbb{R}}
+\newcommand{\EE}{\mathbb{E}}
+\newcommand{\dd}{\mathrm{d}}
+\newcommand{\WW}{\bs{W}_\mathrm{whiten}}
+\newcommand{\XC}{\bs{X}_\mathrm{c}}
+\newcommand{\np}{\indent\par}
+% \defbibheading{bibliography}[参考文献]{\section*{#1}}
+
+\def\mathdefault#1{#1}
+
+\geometry{a4paper, margin=1in}
+
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[C]{独立成分分析(ICA)与其在音频信号分离中的应用}
+\fancyhead[R]{2025.5.3}
+
+
+\title{独立成分分析(ICA)与其在音频信号分离中的应用}
+\author{张桢锴}
+\date{2025.5.3}
+
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+    本文简要介绍了独立成分分析（ICA）特别是 FastICA 算法的基本原理与实现流程。ICA 利用信号的非高斯性与统计独立性，从多个观测信号中恢复原始独立源信号。文中详细阐述了数学建模、信号预处理（中心化与白化）、固定点迭代过程，并通过代码与实验演示了 FastICA 在模拟音频信号分离中的实际效果，显示其在语音分离与降噪等的应用。 \np
+    \noindent{\textbf{关键词：}独立成分分析；FastICA算法；音频处理；噪音消除}
+\end{abstract}
+
+\section{前置知识}
+
+\subsection*{高斯分布与非高斯分布}
+
+ICA依赖源信号的非高斯性（Non-Gaussianity）作为分离的依据 \np
+\textbf{高斯信号}指信号的幅值分布服从高斯分布（正态分布），\textbf{非高斯信号}指幅值分布不服从高斯分布，可能呈现双峰、尖峰、重尾或不对称性（如语音、图像边缘、脑电信号）. 而我们关注的恰恰是这些具有不对称性的非高斯信号. \np
+由中心极限定理，多个独立随机变量的混合信号趋于服从高斯分布，因此通过最大化分离信号的非高斯性，能分离处出原始的信号.
+
+\subsection*{信号的统计独立性}
+把信号 $s_1(t), s_2(t)$ 视为随机变量，则其相互独立为 $p(s_1, s_2) = p(s_1)p(s_2)$. \np
+同理 $n$ 个信号相互独立即为 $p(s_1, s_2, \cdots, s_n) = \prod_{i = 1}^{n}p(s_i)$. \np
+
+\section{独立成分分析(ICA)的基本原理}
+
+在现实生活中，观测信号（例如麦克风接收的声音信号）$\bs{X}$ 为源信号（例如各个环境中的声源） $\bs{S}$ 的瞬时线性组合，且源信号可以认为相互统计独立。我们试图从观测信号中提取出各个相互独立的源信号，并求出其混合矩阵 $\bs{A}$. 
+
+\subsection{数学模型}
+
+设观测信号由 $n$ 个相互统计独立的源信号线性组合而成，数学形式可表述为：
+\begin{align*}
+    \bs{x} &= \bs{A}\bs{s} \\
+    \bs{s} &= \left(s_1(t), s_2(t), \cdots, s_n(t)\right)^T
+\end{align*}
+
+其中：
+\begin{itemize}
+    \item 信号源 $s_i(t)$ 表示第 $i$ 个信号在时间 $t$ 的实际值。其中 $p(s_1, s_2, \cdots, s_n) = \prod_{i = 1}^{n}p(s_i)$, 即 $s_i$ 相互独立.
+    \item $\bs{x}$ 为观测信号向量，包含 $m$ 个通道在时间 $t$ 的采样值.
+    \item $\bs{s}$ 为独立源信号向量，即 $n$ 个信号源在 $T$ 个时间点的实际值. 
+    \item $\bs{A} \in \RR^{m \times n}$ 为未知的混合矩阵，表征原信号到观测信号的线性映射关系。一般假设 $n \leq m$, 以保证模型可辨识性.
+\end{itemize}
+
+对于 $T$ 个时间点的采样值，观测信号作为列向量构成观测信号矩阵 $\bs{X} = (\bs{x}_1, \cdots, \bs{x}_T)$, 同理源信号构成源信号矩阵 $\bs{S} = (\bs{s}_1, \cdots, \bs{s}_T)$, 同样有
+\begin{align*}
+    \bs{X} = \bs{AS}
+\end{align*}
+
+\subsection{ICA 的目标}
+
+这里我们不加证明的断言，在 ICA 的假设中，信号的\textbf{非高斯性}等价于信号之间的\textbf{独立性}. \np
+为尽可能还原源信号，我们的目标是找到解混矩阵 $\bs{W}$, 使分离出的信号 $\bs{Y} = \bs{W}^T\bs{X}$ 尽可能的接近源信号 $\bs{S}$. 也即对 $\bs{W}$ 的每个列向量 $\bs{w}_i$，投影结果 $\bs{y}_i = \bs{w}_i^T\bs{X}$ 尽量满足非高斯性.\np
+对于非线性函数 $G(x)$ (例如 $\log_2\cosh x$，用于放大非高斯特征)， 最大化负熵近似 $J(y) = \left(E(G(y)) - E(G(v))\right)^2$ 能够使 $y$ 的非高斯性最大. 其中 $v$ 为满足标准正态分布的随机变量.
+
+\section{FastICA 算法}
+
+\textbf{FastICA} 是一种基于固定点迭代的独立成分分析（ICA）算法. 其核心思想是通过最大化非高斯性来估计独立成分. 
+
+\subsection{预处理}
+
+预处理的目的是将观测信号各个行（每个观测点不同时间采集的样本）的均值变为 $0$, 方差变为 $1$.
+
+\subsubsection*{中心化}
+
+将观测信号 $\bs{X} \in \RR^{n \times T}$ 零均值化，即
+\begin{align*}
+    \bs{X}_\mathrm{c} = \bs{X} - \EE (\bs{X})
+\end{align*} 
+\par 其中 $\EE (\bs{X})$ 为 $\bs{X}$ 每个行的均值组成的列向量.
+
+\subsubsection*{白化}
+
+对中心化后的数据进行白化，使数据矩阵正交. \np
+\begin{enumerate}
+    \item 计算协方差矩阵
+    \begin{align*}
+        \bs{C} = T\cdot\mathrm{Cov}(\XC) = \XC\XC^T
+    \end{align*}
+    如果 $\bs{C}$ 半正定但不正定，则表明 $\XC$ 中有线性相关的维度，除去冗余维度即可. \np
+    若 $\bs{C}$ 正定，则其特征值均大于零.
+    \item 对 $\bs{C}$ 相似对角化，即
+    \begin{align*}
+        \bs{C} = \bs{E}\bs{\Lambda}\bs{E}^T
+    \end{align*}
+    考虑 $\bs{C}$ 正定的情况，$\bs{E}$ 为单位正交向量矩阵， $\bs{\Lambda}$ 为特征值对角阵.
+    \item 构造白化矩阵，即
+    \begin{align*}
+        \bs{W}_\mathrm{whiten} = \bs{\Lambda}^{-1/2}\bs{E}^T
+    \end{align*}
+    \item 得到白化后的数据
+    \begin{align*}
+        \tilde{\bs{X}} = \bs{W}_\mathrm{whiten}\XC
+    \end{align*}
+\end{enumerate}
+\par 此时 $\tilde{\bs{X}}\tilde{\bs{X}}^T = \XC^T\bs{E}\bs{\Lambda}^{-1/2}\bs{\Lambda}^{-1/2}\bs{E}^T\XC = \bs{I}$, 即 $\tilde{\bs{X}}$ 是正交阵.
+
+\subsection{固定点迭代提取独立成分}
+
+我们要提取 $n$ 个独立成分，即分离矩阵 $\bs{W} = \begin{pmatrix}
+    \bs{\omega}_1^T \\ \vdots \\ \bs{\omega}_n^n
+\end{pmatrix}$
+使得 $\bs{Y} = \bs{W}\tilde{\bs{X}}$ 为目标原信号矩阵的近似. \np
+对 $\tilde{\bs{X}}$ 的某个列向量 $\bs{x}$，我们要最大化 $J_G(\bs{\omega}^T\bs{x}) = \left(E(G(\bs{\omega}^T\bs{x})) - E(G(v))\right)^2$. 限定 $\left\lVert \bs{\omega}\right\rVert = 1$，为使用 Lagrange 乘数法，对 $\bs{\omega}$ 求偏导得
+\begin{align*}
+    \frac{\partial \left(J_G(\bs{\omega}^T\bs{x}) - \lambda\left(\left\lVert \bs{\omega}\right\rVert^2 - 1 \right)\right)}{\partial \bs{\omega}} = 2 \EE \left(\bs{x}G'(\bs{\omega^T \bs{x}})\right) - 2 \lambda \bs{\omega}
+\end{align*}
+使上式为 $0$ 的 $\bs{\omega}$ 即为最优的 $\bs{\omega}$. 使用牛顿法 $x_{n + 1} = x_n - \frac{f(x_n)}{f'(x_n)}$, 能得到上述方程的近似解. 计算偏导
+\begin{align*}
+    \frac{\partial \left(\EE \left(\bs{x}G'(\bs{\omega^T \bs{x}})\right) - \lambda \bs{\omega}\right)}{\partial \bs{\omega}} = \EE \left(\bs{x}\bs{x}^TG''\left(\bs{\omega^T}\bs{x}\right)\right) - \lambda \bs{I} \approx \EE \left(G''\left(\bs{\omega}^T\bs{x}\right)\right)\bs{I} - \lambda \bs{I}
+\end{align*}
+代入牛顿法公式，用 $\bs{\omega}_n$ 近似 $\lambda$，并进一步化简最后得
+\begin{align*}
+    \bs{\omega}_{n + 1} = \EE \left(\bs{x}G'\left(\bs{\omega}_n^T\bs{x}\right)\right) - \EE \left(G''(\bs{\omega}_n^T\bs{x})\right)\bs{\omega}_n
+\end{align*}
+对多个 $\bs{x}$ 的计算方法类似. 算法的具体过程如下：
+
+\begin{enumerate}
+    \item 随机生成正交阵 $\bs{W}^{(0)} \in \RR^{n \times n}$. 一般采用随机生成矩阵结合 QR 分解的方法实现.
+    \item 固定点迭代更新. 
+    \begin{align*}
+        \bs{W}^{(n + 1)'} &= \EE \left[\tilde{\bs{X}}G'\left(\bs{W}^{(n)T}\tilde{\bs{X}}\right)\right] - \EE\left[G''\left(\bs{W}^{(n)T}\tilde{\bs{X}}\right)\right]\bs{W}^{(n)} \\
+        \bs{W}^{(n + 1)} &= \left(\bs{W}^{(n + 1)'} \bs{W}^{(n + 1)'T}\right)^{-1/2}\bs{W}^{(n + 1)'}
+    \end{align*}
+    第二个式子的归一化与白化过程基本相同，保持了 $\bs{W}$ 的正交性.
+    \item 不断迭代直至收敛. 例如 $\Delta = \left\lVert \bs{W}^{(n + 1)} - \bs{W}^{(n)}\right\rVert_F$ 小于特定值.
+\end{enumerate}
+
+此时的 $\bs{W}$ 即为所求解混矩阵.
+
+\section{FastICA 算法对模拟音频信号的分离}
+
+首先使用代码进行正弦波、方波与锯齿波的生成，并随机生成一些噪声模拟声音信号叠加到原波形上. 
+FastICA 处理的 Python 代码如下（部分）
+
+\begin{minted}[frame=single, fontsize=\normalsize, bgcolor=mybgcolor]{python}
+def g(x): return np.tanh(x)
+def g_prime(x): return 1 - np.tanh(x) ** 2
+
+def whiten(X):
+    X -= X.mean(axis=0)
+    cov = np.cov(X, rowvar=False)
+    d, E = np.linalg.eigh(cov)
+    D_inv = np.diag(1. / np.sqrt(d))
+    return X @ E @ D_inv @ E.T
+
+def fastica(X, n_components, max_iter=200, tol=1e-4):
+    X = whiten(X)
+    n_samples, n_features = X.shape
+    W = np.zeros((n_components, n_features))
+
+    for i in range(n_components):
+        w = np.random.rand(n_features)
+        w /= np.linalg.norm(w)
+        for _ in range(max_iter):
+            wx = X @ w
+            gwx = g(wx)
+            g_wx = g_prime(wx)
+            w_new = (X.T @ gwx - g_wx.mean() * w) / n_samples
+            for j in range(i):
+                w_new -= np.dot(w_new, W[j]) * W[j]
+            w_new /= np.linalg.norm(w_new)
+            if np.abs(np.abs(np.dot(w_new, w)) - 1) < tol:
+                break
+            w = w_new
+        W[i, :] = w
+    return X @ W.T
+
+S_est = fastica(X, n_components=3)
+\end{minted}
+
+\begin{figure}[ht]
+    \centering
+    \raisebox{-1\height}{\resizebox{0.7\textwidth}{!}{\input{fastica_result.pgf}}}
+    \caption{FastICA recovered signals}
+    \label{fig:fastica}
+\end{figure}
+
+可视化后所得结果如下图. 可见该算法能清晰得分辨三种信号并将其分离，对原信号的振幅、频率、波形等参数做了很好的还原. \np
+对于真实的 \texttt{.wav} 格式的文件，可以使用 Python 的 \texttt{scipy.io.wavfile} 库函数进行读入并进行类似的处理，能够分离出一段音频中的人声和其它声音，也能分离出男声和女声. 同时，若将音频中提取出的环境噪音消去，则能实现降噪的效果.
+
+\section{遇到的问题与展望}
+
+\begin{itemize}
+    \item \textbf{遇到的问题与参考说明} \ 
+    在查阅不同资料（包括网站博客与相关论文原文）时，发现不同文章中白化方式、迭代处理等方面存在一定的差异，对某些矩阵的定义有一定出入。文\cite{1}中分别介绍了单点迭代和多点迭代两种算法的不同与相应继承关系，定义较为明确，故采用之。应用场景参考了文\cite{3}, 进行了盲源音频分离的模拟. \np
+    在 AI 使用上，本文在信号生成与可视化上借助了 ChatGPT-o4 进行生成，减小了代码工作量。 \np
+    \item \textbf{展望与改进点} 
+    \begin{enumerate}
+        \item 在信号采样率很高时，矩阵的维度会很大，上述算法中大量的矩阵分解等运算计算复杂度较高. 可以使用随机 SVD 降维等方式降低计算量.
+        \item ICA 假设信号为瞬时线性混合，但是现实中由于不同信号的传播路径不同，接受到信号具有\textbf{时间延迟}和\textbf{滤波效应}. 此时借鉴文\cite{2}采用卷积来混合源信号，能够消除上述干扰.
+        \item ICA 严格依赖原信号的非高斯性，对亚高斯信号分离能力差，需要使用更复杂的算法实现对信号的处理.
+        \item 音频处理不仅时基于现有数据的静态数据，也有需要实时处理的动态数据例如降噪耳机的算法，需要对该算法进行一些扩展.
+    \end{enumerate}
+    \item \textbf{本人的一些新发现} 
+    \begin{enumerate}
+        \item 发现基于特征值分解的白化方法可以代替施密特正交化来将一个矩阵在保持列空间不变的条件下转化为正交阵，改方法计算远远方便于施密特正交化.
+        \item 发现在矩阵、向量的多元函数中仍然能够使用牛顿法获得方程的近似解.
+    \end{enumerate}
+\end{itemize}
+
+
+
+\begin{thebibliography}{99}
+    \bibitem{1} HYVÄRINEN A, OJA E. Independent component analysis: algorithms and applications[J]. Neural networks, Elsevier, 2000, 13(4–5): 411–430.
+    \bibitem{2} 
+    SW\_孙维. 
+    \textit{盲源分离（BSS）的学习总结（PCA、ICA）}[EB/OL]. 
+    CSDN博客, 
+    2025. 
+    \url{https://wenku.csdn.net/column/3tjk93vie4}.    
+    \bibitem{3} hh867308122. \textit{【ICA独立成分分析】数学原理+python代码实现} [EB/OL]. CSDN博客, 2024. https://blog.csdn.net/hh867308122/article/details/144175594.
+\end{thebibliography}
+
+\printbibliography
+
+\end{document}

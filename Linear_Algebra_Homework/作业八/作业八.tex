@@ -1,0 +1,151 @@
+\documentclass{article}
+\usepackage{amsmath}  % 数学符号包
+\usepackage{amssymb}  % 更多数学符号
+\usepackage{enumitem} % 列表样式
+\usepackage{fancyhdr} % 页眉设置
+\usepackage{geometry} % 页面设置
+\usepackage[UTF8]{ctex}
+\usepackage{bm}
+\usepackage{amsthm}
+\everymath{\displaystyle}  % 让所有数学模式都使用 \displaystyle
+\newcommand{\lb}{\left\llbracket}
+\newcommand{\rb}{\right\rrbracket}
+\newcommand{\dd}{\mathrm{d}}
+\newcommand{\bx}{\boldsymbol{x}}
+
+
+\geometry{a4paper, margin=1in}
+
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[C]{作业八}
+\fancyhead[R]{2025.4.16}
+
+
+\title{作业八}
+\author{Noflowerzzk}
+\date{2025.4.16}
+
+
+\begin{document}
+\maketitle
+
+\section{}
+
+\begin{align*}
+    \left\lVert \boldsymbol{x}\right\rVert_A = \sqrt{\boldsymbol{x}^TA\boldsymbol{x}} = \sqrt{(1, -1, -1, 1)\begin{pmatrix}
+        1 \\ -1 \\ -1 \\ 1
+    \end{pmatrix}} = 2
+\end{align*}
+
+\begin{align*}
+    B^T\boldsymbol{x} = \begin{pmatrix}1\\-1\\-1\\1\end{pmatrix} \\
+    \left\lVert \boldsymbol{x}\right\rVert_C = \sqrt{\boldsymbol{x}^TBB^T\boldsymbol{x}} = \sqrt{26}
+\end{align*}
+
+\section{}
+
+\begin{proof}
+    \begin{itemize}
+        \item [(1)] 显然 
+        \begin{align*}
+            \left\lVert \boldsymbol{x}\right\rVert_\infty = \max_{1 \leq i \leq n} \left\lvert x_i\right\rvert  \leq \sqrt{\max_{1 \leq i \leq n} x_i^2} \leq \sqrt{\sum_{i = 1}^{n}x_i^2} = \left\lVert \boldsymbol{x}\right\rVert_2 \\
+            \left\lVert \boldsymbol{x}\right\rVert_2 = \sqrt{\sum_{i = 1}^{n}x_i^2} \leq \sqrt{n\max_{1 \leq i \leq n} x_i^2} = \sqrt{n}\left\lVert \boldsymbol{x}\right\rVert_\infty
+        \end{align*}
+        \item [(2)] 显然
+        \begin{align*}
+            \left\lVert \boldsymbol{x}\right\rVert_\infty = \max_{1 \leq i \leq n} \left\lvert x_i\right\rvert \leq \sum_{i = 1}^{n}\left\lvert x_i\right\rvert \leq n \max_{1 \leq i \leq n} \left\lvert x_i\right\rvert = n \left\lVert \boldsymbol{x}\right\rVert_\infty
+        \end{align*}
+    \end{itemize}
+\end{proof}
+
+\section{}
+
+\begin{align*}
+    \left\lVert A\right\rVert_1 &= 7 \\
+    \left\lVert A\right\rVert_\infty &= 7 \\
+    \left\lVert A\right\rVert_F &= \sqrt{73} 
+\end{align*}
+
+而 \begin{align*}
+    A^TA = \begin{pmatrix}25 & 5 & 5\\5 & 11 & 7\\5 & 7 & 37\end{pmatrix}
+\end{align*}
+
+其最大特征值为 $\lambda = 36$. 故 $\left\lVert A\right\rVert_2 = 6$
+
+\section{}
+
+\begin{align*}
+    A = \begin{pmatrix}
+        0.6 & 0.6 \\
+        0.6 & -0.6
+    \end{pmatrix} \\
+    B = \begin{pmatrix}
+        0.5 & 0.5 & 0.5 \\
+        0.5 & -0.5 & 0.5 \\
+        0.5 & 0.5 & -0.5
+    \end{pmatrix}
+\end{align*}
+
+\section{}
+
+\begin{align*}
+    \frac{\dd f}{\dd \boldsymbol{x}} = \cos \ln \bx^T \bx \cdot \frac{1}{\bx^T \bx} \frac{\dd \bx^T \bx}{\dd \bx} = \cos \ln \bx^T \bx \cdot \frac{1}{\bx^T \bx}\cdot 2\bx
+\end{align*}
+
+\section{}
+
+\begin{align*}
+    \frac{\dd f}{\dd X} = \boldsymbol{a}\boldsymbol{b}^T
+\end{align*}
+
+\section{}
+
+\begin{align*}
+    \dd \mathrm{tr}(AXB) = \mathrm{tr} (A \dd X B) = \mathrm{tr} (BA\dd X)
+\end{align*}
+
+故 $\nabla_X f = B^TA^T$
+
+\section{}
+
+由于 \begin{align*}
+    \dd \mathrm{tr} (XAX^TB) = \mathrm{tr} (\dd X AX^TB + XA\dd X^T B) = \mathrm{tr} (AX^TB \dd X + A^TX^TB^T\dd X)
+\end{align*}
+
+故 $\nabla_X f = B^TXA^T + BXA$
+
+\section{}
+
+\begin{align*}
+    \dd f = \mathrm{tr} (Xba^T\dd X^T + X^T \dd X ba^T)
+\end{align*}
+
+故 $\frac{\dd f}{\dd X}X(ab^T + ba^T)$
+
+\section{}
+
+\begin{align*}
+    \varepsilon = \mathrm{tr} ((A - CB)^T(A - CB))
+\end{align*}
+
+同理求导得 $\frac{\partial \varepsilon}{\partial C} = -2(A - CB)B^T$, $\frac{\partial \varepsilon}{\partial B} = -2C^T(A - CB)$
+
+\section{}
+
+\begin{align*}
+    \frac{\dd AX}{\dd X} = E \otimes A^T \\
+    \frac{\dd XA}{\dd X} = A \otimes E
+\end{align*}
+
+\section{}
+
+\begin{proof}
+    \begin{align*}
+        XX^{-1} = E \Rightarrow \dd X \cdot X^{-1} + X\cdot \dd X^{-1} \Rightarrow \dd (X^{-1}) = -X^{-1} \dd X X^{-1}
+    \end{align*}
+    梯度矩阵为 $-\left(X \otimes X^{-1}\right)$
+\end{proof}
+
+\end{document}
