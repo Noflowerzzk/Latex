@@ -1,0 +1,63 @@
+\documentclass{article}
+\usepackage{amsmath}  % 数学符号包
+\usepackage{amssymb}  % 更多数学符号
+\usepackage{enumitem} % 列表样式
+\usepackage{fancyhdr} % 页眉设置
+\usepackage{geometry} % 页面设置
+\usepackage[UTF8]{ctex}
+\usepackage{bm}
+\usepackage{amsthm}
+\everymath{\displaystyle}  % 让所有数学模式都使用 \displaystyle
+\newcommand{\lb}{\left\llbracket}
+\newcommand{\rb}{\right\rrbracket}
+\newcommand{\dd}{\mathrm{d}}
+
+\geometry{a4paper, margin=1in}
+
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[C]{下作业十二}
+\fancyhead[R]{2025.5.10}
+
+
+\title{下作业十二}
+\author{Noflowerzzk}
+\date{2025.5.10}
+
+
+\begin{document}
+\maketitle
+
+\section*{P275 T1}
+
+\begin{itemize}
+    \item [(3)] 原式 = \begin{align*}
+        \int_{0}^{2\pi}-(\cos t + \sin t)\sin t - (\cos t - \sin t)\cos t \dd t
+    \end{align*}
+    \item [(7)] 代入 $y = x\tan \alpha$ 有原式 = \begin{align*}
+        &(1 - \tan \alpha)\int_L x \dd z - z \dd x \\
+        &= 2\pi (\cos \alpha - \sin \alpha)
+    \end{align*}
+\end{itemize}
+
+\section*{P275 T2}
+
+\begin{proof}
+    \begin{align*}
+        \left\lvert \int_L P(x, y)\dd x + Q(x, y) \dd y\right\rvert &\leq \int_L \left\lvert P(x, y)\cos \alpha + Q(x, y)\cos \beta\right\rvert \dd s \\
+        &\leq \int_L \sqrt{P^2(x, y) + Q^2(x, y)} \dd s \\
+        &\leq MC
+    \end{align*}
+\end{proof}
+
+\section*{P289 T2}
+
+\begin{itemize}
+    \item [(3)] \begin{align*}
+        S = \frac{1}{2}\int_L x \dd y - y \dd x = \frac{a^2}{2}\int_{0}^{2\pi}(2 - t \sin t - 2 \cos t) \dd t = 3\pi a^2
+    \end{align*}
+\end{itemize}
+
+
+\end{document}

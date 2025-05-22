@@ -1,0 +1,104 @@
+\documentclass{article}
+\usepackage{amsmath}  % 数学符号包
+\usepackage{amssymb}  % 更多数学符号
+\usepackage{enumitem} % 列表样式
+\usepackage{fancyhdr} % 页眉设置
+\usepackage{geometry} % 页面设置
+\usepackage[UTF8]{ctex}
+\usepackage{bm}
+\usepackage{amsthm}
+\everymath{\displaystyle}  % 让所有数学模式都使用 \displaystyle
+\newcommand{\lb}{\left\llbracket}
+\newcommand{\rb}{\right\rrbracket}
+\newcommand{\dd}{\mathrm{d}}
+\newcommand{\ee}{\mathrm{e}}
+
+\geometry{a4paper, margin=1in}
+
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[C]{作业十三}
+\fancyhead[R]{2025.5.22}
+
+
+\title{作业十三}
+\author{Noflowerzzk}
+\date{2025.5.22}
+
+
+\begin{document}
+\maketitle
+
+\section*{8 - 5}
+
+极值点为 $v = 50$m/s \\
+约为 $3.6 \times 10^8$ \\
+平均速率为 $31.25$m/s
+
+\section*{8 - 6}
+
+曲线 $1$ 对应的为 $v = \sqrt{\frac{2k_BT_1}{m}}$. \\
+百分比之差为 $1 - S_0$.
+
+\section*{8 - 8}
+
+\begin{itemize}
+    \item [(1)] 约为 $1.44 \times 10^{10}$
+    \item [(2)] 约为 $6.4 \times 10^8$
+    \item [(3)] 平均速率约为 $54$m/s
+    \item [(4)] 平均速率为 $80$m/s
+\end{itemize}
+
+\section*{8 - 9}
+
+单位冲量为 $\dd I = \int_{0}^{+\infty}2mv_x nf(v)\dd v v_x \dd t \dd S$, 故计算得压强为 $nk_BT$.
+
+\section*{8 - 10}
+
+\begin{itemize}
+    \item [(1)] $T_1 = 300$K 时 $v = 394$m/s, $T_2 = 600$K 时 $v = 588$m/s
+    \item [(2)] 代入分布函数得占比为 $0.15\%$
+    \item [(3)] 同理为 $0.042\%$
+\end{itemize}
+
+\section*{8 - 11}
+
+$\dd m = \left\lvert p_1 - p_2\right\rvert S\sqrt{\frac{M_{\mathrm{mol}}}{2\pi RT}}$
+
+\section*{8 - 14}
+
+$f(\varepsilon) = \frac{2}{\sqrt{\pi}}\left(k_BT\right)^{-\frac{3}{2}}\sqrt{\varepsilon}\ee^{-\frac{\varepsilon}{k_BT}}$ \\
+最概然动能为 $0$, 平均动能为 $\frac{3}{2}k_BT$
+
+\section*{8 - 12}
+
+需要 $3600$s
+
+\section*{8 - 13}
+
+\begin{align*}
+    p_1 = \frac{p_0}{2}\left(\ee^{-\frac{S}{2V}\sqrt{\frac{8k_BT}{\pi m}}t} + 1\right) \\
+    p_2 = \frac{1}{2}p_0\left(1 - \ee^{-\frac{S}{2V}\sqrt{\frac{8k_BT}{\pi m}}t}\right)
+\end{align*}
+
+\section*{8 - 15}
+
+\begin{itemize}
+    \item [(1)] 刚性：$U = \frac{5}{4}v_p^2$. 非刚性双原子分子， $U = \frac{7}{4}v_p^2$.
+    \item [(2)] 刚性 $E = \frac{5}{4}mv_p^2$, 非刚性 $E = \frac{7}{4}mv_p^2$.
+\end{itemize}
+
+\section*{8 - 22}
+
+内能增加 $\frac{3}{4}nk_BT$
+
+\section*{8 - 23}
+
+氢气分子的平均速度较大，易从大气层中逃逸，故大气中氢气含量不断减少
+
+\section*{8 - 25}
+
+$2308$m
+
+\end{document}

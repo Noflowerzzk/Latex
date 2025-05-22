@@ -1,0 +1,179 @@
+\documentclass{article}
+\usepackage{amsmath}  % 数学符号包
+\usepackage{amssymb}  % 更多数学符号
+\usepackage{enumitem} % 列表样式
+\usepackage{fancyhdr} % 页眉设置
+\usepackage{geometry} % 页面设置
+\usepackage[UTF8]{ctex}
+\usepackage{bm}
+\usepackage{amsthm}
+\everymath{\displaystyle}  % 让所有数学模式都使用 \displaystyle
+\newcommand{\lb}{\left\llbracket}
+\newcommand{\rb}{\right\rrbracket}
+\newcommand{\dd}{\mathrm{d}}
+\newcommand{\ee}{\mathrm{e}}
+
+
+\geometry{a4paper, margin=1in}
+
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[C]{作业十四}
+\fancyhead[R]{2025.5.21}
+
+
+\title{作业十四}
+\author{Noflowerzzk}
+\date{2025.5.21}
+
+
+\begin{document}
+\maketitle
+
+\section*{P289 T1}
+
+\begin{itemize}
+    \item [(6)] 设 $L_1: y = 0, x: 0 \rightarrow 2a$, 有
+    \begin{align*}
+        \int_{L + L_1}\ee^x\in y - b(x + y) \dd x + \ee^2\cos y - ax \dd y = \iint_D (b - a)\dd x \dd y = \frac{\pi}{2} a^2(b - a)
+    \end{align*}
+    故原式为 $\left(2 + \frac{\pi}{2}\right)a^2b - \frac{\pi}{a^3}$
+    \item [(7)]
+    原式为 $\pi$
+    \item [(8)] 原式为 $\int_{0}^{2\pi}\frac{1}{2}\dd x = \pi$
+    \item [(9)] 原式为 $\int_{0}^{2\pi}\ee^{r\cos t}\cos (r\sin t)\dd t$. 令 $r \to 0$ 有原式为 $2\pi$
+\end{itemize}
+
+\section*{P289 T3}
+
+\begin{itemize}
+    \item [(1)] $\frac{\partial P}{\partial y} = \frac{\partial Q}{\partial x} = -1$, 故其与路径无关. 故 $\int_{(0, 0)}^{(1, 1)}(x - y)(\dd x - \dd y) = 0$
+    \item [(2)] $\frac{\partial P}{\partial y} = \frac{\partial Q}{\partial x} = 0$, 故取 $L: (2, 1) \to (1, 1) \to (1, 2)$, 有原式为 $\int_{1}^{2}(\psi(t) - \phi(t))\dd t$
+    \item [(3)] $\frac{\partial P}{\partial y} = \frac{\partial Q}{\partial x} = \frac{-xy}{\sqrt{\left(x^2 + y^2\right)^3}}$, 故取 $L: (1, 0) \to (6, 0) \to (6, 8)$, 有原式为 $\int_{1}^{6}\dd x + \frac{0}{8}\frac{y \dd y}{\sqrt{y^2 + 36}} = 9$
+\end{itemize}
+
+\section*{P289 T5}
+
+\begin{proof}
+    易得 $\frac{\partial P}{\partial y} = \frac{\partial Q}{\partial x} = -\frac{2xy}{\left(x^2 + y^2\right)^2}$. 故其是某个全微分. $u(x, y) = \frac{1}{2}\ln \left(x^2 + y^2\right) + C$.
+\end{proof}
+
+\section*{P289 T9}
+
+\begin{itemize}
+    \item [(6)] 原式为 $-\frac{\pi}{2}$
+    \item [(7)] 原式为 $-\frac{1}{2}\pi a^4$
+    \item [(8)] 原式为 $4\pi$
+\end{itemize}
+
+\section{P289 T11}
+
+\begin{itemize}
+    \item [(1)] 设 \(\Sigma_1: z = 0 (x^2 + y^2 \leq a^2)\)，方向取下侧；\(\Sigma_2: z = h(x^2 + y^2 \leq a^2)\)，方向取上侧
+\[
+\iint_{\Sigma_1} v \, dS = - \iint_D xy \, dx \, dy = 0, \quad \iint_{\Sigma_2} v \, dS = \iint_D xy \, dx \, dy = 0,
+\]
+由 Gauss 公式，
+\[
+\iint_{\Sigma + \Sigma_1 + \Sigma_2} v \, dS = \iiint_\Omega 0 \, dx \, dy \, dz = 0,
+\]
+故
+\[
+\iint_{\Sigma} v \, dS = 0.
+\]
+
+\item [(2)] 由 (1) 可知，流过该圆柱的全表面的流量 \(\iint_{\Sigma} v \, dS = 0\).
+\end{itemize}
+
+\section*{P289 T13}
+
+\begin{proof}
+    取 \( D = \{(x, y) \mid (x - a)^2 + (y - a)^2 \leq 1\} \)。由 Green 公式，
+
+\[
+\int_L x f(y) \, dy - \frac{y}{f(x)} \, dx = \iint_D \left[ f(y) + \frac{1}{f(x)} \right] \, dx \, dy
+\]
+
+\[
+= \iint_D \left[ f(x) + \frac{1}{f(x)} \right] \, dx \, dy \geq \iint_D 2 \, dx \, dy = 2\pi,
+\]
+\end{proof}
+
+\section*{P289 T18}
+
+
+\[
+\int_L \left| \begin{array}{ccc}
+dx & dy & dz \\ 
+\cos \alpha & \cos \beta & \cos \gamma \\ 
+x & y & z 
+\end{array} \right|
+\]
+
+\[
+= \int_L (z \cos \beta - y \cos \gamma) dx + (x \cos \gamma - z \cos \alpha) dy + (y \cos \alpha - x \cos \beta) dz
+\]
+
+\[
+= \iint_D \left| \begin{array}{ccc}
+\cos \alpha & \cos \beta & \cos \gamma \\ 
+\frac{\partial}{\partial x} & \frac{\partial}{\partial y} & \frac{\partial}{\partial z} \\ 
+z \cos \beta - y \cos \gamma & x \cos \gamma - z \cos \alpha & y \cos \alpha - x \cos \beta 
+\end{array} \right| dS
+\]
+
+\[
+= 2 \iint_D (\cos^2 \alpha + \cos^2 \beta + \cos^2 \gamma) dS = 2 \iint_D dS = 2S,
+\]
+
+所以
+
+\[
+S = \frac{1}{2} \int_L \left| \begin{array}{ccc}
+dx & dy & dz \\ 
+\cos \alpha & \cos \beta & \cos \gamma \\ 
+x & y & z 
+\end{array} \right|
+\]
+
+\section*{P310 T3}
+
+\begin{itemize}
+    \item [(1)] $f(r) = \frac{c}{r^3}$
+    \item [(2)] $f(r) = \frac{c_1}{r} + c_2$
+\end{itemize}
+
+\section*{P310 T4}
+
+原式 = $\boldsymbol{c + \frac{1}{2}\frac{\boldsymbol{c}}{\boldsymbol{c}\cdot \boldsymbol{r}}}$
+
+\section*{P310 T9}
+
+\begin{itemize}
+\item (1) $\nabla \cdot (a \times r) = 
+\begin{vmatrix}
+\frac{\partial}{\partial x} & \frac{\partial}{\partial y} & \frac{\partial}{\partial z} \\
+a_x & a_y & a_z \\
+x & y & z
+\end{vmatrix}
+= \frac{\partial (a_x - a_y)}{\partial x} + \frac{\partial (a_x - a_z)}{\partial y} + \frac{\partial (a_y - a_x)}{\partial z} = 0.$
+
+\item (2) $\nabla \times (a \times r) = 
+\begin{vmatrix}
+i & j & k \\
+\frac{\partial}{\partial x} & \frac{\partial}{\partial y} & \frac{\partial}{\partial z} \\
+a_y z - a_z y & a_z x - a_x z & a_x y - a_y x
+\end{vmatrix}
+= 2(a_x i + a_y j + a_z k) = 2a.$
+
+\item (3) $\nabla \cdot ((r \cdot r)a) = \frac{\partial (a_x x^2)}{\partial x} + \frac{\partial (a_y y^2)}{\partial y} + \frac{\partial (a_z z^2)}{\partial z} = 2r \cdot a.$
+\end{itemize}
+
+\section*{P310 T18}
+
+\begin{itemize}
+    \item [(1)] 原式为 $\iiint_\Omega \left(\frac{\partial^2 u}{\partial x^2} + \frac{\partial^2 u}{\partial y^2} + \frac{\partial^2 u}{\partial z^2}\right)\dd x \dd y \dd z = 0$.
+\end{itemize}
+
+\end{document}

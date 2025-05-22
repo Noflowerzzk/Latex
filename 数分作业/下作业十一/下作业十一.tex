@@ -1,0 +1,104 @@
+\documentclass{article}
+\usepackage{amsmath}  % 数学符号包
+\usepackage{amssymb}  % 更多数学符号
+\usepackage{enumitem} % 列表样式
+\usepackage{fancyhdr} % 页眉设置
+\usepackage{geometry} % 页面设置
+\usepackage[UTF8]{ctex}
+\usepackage{bm}
+\usepackage{amsthm}
+\everymath{\displaystyle}  % 让所有数学模式都使用 \displaystyle
+\newcommand{\lb}{\left\llbracket}
+\newcommand{\rb}{\right\rrbracket}
+\newcommand{\dd}{\mathrm{d}}
+
+
+\geometry{a4paper, margin=1in}
+
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[C]{作业十一}
+\fancyhead[R]{2025.5.7}
+
+
+\title{作业十一}
+\author{Noflowerzzk}
+\date{2025.5.7}
+
+
+\begin{document}
+\maketitle
+
+\section*{P133 T1}
+
+\begin{itemize}
+    \item [(3)] 原式为
+    \begin{align*}
+        \int_{-\frac{\pi}{4}}^{\frac{3\pi}{4}}(\sin \theta + \cos \theta)\dd \theta = \frac{\pi}{2}
+    \end{align*}
+    \item [(4)] 原式为
+    \begin{align*}
+        \int_{0}^{\frac{\pi}{2}}\dd \theta \int_{0}^{1}\sqrt{\frac{1 - r^2}{1 + r^2}}r \dd r = \frac{\pi^2}{8} - \frac{\pi}{4}
+    \end{align*}
+\end{itemize}
+
+\section*{P233 T3}
+
+\begin{align*}
+    \iint f(x, y) \dd x \dd y = f(\xi, \eta)\pi \rho^2
+\end{align*}
+
+且当 $\rho \to 0$ 是 $(\xi, \eta) \to 0$. 故原式的极限为 0.
+
+\section*{P233 T4}
+
+\begin{itemize}
+    \item [(4)]
+    $u = x + y, v = \frac{x - y}{x + y}$, 则原式为 $\mathrm{e} - \frac{1}{\mathrm{e}}$.
+    \item [(5)] $u = x + y, v = x - y$, 代入又原式为 $\frac{\pi}{6}$
+    \item [(6)] 令 $x = r\cos \theta$, $y = r\sin \theta$, 有原式为 $\frac{\pi^2 - 8}{16}a^2$
+\end{itemize}
+
+\section*{P233 T5}
+
+\begin{itemize}
+    \item [(5)] 结果为 $\frac{108\sqrt{3} - 98}{30}\pi a^2$
+    \item [(6)] $\frac{1024}{3}\pi a^5$
+    \item [(7)] $\frac{4}{3}\pi$
+    \item [(8)] $\frac{1}{32}$
+\end{itemize}
+
+\section*{P233 T9}
+
+$8 \pi$
+
+\section*{P233 T10}
+
+升高12cm
+
+\section*{P233 T11}
+
+\begin{align*}
+    F = -2\frac{GM}{a^2}\left(1 - \frac{c}{\sqrt{a^2 + c^2}}\right)
+\end{align*}
+
+\section*{P233 T12}
+
+坐标为 $\left(0, 0, \frac{5}{4}R\right)$
+
+\section*{P233 T13}
+
+\begin{align*}
+    \text{原式} &\leq \iint_{x^2 + y^2 \leq 1}\frac{1}{4}\dd x \dd y = \frac{\pi}{4} \\
+    \text{原式} & \geq \iint_{x^2 + y^2 \leq 1}\frac{\dd x \dd y}{\sqrt{16 + x^2 + y^2}} = 2\pi \left(\sqrt{17} - 4\right)
+\end{align*}
+
+\section*{P233 T15}
+
+\begin{align*}
+    \iiint_{\Omega}f(z)\dd x \dd y \dd z &= \int_{-1}^{1}f(z)\dd z \iint_{\Omega'}\dd x \dd y \\
+    &= \pi \int_{-1}^{1}f(z)(1 - z^2)\dd z
+\end{align*}
+
+\end{document}

@@ -1,0 +1,86 @@
+\documentclass{article}
+\usepackage{amsmath}  % 数学符号包
+\usepackage{amssymb}  % 更多数学符号
+\usepackage{enumitem} % 列表样式
+\usepackage{fancyhdr} % 页眉设置
+\usepackage{geometry} % 页面设置
+\usepackage[UTF8]{ctex}
+\usepackage{bm}
+\usepackage{amsthm}
+\everymath{\displaystyle}  % 让所有数学模式都使用 \displaystyle
+\newcommand{\lb}{\left\llbracket}
+\newcommand{\rb}{\right\rrbracket}
+\newcommand{\dd}{\mathrm{d}}
+
+
+\geometry{a4paper, margin=1in}
+
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[C]{作业十三}
+\fancyhead[R]{2025.5.16}
+
+
+\title{作业十三}
+\author{Noflowerzzk}
+\date{2025.5.16}
+
+
+\begin{document}
+\maketitle
+
+\section*{P264 T4}
+
+\begin{itemize}
+    \item[(5)] 由对称性 \[ \iint_{\Sigma} x^2 \,\mathrm{d}S = \iint_{\Sigma} y^2 \,\mathrm{d}S = \iint_{\Sigma} z^2 \,\mathrm{d}S \]，又由于 \[ \iint_{\Sigma} (x^2 + y^2 + z^2) \,\mathrm{d}S = \iint_{\Sigma} a^2 \,\mathrm{d}S = 4\pi a^4 \]，
+     \[ \iint_{\Sigma} \left( \frac{x^2}{2} + \frac{y^2}{3} + \frac{z^2}{4} \right) \,\mathrm{d}S = \frac{13}{12} \iint_{\Sigma} x^2 \,\mathrm{d}S = \frac{13}{9} \pi a^4 \]。
+
+    \item[(6)] 有 \[ \iint_{\Sigma} x^3 \,\mathrm{d}S = 0 \]，\[ \iint_{\Sigma} y^2 \,\mathrm{d}S = \frac{1}{2} \iint_{\Sigma} (x^2 + y^2) \,\mathrm{d}S \]，又 \[ \iint_{\Sigma} z \,\mathrm{d}S = \frac{1}{2} \iint_{\Sigma} (x^2 + y^2) \,\mathrm{d}S \]，\[ \iint_{\Sigma} (x^3 + y^2 + z) \,\mathrm{d}S = \iint_{\Sigma_{xy}} (x^2 + y^2) \sqrt{1 + x^2 + y^2} \,\mathrm{d}x \mathrm{d}y \]
+    
+    \[ = \int_0^{2\pi} \mathrm{d}\theta \int_0^4 \sqrt{1 + r^2} r^3 \,\mathrm{d}r = \pi \int_0^4 \left[(1 + r^2)^{\frac{3}{2}} - (1 + r^2)^{\frac{1}{2}}\right] \mathrm{d}(1 + r^2) \]
+    
+    \[ = \frac{1564 \sqrt{17} + 4}{15} \pi \]。
+
+    \item[(7)] 由 \[ x'_u = \cos v, \quad y'_u = \sin v, \quad z'_u = 0, \quad x'_v = -u \sin v, \quad y'_v = u \cos v, \quad z'_v = 1 \]，有 \[ E = 1, \quad G = 1 + u^2, \quad F = 0 \]。
+    
+    故 \[ \iint_{\Sigma} z \,\mathrm{d}S = \iint_D v \sqrt{1 + u^2} \,\mathrm{d}u \mathrm{d}v = \int_0^{2\pi} v \,\mathrm{d}v \int_0^a \sqrt{1 + u^2} \,\mathrm{d}u \]
+    
+    \[ = \pi^2 \left[a \sqrt{1 + a^2} + \ln\left(a + \sqrt{1 + a^2}\right)\right] \]。
+\end{itemize}
+
+\section*{T5}
+
+$S(R) = 2\pi R^2\left(1 - \frac{R}{2a}\right)$. 求导即得当 $R = \frac{4}{3}a$ 是面积最大为 $\frac{32}{27}\pi a^2$
+
+\section*{T7}
+
+计算得 $F = -\pi\frac{Ga}{b^2}\int_{\left\lvert a - b\right\rvert}^{a + b}\frac{b^2 - a^2 + t^2}{t^2}\dd t$. 当 $b < a$, $F = 0$, 当 $b > a$ 时， $F = -\frac{4\pi Ga^2}{b^2}$
+
+\section*{P275 T4}
+
+\begin{itemize}
+    \item [(6)] 由对称性，$\iint_\Sigma x^2 \dd y \dd z = \iint_\Sigma y^2 \dd x \dd z = 0$, 故原式 = $-\frac{\pi}{2}\left(h^4 + 10h^2\right)$
+    \item [(7)]
+    \[
+\iint_{\Sigma_1} \frac{e^{\sqrt{x}}}{\sqrt{z^2 + x^2}} \,\mathrm{d}z\mathrm{d}x = -\iint_{D_{1x}} \frac{e^{\sqrt{x^2 + z^2}}}{\sqrt{z^2 + x^2}} \,\mathrm{d}z\mathrm{d}x = -\int_0^{2\pi} \mathrm{d}\theta \int_1^{\sqrt{2}} e^r \,\mathrm{d}r = -2\pi (e^{\sqrt{2}} - e),
+\]
+
+\[
+\iint_{\Sigma_2} \frac{e^{\sqrt{x}}}{\sqrt{z^2 + x^2}} \,\mathrm{d}z\mathrm{d}x = -\iint_{D_{2x}} \frac{e}{\sqrt{z^2 + x^2}} \,\mathrm{d}z\mathrm{d}x = -\int_0^{2\pi} \mathrm{d}\theta \int_0^1 e\,\mathrm{d}r = -2e\pi,
+\]
+
+\[
+\iint_{\Sigma_3} \frac{e^{\sqrt{x}}}{\sqrt{z^2 + x^2}} \,\mathrm{d}z\mathrm{d}x = \iint_{D_{3x}} \frac{e^{\sqrt{2}}}{\sqrt{z^2 + x^2}} \,\mathrm{d}z\mathrm{d}x = \int_0^{2\pi} \mathrm{d}\theta \int_0^{\sqrt{2}} e^{\sqrt{2}} \,\mathrm{d}r = 2\sqrt{2}e^{\sqrt{2}}\pi,
+\]
+
+所以
+
+\[
+\iint_{\Sigma} \frac{e^{\sqrt{x}}}{\sqrt{z^2 + x^2}} \,\mathrm{d}z\mathrm{d}x = 2e^{\sqrt{2}} (\sqrt{2} - 1)\pi.
+\]
+    \item [(8)] $\iint_\Sigma = \frac{4\pi ab}{c}$, 由对称性，原式 = $\frac{4\pi}{abc}\left(a^2b^2 + b^2c^2 + c^2a^2\right)$
+    \item [(9)] $\iint_\Sigma z^2 \dd x \dd y = \frac{8}{3}\pi cR^2$, 故原式 = $\frac{8\pi}{3}(a + b + c)R^3$
+\end{itemize}
+
+\end{document}
