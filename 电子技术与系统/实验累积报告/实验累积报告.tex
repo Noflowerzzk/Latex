@@ -12,6 +12,7 @@
 \everymath{\displaystyle}  % 让所有数学模式都使用 \displaystyle
 \newcommand{\lb}{\left\llbracket}
 \newcommand{\rb}{\right\rrbracket}
+\newcommand{\np}{\noindent\par}
 
 
 \geometry{a4paper, margin=1in}
@@ -49,7 +50,8 @@
     \caption{晶体管输入输出特性}
 \end{figure}
 
-最大电压 $0.149 \mathrm{V}$
+曲线可以放大观察
+\noindent \par 最大电压 $0.149 \mathrm{V}$, 也即工作区间为 $0 \mathrm{V} - 0.149 \mathrm{V}$
 
 \section{基本放大电路}
 
@@ -59,13 +61,41 @@
     \caption{基本放大电路}
 \end{figure}
 
-更改输入为频率80Hz、幅值50mV的交流源时，波形出现明显失真，
+$r_{be} = \frac{\beta V_E}{I_C} = 1.25 \mathrm{k}\Omega$ \np
 
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=0.7\textwidth]{基本放大电路_失真.pdf}
     \caption{基本放大电路 -- 失真}
 \end{figure}
+
+更改输入为频率80Hz、幅值50mV的交流源时，波形出现明显失真。 \np
+修改方案：在发射极与地之间接入一个 $1\mathrm{k}\Omega$ 的电阻，此时输入电阻约为 $2.5 \mathrm{k}\Omega$, 放大倍数约为 $-38.5$.
+
+\section{理想运算放大电路}
+
+电路如图\ref{fig:yunsuanfangdaqi}
+\begin{figure}
+    \centering
+    \includegraphics[width=0.9\textwidth]{运算放大器.pdf}
+    \caption{运算放大器电路}
+    \label{fig:yunsuanfangdaqi}
+\end{figure}
+
+三个输入信号如下：
+\[
+\begin{aligned}
+a(t) &= \sin(\omega t) \\
+b(t) &= \cos(\omega t) \\
+c(t) &= -\cos(\omega t)
+\end{aligned}
+\]
+
+输出波形可表示为：
+\[
+y(t) = 4.47 \cdot \sin(\omega t + 26.6^\circ)
+\]
+
 
 \section{CMOS 与非门电路}
 
@@ -75,24 +105,37 @@
     \caption{CMOS 与非门电路}
 \end{figure}
 
-$t_{HL} = 0.45 \mathrm{ms}$, $t_{LH} = 0.10 \mathrm{ms}$
+延迟测量： $t_{HL} = 0.45 \mathrm{ms}$, $t_{LH} = 0.10 \mathrm{ms}$
 
 \section{半加器与全加器}
 
-% \begin{figure}[htbp]
-%     \centering
-%     \includegraphics[width=0.7\textwidth]{半加器测试.pdf}
-%     \caption{半加器验证与逻辑构建}
-% \end{figure}
+内容见图\ref{fig:banjiaqiyuquanjiaqi}
 
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=1\textwidth]{半加器与全加器.pdf}
     \caption{半加器与全加器构建}
+    \label{fig:banjiaqiyuquanjiaqi}
 \end{figure}
 
-\begin{align*}
-    \left(\left(\left(\left(\left(\left(\left(\left(1\right)\right)\right)\right)\right)\right)\right)\right)
-\end{align*}
+\section{4-bit 乘法器}
+
+乘法器的逻辑实现如图\ref{fig:chengfaqishixian} \np
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=1\textwidth]{4-bit乘法器.pdf}
+    \caption{乘法器实现}
+    \label{fig:chengfaqishixian}
+\end{figure}
+
+乘法器的文件验证图\ref{fig:chengfaqiyanzheng}
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=1\textwidth]{乘法器验证.pdf}
+    \caption{乘法器验证}
+    \label{fig:chengfaqiyanzheng}
+\end{figure}
 
 \end{document}
