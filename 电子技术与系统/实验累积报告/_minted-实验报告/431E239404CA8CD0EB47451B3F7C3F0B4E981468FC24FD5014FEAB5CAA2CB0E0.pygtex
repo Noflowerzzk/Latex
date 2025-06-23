@@ -1,0 +1,44 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k}{def} \PYG{n+nf}{fine\PYGZus{}grained\PYGZus{}prune}\PYG{p}{(}\PYG{n}{tensor}\PYG{p}{:} \PYG{n}{torch}\PYG{o}{.}\PYG{n}{Tensor}\PYG{p}{,} \PYG{n}{sparsity} \PYG{p}{:} \PYG{n+nb}{float}\PYG{p}{)} \PYG{o}{\PYGZhy{}\PYGZgt{}} \PYG{n}{torch}\PYG{o}{.}\PYG{n}{Tensor}\PYG{p}{:}
+\PYG{+w}{    }\PYG{l+s+sd}{\PYGZdq{}\PYGZdq{}\PYGZdq{}}
+\PYG{l+s+sd}{    对单个张量进行基于数值大小的修剪}
+\PYG{l+s+sd}{    :param tensor: torch中的Tensor, 线性层/卷积层的权重 传的是引用，有做修改}
+\PYG{l+s+sd}{    :param sparsity: float, 目标稀疏度}
+\PYG{l+s+sd}{        稀疏度 = 张量中0的数目 / 张量中的总元素数目 = 1 \PYGZhy{} 张量中非0的数目 / 张量中的总元素数目}
+\PYG{l+s+sd}{    :return:}
+\PYG{l+s+sd}{        torch.(cuda.)Tensor, 返回掩码；掩码中的True(1)代表保留相应元素；False(0)代表对相应元素执行剪枝(置为0)}
+\PYG{l+s+sd}{    \PYGZdq{}\PYGZdq{}\PYGZdq{}}
+    \PYG{n}{sparsity} \PYG{o}{=} \PYG{n+nb}{min}\PYG{p}{(}\PYG{n+nb}{max}\PYG{p}{(}\PYG{l+m+mf}{0.0}\PYG{p}{,} \PYG{n}{sparsity}\PYG{p}{),} \PYG{l+m+mf}{1.0}\PYG{p}{)} \PYG{c+c1}{\PYGZsh{} 确保稀疏度在[0, 1]之间}
+    \PYG{c+c1}{\PYGZsh{} 处理一些边界情况}
+    \PYG{k}{if} \PYG{n}{sparsity} \PYG{o}{==} \PYG{l+m+mf}{1.0}\PYG{p}{:} \PYG{c+c1}{\PYGZsh{} 稀疏度为1：全裁掉}
+        \PYG{n}{tensor}\PYG{o}{.}\PYG{n}{zero\PYGZus{}}\PYG{p}{()}
+        \PYG{k}{return} \PYG{n}{torch}\PYG{o}{.}\PYG{n}{zeros\PYGZus{}like}\PYG{p}{(}\PYG{n}{tensor}\PYG{p}{)} \PYG{c+c1}{\PYGZsh{} 注意: 该函数返回的是掩码，全裁掉那就返回一个和原张量形状相同、全为0的张量}
+                                        \PYG{c+c1}{\PYGZsh{} torch.zeros\PYGZus{}like方法接受一个张量，返回一个和输入张量形状相同、但数值全为0的张量}
+    \PYG{k}{elif} \PYG{n}{sparsity} \PYG{o}{==} \PYG{l+m+mf}{0.0}\PYG{p}{:} \PYG{c+c1}{\PYGZsh{} 稀疏度为0：全保留}
+        \PYG{k}{return} \PYG{n}{torch}\PYG{o}{.}\PYG{n}{ones\PYGZus{}like}\PYG{p}{(}\PYG{n}{tensor}\PYG{p}{)} \PYG{c+c1}{\PYGZsh{} 注意: 该函数返回的是掩码，全保留那就返回一个和原张量形状相同、全为1的张量}
+                                       \PYG{c+c1}{\PYGZsh{} torch.ones\PYGZus{}like，和zeros\PYGZus{}like类似哦，相信你会举一反三\PYGZti{}}
+
+    \PYG{n}{num\PYGZus{}elements} \PYG{o}{=} \PYG{n}{tensor}\PYG{o}{.}\PYG{n}{numel}\PYG{p}{()} \PYG{c+c1}{\PYGZsh{} 张量中总元素数目}
+
+    \PYG{c+c1}{\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{} YOUR CODE STARTS HERE \PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}}
+    \PYG{c+c1}{\PYGZsh{} Z3dKFpREy9}
+    \PYG{c+c1}{\PYGZsh{} 第一步: 对权重张量的每个元素进行打分，得到分数(重要性)张量}
+    \PYG{n}{importance} \PYG{o}{=} \PYG{n}{tensor}\PYG{o}{.}\PYG{n}{abs}\PYG{p}{()}
+    \PYG{c+c1}{\PYGZsh{} importance = torch.abs(tensor) 也行}
+    \PYG{c+c1}{\PYGZsh{} 第二步: 根据分数和目标稀疏度，寻找阈值}
+    \PYG{c+c1}{\PYGZsh{} threshold = importance.reshape(\PYGZhy{}1).sort(descending=False)[0][round(num\PYGZus{}elements * sparsity) \PYGZhy{} 1]}
+    \PYG{c+c1}{\PYGZsh{} threshold = importance.kthvalue()[0]   \PYGZsh{} 不指定维度的话默认在最后一个维度找 k\PYGZhy{}th, 相当于降维，返回时为最小值张量以及对应索引张量。[0] 指取值，[1] 指取索引}
+    \PYG{n}{threshold} \PYG{o}{=} \PYG{n}{importance}\PYG{o}{.}\PYG{n}{reshape}\PYG{p}{(}\PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{1}\PYG{p}{)}\PYG{o}{.}\PYG{n}{kthvalue}\PYG{p}{(}\PYG{n+nb}{round}\PYG{p}{(}\PYG{n}{sparsity} \PYG{o}{*} \PYG{n}{num\PYGZus{}elements}\PYG{p}{))[}\PYG{l+m+mi}{0}\PYG{p}{]}    \PYG{c+c1}{\PYGZsh{} reshape 把改张量转化为一行的（自动推导） reshape(a.numel()) 也行}
+    \PYG{c+c1}{\PYGZsh{} 第三步: 得到掩码}
+    \PYG{n}{mask} \PYG{o}{=} \PYG{n}{importance} \PYG{o}{\PYGZgt{}} \PYG{n}{threshold}
+    \PYG{c+c1}{\PYGZsh{} Z3dKFpREy9}
+    \PYG{c+c1}{\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{} YOUR CODE ENDS HERE \PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}\PYGZsh{}}
+
+    \PYG{c+c1}{\PYGZsh{} 第四步: 将掩码作用于原权重张量}
+    \PYG{c+c1}{\PYGZsh{} 注：我们这里使用了“原位操作”，即方法名后面带了个下划线`\PYGZus{}`}
+    \PYG{c+c1}{\PYGZsh{} 在Lab0.2中，我们知道多数方法会返回一个“新”张量，并不会作用到原张量上}
+    \PYG{c+c1}{\PYGZsh{} 而原位操作，允许我们将计算结果，直接作用到原张量上}
+    \PYG{n}{tensor}\PYG{o}{.}\PYG{n}{mul\PYGZus{}}\PYG{p}{(}\PYG{n}{mask}\PYG{p}{)}
+
+    \PYG{k}{return} \PYG{n}{mask} \PYG{c+c1}{\PYGZsh{} 返回掩码}
+\end{Verbatim}

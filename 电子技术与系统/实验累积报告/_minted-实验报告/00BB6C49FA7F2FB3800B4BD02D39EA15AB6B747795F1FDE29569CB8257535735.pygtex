@@ -1,0 +1,8 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{g+go}{    * Test fine\PYGZus{}grained\PYGZus{}prune()}
+\PYG{g+go}{    目标稀疏度: 0.75}
+\PYG{g+go}{        剪枝前的稀疏度: 0.04}
+\PYG{g+go}{        剪枝后的稀疏度: 0.76}
+\PYG{g+go}{        掩码的稀疏度: 0.76}
+\PYG{g+go}{    * 测试通过}
+\end{Verbatim}

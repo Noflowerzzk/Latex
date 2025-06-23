@@ -1,0 +1,11 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{g+go}{    \PYGZsq{}backbone.conv0.weight\PYGZsq{}: 0.5,}
+\PYG{g+go}{    \PYGZsq{}backbone.conv1.weight\PYGZsq{}: 0.85,}
+\PYG{g+go}{    \PYGZsq{}backbone.conv2.weight\PYGZsq{}: 0.85,}
+\PYG{g+go}{    \PYGZsq{}backbone.conv3.weight\PYGZsq{}: 0.8,}
+\PYG{g+go}{    \PYGZsq{}backbone.conv4.weight\PYGZsq{}: 0.8,}
+\PYG{g+go}{    \PYGZsq{}backbone.conv5.weight\PYGZsq{}: 0.9,}
+\PYG{g+go}{    \PYGZsq{}backbone.conv6.weight\PYGZsq{}: 0.9,}
+\PYG{g+go}{    \PYGZsq{}backbone.conv7.weight\PYGZsq{}: 0.9,}
+\PYG{g+go}{    \PYGZsq{}classifier.weight\PYGZsq{}: 0.9}
+\end{Verbatim}

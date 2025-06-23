@@ -1,10 +1,10 @@
-This is XeTeX, Version 3.141592653-2.6-0.999996 (TeX Live 2024) (preloaded format=xelatex 2024.9.25)  20 JUN 2025 13:44
+This is XeTeX, Version 3.141592653-2.6-0.999996 (TeX Live 2024) (preloaded format=xelatex 2024.9.25)  20 JUN 2025 13:45
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**实验累积报告
-(./实验累积报告.tex
+**524030910207-张桢锴-circuit_lab
+(./524030910207-张桢锴-circuit_lab.tex
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-02-20>
 (e:/texlive/2024/texmf-dist/tex/latex/base/article.cls
@@ -365,8 +365,9 @@ File: xetex.def 2022/09/22 v5.0n Graphics/color driver for xetex
 ))
 \Gin@req@height=\dimen257
 \Gin@req@width=\dimen258
-) (./实验累积报告.aux)
-\openout1 = `实验累积报告.aux'.
+)
+No file 524030910207-张桢锴-circuit_lab.aux.
+\openout1 = `524030910207-张桢锴-circuit_lab.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 32.
 LaTeX Font Info:    ... okay on input line 32.
@@ -384,7 +385,6 @@ LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 32.
 LaTeX Font Info:    ... okay on input line 32.
 LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 32.
 LaTeX Font Info:    ... okay on input line 32.
-
 *geometry* driver: auto-detecting
 *geometry* detected driver: xetex
 *geometry* verbose mode - [ preamble ] result:
@@ -496,39 +496,72 @@ File: 基本放大电路.pdf Graphic file (type pdf)
 <use 基本放大电路.pdf>
 File: 基本放大电路_失真.pdf Graphic file (type pdf)
 <use 基本放大电路_失真.pdf>
+
+
+LaTeX Warning: Reference `fig:yunsuanfangdaqi' on page 2 undefined on input line 77.
+
 File: 运算放大器.pdf Graphic file (type pdf)
 <use 运算放大器.pdf>
- [2]
+[2]
 File: NAND.pdf Graphic file (type pdf)
 <use NAND.pdf>
+
+
+LaTeX Warning: Reference `fig:banjiaqiyuquanjiaqi' on page 3 undefined on input line 112.
+
 File: 半加器与全加器.pdf Graphic file (type pdf)
 <use 半加器与全加器.pdf>
- [3]
+[3]
+
+LaTeX Warning: Reference `fig:8-bit' on page 4 undefined on input line 121.
+
 File: 8-bit加法器.pdf Graphic file (type pdf)
 <use 8-bit加法器.pdf>
+
+LaTeX Warning: Reference `fig:jiafaqiyanzheng' on page 4 undefined on input line 130.
+
 File: 加法器验证.pdf Graphic file (type pdf)
 <use 加法器验证.pdf>
+
+LaTeX Warning: Reference `fig:chengfaqishixian' on page 4 undefined on input line 141.
+
 File: 4-bit乘法器.pdf Graphic file (type pdf)
 <use 4-bit乘法器.pdf>
+
+LaTeX Warning: Reference `fig:chengfaqiyanzheng' on page 4 undefined on input line 150.
+
 File: 乘法器验证.pdf Graphic file (type pdf)
 <use 乘法器验证.pdf>
+
+LaTeX Warning: Reference `fig:PE' on page 4 undefined on input line 161.
+
 File: 脉动阵列.pdf Graphic file (type pdf)
 <use 脉动阵列.pdf>
+
+LaTeX Warning: Reference `fig:PEyanzheng' on page 4 undefined on input line 170.
+
 File: PE验证_1.pdf Graphic file (type pdf)
 <use PE验证_1.pdf>
- [4] [5] [6] [7] [8] (./实验累积报告.aux)
+[4] [5] [6] [7] [8] (./524030910207-张桢锴-circuit_lab.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2022/07/14>
  ***********
+
+
+LaTeX Warning: There were undefined references.
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
  ) 
 Here is how much of TeX's memory you used:
- 10658 strings out of 474773
- 260153 string characters out of 5761289
+ 10657 strings out of 474773
+ 260360 string characters out of 5761289
  1926842 words of memory out of 5000000
  32648 multiletter control sequences out of 15000+600000
- 572932 words of font info for 113 fonts, out of 8000000 for 9000
+ 572940 words of font info for 114 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 93i,12n,97p,361b,378s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 93i,12n,97p,383b,378s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on 实验累积报告.pdf (8 pages).
+Output written on 524030910207-张桢锴-circuit_lab.pdf (8 pages).
